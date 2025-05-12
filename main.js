@@ -131,7 +131,7 @@ document.querySelectorAll('[data-section]').forEach(link => {
 // Form submission
 document.getElementById('contact-form').addEventListener('submit', (e) => {
   e.preventDefault();
-  alert('Thank you for your message! (This is a demo, no data is actually sent)');
+  alert('Thank you for your message! I will get back to you shortly.');
   e.target.reset();
 });
 

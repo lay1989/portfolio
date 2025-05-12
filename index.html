@@ -329,7 +329,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="submit">
             <input type="hidden" name="form-name" value="contact">
             <!-- Optional honeypot field to prevent spam -->
             <p style="display: none;">
@@ -382,15 +382,21 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Connect</h4>
           <div class="flex gap-4">
-            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
-              <i data-lucide="twitter" class="h-5 w-5"></i>
-            </button>
-            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
-              <i data-lucide="github" class="h-5 w-5"></i>
-            </button>
-            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
-              <i data-lucide="linkedin" class="h-5 w-5"></i>
-            </button>
+            <a href="tel:+919099340548">
+              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
+                <i data-lucide="phone" class="h-5 w-5"></i>
+              </button>
+            </a>
+            <a href="mailto:layshah1989@gmail.com">
+              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
+                <i data-lucide="mail" class="h-5 w-5"></i>
+              </button>
+            </a>
+            <a href="https://github.com/lay1989">
+              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
+                <i data-lucide="github" class="h-5 w-5"></i>
+              </button>
+            </a>    
           </div>
         </div>
         <!-- <div>
