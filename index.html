@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAY SHAH</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#faf5ff',
+              100: '#f3e8ff',
+              200: '#e9d5ff',
+              300: '#d8b4fe',
+              400: '#c084fc',
+              500: '#a855f7',
+              600: '#9333ea',
+              700: '#7e22ce',
+              800: '#6b21a8',
+              900: '#581c87',
+            },
+            secondary: {
+              50: '#fdf2f8',
+              100: '#fce7f3',
+              200: '#fbcfe8',
+              300: '#f9a8d4',
+              400: '#f472b6',
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+              800: '#9d174d',
+              900: '#831843',
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'blob': 'blob 8s ease-in-out infinite',
+            'gradient': 'gradient 8s ease infinite'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
+  <!-- Particle Network Background -->
+  <canvas id="particle-network"></canvas>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40 shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold gradient-text">
+        LAY SHAH
+      </h1>
+      
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex gap-4">
+          <button data-section="home" class="px-3 py-1 rounded-md bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
+            Home
+          </button>
+          <button data-section="about" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
+            About
+          </button>
+          <button data-section="projects" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
+            Projects
+          </button>
+          <button data-section="contact" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
+            Contact
+          </button>
+        </div>
+        
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-yellow-500 dark:text-yellow-300">
+          <i data-lucide="sun" class="h-5 w-5 dark:hidden"></i>
+          <i data-lucide="moon" class="h-5 w-5 hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+      <div class="absolute inset-0 overflow-hidden -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10"></div>
+        <div class="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-primary-500/20 blur-3xl animate-blob"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 text-center">
+        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 p-1 mb-8 animate-float">
+          <div class="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
+            <i data-lucide="user" class="h-20 w-20 text-primary-500"></i>
+          </div>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          <span class="gradient-text">
+            Creative Developer
+          </span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+          Crafting immersive experiences at the intersection of code and creativity
+        </p>
+        
+        <div class="flex justify-center gap-4">
+          <button data-section="projects" class="px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 transition-all">
+            Explore My Work
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            About <span class="gradient-text">Me</span>
+          </h2>
+          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            My journey in creative development and digital art
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8">
+              <h3 class="text-2xl font-bold mb-4">Background</h3>
+              <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                <p>
+                  With a background in both computer science and visual arts, I bridge the gap between technical 
+                  implementation and creative expression.
+                </p>
+                <p>
+                  My work explores the intersection of technology and art through interactive installations, 
+                  generative designs, and experimental web applications.
+                </p>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-xl font-semibold mb-4 text-pink-400">Technical Skills</h3>
+              <div class="grid grid-cols-3 gap-4">
+                  <!-- Skill: Three.js -->
+                  <div class="relative w-32 h-32">
+                      <svg class="w-full h-full" viewBox="0 0 36 36">
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="85, 100" transform="rotate(-90 18 18)"/>
+                      </svg>
+                      <div class="absolute inset-0 flex flex-col items-center justify-center">
+                          <span class="text-xs font-bold">Three.js</span>
+                          <span class="text-sm" style="color: #8b5cf6">85%</span>
+                      </div>
+                  </div>
+                  <!-- Skill: React -->
+                  <div class="relative w-32 h-32">
+                      <svg class="w-full h-full" viewBox="0 0 36 36">
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#ec4899" stroke-width="2" stroke-dasharray="90, 100" transform="rotate(-90 18 18)"/>
+                      </svg>
+                      <div class="absolute inset-0 flex flex-col items-center justify-center">
+                          <span class="text-xs font-bold">React</span>
+                          <span class="text-sm" style="color: #ec4899">90%</span>
+                      </div>
+                  </div>
+                  <!-- Skill: WebGL -->
+                  <div class="relative w-32 h-32">
+                      <svg class="w-full h-full" viewBox="0 0 36 36">
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
+                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#7e22ce" stroke-width="2" stroke-dasharray="75, 100" transform="rotate(-90 18 18)"/>
+                      </svg>
+                      <div class="absolute inset-0 flex flex-col items-center justify-center">
+                          <span class="text-xs font-bold">WebGL</span>
+                          <span class="text-sm" style="color: #7e22ce">75%</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          </div>
+          
+          <div>
+            <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl p-1">
+              <div class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
+                <div class="h-80 md:h-96 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                  <div class="text-center p-6">
+                    <i data-lucide="award" class="h-16 w-16 mx-auto text-primary-500 mb-4"></i>
+                    <p class="text-gray-500 dark:text-gray-400">Digital artist portrait</p>
+                    <img src="./Lay_portfolio.jpg" alt="img">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Featured <span class="gradient-text">Projects</span>
+          </h2>
+          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Interactive and generative art projects pushing boundaries
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+              <i data-lucide="codesandbox" class="h-16 w-16 text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2"><a href="https://kamaldeepenterprise.netlify.app/"> Kamaldeep Enterprise</a></h3>
+              <p class="text-sm text-primary-500 mb-3">Interactive 3-D website</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">Wholesale Cloth Merchant Portfolio</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">Three.js</span>
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+              <i data-lucide="cpu" class="h-16 w-16 text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Fractal Explorer [In development]</h3>
+              <p class="text-sm text-primary-500 mb-3">Generative Art</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">Real-time fractal generator with parameters</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">GLSL</span>
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">React</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+              <i data-lucide="box" class="h-16 w-16 text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">AR Gallery [In development]</h3>
+              <p class="text-sm text-primary-500 mb-3">Augmented Reality</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">Virtual art gallery with spatial navigation</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">AR.js</span>
+                <span class="px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700">Three.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            My <span class="gradient-text">Journey</span>
+          </h2>
+          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Professional timeline of my creative development career
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Graphic Designer</h3>
+              <p>Started my career creating visual identities for small businesses.</p>
+              <small>2019-2021</small>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Frontend Developer</h3>
+              <p>Transitioned to web development, focusing on creative interfaces.</p>
+              <small>2021-2022</small>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Creative Technologist</h3>
+              <p>Began merging art and technology in interactive installations.</p>
+              <small>2022-2024</small>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Digital Artist</h3>
+              <p>Currently creating generative art and immersive experiences.</p>
+              <small>2024-Present</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Get In <span class="gradient-text">Touch</span>
+          </h2>
+          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Interested in collaborating or learning more about my work?
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+          <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <!-- Optional honeypot field to prevent spam -->
+            <p style="display: none;">
+              <label>Don’t fill this out: <input name="bot-field"></label>
+            </p>
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Your Name</label>
+              <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Email Address</label>
+              <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Your Message</label>
+              <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required></textarea>
+            </div>
+            <div class="pt-2">
+              <button type="submit" class="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 transition-all">
+                <i data-lucide="send" class="mr-2 h-5 w-5 inline"></i> Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-gray-100 dark:bg-gray-800/50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 gradient-text">
+            LAY SHAH
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Pushing the boundaries of digital art and interactive experiences.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><button data-section="home" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Home</button></li>
+            <li><button data-section="about" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">About</button></li>
+            <li><button data-section="projects" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Projects</button></li>
+            <li><button data-section="contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Contact</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <div class="flex gap-4">
+            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
+              <i data-lucide="twitter" class="h-5 w-5"></i>
+            </button>
+            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
+              <i data-lucide="github" class="h-5 w-5"></i>
+            </button>
+            <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white">
+              <i data-lucide="linkedin" class="h-5 w-5"></i>
+            </button>
+          </div>
+        </div>
+        <!-- <div>
+          <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-3 rounded-l-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent flex-grow">
+            <button class="px-4 py-3 rounded-r-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600">
+              Join
+            </button>
+          </div>
+        </div> -->
+      </div>
+      <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-600 dark:text-gray-300">
+          © <span id="current-year"></span> LAY SHAH. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
