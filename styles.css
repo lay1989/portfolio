@@ -1,236 +1,508 @@
-/* Custom animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  @keyframes blob {
-    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .gradient-text {
-    background: linear-gradient(90deg, #a855f7, #ec4899);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient 8s ease infinite;
-  }
-  
-  /* Scroll Progress Indicator */
-  .scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-    z-index: 1000;
-    transition: width 0.1s ease-out;
-  }
-  
-  /* Particle Network */
-  #particle-network {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-  }
-  
-  /* Interactive Timeline */
-  .timeline {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+/* Custom styles for WordPress/Wix-like design */
+
+/* Grid pattern background */
+.bg-grid-pattern {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #6b7280;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Smooth animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading screen animations */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Hover effects for cards */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Form focus states */
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Navigation active states */
+.nav-link.active {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+/* Masonry grid for projects */
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 2;
+        column-gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+}
+
+/* Timeline styles */
+.timeline-item {
     position: relative;
-  }
-  
-  .timeline::before {
+}
+
+.timeline-item::before {
     content: '';
     position: absolute;
+    left: 50%;
     top: 0;
     bottom: 0;
-    left: 50%;
     width: 2px;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
     transform: translateX(-50%);
-  }
-  
-  .timeline-item {
-    padding: 20px;
-    margin-bottom: 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-    transition: all 0.6s ease;
-    opacity: 0;
-  }
-  
-  .timeline-item:nth-child(odd) {
-    left: 0;
-    transform: translateX(-50px);
-  }
-  
-  .timeline-item:nth-child(even) {
-    left: 50%;
-    transform: translateX(50px);
-  }
-  
-  .timeline-content {
-    background: rgba(30, 41, 59, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #6366f1;
-    border-radius: 50%;
-    top: 30px;
-    z-index: 1;
-  }
-  
-  .timeline-item:nth-child(odd)::after {
-    right: -10px;
-  }
-  
-  .timeline-item:nth-child(even)::after {
-    left: -10px;
-  }
-  
-  /* Micro-interactions */
-  .hover-card {
-    background: rgba(30, 41, 59, 0.8);
-    padding: 30px;
-    border-radius: 12px;
-    margin: 30px auto;
-    max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-style: preserve-3d;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .timeline-item::before {
+        display: none;
+    }
+}
+
+/* Custom animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Box shadows */
+.shadow-custom {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dark .shadow-custom {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Testimonial cards */
+.testimonial-card {
     position: relative;
     overflow: hidden;
-  }
-  
-  .hover-card::before {
-    content: '';
+}
+
+.testimonial-card::before {
+    content: '"';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .hover-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .hover-card:hover::before {
-    opacity: 1;
-  }
-  
-  .hover-card h2 {
-    margin-top: 0;
-    color: #e2e8f0;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .hover-card h2::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6);
-    transition: width 0.3s ease;
-  }
-  
-  .hover-card:hover h2::after {
-    width: 100%;
-  }
-  
-  .hover-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    position: relative;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: #3b82f6;
+    opacity: 0.2;
+    font-family: serif;
+}
+
+/* Service cards hover effects */
+.service-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+}
+
+/* Project cards */
+.project-card {
     overflow: hidden;
     transition: all 0.3s ease;
-  }
-  
-  .hover-btn::before {
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-image {
+    transition: transform 0.3s ease;
+}
+
+/* Contact form enhancements */
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus + .form-label {
+    color: #3b82f6;
+}
+
+/* Mobile menu animations */
+.mobile-menu {
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Progress bar animation */
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Dark mode transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus visible for accessibility */
+.focus-visible:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #3b82f6;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .bg-gray-50 {
+        background-color: white;
+    }
+    
+    .text-gray-600 {
+        color: black;
+    }
+    
+    .border-gray-200 {
+        border-color: black;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-animate {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* WordPress/Wix specific styling */
+.wp-style-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.wp-style-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.wp-style-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.wp-style-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.wp-style-button {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.wp-style-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.wp-style-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wp-style-subheading {
+    font-size: 1.25rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wix-style grid layouts */
+.wix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.wix-grid-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.wix-grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* WordPress-style hero section */
+.wp-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wp-hero::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: all 0.5s ease;
-  }
-  
-  .hover-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-  }
-  
-  .hover-btn:hover::before {
-    left: 100%;
-  }
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
 
-  .project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .project-card:hover::before {
-    opacity: 1;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .timeline::before {
-      left: 30px;
+.wp-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Wix-style feature boxes */
+.wix-feature-box {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.wix-feature-box:hover {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+}
+
+.wix-feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2rem;
+}
+
+/* WordPress-style testimonials */
+.wp-testimonial {
+    background: #f8fafc;
+    padding: 40px;
+    border-radius: 15px;
+    position: relative;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.wp-testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 4rem;
+    color: #3b82f6;
+    opacity: 0.3;
+}
+
+.wp-testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.wp-testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive adjustments for WordPress/Wix style */
+@media (max-width: 768px) {
+    .wp-style-heading {
+        font-size: 2rem;
     }
     
-    .timeline-item {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 20px;
+    .wp-style-card {
+        padding: 30px 20px;
     }
     
-    .timeline-item:nth-child(even) {
-      left: 0;
+    .wix-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    .timeline-item::after {
-      left: 20px !important;
+    .wp-hero {
+        padding: 80px 0;
     }
-  }
+}

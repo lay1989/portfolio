@@ -1,595 +1,953 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LAY SHAH</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: '#faf5ff',
-              100: '#f3e8ff',
-              200: '#e9d5ff',
-              300: '#d8b4fe',
-              400: '#c084fc',
-              500: '#a855f7',
-              600: '#9333ea',
-              700: '#7e22ce',
-              800: '#6b21a8',
-              900: '#581c87',
-            },
-            secondary: {
-              50: '#fdf2f8',
-              100: '#fce7f3',
-              200: '#fbcfe8',
-              300: '#f9a8d4',
-              400: '#f472b6',
-              500: '#ec4899',
-              600: '#db2777',
-              700: '#be185d',
-              800: '#9d174d',
-              900: '#831843',
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lay Shah - Freelance Web Developer | Custom Websites & Digital Solutions</title>
+    <meta name="description" content="Professional freelance web developer specializing in custom websites, e-commerce solutions, and digital experiences for small businesses.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lay Shah - Freelance Web Developer">
+    <meta property="og:description" content="Professional freelance web developer specializing in custom websites and digital solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://layshah.dev">
+    <meta property="og:image" content="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=1200">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
             }
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'blob': 'blob 8s ease-in-out infinite',
-            'gradient': 'gradient 8s ease infinite'
-          }
         }
-      }
-    }
-  </script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="styles.css">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress"></div>
-
-  <!-- Particle Network Background -->
-  <canvas id="particle-network"></canvas>
-
-  <!-- Navigation -->
-  <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40 shadow-sm">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold gradient-text">
-        LAY SHAH
-      </h1>
-      
-      <div class="flex items-center gap-4">
-        <div class="hidden md:flex gap-4">
-          <button data-section="home" class="px-3 py-1 rounded-md bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
-            Home
-          </button>
-          <button data-section="about" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
-            About
-          </button>
-          <button data-section="projects" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
-            Projects
-          </button>
-          <button data-section="contact" class="px-3 py-1 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">
-            Contact
-          </button>
-        </div>
-        
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-yellow-500 dark:text-yellow-300">
-          <i data-lucide="sun" class="h-5 w-5 dark:hidden"></i>
-          <i data-lucide="moon" class="h-5 w-5 hidden dark:block"></i>
-        </button>
-      </div>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 z-40">
+        <div id="scroll-progress" class="h-full bg-gradient-to-r from-primary-500 to-accent-500 transition-all duration-300 ease-out" style="width: 0%"></div>
     </div>
-  </nav>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
-      <div class="absolute inset-0 overflow-hidden -z-10">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10"></div>
-        <div class="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-primary-500/20 blur-3xl animate-blob"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 text-center">
-        <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 p-1 mb-8 animate-float">
-          <div class="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
-            <i data-lucide="user" class="h-20 w-20 text-primary-500"></i>
-          </div>
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          <span class="gradient-text">
-            Creative Developer
-          </span>
-        </h1>
-        
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-          Crafting immersive experiences at the intersection of code and creativity
-        </p>
-        
-        <div class="flex justify-center gap-4">
-          <button data-section="projects" class="px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 transition-all">
-            Explore My Work
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            About <span class="gradient-text">Me</span>
-          </h2>
-          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            My journey in creative development and digital art
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8">
-              <h3 class="text-2xl font-bold mb-4">Background</h3>
-              <div class="space-y-4 text-gray-600 dark:text-gray-300">
-                <p>
-                  With a background in both computer science and visual arts, I bridge the gap between technical 
-                  implementation and creative expression.
-                </p>
-                <p>
-                  My work explores the intersection of technology and art through interactive installations, 
-                  generative designs, and experimental web applications.
-                </p>
-              </div>
-            </div>
-            <div class="mt-8">
-              <h3 class="text-xl font-semibold mb-4 text-pink-400">Technical Skills</h3>
-              <div class="grid grid-cols-3 gap-4">
-                  <!-- Skill: Three.js -->
-                  <div class="relative w-32 h-32">
-                      <svg class="w-full h-full" viewBox="0 0 36 36">
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="85, 100" transform="rotate(-90 18 18)"/>
-                      </svg>
-                      <div class="absolute inset-0 flex flex-col items-center justify-center">
-                          <span class="text-xs font-bold">Python</span>
-                          <span class="text-sm" style="color: #8b5cf6">85%</span>
-                      </div>
-                  </div>
-                  <!-- Skill: React -->
-                  <div class="relative w-32 h-32">
-                      <svg class="w-full h-full" viewBox="0 0 36 36">
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#ec4899" stroke-width="2" stroke-dasharray="90, 100" transform="rotate(-90 18 18)"/>
-                      </svg>
-                      <div class="absolute inset-0 flex flex-col items-center justify-center">
-                          <span class="text-xs font-bold">Tailwind CSS</span>
-                          <span class="text-sm" style="color: #ec4899">90%</span>
-                      </div>
-                  </div>
-                  <!-- Skill: WebGL -->
-                  <div class="relative w-32 h-32">
-                      <svg class="w-full h-full" viewBox="0 0 36 36">
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1e293b" stroke-width="2"/>
-                          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#7e22ce" stroke-width="2" stroke-dasharray="75, 100" transform="rotate(-90 18 18)"/>
-                      </svg>
-                      <div class="absolute inset-0 flex flex-col items-center justify-center">
-                          <span class="text-xs font-bold">Three.js</span>
-                          <span class="text-sm" style="color: #7e22ce">75%</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          </div>
-          
-          <div>
-            <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl p-1">
-              <div class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
-                <div class="h-80 md:h-96 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                  <div class="text-center p-6">
-                    <i data-lucide="award" class="h-16 w-16 mx-auto text-primary-500 mb-4"></i>
-                    <!-- <p class="text-gray-500 dark:text-gray-400">Digital artist portrait</p> -->
-                    <img src="./Lay_portfolio.jpg" alt="img">
-                  </div>
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-1 z-30 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">Lay Shah</h1>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#services" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
+                        <a href="#process" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Process</a>
+                        <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Portfolio</a>
+                        <a href="#testimonials" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Reviews</a>
+                        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                      Featured <span class="gradient-text">Projects</span>
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                        A showcase of my recent work and personal projects
+                <!-- Dark Mode Toggle & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200" aria-label="Toggle mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">About</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Services</a>
+                <a href="#process" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Process</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Portfolio</a>
+                <a href="#testimonials" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Reviews</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center scroll-animate">
+                    <div class="mb-8">
+                        <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium mb-6">
+                            <i class="fas fa-star mr-2"></i>
+                            Available for New Projects
+                        </div>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Design. Code. Impact.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-14 max-w-4xl mx-auto leading-relaxed">
+                        I'm <strong>Lay Shah</strong>, a web developer crafting fast, responsive, and beautiful sites specifically custom coded. I turn Figma files and ideas into high-performing websites that look great and load blazingly fast. 
                     </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#projects" class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                            <i class="fas fa-eye mr-2"></i>
+                            See My Work
+                        </a>
+                        <a href="#contact" class="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-gray-200 dark:border-gray-600 hover:border-primary-300 dark:hover:border-primary-600 transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="./Stark EV.png" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="https://lay1989.github.io/StarkEV/" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Live Demo</span>
-                                        <span class="sm:hidden">Live</span>
-                                    </a>
-                                </div>
-                            </div>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-animate">
+                        <div class="mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+                            <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                Ironman EV Website
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Intergrated J.A.R.V.I.S. Voice Command system into a fiction website based on Ironman EV Theme
+                        <div class="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <p>
+                                I'm a passionate freelance web developer with over 5 years of experience creating custom digital solutions for small businesses and entrepreneurs. My mission is to help businesses establish a strong online presence that drives growth and success.
                             </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="https://lay1989.github.io/StarkEV/" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Live Demo
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">React</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Vite</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="./Ghermar & Sons.png" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="https://www.ghermar.com/" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Live Demo</span>
-                                        <span class="sm:hidden">Live</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                Ghermar & Sons
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Ghermar & Sons is a globally recognized import-export firm with a strong presence in the machinery, chemical, and construction industries with trusted expertise. 
+                            <p>
+                                I specialize in building responsive, user-friendly websites that not only look great but also perform exceptionally well. From simple landing pages to complex e-commerce platforms, I bring ideas to life with clean code and modern design principles.
                             </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="https://www.ghermar.com/" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Live Demo
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">HTML</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">JavaScript</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="./SwiftBuild.png" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="https://swiftbuild.ca/" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Live Demo</span>
-                                        <span class="sm:hidden">Live</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                SwiftBuild
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Transforming construction dreams into reality with our cutting-edge Pre-Engineered building solutions. Faster, smarter, and more sustainable construction for the modern world.
+                            <p>
+                                When I'm not coding, you'll find me exploring the latest web technologies, contributing to open-source projects, or helping fellow developers in the community.
                             </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="https://swiftbuild.ca/" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Live Demo
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">HTML</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">JavaScript</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Tailwind CSS</span>
-                            </div>
                         </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="./Kamaldeep Enterprise.png" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="https://kamaldeepenterprise.netlify.app/" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Live Demo</span>
-                                        <span class="sm:hidden">Live</span>
-                                    </a>
+                        
+                        <!-- Tech Stack -->
+                        <div class="mt-12">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Technologies I Work With</h3>
+                            <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">HTML5</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                Kamaldeep Enterprise
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Wholesale Cloth Merchant Portfolio with Interactive 3-D elements for Premium synthetic suiting fabrics. Crafted for style, durability, and sophistication.
-                            </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="https://kamaldeepenterprise.netlify.app/" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Live Demo
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Three.js</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="./Aroma Cafe.png" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="https://aroma-cafe-coffee.netlify.app/" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Live Demo</span>
-                                        <span class="sm:hidden">Live</span>
-                                    </a>
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">CSS3</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                Aesthetic Rustic Cafe
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Built-in book-a-table feature with google maps integration. Experience the perfect blend of artisanal coffee and cozy ambiance
-                            </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="https://aroma-cafe-coffee.netlify.app/" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Live Demo
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                              <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">HTML</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">CSS</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 shadow-lg hover:shadow-xl group">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 right-4 flex space-x-2 md:space-x-3">
-                                    <a href="#" class="flex items-center px-3 py-1 bg-white/90 text-gray-900 rounded-full text-sm font-medium hover:bg-white transition-colors duration-200">
-                                        <i data-lucide="eye" class="w-3 h-3 md:w-4 md:h-4 mr-1"></i>
-                                        <span class="hidden sm:inline">Code</span>
-                                        <span class="sm:hidden">Code</span>
-                                    </a>
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <i class="fab fa-js-square text-3xl text-yellow-500 mb-2"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                                Lead Generation [In development]
-                            </h3>
-                            <p class="mb-4 text-gray-600 dark:text-gray-300">
-                                Craiglsist data Scrapper for any specific item or niche across any region. Generated output in CSV & JSON with a relevance Score
-                            </p>
-                            
-                            <!-- Mobile buttons - always visible on mobile -->
-                            <div class="flex space-x-2 mt-4 md:hidden">
-                                <a href="" class="flex-1 flex items-center justify-center px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                                    <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
-                                    Code
-                                </a>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Python</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">Pandas</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">fake_useragent</span>
-                                <span class="px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300">beautifulsoup4</span>
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="TailwindCSS" class="h-8 w-auto" />                                    
+                                    <span class="text-sm font-medium text-gray-700 mt-3 dark:text-gray-300">Tailwind</span>
+                                </div>
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <i class="fab fa-python text-3xl text-green-500 mb-2"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Python</span>
+                                </div>
+                                <div class="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                                    <i class="fab fa-react text-3xl text-blue-600 mb-2"></i>
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">React</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
+                    <div class="scroll-animate">
+                        <div class="relative">
+                            <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="./Lay_portfolio.jpg" 
+                                     alt="Lay Shah - Web Developer" 
+                                     class="w-full h-full object-cover"
+                                     loading="lazy">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">5+</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Years of Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Timeline -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            My <span class="gradient-text">Journey</span>
-          </h2>
-          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Professional timeline of my creative development career
-          </p>
-        </div>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">My Services</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        I offer comprehensive web development services to help your business succeed online
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mt-6"></div>
+                </div>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content bg-white dark:bg-gray-800">
-              <h3>Graphic Designer</h3>
-              <p>Started my career creating visual identities for small businesses.</p>
-              <small>2019-2021</small>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content bg-white dark:bg-gray-800">
-              <h3>Frontend Developer</h3>
-              <p>Transitioned to web development, focusing on creative interfaces.</p>
-              <small>2021-2022</small>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content bg-white dark:bg-gray-800">
-              <h3>Creative Technologist</h3>
-              <p>Began merging art and technology in interactive installations.</p>
-              <small>2022-2024</small>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content bg-white dark:bg-gray-800">
-              <h3>Digital Artist</h3>
-              <p>Currently creating generative art and immersive experiences.</p>
-              <small>2024-Present</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-laptop-code text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Custom Website Development</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Tailored websites built from scratch to match your brand and business goals perfectly.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Responsive Design</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>SEO Optimized</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Fast Loading</li>
+                        </ul>
+                    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-      <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span class="gradient-text">Touch</span>
-          </h2>
-          <p class="text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Interested in collaborating or learning more about my work?
-          </p>
-        </div>
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-accent-100 dark:bg-accent-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-shopping-cart text-2xl text-accent-600 dark:text-accent-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">E-commerce Solutions</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Complete online stores with secure payment processing and inventory management.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Payment Integration</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Product Management</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Order Tracking</li>
+                        </ul>
+                    </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="submit">
-            <input type="hidden" name="form-name" value="contact">
-            <!-- Optional honeypot field to prevent spam -->
-            <p style="display: none;">
-              <label>Don’t fill this out: <input name="bot-field"></label>
-            </p>
-            <div>
-              <label for="name" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Your Name</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Email Address</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Your Message</label>
-              <textarea id="message" rows="5" name="message" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent" required></textarea>
-            </div>
-            <div class="pt-2">
-              <button type="submit" class="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 transition-all">
-                <i data-lucide="send" class="mr-2 h-5 w-5 inline"></i> Send Message
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-alt text-2xl text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Mobile Optimization</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Ensure your website looks and works perfectly on all devices and screen sizes.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Mobile-First Design</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Touch-Friendly UI</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Fast Mobile Loading</li>
+                        </ul>
+                    </div>
 
-  <!-- Footer -->
-  <footer class="py-12 bg-gray-100 dark:bg-gray-800/50">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4 gradient-text">
-            LAY SHAH
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Pushing the boundaries of digital art and interactive experiences.
-          </p>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><button data-section="home" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Home</button></li>
-            <li><button data-section="about" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">About</button></li>
-            <li><button data-section="projects" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Projects</button></li>
-            <li><button data-section="contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400">Contact</button></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Connect</h4>
-          <div class="flex gap-4">
-            <a href="tel:+919099340548">
-              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
-                <i data-lucide="phone" class="h-5 w-5"></i>
-              </button>
-            </a>
-            <a href="mailto:layshah1989@gmail.com">
-              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
-                <i data-lucide="mail" class="h-5 w-5"></i>
-              </button>
-            </a>
-            <a href="https://github.com/lay1989">
-              <button class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:text-primary-400">
-                <i data-lucide="github" class="h-5 w-5"></i>
-              </button>
-            </a>    
-          </div>
-        </div>
-        <!-- <div>
-          <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-          <div class="flex">
-            <input type="email" placeholder="Your email" class="px-4 py-3 rounded-l-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent flex-grow">
-            <button class="px-4 py-3 rounded-r-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600">
-              Join
-            </button>
-          </div>
-        </div> -->
-      </div>
-      <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
-        <p class="text-gray-600 dark:text-gray-300">
-          © <span id="current-year"></span> LAY SHAH. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-search text-2xl text-yellow-600 dark:text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">SEO & Performance</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Optimize your website for search engines and lightning-fast performance.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Technical SEO</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Speed Optimization</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Analytics Setup</li>
+                        </ul>
+                    </div>
 
-  <script src="main.js"></script>
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-tools text-2xl text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Website Maintenance</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Keep your website secure, updated, and running smoothly with ongoing support.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Security Updates</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Content Updates</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Backup Management</li>
+                        </ul>
+                    </div>
+
+                    <div class="scroll-animate bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-comments text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Consultation & Strategy</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Get expert advice on your digital strategy and website optimization.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Digital Strategy</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>UX/UI Review</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Growth Planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">My Process</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        A proven 5-step process that ensures your project is delivered on time and exceeds expectations
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mt-6"></div>
+                </div>
+
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-primary-500 to-accent-500 hidden lg:block"></div>
+
+                    <div class="space-y-12 lg:space-y-24">
+                        <!-- Step 1 -->
+                        <div class="scroll-animate flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
+                                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Discovery & Planning</h3>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        I often start with a detailed consultation to understand your business goals, target audience, and project requirements. I'll create a comprehensive project plan and timeline.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 lg:pl-12">
+                                <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto lg:mx-0">
+                                    <i class="fas fa-lightbulb text-2xl text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="scroll-animate flex flex-col lg:flex-row-reverse items-center">
+                            <div class="lg:w-1/2 lg:pl-12 mb-8 lg:mb-0">
+                                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-accent-100 dark:bg-accent-900 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-accent-600 dark:text-accent-400 font-bold">2</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Design & Wireframing</h3>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        I create detailed wireframes and mockups that visualize your website's structure and design. You'll see exactly how your site will look before development begins.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 lg:pr-12">
+                                <div class="w-16 h-16 bg-accent-100 dark:bg-accent-900 rounded-full flex items-center justify-center mx-auto lg:mx-0">
+                                    <i class="fas fa-pencil-ruler text-2xl text-accent-600 dark:text-accent-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="scroll-animate flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
+                                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-green-600 dark:text-green-400 font-bold">3</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Development & Coding</h3>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Using the latest technologies and best practices, I build your website with clean, efficient code. Regular updates keep you informed of progress throughout development.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 lg:pl-12">
+                                <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto lg:mx-0">
+                                    <i class="fas fa-code text-2xl text-green-600 dark:text-green-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="scroll-animate flex flex-col lg:flex-row-reverse items-center">
+                            <div class="lg:w-1/2 lg:pl-12 mb-8 lg:mb-0">
+                                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-yellow-600 dark:text-yellow-400 font-bold">4</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Testing & Optimization</h3>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Comprehensive testing across all devices and browsers ensures your website works perfectly. I optimize for speed, SEO, and user experience before launch.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 lg:pr-12">
+                                <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mx-auto lg:mx-0">
+                                    <i class="fas fa-bug text-2xl text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="scroll-animate flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
+                                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-purple-600 dark:text-purple-400 font-bold">5</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Launch & Support</h3>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Your website goes live with full deployment support. I provide training on content management and offer ongoing maintenance to keep your site running smoothly.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 lg:pl-12">
+                                <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto lg:mx-0">
+                                    <i class="fas fa-rocket text-2xl text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Take a look at some of my recent work and the results I've achieved for my clients
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
+                            <img src="./SwiftBuild.png" 
+                                 alt="SwiftBuild Infratech" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Professional Portfolio</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A modern online portfolio website for Pre-Engineering construction Innovation company.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">Html5</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium rounded-full">TailwindCSS</span>
+                                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-medium rounded-full">JavaScript</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-eye mr-1"></i>15K+ visits</span>
+                                <span><i class="fas fa-star mr-1"></i>4.8 rating</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="https://swiftbuild.ca/" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-green-400 to-blue-500 relative overflow-hidden">
+                            <img src="./Aroma Cafe.png" 
+                                 alt="Cafe Website" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cafe Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A beautiful Cafe website with online reservations, menu showcase, and location finder.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs font-medium rounded-full">HTML5</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">CSS3</span>
+                                <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs font-medium rounded-full">Google Maps Integration</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-eye mr-1"></i>Demo Project</span>
+                                <span><i class="fas fa-clock mr-1"></i>work in progress</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="https://aroma-cafe-coffee.netlify.app/" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-purple-400 to-pink-500 relative overflow-hidden">
+                            <img src="./Ghermar & Sons.png" 
+                                 alt="Portfolio Website" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Creative Portfolio</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A stunning portfolio website for a Import-Export Firm with smooth animations and interactive elements.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 text-xs font-medium rounded-full">HTML5</span>
+                                <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 text-xs font-medium rounded-full">TailwindCSS</span>
+                                <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs font-medium rounded-full">JavaScript</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-eye mr-1"></i>12K+ visits</span>
+                                <span><i class="fas fa-heart mr-1"></i>95% satisfaction</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="https://www.ghermar.com/" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-red-400 to-yellow-500 relative overflow-hidden">
+                            <img src="./Kamaldeep Enterprise.png" 
+                                 alt="B2B Business Website" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">B2B Business Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A comprehensive website for B2B Brand with real-time 3-D rendering and user interactions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">HTML5</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium rounded-full">Three.js</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full">Google Analytics</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-users mr-1"></i>500+ users</span>
+                                <span><i class="fas fa-chart-line mr-1"></i>40% growth</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="https://kamaldeepenterprise.netlify.app/" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-teal-400 to-green-500 relative overflow-hidden">
+                            <img src="./Stark EV.png" 
+                                 alt="Futuristic Car Brand Landing Page" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Futuristic Landing Page</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A mobile-first Fictional Futuristic Car Brand's Landing Page. Designed with stunning details.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">React</span>
+                                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-medium rounded-full">Next.js</span>
+                                <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs font-medium rounded-full">Node</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-eye mr-1"></i>20K+ visits</span>
+                                <span><i class="fas fa-share mr-1"></i>1K+ shares</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="https://lay1989.github.io/StarkEV" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="scroll-animate bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-indigo-400 to-purple-500 relative overflow-hidden">
+                            <img src="./PS DEFENSE - Advanced Cybersecurity Solutions.png" 
+                                 alt="Advanced Cybersecurity Solutions" 
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cybersecurity Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A modern Webiste with  SEO optimization, and social sharing features for Advanced Cybersecurity Solutions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full">Next.js</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">Prisma</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium rounded-full">PostgreSQL</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <span><i class="fas fa-eye mr-1"></i>New Project</span>
+                                <span><i class="fas fa-clock mr-1"></i>Work in Progress</span>
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="#" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Demo Not Available
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 scroll-animate">
+                    <a href="#contact" class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Start Your Project
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">What Clients Say</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Don't just take my word for it - here's what my clients have to say about working with me
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="scroll-animate bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                            "Lay delivered exactly what we needed - a beautiful, fast website that perfectly represents our brand. The attention to detail and communication throughout the project was exceptional."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                                FS
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-900 dark:text-white">Fred Stack </div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Director, SwiftBuild Infratech</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="scroll-animate bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                            "Working with Lay was a game-changer for our business. Our new website has increased sales by 40% and the user experience is fantastic. Highly recommended!"
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                                VS
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-900 dark:text-white">Vipul Shah</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Owner, Kamaldeep Enterprise</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="scroll-animate bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                            "Professional, reliable, and incredibly talented. Lay transformed our outdated website into a modern, mobile-friendly platform that our customers love. The results speak for themselves."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                                EG
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-900 dark:text-white">Emily Garrix</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Owner, Aroma Cafe</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Let's Work Together</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Ready to bring your vision to life? I'd love to hear about your project and discuss how we can create something amazing together.
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="scroll-animate">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send Me a Message</h3>
+                            <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="submit">
+                                <input type="hidden" name="form-name" value="contact">
+                                <!-- Optional honeypot field to prevent spam -->
+                                <p style="display: none;">
+                                    <label>Don’t fill this out: <input name="bot-field"></label>
+                                </p>
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" required 
+                                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 focus:border-primary-500 dark:focus:border-primary-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
+                                           placeholder="Your full name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 focus:border-primary-500 dark:focus:border-primary-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
+                                           placeholder="your.email@example.com">
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Type</label>
+                                    <select id="subject" name="subject" required 
+                                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 focus:border-primary-500 dark:focus:border-primary-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200">
+                                        <option value="">Select a project type</option>
+                                        <option value="website">New Website</option>
+                                        <option value="ecommerce">E-commerce Store</option>
+                                        <option value="redesign">Website Redesign</option>
+                                        <option value="maintenance">Website Maintenance</option>
+                                        <option value="consultation">Consultation</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Details</label>
+                                    <textarea id="message" name="message" rows="5" required 
+                                              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 focus:border-primary-500 dark:focus:border-primary-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 resize-none"
+                                              placeholder="Tell me about your project, timeline, and any specific requirements..."></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800">
+                                    <i class="fas fa-paper-plane mr-2"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                            <div id="form-message" class="hidden mt-4"></div>
+                            
+                            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-600">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    I usually reply within 24 hours
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="scroll-animate space-y-8">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Get In Touch</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
+                                        <a href="mailto:layshah1989@gmail.com">
+                                            <p class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">layshah1989@gmail.com</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
+                                        <a href="tel:+919099340548">
+                                            <p class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                                                +91 90993-40548
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fab fa-github text-blue-600 dark:text-blue-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Github</h4>
+                                        <a href="https://github.com/lay1989">
+                                            <p class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                                                lay1989
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-primary-500 to-accent-500 p-8 rounded-xl text-white">
+                            <h3 class="text-2xl font-semibold mb-4">Ready to Start?</h3>
+                            <p class="mb-6 opacity-90">
+                                Let's discuss your project and create something amazing together. I'm excited to hear about your vision!
+                            </p>
+                            <a href="tel:+919099340548" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                Schedule a Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold text-primary-400 mb-4">Lay Shah</h3>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Freelance web developer passionate about creating custom digital solutions that help businesses grow and succeed online.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/lay1989" class="text-gray-400 hover:text-primary-400 transition-colors duration-200" aria-label="GitHub">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="tel:+919099340548" class="text-gray-400 hover:text-primary-400 transition-colors duration-200" aria-label="Phone">
+                            <i class="fas fa-phone text-xl"></i>
+                        </a>
+                        <a href="mailto:layshah1989@gmail.com" class="text-gray-400 hover:text-primary-400 transition-colors duration-200" aria-label="Mail">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">About</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Services</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Web Development</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">E-commerce</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">SEO Optimization</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Maintenance</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors duration-200">Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Lay Shah. All rights reserved. Built with ❤️ and lots of coffee.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
