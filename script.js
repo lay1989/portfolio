@@ -106,30 +106,56 @@ const animateCards = () => {
 setTimeout(animateCards, 1000);
 
 // Contact form handling
-contactForm.addEventListener('submit', (e) => {
+// contactForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+    
+//     const formData = new FormData(contactForm);
+//     const name = formData.get('name');
+//     const email = formData.get('email');
+//     const message = formData.get('message');
+    
+//     // Show loading state
+//     const submitButton = contactForm.querySelector('button[type="submit"]');
+//     const originalText = submitButton.textContent;
+//     submitButton.textContent = 'Sending...';
+//     submitButton.disabled = true;
+    
+    
+// });
+
+// Form submission
+document.getElementById("contact-form").addEventListener("submit", (e) => {
+  const form = e.target;
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  // Client-side validation
+  if (name.length < 2) {
     e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // Show loading state
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simulate form submission (replace with actual API call)
+    alert("Name must be at least 2 characters.");
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    e.preventDefault();
+    alert("Please enter a valid email.");
+    return;
+  }
+  if (message.length < 10) {
+    e.preventDefault();
+    alert("Message must be at least 10 characters.");
+    return;
+  }
+  // Simulate form submission (replace with actual API call)
     setTimeout(() => {
         formMessage.classList.remove('hidden');
         formMessage.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
         formMessage.textContent = `Thank you, ${name}! Your message has been sent. I'll get back to you within 24 hours.`;
         
-        // Reset form
-        contactForm.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
+        // // Reset form
+        // contactForm.reset();
+        // submitButton.textContent = originalText;
+        // submitButton.disabled = false;
         
         // Hide message after 5 seconds
         setTimeout(() => {
