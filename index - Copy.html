@@ -27,6 +27,10 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Embla Carousel -->
+    <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel-autoplay@8.0.0/embla-carousel-autoplay.umd.js"></script>
     
     <style>
         /* Custom CSS Variables */
@@ -134,6 +138,113 @@
         .hover-lift:hover { 
             transform: translateY(-4px);
             box-shadow: var(--shadow-large);
+        }
+        
+        /* Hover Effects */
+        .hover-lift { 
+            transition: var(--transition-smooth); 
+        }
+        .hover-lift:hover { 
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+        }
+        
+        /* Embla Carousel Styles */
+        .embla {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .embla__container {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .embla__slide {
+            flex: 0 0 100%;
+            min-width: 0;
+            padding: 0.25rem;
+        }
+         @media (min-width: 768px) {
+            .embla__slide {
+                flex: 0 0 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .embla__slide {
+                flex: 0 0 33.333%;
+            }
+        }
+        
+        /* Carousel Navigation Buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-button {
+                display: flex;
+            }
+        }
+        
+        .carousel-button:hover {
+            background-color: hsl(var(--accent));
+            border-color: hsl(var(--accent));
+        }
+        
+        .carousel-button:hover i {
+            color: hsl(var(--accent-foreground));
+        }
+        
+        .carousel-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .carousel-button-prev {
+            left: -1.25rem;
+        }
+        
+        .carousel-button-next {
+            right: -1.25rem;
+        }
+        
+        /* Card Styles */
+        .card {
+            background-color: hsl(var(--card) / 0.5);
+            color: hsl(var(--card-foreground));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            height: 100%;
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Avatar Styles */
+        .avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hsl(var(--accent) / 0.1);
+            color: hsl(var(--accent));
+            font-weight: 300;
         }
         
         /* Shadows */
@@ -300,6 +411,9 @@
                         <button onclick="scrollToSection('hero')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Home</button>
                         <button onclick="scrollToSection('projects')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Projects</button>
                         <button onclick="scrollToSection('about')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">About</button>
+                        <button onclick="scrollToSection('services')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Services</button>
+                        <button onclick="scrollToSection('process')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Process</button>
+                        <button onclick="scrollToSection('reviews')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Reviews</button>
                         <button onclick="scrollToSection('contact')" class="text-sm text-muted-foreground hover:text-foreground font-light tracking-wide transition-colors">Contact</button>
                     </div>
                 </div>
@@ -327,6 +441,9 @@
                     <button onclick="scrollToSection('hero'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Home</button>
                     <button onclick="scrollToSection('projects'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Projects</button>
                     <button onclick="scrollToSection('about'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">About</button>
+                    <button onclick="scrollToSection('services'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Services</button>
+                    <button onclick="scrollToSection('process'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Process</button>
+                    <button onclick="scrollToSection('reviews'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Reviews</button>
                     <button onclick="scrollToSection('contact'); toggleMobileMenu()" class="block text-lg text-muted-foreground hover:text-foreground font-light transition-colors">Contact</button>
                 </div>
             </div>
@@ -462,7 +579,7 @@
                             </div>
                             <div class="space-y-4">
                                 <p class="text-sm text-muted-foreground font-light">
-                                    Based in [Location]
+                                    Based in India
                                 </p>
                                 <p class="text-sm text-muted-foreground leading-relaxed">
                                     Available for freelance projects and consulting opportunities. 
@@ -474,6 +591,224 @@
                 </div>
             </div>
         </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-minimal bg-muted/20">
+            <div class="container-wide">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-24">
+                    <div class="lg:col-span-4 lg:sticky lg:top-32 lg:h-fit">
+                        <h2 class="text-heading mb-6">Services</h2>
+                        <p class="text-body-large text-muted-foreground font-light">
+                            Specialized solutions tailored to your needs
+                        </p>
+                    </div>
+                    
+                    <div class="lg:col-span-8">
+                        <div class="grid gap-8">
+                            <!-- Web Development -->
+                            <div class="card hover-lift bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-8">
+                                <div class="flex items-start gap-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                                            <i data-lucide="code" class="w-6 h-6 text-accent"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-light mb-3 tracking-tight">Web Development</h3>
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            Building modern, responsive web applications using the latest technologies and frameworks. From single-page applications to complex web platforms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance Optimization -->
+                            <div class="card hover-lift bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-8">
+                                <div class="flex items-start gap-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                                            <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-light mb-3 tracking-tight">Performance Optimization</h3>
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            Enhancing application speed and efficiency through code optimization, caching strategies, and modern development practices.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Automation Solutions -->
+                            <div class="card hover-lift bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-8">
+                                <div class="flex items-start gap-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                                            <i data-lucide="bot" class="w-6 h-6 text-accent"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-light mb-3 tracking-tight">Automation Solutions</h3>
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            Streamlining workflows and reducing manual tasks through intelligent automation and custom scripting solutions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- API Integration -->
+                            <div class="card hover-lift bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-8">
+                                <div class="flex items-start gap-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                                            <i data-lucide="globe" class="w-6 h-6 text-accent"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-light mb-3 tracking-tight">API Integration</h3>
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            Seamlessly connecting your applications with third-party services and building robust RESTful APIs for your platforms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section-minimal">
+            <div class="container-narrow">
+                <div class="text-center mb-20">
+                    <h2 class="text-heading mb-6">How I Work</h2>
+                    <p class="text-body-large text-muted-foreground font-light max-w-2xl mx-auto">
+                        A structured approach to bring your ideas to life
+                    </p>
+                </div>
+
+                <div class="space-y-16 max-w-3xl mx-auto">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="absolute left-11 top-24 bottom-0 w-px bg-border"></div>
+                        <div class="flex gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-24 h-24 rounded-full border-2 border-accent bg-background flex items-center justify-center relative z-10">
+                                    <span class="text-3xl font-light text-accent">01</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 pt-4">
+                                <h3 class="text-3xl font-light mb-4 tracking-tight">Discovery</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                                    Understanding your goals, target audience, and project requirements through detailed consultation and research.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="absolute left-11 top-24 bottom-0 w-px bg-border"></div>
+                        <div class="flex gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-24 h-24 rounded-full border-2 border-accent bg-background flex items-center justify-center relative z-10">
+                                    <span class="text-3xl font-light text-accent">02</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 pt-4">
+                                <h3 class="text-3xl font-light mb-4 tracking-tight">Planning</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                                    Creating a comprehensive roadmap with timelines, milestones, and technical specifications to guide development.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="absolute left-11 top-24 bottom-0 w-px bg-border"></div>
+                        <div class="flex gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-24 h-24 rounded-full border-2 border-accent bg-background flex items-center justify-center relative z-10">
+                                    <span class="text-3xl font-light text-accent">03</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 pt-4">
+                                <h3 class="text-3xl font-light mb-4 tracking-tight">Development</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                                    Building your solution with clean, maintainable code using modern technologies and best practices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="absolute left-11 top-24 bottom-0 w-px bg-border"></div>
+                        <div class="flex gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-24 h-24 rounded-full border-2 border-accent bg-background flex items-center justify-center relative z-10">
+                                    <span class="text-3xl font-light text-accent">04</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 pt-4">
+                                <h3 class="text-3xl font-light mb-4 tracking-tight">Testing</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                                    Rigorous quality assurance to ensure performance, security, and reliability across all devices and browsers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative">
+                        <div class="flex gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-24 h-24 rounded-full border-2 border-accent bg-background flex items-center justify-center relative z-10">
+                                    <span class="text-3xl font-light text-accent">05</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 pt-4">
+                                <h3 class="text-3xl font-light mb-4 tracking-tight">Launch</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                                    Deploying your project to production with ongoing support and optimization for continuous improvement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+    <section id="reviews" class="section-minimal bg-muted/20">
+        <div class="container-wide">
+            <div class="text-center mb-20">
+                <h2 class="text-heading mb-6">Client Reviews</h2>
+                <p class="text-body-large text-muted-foreground font-light max-w-2xl mx-auto">
+                    Trusted by companies and individuals worldwide
+                </p>
+            </div>
+
+            <!-- Embla Carousel -->
+            <div class="relative max-w-6xl mx-auto">
+                <div class="embla" id="embla">
+                    <div class="embla__container" id="emblaContainer">
+                        <!-- Testimonial Cards will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="carousel-button carousel-button-prev" id="emblaPrev" aria-label="Previous testimonial">
+                    <i data-lucide="chevron-left" class="h-6 w-6 text-foreground"></i>
+                </button>
+                <button class="carousel-button carousel-button-next" id="emblaNext" aria-label="Next testimonial">
+                    <i data-lucide="chevron-right" class="h-6 w-6 text-foreground"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
         <!-- Contact Section -->
         <section id="contact" class="section-minimal">
@@ -643,12 +978,12 @@
             {
                 icon: "globe",
                 title: "Frontend Development",
-                description: "React, Next.js, TypeScript, Tailwind CSS"
+                description: "HTML, CSS, JavaScript, Tailwind CSS, Three.js"
             },
             {
                 icon: "database",
                 title: "Backend Development", 
-                description: "Node.js, Python, PostgreSQL, MongoDB"
+                description: "Python, PostgreSQL, MongoDB"
             },
             {
                 icon: "zap",
@@ -658,7 +993,46 @@
             {
                 icon: "code",
                 title: "Tools & Technologies",
-                description: "Docker, Git, AWS, Selenium, Beautiful Soup"
+                description: "Git, AWS, Selenium, Beautiful Soup"
+            }
+        ];
+
+        const testimonials = [
+            {
+                quote: "Exceptional work on our web platform. The attention to detail and code quality exceeded our expectations. Highly recommended for any serious project.",
+                author: "Sarah Chen",
+                role: "CEO, TechStart Inc",
+                initials: "SC"
+            },
+            {
+                quote: "Professional, responsive, and delivered ahead of schedule. The automation solutions provided have saved our team countless hours every week.",
+                author: "Michael Rodriguez",
+                role: "Operations Director, DataFlow",
+                initials: "MR"
+            },
+            {
+                quote: "Outstanding technical expertise combined with great communication. Our e-commerce platform performs flawlessly thanks to the optimization work.",
+                author: "Emily Thompson",
+                role: "Founder, Lumina Store",
+                initials: "ET"
+            },
+            {
+                quote: "Incredible problem-solving skills and deep knowledge of modern web technologies. A true professional who goes above and beyond.",
+                author: "David Park",
+                role: "CTO, CloudSync",
+                initials: "DP"
+            },
+            {
+                quote: "The API integration was seamless and the documentation was thorough. Made our entire development process much smoother.",
+                author: "Jessica Wong",
+                role: "Product Manager, ConnectHub",
+                initials: "JW"
+            },
+            {
+                quote: "Clean code, great architecture, and delivered exactly what was promised. Looking forward to working together on future projects.",
+                author: "Alex Martinez",
+                role: "Tech Lead, InnovateLab",
+                initials: "AM"
             }
         ];
 
@@ -810,14 +1184,93 @@
             `).join('');
         }
 
+        // Render Testimonial Cards
+        function renderTestimonials() {
+            const container = document.getElementById('emblaContainer');
+            
+            testimonials.forEach((testimonial, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'embla__slide';
+                
+                slide.innerHTML = `
+                    <div class="card hover-lift">
+                        <i data-lucide="quote" class="w-10 h-10 text-accent mb-6 opacity-50"></i>
+                        
+                        <p class="text-base leading-relaxed mb-8 text-foreground/90">
+                            "${testimonial.quote}"
+                        </p>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="avatar">
+                                ${testimonial.initials}
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium text-foreground">
+                                    ${testimonial.author}
+                                </p>
+                                <p class="text-sm text-muted-foreground">
+                                    ${testimonial.role}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(slide);
+            });
+        }
+
+        // Initialize Carousel
+        function initCarousel() {
+            const emblaNode = document.getElementById('embla');
+            const prevBtn = document.getElementById('emblaPrev');
+            const nextBtn = document.getElementById('emblaNext');
+            
+            // Create Embla Carousel with Autoplay
+            const emblaApi = EmblaCarousel(emblaNode, {
+                align: 'start',
+                loop: true,
+                skipSnaps: false,
+                dragFree: false
+            }, [
+                EmblaCarouselAutoplay({ 
+                    delay: 4000,
+                    stopOnInteraction: false,
+                    stopOnMouseEnter: true
+                })
+            ]);
+
+            // Navigation Button Handlers
+            const scrollPrev = () => emblaApi.scrollPrev();
+            const scrollNext = () => emblaApi.scrollNext();
+
+            prevBtn.addEventListener('click', scrollPrev, false);
+            nextBtn.addEventListener('click', scrollNext, false);
+
+            // Update button states
+            const updateButtons = () => {
+                prevBtn.disabled = !emblaApi.canScrollPrev();
+                nextBtn.disabled = !emblaApi.canScrollNext();
+            };
+
+            emblaApi.on('select', updateButtons);
+            emblaApi.on('init', updateButtons);
+        }
+
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             initTheme();
             renderProjects();
             renderSkills();
+            renderTestimonials();
             
             // Initialize Lucide icons
             lucide.createIcons();
+            
+             // Initialize carousel
+            initCarousel();
             
             // Add form submission handler
             document.getElementById('contactForm').addEventListener('submit', handleSubmit);
