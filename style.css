@@ -1,0 +1,188 @@
+/* CSS Variables for Theming */
+:root {
+    /* Light Mode (Default) */
+    --background: #ffffff;
+    --foreground: #080808;
+    --card: #f5f5f5;
+    --card-foreground: #080808;
+    --primary: #080808;
+    --primary-foreground: #ffffff;
+    --secondary: #f0f0f0;
+    --secondary-foreground: #080808;
+    --muted: #f5f5f5;
+    --muted-foreground: #666666;
+    --accent: #FF6B35;
+    --accent-foreground: #ffffff;
+    --border: #e5e5e5;
+}
+
+.dark {
+    /* Dark Mode */
+    --background: #080808;
+    --foreground: #f2f2f2;
+    --card: #121212;
+    --card-foreground: #f2f2f2;
+    --primary: #ffffff;
+    --primary-foreground: #080808;
+    --secondary: #1f1f1f;
+    --secondary-foreground: #ffffff;
+    --muted: #1f1f1f;
+    --muted-foreground: #999999;
+    --accent: #FF6B35;
+    --accent-foreground: #ffffff;
+    --border: #262626;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--muted-foreground);
+    border-radius: 4px;
+    opacity: 0.5;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Animation Utilities */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Animation Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* Navbar Blur */
+.nav-scrolled {
+    background-color: rgba(var(--background), 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Subtle Hover Animations */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+.dark .hover-lift:hover {
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+/* Hamburger Menu Animation */
+.hamburger {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 60;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--foreground);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Theme Toggle Animation */
+.theme-toggle-wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.theme-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-icon.sun {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+}
+.dark .theme-icon.sun {
+    transform: translateY(30px) rotate(90deg);
+    opacity: 0;
+}
+
+.theme-icon.moon {
+    transform: translateY(-30px) rotate(-90deg);
+    opacity: 0;
+}
+.dark .theme-icon.moon {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+}
+
+/* Card Grid for Services */
+.service-card {
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}

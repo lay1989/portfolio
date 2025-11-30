@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Lay Shah</title>
+    <meta name="description" content="Detailed case study of the project.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        card: 'var(--card)',
+                        'card-foreground': 'var(--card-foreground)',
+                        primary: 'var(--primary)',
+                        'primary-foreground': 'var(--primary-foreground)',
+                        secondary: 'var(--secondary)',
+                        'secondary-foreground': 'var(--secondary-foreground)',
+                        muted: 'var(--muted)',
+                        'muted-foreground': 'var(--muted-foreground)',
+                        accent: 'var(--accent)',
+                        'accent-foreground': 'var(--accent-foreground)',
+                        border: 'var(--border)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-background text-foreground antialiased transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="/index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
+                LAY SHAH
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
+                <a href="/index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
+                <a href="/index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
+                <a href="/index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
+                
+                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
+                    <div class="theme-toggle-wrapper">
+                        <div class="theme-icon moon">
+                            <i data-lucide="moon" class="w-5 h-5"></i>
+                        </div>
+                        <div class="theme-icon sun">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </button>
+
+                <a href="/index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
+                    <div class="theme-toggle-wrapper">
+                        <div class="theme-icon moon">
+                            <i data-lucide="moon" class="w-5 h-5"></i>
+                        </div>
+                        <div class="theme-icon sun">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </button>
+                <button id="mobile-menu-btn" class="text-foreground p-2">
+                    <div class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
+            <a href="/index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
+            <a href="/index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
+            <a href="/index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
+            <a href="/index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
+            <a href="/index.html#contact" class="text-lg font-medium text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto max-w-4xl px-6">
+            <!-- Back Button -->
+            <a href="/index.html#work" class="inline-flex items-center gap-2 text-muted-foreground hover:text-accent mb-12 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Projects
+            </a>
+
+            <!-- Project Content Container -->
+            <div id="project-content">
+                <div class="text-center py-12">
+                    <p class="text-muted-foreground">Loading project details...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+            <p>© 2025 Lay Shah. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="/index.html#about" class="hover:text-accent transition-colors">About</a>
+                <a href="/index.html#work" class="hover:text-accent transition-colors">Work</a>
+                <a href="/index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+                <a href="/index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+            </div>
+            <div class="flex gap-6">
+                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Project Data
+        const projects = {
+            1: {
+                title: "Ghermar & Sons",
+                category: "Web Design & Development",
+                year: "2025",
+                shortDesc: "A stunning Landing Page for a Import-Export Company with smooth animations.",
+                heroImg: "./public/images/Ghermar & Sons.webp",
+                role: "Lead Designer & Developer",
+                timeline: "4 Weeks",
+                tools: "HTML, JavaScript, Tailwind CSS, transitions & animations",
+                challenge: "The client needed a website that would showcase their portfolio without distracting from the work itself. The challenge was to create a design that fits everything on a single page.",
+                solution: "We adopted a 'radical reduction' approach, stripping away all non-essential elements. We used brand's logo color palette with a single accent color to guide the user's eye. The typography is bold and expressive, acting as a primary design element.",
+                contentImg: "./public/images/Ghermar & Sons 2.png",
+                websiteUrl: "https://www.ghermar.com/"
+            },
+            2: {
+                title: "SwiftBuild Infratech",
+                category: "Web Design, Development & SEO",
+                year: "2025",
+                shortDesc: "A sophisticated portfolio for a International modern Construction Innovation Company.",
+                heroImg: "./public/images/SwiftBuild.webp",
+                role: "Full Stack Developer & SEO Specialist",
+                timeline: "6 Weeks",
+                tools: "HTML, Tailwind CSS, JavaScript, GSAP Animations",
+                challenge: "Thi client needed a professional portfolio to build a international reach with conversion optimization. A timeless design  that reflected their premium brand positioning.",
+                solution: "We designed a timeless professional website focusing on brand positioning. Implemented GSAP Animations and SEO rich content.",
+                contentImg: "./public/images/SwiftBuild 2.jpg",
+                websiteUrl: "https://swiftbuild-infratech.netlify.app/"
+            },
+            3: {
+                title: "Analytics Dashboard",
+                category: "Crypto bot",
+                year: "2024",
+                shortDesc: "Data visualization platform for a crpyto bot for tracking, trading and reporting.",
+                heroImg: "./public/images/saas_dashboard_minimal_interface.png",
+                role: "Full Stack Developer",
+                timeline: "Ongoing",
+                tools: "Python, Flask, PostgreSQL, Telegram Bot, Binance API, D3.js",
+                challenge: "Create an intuitive dashboard that helps visualize and track and create signals for Crpytocurrency based Telegram Bot and generate actionable insights. The platform needed to handle large volumes of data while remaining performant and user-friendly.",
+                solution: "Building a responsive dashboard with real-time data updates. Implemented interactive charts using D3.js with drill-down capabilities. Created customizable widgets and reports. Added data export functionality and scheduled email reports.",
+                contentImg: "./public/images/saas_dashboard_minimal_interface.png",
+                websiteUrl: "#"
+            },
+            4: {
+                title: "Kamaldeep Enterprise",
+                category: "Content Management System",
+                year: "2025",
+                shortDesc: "Custom-made CMS for Fabric Wholesaler to manage catlogs for their clients.",
+                heroImg: "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png",
+                role: "Full Stack Developer",
+                timeline: "10 Weeks",
+                tools: "Python, Flask, PostgreSQL, Tailwind CSS, JavaScript",
+                challenge: "Build a Custom CMS that allows client to perform CRUD operations in real-time without compromising on the quality. The system needed to support PDF files, active-inactive tag, and publishing them.",
+                solution: "Created a flexible content modeling system with support for custom fields. Implemented thumbnail generation automation. Built a GraphQL API for flexible content querying. Added Interactive Dashboard, active-inactive Tags, and bulk file upload support.",
+                contentImg: "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png",
+                websiteUrl: "https://kamaldeep-enterprise.onrender.com/"
+            },
+            5: {
+                title: "Aroma Cafe",
+                category: "Web Design & API Integration",
+                year: "2024",
+                shortDesc: "A beautiful Cafe website with online reservations, menu showcase, and location finder.",
+                heroImg: "./public/images/Aroma Cafe.webp",
+                role: "UI/UX Designer & Frontend Developer",
+                timeline: "8 Weeks",
+                tools: "HTML, CSS, JavaScript, Google Maps API, RESTful APIs",
+                challenge: "Build a cofee-theme based landing page that balances aesthetic appeal with conversion optimization. The client needed a seamless rustic vibe that reflected their premium Cafe.",
+                solution: "Brewed a aesthetically appealing website with detailed attention to theme and live showcase. Created design tokens for consistent theming. Implemented Google Maps API. Established variety of Menu options to be filtered via a single click.",
+                contentImg: "./public/images/Aroma Cafe 2.png",
+                websiteUrl: "https://aroma-cafe-coffee.netlify.app/"
+            },
+            6: {
+                title: "Stark EV",
+                category: "UI Design & Full Stack Development",
+                year: "2025",
+                shortDesc: "A Fictional Futuristic Car Brand. Designed with stunning details and highly complex UI.",
+                heroImg: "./public/images/Stark EV.webp",
+                role: "Full Stack Developer",
+                timeline: "14 Weeks",
+                tools: "React, Node.js, Next.js, Tailwind CSS",
+                challenge: "[DEMO PROJECT] Build a highly detailed UI that supports AR Visualization, AI Intergration, and Futurisitic vibe. The platform needed to handle high UI components and provide seamless user experience across devices.",
+                solution: "Implemented AR Visualization using WebXR. Integrated AI-based virtual assistant called J.A.R.V.I.S. to accept audio commands . Designed a modular UI with reusable components. Ensured responsive design and optimized performance for fast load times.",
+                contentImg: "./public/images/Stark EV 2.png",
+                websiteUrl: "https://lay1989.github.io/StarkEV/"
+            },
+            // 7: {
+            //     title: "TaskFlow Pro",
+            //     category: "Project Management Tool",
+            //     year: "2023",
+            //     shortDesc: "Enterprise-grade project management solution with advanced automation and team collaboration features.",
+            //     heroImg: "/images/modern_e-commerce_interface_mockup.png",
+            //     role: "Product Manager & Developer",
+            //     timeline: "16 Weeks",
+            //     tools: "Vue.js, Python, PostgreSQL, Kubernetes",
+            //     challenge: "Design an intuitive project management solution that simplifies team workflows while providing powerful automation capabilities. The tool needed to handle complex project hierarchies and large teams efficiently.",
+            //     solution: "Created an intuitive interface for project and task management. Built workflow automation engine with custom triggers and actions. Implemented advanced filtering and search capabilities. Added integrations with popular tools like Slack, GitHub, and Jira.",
+            //     contentImg: "/images/minimalist_dark_mode_website_mockup.png",
+            //     websiteUrl: "#"
+            // }
+        };
+
+        // Load project from URL parameter
+        function loadProject() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+            const project = projects[projectId];
+
+            if (!project) {
+                document.getElementById('project-content').innerHTML = `
+                    <div class="text-center py-12">
+                        <p class="text-muted-foreground mb-4">Project not found.</p>
+                        <a href="/index.html#work" class="text-accent hover:text-primary transition-colors">Back to Projects</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update page title
+            document.title = `${project.title} - Lay Shah`;
+
+            const content = `
+                <!-- Project Header -->
+                <div class="mb-12 animate-fade-up">
+                    <span class="text-accent text-sm font-medium mb-4 block uppercase tracking-wider">${project.category}</span>
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">${project.title}</h1>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                        ${project.shortDesc}
+                    </p>
+                </div>
+
+                <!-- Project Hero Image -->
+                <div class="rounded-xl overflow-hidden border border-border shadow-2xl mb-16 reveal">
+                    <img src="${project.heroImg}" alt="${project.title}" class="w-full h-auto object-cover">
+                </div>
+
+                <!-- Project Details Grid -->
+                <div class="grid md:grid-cols-3 gap-12 mb-16 reveal">
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Role</h3>
+                        <p class="text-muted-foreground">${project.role}</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Timeline</h3>
+                        <p class="text-muted-foreground">${project.timeline}</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Tools</h3>
+                        <p class="text-muted-foreground">${project.tools}</p>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="space-y-16 reveal">
+                    <div>
+                        <h2 class="text-3xl font-display font-bold mb-6">The Challenge</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            ${project.challenge}
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-3xl font-display font-bold mb-6">The Solution</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                            ${project.solution}
+                        </p>
+                        <div class="rounded-xl overflow-hidden border border-border shadow-lg">
+                            <img src="${project.contentImg}" alt="Project Details" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-20 pt-12 border-t border-border flex justify-between items-center reveal">
+                    <div>
+                        <h3 class="text-2xl font-display font-bold mb-2">Live Project</h3>
+                        <p class="text-muted-foreground">${project.websiteUrl && project.websiteUrl !== '#' ? 'Check out the live website.' : 'Live preview coming soon.'}</p>
+                    </div>
+
+                    ${project.websiteUrl && project.websiteUrl !== '#' ? `
+                        <a href="${project.websiteUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
+                            Visit Website
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    ` : `
+                        <button disabled class="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-medium cursor-not-allowed opacity-50">
+                            Coming Soon
+                            <i data-lucide="clock" class="w-4 h-4"></i>
+                        </button>
+                    `}
+                </div>
+            `;
+
+            document.getElementById('project-content').innerHTML = content;
+            
+            // Re-initialize lucide icons after content is inserted
+            lucide.createIcons();
+            
+            // Re-run reveal animations for dynamically added elements
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                el.classList.add('active');
+            });
+        }
+
+        // Load project when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadProject);
+        } else {
+            loadProject();
+        }
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html>
