@@ -85,28 +85,47 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-if(contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.innerText;
+
+// Form submission
+document.getElementById("contact-form").addEventListener("submit", (e) => {
+  const form = e.target;
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  // Client-side validation
+  if (name.length < 2) {
+    e.preventDefault();
+    alert("Name must be at least 2 characters.");
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    e.preventDefault();
+    alert("Please enter a valid email.");
+    return;
+  }
+  if (message.length < 10) {
+    e.preventDefault();
+    alert("Message must be at least 10 characters.");
+    return;
+  }
+  // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+        formMessage.classList.remove('hidden');
+        formMessage.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+        formMessage.textContent = `Thank you, ${name}! Your message has been sent. I'll get back to you within 24 hours.`;
         
-        btn.innerText = 'Sending...';
-        btn.disabled = true;
+        // // Reset form
+        // contactForm.reset();
+        // submitButton.textContent = originalText;
+        // submitButton.disabled = false;
         
+        // Hide message after 5 seconds
         setTimeout(() => {
-            btn.innerText = 'Message Sent!';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 3000);
-        }, 1500);
-    });
-}
+            formMessage.classList.add('hidden');
+        }, 5000);
+    }, 2000);
+});
 
 // Load More Projects Logic
 const loadMoreBtn = document.getElementById('load-more-btn');
