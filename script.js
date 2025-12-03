@@ -86,27 +86,27 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 // Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-if(contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.innerText;
+// const contactForm = document.getElementById('contact-form');
+// if(contactForm) {
+//     contactForm.addEventListener('submit', (e) => {
+//         e.preventDefault();
+//         const btn = contactForm.querySelector('button');
+//         const originalText = btn.innerText;
         
-        btn.innerText = 'Sending...';
-        btn.disabled = true;
+//         btn.innerText = 'Sending...';
+//         btn.disabled = true;
         
-        setTimeout(() => {
-            btn.innerText = 'Message Sent!';
-            contactForm.reset();
+//         setTimeout(() => {
+//             btn.innerText = 'Message Sent!';
+//             contactForm.reset();
             
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 3000);
-        }, 1500);
-    });
-}
+//             setTimeout(() => {
+//                 btn.innerText = originalText;
+//                 btn.disabled = false;
+//             }, 3000);
+//         }, 1500);
+//     });
+// }
 
 // Load More Projects Logic
 const loadMoreBtn = document.getElementById('load-more-btn');
