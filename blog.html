@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Lay Shah | Web Development Insights</title>
+    <meta name="description" content="Read insights on web development, design tips, and freelance advice from Lay Shah, a full-stack developer. Learn about responsive web design, custom websites, and more.">
+    <meta name="author" content="Lay Shah">
+
+    <link rel="canonical" href="https://layshahdev.com/blog.html">
+
+    <!-- Social / OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog - Lay Shah | Web Development Insights" />
+    <meta property="og:description" content="Insights on web development, design, and freelancing from a full-stack developer." />
+    <meta property="og:url" content="https://layshahdev.com/blog.html" />
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Robots control -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        card: 'var(--card)',
+                        'card-foreground': 'var(--card-foreground)',
+                        primary: 'var(--primary)',
+                        'primary-foreground': 'var(--primary-foreground)',
+                        secondary: 'var(--secondary)',
+                        'secondary-foreground': 'var(--secondary-foreground)',
+                        muted: 'var(--muted)',
+                        'muted-foreground': 'var(--muted-foreground)',
+                        accent: 'var(--accent)',
+                        'accent-foreground': 'var(--accent-foreground)',
+                        border: 'var(--border)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-background text-foreground antialiased transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
+                LAY SHAH
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
+                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
+                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
+                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
+                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
+                
+                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
+                    <div class="theme-toggle-wrapper">
+                        <div class="theme-icon moon">
+                            <i data-lucide="moon" class="w-5 h-5"></i>
+                        </div>
+                        <div class="theme-icon sun">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </button>
+
+                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
+                    <div class="theme-toggle-wrapper">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </div>
+                </button>
+                <button id="mobile-menu-btn" class="text-foreground p-2">
+                    <div class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
+            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
+            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
+            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
+            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
+            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
+            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto max-w-6xl px-6">
+            <header class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">Insights & Thoughts</h1>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Blog Post Card 1 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                    <div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Web Design</span>
+                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">The Importance of Responsive Web Design in 2025</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">In today's mobile-first world, responsive web design is no longer optional—it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
+                        <a href="./blog-responsive-design.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post Card 2 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                    <div class="aspect-video bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center">
+                        <i data-lucide="code" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Development</span>
+                            <span class="text-xs text-muted-foreground">January 15, 2026</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Building Custom Websites: From Concept to Launch</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
+                        <a href="./blog-custom-websites.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post Card 3 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group md:col-span-2 lg:col-span-1">
+                    <div class="aspect-video bg-gradient-to-br from-accent/10 to-secondary/20 flex items-center justify-center">
+                        <i data-lucide="users" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Freelancing</span>
+                            <span class="text-xs text-muted-foreground">December 20, 2025</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Why Choose a Freelance Web Developer?</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
+                        <a href="./blog-freelance-developer.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post Card 4 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                    <div class="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <i data-lucide="search" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">SEO & Performance</span>
+                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">SEO for Developers: Technical Implementation Guide</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
+                        <a href="./blog-seo-developers.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post Card 5 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                    <div class="aspect-video bg-gradient-to-br from-secondary/10 to-primary/20 flex items-center justify-center">
+                        <i data-lucide="layers" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
+                        <a href="./blog-javascript-frameworks.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post Card 6 -->
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group md:col-span-2 lg:col-span-1">
+                    <div class="aspect-video bg-gradient-to-br from-accent/20 to-secondary/10 flex items-center justify-center">
+                        <i data-lucide="zap" class="w-16 h-16 text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Performance</span>
+                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Web Performance Optimization: Speed Up Your Website</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
+                        <a href="./blog-performance-optimization.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                            Read More
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="bg-secondary/10 rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-display font-bold mb-4">Stay Updated</h2>
+                <p class="text-muted-foreground mb-6 max-w-md mx-auto">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
+                <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-colors">
+                    Get in Touch
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+            <p>© 2025 Lay Shah. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+            </div>
+            <div class="flex gap-6">
+                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+</body>
+</html>
