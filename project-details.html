@@ -57,108 +57,19 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="./js/tailwind-config.js"></script>
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="/index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="/index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="/index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="/index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="/index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="/index.html#faq" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">FAQ</a>
-                <a href="/blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="/index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="/index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="/index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="/index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="/index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="/index.html#faq" class="text-lg font-medium text-muted-foreground hover:text-primary">FAQ</a>
-            <a href="/blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary">Blog</a>
-            <a href="/index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main class="pt-32 pb-20">
         <div class="container mx-auto max-w-4xl px-6">
@@ -176,26 +87,10 @@
         </div>
     </main>
 
-    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="/index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="/index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="/index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="/index.html#faq" class="hover:text-accent transition-colors">FAQ</a>
-                <a href="/blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="/index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </footer>
+    </main>
 
-    <!-- Scripts -->
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
     <script>
         // Project Data
         const projects = {
@@ -203,7 +98,7 @@
                 title: "Ghermar & Sons",
                 category: "Web Design & Development",
                 year: "2025",
-                shortDesc: "A stunning Landing Page for a Import-Export Company with smooth animations.",
+                shortDesc: "A landing page for an import-export company with scroll animations.",
                 heroImg: "./public/images/Ghermar & Sons.webp",
                 role: "Lead Designer & Developer",
                 timeline: "4 Weeks",
@@ -225,7 +120,7 @@
                     "Wireframing: Created low-fidelity wireframes focusing on content hierarchy",
                     "Design: Developed high-fidelity mockups incorporating brand guidelines",
                     "Development: Built responsive HTML/CSS with custom JavaScript animations",
-                    "Testing: Cross-browser testing and performance optimization",
+                    "Testing: Cross-browser testing and performance improvement",
                     "Launch: Deployed and monitored initial user interactions"
                 ],
 
@@ -233,7 +128,7 @@
                     frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "Tailwind CSS"],
                     animations: ["CSS Transitions", "JavaScript Scroll Events", "Intersection Observer API"],
                     tools: ["Figma", "VS Code", "Git", "Chrome DevTools"],
-                    performance: ["Image Optimization", "CSS Minification", "Lazy Loading"]
+                    performance: ["Image improvement", "CSS Minification", "Lazy Loading"]
                 },
 
                 keyFeatures: [
@@ -241,7 +136,7 @@
                     "Smooth scroll animations",
                     "Interactive service showcase",
                     "Contact form with validation",
-                    "SEO-optimized content structure",
+                    "SEO-fast content structure",
                     "Fast loading performance"
                 ],
 
@@ -276,7 +171,7 @@
                 title: "SwiftBuild Infratech",
                 category: "Web Design, Development & SEO",
                 year: "2025",
-                shortDesc: "A sophisticated portfolio for a International modern Construction Innovation Company.",
+                shortDesc: "A portfolio site for an international construction and infrastructure company.",
                 heroImg: "./public/images/SwiftBuild.webp",
                 role: "Full Stack Developer & SEO Specialist",
                 timeline: "6 Weeks",
@@ -286,19 +181,19 @@
                 liveUrl: "https://swiftbuild-infratech.netlify.app/",
                 githubUrl: null,
 
-                overview: "SwiftBuild Infratech needed a comprehensive website to establish their presence in the international construction market. The project involved creating a professional portfolio that showcases their innovative construction techniques, completed projects, and expertise in modern infrastructure development.",
+                overview: "SwiftBuild Infratech needed a full website to establish their presence in the international construction market. The project involved creating a professional portfolio that showcases their modern construction techniques, completed projects, and expertise in modern infrastructure development.",
 
-                challenge: "This client needed a professional portfolio to build international reach with conversion optimization. A timeless design that reflected their premium brand positioning. The main challenges included creating a design that appealed to international clients, implementing effective SEO strategies, and showcasing complex construction projects in an engaging way.",
+                challenge: "This client needed a professional portfolio to build international reach with conversion improvement. A timeless design that reflected their premium brand positioning. The main challenges included creating a design that appealed to international clients, implementing effective SEO strategies, and showcasing complex construction projects in an engaging way.",
 
-                solution: "We designed a timeless professional website focusing on brand positioning. Implemented GSAP animations for smooth interactions and engaging project showcases. Created comprehensive SEO optimization including meta tags, structured data, and content strategy. Built responsive layouts that work perfectly across all devices and implemented performance optimizations for fast loading.",
+                solution: "We designed a timeless professional website focusing on brand positioning. Implemented GSAP animations for smooth interactions and engaging project showcases. Created full SEO improvement including meta tags, structured data, and content strategy. Built responsive layouts that work perfectly across all devices and implemented performance optimizations for fast loading.",
 
                 process: [
                     "Brand Analysis: Studied construction industry standards and competitor analysis",
                     "Content Strategy: Developed SEO-focused content architecture",
                     "Design System: Created scalable design system for consistent branding",
                     "Development: Built with modern web technologies and animations",
-                    "SEO Implementation: Applied technical SEO and content optimization",
-                    "Testing & Launch: Comprehensive testing and performance monitoring"
+                    "SEO Implementation: Applied technical SEO and content improvement",
+                    "Testing & Launch: Full testing and performance monitoring"
                 ],
 
                 technologies: {
@@ -313,7 +208,7 @@
                     "Interactive project portfolio with filtering",
                     "GSAP-powered animations and transitions",
                     "Multi-language support structure",
-                    "Advanced SEO optimization",
+                    "Advanced SEO improvement",
                     "Contact forms with lead capture",
                     "Performance monitoring integration",
                     "Mobile-first responsive design"
@@ -336,7 +231,7 @@
                 ],
 
                 testimonial: {
-                    quote: "The website has transformed our international presence. We're now receiving inquiries from countries we never reached before. The SEO work has been exceptional.",
+                    quote: "The website has improved our international presence. We're now receiving inquiries from countries we never reached before. The SEO work has been good.",
                     author: "Arun Sharma",
                     position: "Managing Director, SwiftBuild Infratech",
                     avatar: null
@@ -348,75 +243,81 @@
                 websiteUrl: "https://swiftbuild-infratech.netlify.app/"
             },
             3: {
-                title: "Crypto Trading Analytics",
-                category: "Personal Trading Bot & Data Visualization",
-                year: "2024",
-                shortDesc: "Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.",
+                title: "Capital Tyres",
+                category: "Web Design, Development & Local SEO",
+                year: "2026",
+                shortDesc: "Professional 5-page static website for a 30+ year old tyre retreading company in Pune & Raigad, built to attract fleet owners, logistics companies, and earthmoving contractors.",
                 heroImg: "./public/images/saas_dashboard_minimal_interface.png",
-                role: "Full Stack Developer",
-                timeline: "Ongoing",
-                tools: "Python, Flask, PostgreSQL, Telegram Bot, Binance API, D3.js",
-                budget: "Personal Project",
-                clientType: "Personal Project",
-                liveUrl: "#",
+                role: "Full Design + Development + Deployment",
+                timeline: "3 Weeks",
+                tools: "HTML5, Tailwind CSS, JavaScript, Netlify, GoDaddy",
+                budget: "Client Project",
+                clientType: "Industrial / B2B Services",
+                liveUrl: "https://capitaltyres.com",
                 githubUrl: null,
 
-                overview: "A personal cryptocurrency trading bot I developed to automate trading strategies and analyze market data. The system includes real-time data visualization, automated trading signals, and comprehensive performance reporting. Built as a learning project to explore algorithmic trading and data visualization techniques.",
+                overview: "Capital Tyres is a well-established tyre retreading company based in Pune & Raigad, Maharashtra, with over 30 years of experience since 1994. Despite their experience and reputation, they had no digital presence, limiting their reach entirely to word of mouth. We designed and developed a clean, professional website that gives Capital Tyres the online identity their expertise deserves.",
 
-                challenge: "Create a personal trading system that can analyze cryptocurrency markets, execute automated trades, and provide detailed performance analytics. The main challenges included implementing reliable trading algorithms, handling real-time market data, and creating an intuitive dashboard for monitoring trades and performance.",
+                challenge: "The client needed more than just a brochure website. The real challenge was positioning a 30-year-old industrial business online for the first time in a way that builds trust with professional fleet managers and procurement teams, audiences who are skeptical and need proof before they call. Specific requirements included: showcase the technical difference between Hot and Cold retreading, target high-intent local searches like 'tyre retreading Pune' and 'OTR retreading Raigad', and build credibility through real client testimonials and practical tyre education. Additionally, the site also needed to stay fast, mobile-friendly.",
 
-                solution: "Developed a comprehensive trading bot using Python with Flask backend and interactive D3.js visualizations. Implemented multiple trading strategies with risk management features. Created a responsive dashboard for real-time monitoring and historical analysis. Integrated with multiple cryptocurrency exchanges via their APIs for diversified trading.",
+                solution: "We developed a 5-page static website with an industrial aesthetic using Tailwind CSS. Each page serves a specific purpose: showcasing sector-specific tyre solutions, educating on retreading benefits, and providing a frictionless contact experience. A 'Tyre Tips' section was added to provide value and improve search visibility.",
 
                 process: [
-                    "Market Research: Studied cryptocurrency trading patterns and algorithms",
-                    "Strategy Development: Designed and tested various trading strategies",
-                    "System Architecture: Built scalable backend with real-time capabilities",
-                    "Dashboard Creation: Developed interactive analytics interface",
-                    "Risk Management: Implemented stop-loss and position sizing algorithms",
-                    "Testing & Optimization: Backtested strategies and optimized performance"
+                    "Discovery: Analyzed target audience behavior and local search patterns",
+                    "Architecture: Planned a 5-page structure with clear conversion paths",
+                    "Design: Created a bold, industrial visual style with strong trust signals",
+                    "Development: Built a fast, responsive static site with Tailwind CSS",
+                    "SEO: Implemented local SEO for Pune & Raigad markets",
+                    "Trust Building: Integrated real testimonials and educational content",
+                    "Deployment: Launched on Netlify with custom domain and SSL"
                 ],
 
                 technologies: {
-                    backend: ["Python", "Flask", "PostgreSQL", "Redis", "Celery"],
-                    frontend: ["JavaScript", "D3.js", "Chart.js", "HTML5", "CSS3"],
-                    apis: ["Binance API", "Coinbase Pro API", "WebSocket", "REST APIs"],
-                    infrastructure: ["Docker", "AWS EC2", "Nginx", "SSL/TLS"],
-                    security: ["JWT Authentication", "API Rate Limiting", "Data Encryption"]
+                    frontend: ["HTML5", "Tailwind CSS", "Vanilla JavaScript"],
+                    features: ["Testimonial Carousel", "Mobile-Responsive Layout", "Tyre Tips Section"],
+                    seo: ["On-Page Local SEO", "Meta Tags", "Structured Content", "Google Business Ready"],
+                    hosting: ["Netlify", "GoDaddy Domain", "SSL Certificate"]
                 },
 
                 keyFeatures: [
-                    "Automated trading strategies with customizable parameters",
-                    "Real-time market data analysis and visualization",
-                    "Risk management with stop-loss and take-profit orders",
-                    "Performance tracking and detailed reporting",
-                    "Telegram bot integration for trade notifications",
-                    "Historical data analysis and backtesting",
-                    "Multi-exchange support for diversified trading",
-                    "Portfolio optimization algorithms"
+                    "Purpose-driven 5-page static structure",
+                    "Sector-specific sections for Tractor, OTR, and Truck tyres",
+                    "Educational 'Why Retread' page with comparison guides",
+                    "Value-add Tyre Tips section for maintenance advice",
+                    "Client testimonials with interactive carousel",
+                    "Optimized local SEO for Pune & Raigad regions",
+                    "Fast-loading, mobile-first responsive design",
+                    "Secure deployment on Netlify with SSL"
                 ],
 
-                results: "Successfully automated trading operations with improved consistency compared to manual trading. The system processes real-time market data and executes trades based on predefined algorithms. Achieved better risk-adjusted returns through systematic trading approach.",
+                results: "The site gives Capital Tyres a professional presence that reflects their 30-year legacy. It provides a clear destination for fleet owners and contractors, with the Tyre Tips section positioning them as industry experts. The client was highly satisfied with the design quality and the 3-week delivery timeline.",
 
                 metrics: {
-                    uptime: "99.5%",
-                    tradesExecuted: "500+",
-                    dataPoints: "10,000+ daily",
-                    responseTime: "< 100ms",
-                    winRate: "68%",
-                    riskAdjustedReturn: "+15%"
+                    pages: "5 Pages",
+                    loadTime: "< 1.5s",
+                    mobileScore: "95+",
+                    seoTargets: "Pune & Raigad local searches",
+                    deliveryTime: "3 Weeks",
+                    clientSatisfaction: "Excellent"
                 },
 
                 screenshots: [
                     "./public/images/saas_dashboard_minimal_interface.png"
                 ],
 
-                testimonial: null,
+                testimonial: {
+                    quote: "The website looks very professional and exactly represents what we do. The design is clean, the tyre information is accurate, and we received very positive feedback from our regular clients who visited it. The team delivered everything quickly and was very responsive throughout.",
+                    author: "Capital Tyres Team",
+                    position: "Capital Tyres, Pune & Raigad",
+                    avatar: null
+                },
 
-                lessonsLearned: "Building a trading system taught me the importance of risk management and the challenges of algorithmic trading. Real-time data processing, API reliability, and market volatility are critical considerations. The project significantly improved my understanding of financial markets and quantitative analysis.",
+                lessonsLearned: "B2B industrial clients require specific trust signals, such as highlighting years of experience and providing educational value. Static sites with Tailwind CSS proved to be the ideal solution, offering speed, security, and low maintenance for a local business.",
 
                 contentImg: "./public/images/saas_dashboard_minimal_interface.png",
-                websiteUrl: "#"
+                websiteUrl: "https://capitaltyres.com"
             },
+
             4: {
                 title: "Kamaldeep Enterprise",
                 category: "Content Management System",
@@ -467,7 +368,7 @@
                     "Role-based access control"
                 ],
 
-                results: "Enabled real-time catalog management, reducing update times by 80%. Client reported improved client satisfaction and increased sales through better organization. The system now handles 500+ products with seamless performance.",
+                results: "Enabled real-time catalog management, reducing update times by 80%. Client reported improved client satisfaction and increased sales through better organization. The system now handles 500+ products with smooth performance.",
 
                 metrics: {
                     updateTime: "-80%",
@@ -490,7 +391,7 @@
                     avatar: null
                 },
 
-                lessonsLearned: "Building for non-technical users requires extreme attention to UX. The bulk upload feature and automated thumbnail generation were game-changers. Investing time in user training and documentation was crucial for adoption.",
+                lessonsLearned: "Building for non-technical users requires extreme attention to UX. The bulk upload feature and automated thumbnail generation were big shifts. Investing time in user training and documentation was crucial for adoption.",
 
                 contentImg: "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png",
                 websiteUrl: "https://kamaldeep-enterprise.onrender.com/"
@@ -499,7 +400,7 @@
                 title: "Aroma Cafe",
                 category: "Web Design & API Integration",
                 year: "2024",
-                shortDesc: "A beautiful Cafe website with online reservations, menu showcase, and location finder.",
+                shortDesc: "A cafe website with online reservations, menu showcase, and location finder.",
                 heroImg: "./public/images/Aroma Cafe.webp",
                 role: "UI/UX Designer & Frontend Developer",
                 timeline: "8 Weeks",
@@ -509,9 +410,9 @@
                 liveUrl: "https://aroma-cafe-coffee.netlify.app/",
                 githubUrl: null,
 
-                overview: "Aroma Cafe needed a modern, inviting website that would showcase their coffee culture, menu offerings, and make online reservations seamless. The website needed to capture the warm, rustic atmosphere of the cafe while providing practical functionality for customers.",
+                overview: "Aroma Cafe needed a modern, inviting website that would showcase their coffee culture, menu offerings, and make online reservations smooth. The website needed to capture the warm, rustic atmosphere of the cafe while providing practical functionality for customers.",
 
-                challenge: "Build a coffee-themed landing page that balances aesthetic appeal with conversion optimization. The client needed a seamless rustic vibe that reflected their premium cafe experience. Key challenges included creating an engaging menu presentation, implementing reservation functionality, and integrating location services.",
+                challenge: "Build a coffee-themed landing page that balances aesthetic appeal with conversion improvement. The client needed a smooth rustic vibe that reflected their premium cafe experience. Key challenges included creating an engaging menu presentation, implementing reservation functionality, and integrating location services.",
 
                 solution: "Created an aesthetically appealing website with detailed attention to the coffee theme and live showcase. Developed design tokens for consistent theming throughout the site. Implemented Google Maps API for location finding. Created an interactive menu system with filtering capabilities. Built a reservation system with real-time availability checking.",
 
@@ -521,7 +422,7 @@
                     "Reservation System: Designed booking flow and integrated APIs",
                     "Visual Design: Developed warm, inviting design system",
                     "Development: Built responsive website with API integrations",
-                    "Testing: User testing and performance optimization"
+                    "Testing: User testing and performance improvement"
                 ],
 
                 technologies: {
@@ -537,7 +438,7 @@
                     "Online reservation system",
                     "Google Maps integration for locations",
                     "Photo gallery showcasing cafe atmosphere",
-                    "Mobile-optimized reservation flow",
+                    "Mobile-fast reservation flow",
                     "Seasonal menu highlights",
                     "Customer testimonials section"
                 ],
@@ -565,7 +466,7 @@
                     avatar: null
                 },
 
-                lessonsLearned: "Restaurant websites need to focus heavily on visual appeal and ease of use. The reservation system integration was more complex than anticipated, but the results justified the investment. Mobile optimization was crucial for this audience.",
+                lessonsLearned: "Restaurant websites need to focus heavily on visual appeal and ease of use. The reservation system integration was more complex than anticipated, but the results justified the investment. Mobile improvement was crucial for this audience.",
 
                 contentImg: "./public/images/Aroma Cafe 2.png",
                 websiteUrl: "https://aroma-cafe-coffee.netlify.app/"
@@ -584,7 +485,7 @@
                 liveUrl: "https://lay1989.github.io/StarkEV/",
                 githubUrl: "https://github.com/lay1989/StarkEV",
 
-                overview: "Stark EV is a personal project I created to challenge and develop my UI/UX design skills. This fictional electric vehicle showcase explores futuristic design concepts, complex user interactions, and cutting-edge web technologies. Built primarily as a learning experience to master advanced frontend development and design principles.",
+                overview: "Stark EV is a personal project I created to challenge and develop my UI/UX design skills. This fictional electric vehicle showcase explores futuristic design concepts, complex user interactions, and modern web technologies. Built primarily as a learning experience to master advanced frontend development and design principles.",
 
                 challenge: "Create a highly polished UI/UX experience that pushes the boundaries of modern web design. The project needed to incorporate complex animations, interactive elements, and a cohesive design system while maintaining excellent performance. The main goal was to test and improve my skills in creating engaging user experiences.",
 
@@ -592,11 +493,11 @@
 
                 process: [
                     "Research & Inspiration: Studied automotive UI trends and futuristic design concepts",
-                    "Design System: Created a comprehensive design system with components and patterns",
+                    "Design System: Created a full design system with components and patterns",
                     "UI Prototyping: Designed wireframes and high-fidelity mockups",
                     "Component Development: Built reusable React components with TypeScript",
                     "Animation Implementation: Added smooth transitions and micro-interactions",
-                    "Performance Optimization: Ensured fast loading and smooth animations",
+                    "Performance improvement: Ensured fast loading and smooth animations",
                     "Testing & Refinement: Cross-browser testing and UX improvements"
                 ],
 
@@ -614,7 +515,7 @@
                     "Responsive design for all device sizes",
                     "Smooth scroll-triggered animations",
                     "Custom component library",
-                    "Performance-optimized interactions",
+                    "Performance-fast interactions",
                     "Accessible design patterns",
                     "Modern CSS techniques and effects"
                 ],
@@ -637,7 +538,7 @@
 
                 testimonial: null,
 
-                lessonsLearned: "This personal project significantly improved my understanding of advanced UI/UX principles and modern web technologies. Working with complex animations and interactions taught me the importance of performance optimization and user experience design. The project reinforced the value of building personal projects for skill development.",
+                lessonsLearned: "This personal project significantly improved my understanding of advanced UI/UX principles and modern web technologies. Working with complex animations and interactions taught me the importance of performance improvement and user experience design. The project reinforced the value of building personal projects for skill development.",
 
                 contentImg: "./public/images/Stark EV 2.png",
                 websiteUrl: "https://lay1989.github.io/StarkEV/"
@@ -656,11 +557,11 @@
                 liveUrl: "#",
                 githubUrl: null,
 
-                overview: "TaskFlow Pro is a comprehensive project management solution designed for modern teams. The platform combines intuitive task management with powerful automation capabilities, enabling teams to streamline workflows and boost productivity through intelligent process automation.",
+                overview: "TaskFlow Pro is a full project management solution designed for modern teams. The platform combines intuitive task management with powerful automation capabilities, enabling teams to simplify workflows and boost productivity through intelligent process automation.",
 
                 challenge: "Design an intuitive project management solution that simplifies team workflows while providing powerful automation capabilities. The tool needed to handle complex project hierarchies and large teams efficiently. Key challenges included creating a user-friendly interface that didn't compromise on advanced features.",
 
-                solution: "Created an intuitive interface for project and task management with drag-and-drop functionality. Built a comprehensive workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added seamless integrations with popular tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.",
+                solution: "Created an intuitive interface for project and task management with drag-and-drop functionality. Built a full workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added smooth integrations with popular tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.",
 
                 process: [
                     "Market Research: Analyzed competitor products and user needs",
@@ -669,7 +570,7 @@
                     "UI/UX Design: Created intuitive dashboard and workflow designs",
                     "Backend Development: Built REST APIs and automation engine",
                     "Frontend Development: Developed responsive Vue.js interface",
-                    "Testing & Deployment: Comprehensive QA and Kubernetes deployment"
+                    "Testing & Deployment: Full QA and Kubernetes deployment"
                 ],
 
                 technologies: {
@@ -692,7 +593,7 @@
                     "API for custom integrations"
                 ],
 
-                results: "Improved team productivity by 35% through automation. Successfully handled projects with up to 500 users with seamless performance. Client reported significant ROI within the first quarter of deployment.",
+                results: "Improved team productivity by 35% through automation. Successfully handled projects with up to 500 users with smooth performance. Client reported significant ROI within the first quarter of deployment.",
 
                 metrics: {
                     productivityIncrease: "+35%",
@@ -715,7 +616,7 @@
                     avatar: null
                 },
 
-                lessonsLearned: "Building enterprise software requires careful consideration of scalability and user adoption. The automation engine was the most complex component, but it delivered the highest value. Investing in comprehensive testing and documentation was crucial for enterprise deployment.",
+                lessonsLearned: "Building enterprise software requires careful consideration of scalability and user adoption. The automation engine was the most complex component, but it delivered the highest value. Investing in full testing and documentation was crucial for enterprise deployment.",
 
                 contentImg: "/images/minimalist_dark_mode_website_mockup.png",
                 websiteUrl: "#"
@@ -739,10 +640,10 @@
             }
 
             // Update page title and meta
-            document.title = `${project.title} - Project Details | Lay Shah`;
+            document.title = `${project.title} Case Study: ${project.category} | Lay Shah`;
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
-                metaDesc.setAttribute('content', project.shortDesc);
+                metaDesc.setAttribute('content', project.shortDesc + ' Tech stack: ' + project.tools + '. Timeline: ' + project.timeline + '.');
             }
 
             const content = `
@@ -767,16 +668,16 @@
                 <!-- Project Details Grid -->
                 <div class="grid md:grid-cols-3 gap-12 mb-16 reveal">
                     <div>
-                        <h3 class="text-lg font-bold mb-2">Role</h3>
-                        <p class="text-muted-foreground">${project.role}</p>
+                        <h3 class="text-lg font-display font-bold mb-2">Role</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed">${project.role}</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold mb-2">Timeline</h3>
-                        <p class="text-muted-foreground">${project.timeline}</p>
+                        <h3 class="text-lg font-display font-bold mb-2">Timeline</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed">${project.timeline}</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold mb-2">Tools</h3>
-                        <p class="text-muted-foreground">${project.tools}</p>
+                        <h3 class="text-lg font-display font-bold mb-2">Tools</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed">${project.tools}</p>
                     </div>
                 </div>
 
@@ -824,10 +725,10 @@
                             ${project.process.map((step, index) => `
                                 <div class="bg-card border border-border rounded-xl p-6">
                                     <div class="flex items-start gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                            <span class="text-accent font-bold text-sm">${index + 1}</span>
+                                        <div class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                                            <span class="text-accent font-display font-bold text-lg">${index + 1}</span>
                                         </div>
-                                        <p class="text-muted-foreground leading-relaxed">${step}</p>
+                                        <p class="text-lg text-muted-foreground leading-relaxed">${step}</p>
                                     </div>
                                 </div>
                             `).join('')}
@@ -845,9 +746,9 @@
                         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             ${Object.entries(project.technologies).map(([category, techs]) => `
                                 <div class="bg-card border border-border rounded-xl p-6">
-                                    <h3 class="font-bold mb-4 capitalize text-accent">${category.replace(/([A-Z])/g, ' $1').trim()}</h3>
+                                    <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent">${category.replace(/([A-Z])/g, ' $1').trim()}</h3>
                                     <div class="flex flex-wrap gap-2">
-                                        ${techs.map(tech => `<span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">${tech}</span>`).join('')}
+                                        ${techs.map(tech => `<span class="px-4 py-1.5 bg-secondary/20 text-secondary-foreground rounded-full text-base font-medium font-display">${tech}</span>`).join('')}
                                     </div>
                                 </div>
                             `).join('')}
@@ -866,7 +767,7 @@
                             ${project.keyFeatures.map(feature => `
                                 <div class="bg-card border border-border rounded-xl p-6 flex items-start gap-4">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"></i>
-                                    <p class="text-muted-foreground leading-relaxed">${feature}</p>
+                                    <p class="text-lg text-muted-foreground leading-relaxed">${feature}</p>
                                 </div>
                             `).join('')}
                         </div>
@@ -910,7 +811,7 @@
                             <div class="flex items-center gap-4">
                                 ${project.testimonial.avatar ? `<img src="${project.testimonial.avatar}" alt="${project.testimonial.author}" class="w-12 h-12 rounded-full">` : '<div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-6 h-6 text-accent"></i></div>'}
                                 <div>
-                                    <div class="font-bold">${project.testimonial.author}</div>
+                                    <div class="font-display font-bold">${project.testimonial.author}</div>
                                     <div class="text-sm text-muted-foreground">${project.testimonial.position}</div>
                                 </div>
                             </div>
@@ -943,7 +844,7 @@
                         <div class="grid md:grid-cols-2 gap-8">
                             ${project.screenshots.slice(1).map(img => `
                                 <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                                    <img src="${img}" alt="Project Screenshot" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+                                    <img src="${img}" alt="Project Screenshot" class="w-full h-auto object-cover hover:scale-105 transition-improve duration-300">
                                 </div>
                             `).join('')}
                         </div>
@@ -972,7 +873,7 @@
                         `}
                         ${project.githubUrl ? `
                             <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
-                                <i data-lucide="github" class="w-4 h-4"></i>
+                                <i class="fa-brands fa-github text-lg"></i>
                                 View Code
                             </a>
                         ` : ''}
@@ -984,11 +885,11 @@
                     <h3 class="text-lg font-bold mb-4">Share this project</h3>
                     <div class="flex gap-4">
                         <button onclick="shareOnTwitter()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors">
-                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                            <i class="fa-brands fa-x-twitter text-lg"></i>
                             Twitter
                         </button>
                         <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            <i class="fa-brands fa-linkedin text-lg"></i>
                             LinkedIn
                         </button>
                         <button onclick="copyProjectLink()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors">
@@ -1037,6 +938,6 @@
             });
         }
     </script>
-    <script src="./script.js"></script>
+    <script src="./js/components.js"></script>
 </body>
 </html>

@@ -73,69 +73,13 @@
 <body class="bg-background text-foreground antialiased transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main class="pt-32 pb-20">
-        <div class="container mx-auto max-w-6xl px-6">
+        <div class="container mx-auto max-w-4xl px-6">
             <header class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">Insights & Thoughts</h1>
-                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
+                <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">Insights & Thoughts</h1>
+                <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl mb-12">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
             </header>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -149,8 +93,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Web Design</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">The Importance of Responsive Web Design in 2025</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">The Importance of Responsive Web Design in 2025</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
                         <a href="./blog-responsive-design.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -168,8 +112,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Development</span>
                             <span class="text-xs text-muted-foreground">January 15, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Building Custom Websites: From Concept to Launch</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">Building Custom Websites: From Concept to Launch</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
                         <a href="./blog-custom-websites.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -187,8 +131,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Freelancing</span>
                             <span class="text-xs text-muted-foreground">December 20, 2025</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Why Choose a Freelance Web Developer?</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">Why Choose a Freelance Web Developer?</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
                         <a href="./blog-freelance-developer.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -206,8 +150,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">SEO & Performance</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">SEO for Developers: Technical Implementation Guide</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">SEO for Developers: Technical Implementation Guide</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
                         <a href="./blog-seo-developers.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -225,8 +169,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">JavaScript</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
                         <a href="./blog-javascript-frameworks.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -244,8 +188,8 @@
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Performance</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Web Performance Optimization: Speed Up Your Website</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">Web Performance Optimization: Speed Up Your Website</h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
                         <a href="./blog-performance-optimization.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
                             Read More
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -256,8 +200,8 @@
 
             <!-- Newsletter Signup -->
             <div class="bg-secondary/10 rounded-2xl p-8 md:p-12 text-center">
-                <h2 class="text-3xl font-display font-bold mb-4">Stay Updated</h2>
-                <p class="text-muted-foreground mb-6 max-w-md mx-auto">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4">Stay Updated</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-6">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
                 <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-colors">
                     Get in Touch
                     <i data-lucide="mail" class="w-4 h-4"></i>
@@ -266,25 +210,10 @@
         </div>
     </main>
 
-    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+        <script src="./js/components.js"></script>
 </body>
 </html>

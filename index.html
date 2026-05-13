@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lay Shah - Full Stack Developer | Web Design</title>
-    <meta name="description" content="Freelance Full Stack Developer & web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio & Case Studies and get in touch!">
+    <meta name="description" content="Freelance Full Stack Developer & web designer (Lay Shah). We build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View our portfolio & Case Studies and get in touch!">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/">
@@ -35,34 +35,7 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="./js/tailwind-config.js"></script>
 
     
   <!-- Structured data (Person / LocalBusiness example) -->
@@ -70,12 +43,14 @@
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Lay Shah | Web Developer",
+        "priceRange": "$$",
+        "name": "Lay Shah | Freelance Full Stack Developer",
         "url": "https://layshahdev.com",
         "logo": "https://layshahdev.com/logo.png",
-        "description": "Freelance web developer designing and building custom websites for small businesses.",
+        "description": "Freelance full stack developer (React, Python, Flask) building custom websites, web apps, and automation tools for small businesses worldwide.",
         "sameAs": [
-        "https://github.com/lay1989"
+        "https://github.com/lay1989",
+        "https://www.linkedin.com/in/layshah"
         ],
         "contactPoint": [{
         "@type": "ContactPoint",
@@ -90,75 +65,13 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="#" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="#faq" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">FAQ</a>
-                <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="#faq" class="text-lg font-medium text-muted-foreground hover:text-primary">FAQ</a>
-            <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary">Blog</a>
-            <a href="#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main>
         <!-- Hero Section -->
@@ -176,8 +89,7 @@
                     </h1>
 
                     <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-                        I'm Lay Shah, a Full Stack Developer crafting sophisticated digital experiences. 
-                        I turn complex problems into simple, beautiful, and performant web solutions.
+                        We are a team of developers, a freelance full stack developer based in India, building custom websites and web apps with React, Python, and Flask. We turn complex problems into simple, fast, and conversion-ready digital products.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
@@ -186,7 +98,7 @@
                             <i data-lucide="arrow-down-right" class="w-4 h-4 group-hover:rotate-[-45deg] transition-transform"></i>
                         </a>
                         <a href="#contact" class="px-8 py-4 border border-border rounded-full font-medium hover:bg-secondary transition-all">
-                            Contact Me
+                            Contact Us
                         </a>
                     </div>
                 </div>
@@ -201,19 +113,21 @@
             <div class="container mx-auto max-w-6xl">
                 <div class="grid md:grid-cols-12 gap-12 reveal">
                     <div class="md:col-span-4">
-                        <h2 class="text-xl font-medium text-muted-foreground sticky top-24">About Me</h2>
+                        <h2 class="text-xl font-medium text-muted-foreground sticky top-24">About Us</h2>
                     </div>
                     <div class="md:col-span-8 space-y-8">
                         <h3 class="text-3xl md:text-5xl font-display leading-tight">
-                            I help brands and businesses stand out in the digital era. Together we will set the new status quo.
+                            We help brands and businesses stand out in the digital era. Together we will set the new status quo.
                         </h3>
                         
                         <div class="prose prose-lg text-muted-foreground">
                             <p class="mb-4">
-                                I'm a passionate freelance web developer with over 5 years of experience creating custom digital solutions for small businesses and entrepreneurs. My mission is to help businesses establish a strong online presence that drives growth and success.
+                                We are a freelance full stack developer based in India with over 5 years of experience building custom websites, React web apps, and Python (Flask) backends for small businesses and startups worldwide. We build things that load fast, rank on Google, and actually convert visitors into customers.
+                            </p>
+                            <p>We write the code and handle the design. our focus is on fast load times, clean layouts, and sites that work well on every device.
                             </p>
                             <p>
-                                I combine technical expertise with design sensibilities to create unique products. I focus on performance, accessibility, and user experience to ensure that your audience has the best possible interaction with your brand.
+                                Whether you need a freelance React developer, a Python Flask API, a Shopify store, or a complete custom website built from scratch - We work solo, so you deal directly with the person writing your code.
                             </p>
                         </div>
                     </div>
@@ -221,166 +135,118 @@
             </div>
         </section>
 
-        <!-- Services Sub-Section (Extracted from About) -->
+        <!-- Services Section -->
         <section class="py-20 px-6">
             <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">What I Can Do For You</h2>
-                    <p class="text-muted-foreground text-lg">Specialized services tailored to your growth.</p>
+                <div class="mb-16 md:mb-20">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">What We Actually Build</h2>
+                    <p class="text-muted-foreground text-lg max-w-xl">Five years in. Here's what We are good at and have actually shipped for real clients.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden">
+
                     <!-- Service 1 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="code" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="code-2" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Full Stack Web Development</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom websites and web applications built from scratch. From landing pages to complex web platforms with modern technologies.
+                        <h3 class="text-xl font-bold mb-3">Websites &amp; Landing Pages</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            No templates, no page builders. We write the code - responsive, fast, SEO-ready from day one. If you need a custom website that loads in under 2 seconds on mobile and ranks on Google, that's what we do. Based in India, working with clients globally.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> React & Next.js</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Python & Flask</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Database Design</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">HTML / CSS</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Tailwind</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">GSAP</span>
+                        </div>
                     </div>
 
                     <!-- Service 2 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="layers" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">E-Commerce Solutions</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Scalable online stores that drive sales. From custom Shopify themes to headless e-commerce solutions.
+                        <h3 class="text-xl font-bold mb-3">Web Applications</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            Hire a React developer who also handles the backend. We build full-stack apps with React or Next.js on the front and Python (Flask / FastAPI) + PostgreSQL on the back. Trading dashboards, CMS platforms, influencer tools, admin portals, things that actually do something complex.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Shopify Store Setup</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Payment Integrations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom Checkout Flows</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">React / Next.js</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Python</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">PostgreSQL</span>
+                        </div>
                     </div>
 
                     <!-- Service 3 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="database" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Content Management Systems</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom CMS solutions for businesses to manage their digital content efficiently. From catalog management to dynamic websites.
+                        <h3 class="text-xl font-bold mb-3">E-Commerce</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            Shopify customisation or headless builds, focused on getting people to checkout, not just looking good. Payment integrations, custom product pages, checkout flows that don't leak conversions.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom CMS Development</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Catalog Management</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> File Upload Systems</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Shopify</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Stripe</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Headless</span>
+                        </div>
                     </div>
 
                     <!-- Service 4 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="database" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Data Analytics & Dashboards</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Interactive data visualization and analytics dashboards. Turn complex data into actionable insights with beautiful interfaces.
+                        <h3 class="text-xl font-bold mb-3">Custom CMS &amp; Admin Tools</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            Built a full catalog management system for a fabric wholesaler, 500+ products, PDF uploads, role-based access. If your team needs a backend they can actually use without calling you every time, We build those.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> D3.js Visualizations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Real-time Dashboards</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> API Integration</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Flask</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">SQLAlchemy</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">REST API</span>
+                        </div>
                     </div>
 
                     <!-- Service 5 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="smartphone" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="bar-chart-3" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">API Integration & Backend</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Seamless API integrations and robust backend development. Connect your website with third-party services and build scalable systems.
+                        <h3 class="text-xl font-bold mb-3">Dashboards &amp; Data Viz</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            Interactive charts, real-time data feeds, live trading analytics, We've built these with D3.js and Chart.js on live market data. If you have numbers that need to make sense visually, let's talk.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> REST API Development</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Third-party Integrations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> WebSocket Connections</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">D3.js</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Chart.js</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">WebSocket</span>
+                        </div>
                     </div>
 
                     <!-- Service 6 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="bot" class="w-8 h-8"></i>
+                    <div class="service-card group bg-card rounded-none border-0">
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="bot" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Automation & Bot Development</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom automation solutions and intelligent bots. From trading bots to workflow automation that streamline your business processes.
+                        <h3 class="text-xl font-bold mb-3">Automation &amp; Bots</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+                            Built a live crypto trading bot with Binance API, Telegram notifications and auto-execution. Also handle workflow automation, scraping, and Discord/Telegram bots. If it's repetitive, it can probably be automated.
                         </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Trading Bots & Algorithms</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Workflow Automation</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Telegram/Discord Bots</li>
-                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Python</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Binance API</span>
+                            <span class="text-xs px-2 py-1 bg-secondary rounded-full text-muted-foreground">Telegram Bot</span>
+                        </div>
                     </div>
 
-                    <!-- Service 7 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="palette" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">UI/UX Design & Optimization</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Beautiful, user-centered design that converts. From wireframes to polished interfaces that provide exceptional user experiences.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> User Experience Design</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Interface Design</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Design Systems</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 8 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="search" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">SEO & Performance Optimization</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Optimize your website for search engines and lightning-fast performance. Improve rankings and keep visitors engaged.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technical SEO</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Speed Optimization</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Analytics Setup</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 9 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="lightbulb" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Consultation & Strategy</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Expert advice on web strategy, technology choices, and digital growth. Make informed decisions for your business with comprehensive digital strategy planning and technology consultation.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Digital Strategy</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technology Planning</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Growth Consulting</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> UX/UI Review</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <!-- Tech Stack Tags -->
                 <div class="mt-16 text-center">
                     <h4 class="text-foreground font-bold mb-6 text-xl">Technical Toolkit</h4>
                     <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                        <!-- Frontend -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">HTML5</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS3</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JavaScript (ES6+)</span>
@@ -389,45 +255,20 @@
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Next.js</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vue.js</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Tailwind CSS</span>
-                        
-                        <!-- Backend & Databases -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Python</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Flask</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">FastAPI</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Node.js</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">PostgreSQL</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SQLAlchemy</span>
-                        
-                        <!-- Data & Visualization -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">D3.js</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Chart.js</span>
-                        
-                        <!-- APIs & Integrations -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">REST APIs</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GraphQL</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">WebSocket</span>
-                        <!-- Animations & Interactions -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GSAP</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Framer Motion</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS Animations</span>
-                        
-                        <!-- DevOps & Infrastructure -->
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">AWS</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Nginx</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Netlify</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vercel</span>
-                        
-                        <!-- Tools & Platforms -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Git/GitHub</span>
+                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Git / GitHub</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Shopify</span>
-                        
-                        <!-- SEO & Analytics -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Google Analytics</span>
                         <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Technical SEO</span>
-                        
-                        <!-- Security & Performance -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JWT Authentication</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SSL/TLS</span>
                     </div>
                 </div>
             </div>
@@ -436,50 +277,50 @@
         <!-- Process Section -->
         <section id="process" class="py-20 md:py-32 px-6">
             <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">How I Work</h2>
-                    <p class="text-muted-foreground text-lg">A proven process for delivering exceptional results.</p>
+                <div class="mb-16 md:mb-20">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">How We work</h2>
+                    <p class="text-muted-foreground text-lg">No surprises, no scope creep. Here's exactly what it looks like to work with us.</p>
                 </div>
 
-                <div class="grid md:grid-cols-4 gap-8">
+                <div class="grid md:grid-cols-4 gap-6">
                     <!-- Step 1 -->
                     <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
                         <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">01</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="search" class="w-8 h-8"></i>
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="message-circle" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Discovery</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">We start by understanding your goals, audience, and competitors to define the project scope.</p>
+                        <h3 class="text-lg font-bold mb-3">We talk first</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed">A 30-minute call, no forms, no packages to choose from. You tell us what you need, what's broken about your current site, and who you're trying to reach. We actually listen.</p>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
                         <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">02</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="pen-tool" class="w-8 h-8"></i>
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="pen-tool" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Design</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">I create wireframes and high-fidelity mockups to visualize the user experience and interface.</p>
+                        <h3 class="text-lg font-bold mb-3">Direction before code</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed">I'll show you a clear direction, layout, structure, visual tone, before a single line of code gets written. You sign off, then We build. No surprise pivots three weeks in.</p>
                     </div>
 
                     <!-- Step 3 -->
                     <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
                         <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">03</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="code-2" class="w-8 h-8"></i>
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="code-2" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Build</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">Development begins using modern technologies, ensuring clean code and responsive layouts.</p>
+                        <h3 class="text-lg font-bold mb-3">Built properly</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed">Clean code, tested on real devices, fast load times. We don't cut corners because we don't want to fix it again later, and neither do you. You'll get something that holds up.</p>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
                         <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">04</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="rocket" class="w-8 h-8"></i>
+                        <div class="mb-5 text-accent">
+                            <i data-lucide="rocket" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Launch</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">After rigorous testing, we deploy your site and I provide training for easy management.</p>
+                        <h3 class="text-lg font-bold mb-3">You launch. We stay.</h3>
+                        <p class="text-sm text-muted-foreground leading-relaxed">Launch day isn't the end. I'll walk you through everything, answer questions after go-live, and We are reachable when something comes up. Most clients come back, that's the goal.</p>
                     </div>
                 </div>
             </div>
@@ -499,13 +340,13 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Ghermar & Sons.webp" alt="Portfolio Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/Ghermar & Sons.webp" alt="Portfolio Website" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-2">
                                 <span class="text-accent text-sm font-medium mb-4 block">Web Design & Development - 2025</span>
                                 <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Ghermar & Sons</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A stunning Landing Page for a Import-Export Company with smooth animations.</p>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A landing page for an import-export company with scroll animations.</p>
                                 <a href="project-details.html?id=1" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                                 </a>
@@ -518,13 +359,13 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/SwiftBuild.webp" alt="swiftbuild-infratech" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/SwiftBuild.webp" alt="swiftbuild-infratech" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-1">
                                 <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development & SEO - 2025</span>
                                 <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">SwiftBuild Infratech</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A sophisticated portfolio for a  International modern Construction Innovation Company.</p>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A portfolio site for an international construction and infrastructure company.</p>
                                 <a href="project-details.html?id=2" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                                 </a>
@@ -537,13 +378,13 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Dashboard" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Capital Tyres - Tyre Retreading Website" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Crypto Bot - 2024</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Analytics Dashboard</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Data visualization platform for a crpyto bot for tracking, trading and reporting.</p>
+                                <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development & SEO - 2026</span>
+                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Capital Tyres</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Professional website for a 30+ year old tyre retreading company in Pune & Raigad, built to attract fleet owners and earthmoving contractors.</p>
                                 <a href="project-details.html?id=3" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                                 </a>
@@ -551,12 +392,13 @@
                         </div>
                     </div>
 
+
                     <!-- Project 4 (Hidden by default) -->
                     <div class="project-item group block hidden" data-project="4">
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-1">
@@ -575,13 +417,13 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Aroma Cafe.webp" alt="Aesthetic Cafe Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/Aroma Cafe.webp" alt="Aesthetic Cafe Website" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-2">
                                 <span class="text-accent text-sm font-medium mb-4 block">Web Design & API Integration - 2024</span>
                                 <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Aroma Cafe</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A beautiful Cafe website with online reservations, menu showcase, and location finder.</p>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A cafe website with online reservations, menu showcase, and location finder.</p>
                                 <a href="project-details.html?id=5" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                                 </a>
@@ -594,13 +436,13 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Stark EV.webp" alt="Stark EV" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="./public/images/Stark EV.webp" alt="Stark EV" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-1">
                                 <span class="text-accent text-sm font-medium mb-4 block">UI Design & Full Stack Development</span>
                                 <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Stark EV</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A Fictional Futuristic Car Brand. Designed with stunning details and highly complex UI. </p>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A Fictional Futuristic Car Brand. Designed with immersive design and a complex UI. </p>
                                 <a href="project-details.html?id=6" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                                 </a>
@@ -613,7 +455,7 @@
                         <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                             <div class="order-2 md:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="/images/modern_e-commerce_interface_mockup.png" alt="Project Management" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <img src="/images/modern_e-commerce_interface_mockup.png" alt="Project Management" class="w-full aspect-video object-cover improve group-hover:scale-105 transition-improve duration-700 ease-out">
                                 </div>
                             </div>
                             <div class="order-1 md:order-2">
@@ -642,103 +484,101 @@
         <!-- Reviews Section -->
         <section id="reviews" class="py-20 md:py-32 px-6">
             <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Client Reviews</h2>
-                    <p class="text-muted-foreground text-lg">What people say about working with me.</p>
+                <div class="mb-16 md:mb-20">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">What Clients Say</h2>
+                    <p class="text-muted-foreground text-lg">From people We've actually worked with.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
+
                     <!-- Review 1 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-100">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="group relative p-8 border-l-4 border-accent bg-card border border-border rounded-2xl hover-lift reveal delay-100">
+                        <div class="text-accent/20 font-display text-8xl font-bold absolute top-4 right-6 leading-none select-none">&ldquo;</div>
+                        <div class="flex gap-1 text-accent mb-5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Lay transformed our online presence completely. The attention to detail and design sensibility is unmatched. Highly recommended!"
+                        <p class="text-lg leading-relaxed mb-6">
+                            "We needed something that looked credible to international clients. Within two weeks of going live, we started getting inquiries from Dubai and Singapore. Our old site hadn't done that in three years."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                FS
-                            </div>
+                            <div class="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center font-bold text-accent">FS</div>
                             <div>
-                                <h4 class="font-bold">Fred Stack</h4>
-                                <span class="text-sm text-muted-foreground">Director, Swiftbuild Infratech</span>
+                                <h4 class="font-bold text-sm">Fred Stack</h4>
+                                <span class="text-xs text-muted-foreground">Director, SwiftBuild Infratech</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review 2 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-200">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="group relative p-8 border-l-4 border-accent bg-card border border-border rounded-2xl hover-lift reveal delay-200">
+                        <div class="text-accent/20 font-display text-8xl font-bold absolute top-4 right-6 leading-none select-none">&ldquo;</div>
+                        <div class="flex gap-1 text-accent mb-5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Professional, fast, and incredibly talented. The new website has already increased our conversion rate by 40%."
+                        <p class="text-lg leading-relaxed mb-6">
+                            "Our old process was sending PDF catalogs over WhatsApp. Now clients log in and browse everything themselves. Saves us about two hours a day, and the clients seem to actually prefer it."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                VS
-                            </div>
+                            <div class="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center font-bold text-accent">VS</div>
                             <div>
-                                <h4 class="font-bold">Vipul Shah</h4>
-                                <span class="text-sm text-muted-foreground">Owner, Kamaldeep Enterprise</span>
+                                <h4 class="font-bold text-sm">Vipul Shah</h4>
+                                <span class="text-xs text-muted-foreground">Owner, Kamaldeep Enterprise</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review 3 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-300">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="group relative p-8 border-l-4 border-accent bg-card border border-border rounded-2xl hover-lift reveal delay-300">
+                        <div class="text-accent/20 font-display text-8xl font-bold absolute top-4 right-6 leading-none select-none">&ldquo;</div>
+                        <div class="flex gap-1 text-accent mb-5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Lay's expertise in full-stack development helped us launch a stunning, responsive website. The SEO optimization has boosted our visibility tremendously."
+                        <p class="text-lg leading-relaxed mb-6">
+                            "We used to take reservations over the phone. After the new site launched, around 70% started coming through online. The system Lay built just works, we haven't had to touch it."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                AC
-                            </div>
+                            <div class="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center font-bold text-accent">AC</div>
                             <div>
-                                <h4 class="font-bold">Anna Chen</h4>
-                                <span class="text-sm text-muted-foreground">Manager, Aroma Cafe</span>
+                                <h4 class="font-bold text-sm">Anna Chen</h4>
+                                <span class="text-xs text-muted-foreground">Manager, Aroma Cafe</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Review 4 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-400">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="group relative p-8 border-l-4 border-accent bg-card border border-border rounded-2xl hover-lift reveal delay-400">
+                        <div class="text-accent/20 font-display text-8xl font-bold absolute top-4 right-6 leading-none select-none">&ldquo;</div>
+                        <div class="flex gap-1 text-accent mb-5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Working with Lay was a game-changer. The custom web application is user-friendly, fast, and perfectly tailored to our EV business needs."
+                        <p class="text-lg leading-relaxed mb-6">
+                            "we gave Lay a reference site we liked and a rough idea of what we wanted. What came back actually exceeded it. Fast turnaround, no back-and-forth drama, and the animations are genuinely impressive."
                         </p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                RJ
-                            </div>
+                            <div class="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center font-bold text-accent">RJ</div>
                             <div>
-                                <h4 class="font-bold">Raj Kumar</h4>
-                                <span class="text-sm text-muted-foreground">CEO, Stark EV</span>
+                                <h4 class="font-bold text-sm">Raj Kumar</h4>
+                                <span class="text-xs text-muted-foreground">CEO, Stark EV</span>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -748,7 +588,7 @@
             <div class="container mx-auto max-w-4xl reveal">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Frequently Asked Questions</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Got questions? I've got answers. Here are the most common questions I receive about my web development services.</p>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Got questions? We've got answers. Here are the most common questions we receive about our web development services.</p>
                 </div>
 
                 <div class="space-y-6">
@@ -773,7 +613,7 @@
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold mb-4">Are your websites mobile-friendly?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Absolutely! Every website I build is fully responsive and optimized for all devices - mobile phones, tablets, and desktops. I follow mobile-first design principles to ensure great user experience across all screen sizes.</p>
+                                <p class="text-muted-foreground leading-relaxed">Absolutely! Every website We build is fully responsive and fast for all devices - mobile phones, tablets, and desktops. We follow mobile-first design principles to ensure great user experience across all screen sizes.</p>
                             </div>
                         </div>
                     </div>
@@ -785,8 +625,8 @@
                                 <i data-lucide="search" class="w-5 h-5 text-accent"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">Do you handle SEO optimization?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Yes! I implement technical SEO best practices including proper meta tags, structured data, fast loading speeds, and mobile optimization. I can also help with content strategy and keyword research to improve your search rankings.</p>
+                                <h3 class="text-xl font-bold mb-4">Do you handle SEO Optimization?</h3>
+                                <p class="text-muted-foreground leading-relaxed">Yes! We implement technical SEO best practices including proper meta tags, structured data, fast loading speeds, and mobile improvement. We can also help with content strategy and keyword research to improve your search rankings.</p>
                             </div>
                         </div>
                     </div>
@@ -799,7 +639,7 @@
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold mb-4">What technologies do you use?</h3>
-                                <p class="text-muted-foreground leading-relaxed">I work with modern technologies including HTML5, CSS3, JavaScript, React, Next.js, Node.js, and various CMS platforms. I choose the best technology stack based on your project requirements and long-term goals.</p>
+                                <p class="text-muted-foreground leading-relaxed">We work with modern technologies including HTML5, CSS3, JavaScript, React, Next.js, Node.js, and various CMS platforms. We choose the best technology stack based on your project requirements and long-term goals.</p>
                             </div>
                         </div>
                     </div>
@@ -811,8 +651,8 @@
                                 <i data-lucide="users" class="w-5 h-5 text-primary"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">Can you work with my existing website?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Definitely! I can redesign, update, or add new features to existing websites. Whether you need a refresh, new functionality, or performance improvements, I can work with your current setup or migrate to a better platform.</p>
+                                <h3 class="text-xl font-bold mb-4">Can you work with our existing website?</h3>
+                                <p class="text-muted-foreground leading-relaxed">Definitely! We can redesign, update, or add new features to existing websites. Whether you need a refresh, new functionality, or performance optimizations, we can work with your current setup or migrate to a better platform.</p>
                             </div>
                         </div>
                     </div>
@@ -825,7 +665,7 @@
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold mb-4">What's the process like working with you?</h3>
-                                <p class="text-muted-foreground leading-relaxed">We start with a discovery call to understand your goals, then I provide a proposal and timeline. Once approved, we move through design, development, testing, and launch phases. I keep you updated throughout and welcome your feedback at every stage.</p>
+                                <p class="text-muted-foreground leading-relaxed">We start with a discovery call to understand your goals, then we provide a proposal and timeline. Once approved, we move through design, development, testing, and launch phases. We keep you updated throughout and welcome your feedback at every stage.</p>
                             </div>
                         </div>
                     </div>
@@ -851,8 +691,8 @@
                             <span class="opacity-50">together.</span>
                         </h2>
                         <p class="text-lg opacity-70 mb-12 leading-relaxed">
-                            I'm always interested in hearing about new projects and opportunities. 
-                            Drop me a message and let's create something amazing.
+                            We are always interested in hearing about new projects and opportunities. 
+                            Drop us a message and let's create something amazing.
                         </p>
 
                         <div class="space-y-6">
@@ -886,8 +726,8 @@
                             <input type="email" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="john@example.com">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-medium uppercase tracking-wide opacity-50">Tell me about your project</label>
-                            <textarea rows="4" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="I need a website for..."></textarea>
+                            <label class="text-sm font-medium uppercase tracking-wide opacity-50">Tell us about your project</label>
+                            <textarea rows="4" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="we need a website for..."></textarea>
                         </div>
                         <button type="submit" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
                             Send Message
@@ -897,30 +737,12 @@
             </div>
         </section>
 
-        <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-                <p>© 2025 Lay Shah. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="#work" class="hover:text-accent transition-colors">Work</a>
-                    <a href="#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                    <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
-                    <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
-                </div>
-                <div class="flex gap-6">
-                    <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                    <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                    <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors" aria-label="Back to Top">
-                        <i data-lucide="arrow-up" class="w-5 h-5"></i>
-                    </button>
-                </div>
-            </div>
-        </footer>
     </main>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Shared Components & Logic -->
+    <script src="./js/components.js"></script>
 </body>
 </html>

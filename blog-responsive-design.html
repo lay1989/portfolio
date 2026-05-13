@@ -8,7 +8,7 @@
     <meta name="description" content="Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.">
     <meta name="author" content="Lay Shah">
 
-    <link rel="canonical" href="https://layshahdev.com/blog-responsive-design.html">
+    <li class="flex items-start gap-4 text-lg text-muted-foreground leading-relaxed">
 
     <!-- Social / OpenGraph -->
     <meta property="og:type" content="article" />
@@ -73,61 +73,7 @@
 <body class="bg-background text-foreground antialiased transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <i data-lucide="moon" class="w-5 h-5"></i>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main class="pt-32 pb-20">
         <div class="container mx-auto max-w-4xl px-6">
@@ -140,20 +86,20 @@
                         <span class="text-sm text-muted-foreground">5 min read</span>
                     </div>
                     <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">The Importance of Responsive Web Design in 2025</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices, improving user experience and SEO rankings.</p>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl mb-12">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices, improving user experience and SEO rankings.</p>
                 </header>
 
-                <div class="prose prose-lg max-w-none">
-                    <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
+                <div class="max-w-none">
+                    <div class="bg-card border border-border rounded-2xl p-8 md:p-12 mb-12 reveal">
                         <p class="text-lg font-medium mb-2 flex items-center gap-2"><i data-lucide="smartphone" class="w-5 h-5 text-accent"></i> Key Insight</p>
                         <p class="mb-0">With over 60% of web traffic coming from mobile devices, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices, improving user experience and SEO rankings.</p>
                     </div>
 
-                    <h2><i data-lucide="trending-up" class="w-6 h-6 text-accent inline mr-2"></i>The Mobile Revolution in 2025</h2>
-                    <p>The mobile revolution has fundamentally changed how we interact with the web. In 2025, with the proliferation of foldable devices, smartwatches, and various screen sizes, responsive design has evolved from a nice-to-have feature to a critical business requirement.</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="trending-up" class="w-6 h-6 text-accent inline mr-2"></i>The Mobile Revolution in 2025</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">The mobile revolution has fundamentally changed how I interact with the web. In 2025, with the proliferation of foldable devices, smartwatches, and various screen sizes, responsive design has evolved from a nice-to-have feature to a critical business requirement.</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i> Critical Statistics</h3>
+                        <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i> Critical Statistics</h3>
                         <div class="grid md:grid-cols-3 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">92.3%</div>
@@ -170,8 +116,8 @@
                         </div>
                     </div>
 
-                    <h2><i data-lucide="target" class="w-6 h-6 text-accent inline mr-2"></i>SEO Benefits of Responsive Design</h2>
-                    <p>Google prioritizes mobile-friendly websites in search results. A responsive site improves your chances of ranking higher and reaching more potential customers. Here's how:</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="target" class="w-6 h-6 text-accent inline mr-2"></i>SEO Benefits of Responsive Design</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Google prioritizes mobile-friendly websites in search results. A responsive site improves your chances of ranking higher and reaching more potential customers. Here's how:</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
@@ -179,8 +125,8 @@
                                 <i data-lucide="link" class="w-6 h-6 text-accent"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Single URL Structure</h3>
-                                <p class="text-muted-foreground">Responsive design uses a single URL for all devices, eliminating duplicate content issues that can harm SEO. This means search engines only need to crawl and index one version of your site.</p>
+                                <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed">Single URL Structure</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed mb-6">Responsive design uses a single URL for all devices, eliminating duplicate content issues that can harm SEO. This means search engines only need to crawl and index one version of your site.</p>
                             </div>
                         </div>
 
@@ -189,8 +135,8 @@
                                 <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Faster Page Load Times</h3>
-                                <p class="text-muted-foreground">Mobile-optimized sites typically load faster, which is a key ranking factor. Responsive design allows you to serve appropriately sized images and content based on the user's device.</p>
+                                <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed">Faster Page Load Times</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed mb-6">Mobile-optimized sites typically load faster, which is a key ranking factor. Responsive design allows you to serve appropriately sized images and content based on the user's device.</p>
                             </div>
                         </div>
 
@@ -199,107 +145,107 @@
                                 <i data-lucide="users" class="w-6 h-6 text-accent"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Improved User Experience</h3>
-                                <p class="text-muted-foreground">Google's algorithms increasingly consider user engagement metrics. A responsive site reduces bounce rates and increases time on page, signaling to search engines that your content is valuable.</p>
+                                <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed">Improved User Experience</h3>
+                                <p class="text-lg text-muted-foreground leading-relaxed mb-6">Google's algorithms increasingly consider user engagement metrics. A responsive site reduces bounce rates and increases time on page, signaling to search engines that your content is valuable.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="wrench" class="w-6 h-6 text-accent inline mr-2"></i>Technical Implementation Strategies</h2>
-                    <p>As a developer, I implement responsive design using modern techniques that ensure optimal performance across all devices.</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="wrench" class="w-6 h-6 text-accent inline mr-2"></i>Technical Implementation Strategies</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">As a developer, I implement responsive design using modern techniques that ensure optimal performance across all devices.</p>
 
-                    <h3><i data-lucide="layout" class="w-5 h-5 text-accent inline mr-2"></i>Fluid Grid Systems</h3>
-                    <p>Using relative units like percentages and viewport units instead of fixed pixels allows layouts to adapt smoothly to different screen sizes. Tools like Tailwind CSS make this implementation straightforward.</p>
+                    <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="layout" class="w-5 h-5 text-accent inline mr-2"></i>Fluid Grid Systems</h3>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Using relative units like percentages and viewport units instead of fixed pixels allows layouts to adapt smoothly to different screen sizes. Tools like Tailwind CSS make this implementation straightforward.</p>
 
-                    <h3><i data-lucide="image" class="w-5 h-5 text-accent inline mr-2"></i>Flexible Media</h3>
+                    <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="image" class="w-5 h-5 text-accent inline mr-2"></i>Flexible Media</h3>
                     <p>Images and videos must scale appropriately. Using CSS properties like <code class="bg-secondary/20 px-2 py-1 rounded text-sm">max-width: 100%</code> and modern image formats ensures media looks great on all devices without wasting bandwidth.</p>
 
-                    <h3><i data-lucide="smartphone" class="w-5 h-5 text-accent inline mr-2"></i>Media Queries</h3>
-                    <p>Strategic breakpoints allow you to adjust layouts at specific screen sizes. I typically use a mobile-first approach, starting with small screens and enhancing for larger displays.</p>
+                    <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="smartphone" class="w-5 h-5 text-accent inline mr-2"></i>Media Queries</h3>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Strategic breakpoints allow you to adjust layouts at specific screen sizes. I typically use a mobile-first approach, starting with small screens and enhancing for larger displays.</p>
 
-                    <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 flex items-center gap-2"><i data-lucide="lightbulb" class="w-5 h-5 text-accent"></i> Pro Tip</h3>
+                    <div class="bg-card border border-border rounded-2xl p-8 md:p-12 mb-12 reveal">
+                        <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="lightbulb" class="w-5 h-5 text-accent"></i> Pro Tip</h3>
                         <p class="mb-0">Always test your responsive design on real devices, not just browser dev tools. Emulators can't replicate the actual user experience on different devices.</p>
                     </div>
 
-                    <h2><i data-lucide="zap" class="w-6 h-6 text-accent inline mr-2"></i>Performance Optimization Techniques</h2>
-                    <p>Responsive design goes hand-in-hand with performance optimization. Here are key strategies I employ:</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="zap" class="w-6 h-6 text-accent inline mr-2"></i>Performance Optimization Techniques</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Responsive design goes hand-in-hand with performance optimization. Here are key strategies I employ:</p>
 
                     <div class="grid md:grid-cols-2 gap-6 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
                                 <i data-lucide="eye" class="w-5 h-5 text-accent"></i> Lazy Loading
                             </h4>
-                            <p class="text-sm text-muted-foreground">Images below the fold are loaded only when needed, reducing initial page load times significantly.</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Images below the fold are loaded only when needed, reducing initial page load times significantly.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
                                 <i data-lucide="target" class="w-5 h-5 text-accent"></i> Critical CSS
                             </h4>
-                            <p class="text-sm text-muted-foreground">Delivering only the CSS needed for the initial viewport improves perceived performance.</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Delivering only the CSS needed for the initial viewport improves perceived performance.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
                                 <i data-lucide="trending-up" class="w-5 h-5 text-accent"></i> Progressive Enhancement
                             </h4>
-                            <p class="text-sm text-muted-foreground">Starting with a solid foundation that works on all devices, then adding enhancements for more capable browsers.</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Starting with a solid foundation that works on all devices, then adding enhancements for more capable browsers.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
                                 <i data-lucide="cloud" class="w-5 h-5 text-accent"></i> CDN Implementation
                             </h4>
-                            <p class="text-sm text-muted-foreground">Content delivery networks ensure fast loading times regardless of user location.</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Content delivery networks ensure fast loading times regardless of user location.</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="flask-conical" class="w-6 h-6 text-accent inline mr-2"></i>Testing and Maintenance</h2>
-                    <p>Responsive design requires ongoing testing and maintenance. I regularly test sites across multiple devices and browsers, using tools like:</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="flask-conical" class="w-6 h-6 text-accent inline mr-2"></i>Testing and Maintenance</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Responsive design requires ongoing testing and maintenance. I regularly test sites across multiple devices and browsers, using tools like:</p>
 
-                    <ul class="space-y-2">
+                    <ul class="space-y-4 mb-8">
                         <li><strong class="text-accent">Browser developer tools</strong> for responsive testing</li>
-                        <li><strong class="text-accent">Real device testing</strong> on various screen sizes</li>
-                        <li><strong class="text-accent">Automated testing tools</strong> for continuous integration</li>
-                        <li><strong class="text-accent">User feedback and analytics data</strong> for real-world insights</li>
+                        <li class="flex items-start gap-4 text-lg text-muted-foreground leading-relaxed"><strong class="text-accent">Real device testing</strong> on various screen sizes</li>
+                        <li class="flex items-start gap-4 text-lg text-muted-foreground leading-relaxed"><strong class="text-accent">Automated testing tools</strong> for continuous integration</li>
+                        <li class="flex items-start gap-4 text-lg text-muted-foreground leading-relaxed"><strong class="text-accent">User feedback and analytics data</strong> for real-world insights</li>
                     </ul>
 
-                    <h2><i data-lucide="crystal-ball" class="w-6 h-6 text-accent inline mr-2"></i>The Future of Responsive Design</h2>
-                    <p>As technology evolves, so does responsive design. We're seeing trends like:</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="crystal-ball" class="w-6 h-6 text-accent inline mr-2"></i>The Future of Responsive Design</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">As technology evolves, so does responsive design. We're seeing trends like:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="box" class="w-4 h-4 text-accent"></i> Container Queries</h4>
-                            <p class="text-sm text-muted-foreground">Allowing components to respond to their container's size rather than the viewport</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Allowing components to respond to their container's size rather than the viewport</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="type" class="w-4 h-4 text-accent"></i> Fluid Typography</h4>
-                            <p class="text-sm text-muted-foreground">Text that scales smoothly across all devices</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Text that scales smoothly across all devices</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-accent"></i> Advanced CSS</h4>
-                            <p class="text-sm text-muted-foreground">New features like CSS Grid and Flexbox for more sophisticated layouts</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">New features like CSS Grid and Flexbox for more sophisticated layouts</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="bot" class="w-4 h-4 text-accent"></i> AI-Powered Design</h4>
-                            <p class="text-sm text-muted-foreground">Tools that automatically optimize layouts for different devices</p>
+                            <p class="text-lg text-muted-foreground leading-relaxed mb-6">Tools that automatically optimize layouts for different devices</p>
                         </div>
                     </div>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent flex items-center gap-2"><i data-lucide="rocket" class="w-5 h-5"></i> Ready to Make Your Website Responsive?</h3>
+                        <h3 class="text-xl font-display font-bold mb-4 capitalize text-accent leading-relaxed"><i data-lucide="rocket" class="w-5 h-5"></i> Ready to Make Your Website Responsive?</h3>
                         <p class="mb-4">Don't let mobile users miss out on your content. A responsive website isn't just good practice, it's essential for business success in 2025.</p>
                         <p class="mb-0">Contact me today to discuss making your website mobile-friendly and future-proof.</p>
                     </div>
 
-                    <h2><i data-lucide="file-text" class="w-6 h-6 text-accent inline mr-2"></i>Conclusion</h2>
-                    <p>Responsive web design is crucial for success in 2025 and beyond. It improves user experience, boosts SEO, and ensures your website reaches its full potential. As a full-stack developer, I make responsive design a cornerstone of every project I undertake.</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 flex items-center gap-4"><i data-lucide="file-text" class="w-6 h-6 text-accent inline mr-2"></i>Conclusion</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">Responsive web design is crucial for success in 2025 and beyond. It improves user experience, boosts SEO, and ensures your website reaches its full potential. As a full-stack developer, I make responsive design a cornerstone of every project I undertake.</p>
 
-                    <p>If you're looking to modernize your website or build a new one from scratch, responsive design should be at the top of your priority list. The investment pays dividends in user satisfaction, search rankings, and business growth.</p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">If you're looking to modernize your website or build a new one from scratch, responsive design should be at the top of your priority list. The investment pays dividends in user satisfaction, search rankings, and business growth.</p>
 
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Share this article:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
@@ -320,25 +266,10 @@
         </div>
     </main>
 
-    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+        <script src="./js/components.js"></script>
 </body>
 </html>

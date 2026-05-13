@@ -85,6 +85,7 @@ html {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
 
 /* Navbar Blur */
 .nav-scrolled {
@@ -186,3 +187,26 @@ html {
     border-color: var(--accent);
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
 }
+
+/* ── Fix: reassert Inter/Space Grotesk inside Tailwind .prose blocks ────────
+   Tailwind Typography plugin resets font-family to system fonts on all
+   elements inside .prose. This override restores our design system fonts.    */
+.prose,
+.prose p,
+.prose li,
+.prose blockquote,
+.prose td,
+.prose th,
+.prose label {
+    font-family: 'Inter', sans-serif;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
