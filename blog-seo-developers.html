@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO for Developers: Technical Implementation Guide - Lay Shah</title>
-    <meta name="description" content="Master SEO as a developer with this comprehensive technical guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies.">
+    <title>SEO for Developers: Technical Implementation Guide | Lay Shah</title>
+    <meta name="description" content="Read about seo for developers: technical implementation guide by Lay Shah.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-seo-developers.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="SEO for Developers: Technical Implementation Guide" />
-    <meta property="og:description" content="Master SEO as a developer with this comprehensive technical guide covering meta tags, structured data, Core Web Vitals, and implementation strategies." />
-    <meta property="og:url" content="https://layshahdev.com/blog-seo-developers.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SEO for Developers: Technical Implementation Guide">
+    <meta property="og:description" content="Master SEO as a developer with this comprehensive technical guide covering meta tags, structured data, Core Web Vitals, and implementation strategies.">
+    <meta property="og:url" content="https://layshahdev.com/blog-seo-developers.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
-    <!-- Article meta -->
-    <meta property="article:author" content="Lay Shah" />
-    <meta property="article:published_time" content="2026-02-07" />
+    <meta property="article:author" content="Lay Shah">
+    <meta property="article:published_time" content="2026-02-07">
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "SEO for Developers: Technical Implementation Guide",
+    "description": "Master SEO as a developer with this comprehensive technical guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies.",
+    "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://layshahdev.com/logo.png"
+        }
+    },
+    "datePublished": "2026-02-07",
+    "dateModified": "2026-02-07",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-seo-developers.html"
+    }
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,104 +67,98 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
@@ -140,24 +166,24 @@
             <article>
                 <header class="mb-12">
                     <div class="flex items-center gap-4 mb-4">
-                        <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">SEO & Performance</span>
+                        <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">SEO &amp; Performance</span>
                         <span class="text-sm text-muted-foreground">7 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">SEO for Developers: Technical Implementation Guide</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">Master the technical side of SEO with this comprehensive guide. Learn how to implement meta tags, structured data, Core Web Vitals optimization, and other developer-focused SEO strategies that drive organic traffic.</p>
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">SEO for Developers: Technical Implementation Guide</h1>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Content alone won't save you if Google's bots can't parse your DOM. Here is how I set up technical SEO infrastructure on modern JS frameworks to guarantee that top-tier content actually gets indexed and ranked.</p>
                 </header>
 
                 <div class="prose prose-lg max-w-none">
                     <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2 flex items-center gap-2"><i data-lucide="search" class="w-5 h-5 text-accent"></i> Key Insight</p>
-                        <p class="mb-0">SEO isn't just for marketers, developers play a crucial role in implementing the technical foundations that search engines need to understand and rank your content effectively.</p>
+                        <p class="text-lg font-medium mb-2 flex items-center gap-2 max-w-prose text-balance"><i data-lucide="search" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">SEO isn't just for marketers, developers play a crucial role in implementing the technical foundations that search engines need to understand and rank your content effectively.</p>
                     </div>
 
-                    <h2><i data-lucide="trending-up" class="w-6 h-6 text-accent inline mr-2"></i>The SEO-Developer Relationship</h2>
-                    <p>While marketers focus on keywords and content strategy, developers implement the technical infrastructure that makes SEO possible. Understanding both sides creates websites that are both user-friendly and search-engine optimized.</p>
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>The SEO-Developer Relationship</h2>
+                    <p class="max-w-prose text-balance">While marketers focus on keywords and content strategy, developers implement the technical infrastructure that makes SEO possible. Understanding both sides creates websites that are both user-friendly and search-engine optimized.</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4">📈 SEO Impact Metrics</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>SEO Impact Metrics</h3>
                         <div class="grid md:grid-cols-4 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">75%</div>
@@ -178,46 +204,46 @@
                         </div>
                     </div>
 
-                    <h2>🏷️ Meta Tags and Document Structure</h2>
-                    <p>The foundation of SEO starts with proper HTML structure and meta tags. These elements tell search engines what your page is about and how to display it in search results.</p>
+                    <h2 class="text-balance"><i data-lucide="tag" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Meta Tags and Document Structure</h2>
+                    <p class="max-w-prose text-balance">The foundation of SEO starts with proper HTML structure and meta tags. These elements tell search engines what your page is about and how to display it in search results.</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">📄</span>
+                                <i data-lucide="file-text" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Title Tags</h3>
-                                <p class="text-muted-foreground">Keep them under 60 characters and include primary keywords. Use separators like pipes or dashes for readability.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Title Tags</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Keep them under 60 characters and include primary keywords. Use separators like pipes or dashes for readability.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">📝</span>
+                                <i data-lucide="file-text" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Meta Descriptions</h3>
-                                <p class="text-muted-foreground">Write compelling 150-160 character descriptions that include keywords and call-to-action language.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Meta Descriptions</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Write compelling 150-160 character descriptions that include keywords and call-to-action language.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">🔗</span>
+                                <i data-lucide="link" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Canonical URLs</h3>
-                                <p class="text-muted-foreground">Prevent duplicate content issues by specifying the preferred version of each page.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Canonical URLs</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Prevent duplicate content issues by specifying the preferred version of each page.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2>📋 Structured Data Implementation</h2>
-                    <p>Structured data (Schema.org markup) helps search engines understand your content better, leading to rich snippets and enhanced search results.</p>
+                    <h2 class="text-balance"><i data-lucide="clipboard-list" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Structured Data Implementation</h2>
+                    <p class="max-w-prose text-balance">Structured data (Schema.org markup) helps search engines understand your content better, leading to rich snippets and enhanced search results.</p>
 
-                    <h3>📰 Article Schema</h3>
-                    <p>For blog posts and articles, implement Article schema to qualify for rich snippets:</p>
+                    <h3 class="text-balance"><i data-lucide="newspaper" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Article Schema</h3>
+                    <p class="max-w-prose text-balance">For blog posts and articles, implement Article schema to qualify for rich snippets:</p>
 
                     <div class="bg-secondary/10 p-4 rounded-lg my-4">
                         <pre class="text-sm overflow-x-auto"><code class="language-json">{
@@ -233,8 +259,8 @@
 }</code></pre>
                     </div>
 
-                    <h3>🏢 Organization Schema</h3>
-                    <p>Add organization markup to your homepage for local SEO and brand recognition:</p>
+                    <h3 class="text-balance"><i data-lucide="building" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Organization Schema</h3>
+                    <p class="max-w-prose text-balance">Add organization markup to your homepage for local SEO and brand recognition:</p>
 
                     <div class="bg-secondary/10 p-4 rounded-lg my-4">
                         <pre class="text-sm overflow-x-auto"><code class="language-json">{
@@ -247,150 +273,144 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3">💡 Pro Tip</h3>
-                        <p class="mb-0">Use Google's Rich Results Test tool to validate your structured data implementation and see how it will appear in search results.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Pro Tip</h3>
+                        <p class="mb-0 max-w-prose text-balance">Use Google's Rich Results Test tool to validate your structured data implementation and see how it will appear in search results.</p>
                     </div>
 
-                    <h2>⚡ Core Web Vitals Optimization</h2>
-                    <p>Google's Core Web Vitals are user experience metrics that affect search rankings. As developers, we control these technical factors.</p>
+                    <h2 class="text-balance"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Core Web Vitals Optimization</h2>
+                    <p class="max-w-prose text-balance">Google's Core Web Vitals are user experience metrics that affect search rankings. As developers, we control these technical factors.</p>
 
                     <div class="grid md:grid-cols-3 gap-6 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>🏃</span> Largest Contentful Paint (LCP)
+                                <i data-lucide="gauge" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Largest Contentful Paint (LCP)
                             </h4>
-                            <p class="text-sm text-muted-foreground">Optimize server response times, remove render-blocking resources, and optimize images for fast loading.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Optimize server response times, remove render-blocking resources, and optimize images for fast loading.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>📱</span> First Input Delay (FID)
+                                <i data-lucide="smartphone" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>First Input Delay (FID)
                             </h4>
-                            <p class="text-sm text-muted-foreground">Minimize JavaScript execution time, break up long tasks, and use web workers for heavy computations.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Minimize JavaScript execution time, break up long tasks, and use web workers for heavy computations.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>📐</span> Cumulative Layout Shift (CLS)
+                                <i data-lucide="layout" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Cumulative Layout Shift (CLS)
                             </h4>
-                            <p class="text-sm text-muted-foreground">Include size attributes on images, avoid inserting content above existing content, and reserve space for ads.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Include size attributes on images, avoid inserting content above existing content, and reserve space for ads.</p>
                         </div>
                     </div>
 
-                    <h2>🔧 Technical SEO Checklist</h2>
-                    <p>Use this comprehensive checklist to ensure your websites are technically optimized for search engines:</p>
+                    <h2 class="text-balance"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Technical SEO Checklist</h2>
+                    <p class="max-w-prose text-balance">Use this comprehensive checklist to ensure your websites are technically optimized for search engines:</p>
 
                     <div class="space-y-4 my-8">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>📱</span> Mobile-First Design
+                                <i data-lucide="smartphone" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Mobile-First Design
                             </h4>
-                            <p class="text-sm text-muted-foreground">Ensure your site works perfectly on mobile devices with responsive design and fast loading times.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Ensure your site works perfectly on mobile devices with responsive design and fast loading times.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🔒</span> HTTPS Implementation
+                                <i data-lucide="lock" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>HTTPS Implementation
                             </h4>
-                            <p class="text-sm text-muted-foreground">Secure your site with SSL certificates for better rankings and user trust.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Secure your site with SSL certificates for better rankings and user trust.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🗺️</span> XML Sitemap
+                                <i data-lucide="map" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>XML Sitemap
                             </h4>
-                            <p class="text-sm text-muted-foreground">Create and submit XML sitemaps to help search engines discover and index your pages.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Create and submit XML sitemaps to help search engines discover and index your pages.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🤖</span> Robots.txt Optimization
+                                <i data-lucide="bot" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Robots.txt Optimization
                             </h4>
-                            <p class="text-sm text-muted-foreground">Guide search engine crawlers to important pages while blocking unnecessary areas.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Guide search engine crawlers to important pages while blocking unnecessary areas.</p>
                         </div>
                     </div>
 
-                    <h2>🛠️ Developer Tools for SEO</h2>
-                    <p>Leverage these tools to monitor and improve your SEO performance:</p>
+                    <h2 class="text-balance"><i data-lucide="hammer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Developer Tools for SEO</h2>
+                    <p class="max-w-prose text-balance">Leverage these tools to monitor and improve your SEO performance:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🔍 Google Search Console</h4>
-                            <p class="text-sm text-muted-foreground">Monitor indexing status, search performance, and technical issues.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="search" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Google Search Console</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor indexing status, search performance, and technical issues.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📊 Google Analytics</h4>
-                            <p class="text-sm text-muted-foreground">Track user behavior, conversion rates, and identify optimization opportunities.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Google Analytics</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Track user behavior, conversion rates, and identify optimization opportunities.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">⚡ Lighthouse</h4>
-                            <p class="text-sm text-muted-foreground">Audit performance, accessibility, SEO, and best practices.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Lighthouse</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Audit performance, accessibility, SEO, and best practices.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🔧 Screaming Frog</h4>
-                            <p class="text-sm text-muted-foreground">Crawl your site to identify technical SEO issues and broken links.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Screaming Frog</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Crawl your site to identify technical SEO issues and broken links.</p>
                         </div>
                     </div>
 
-                    <h2>🚀 Advanced SEO Techniques</h2>
-                    <p>Once you have the basics covered, implement these advanced strategies for competitive advantage:</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Advanced SEO Techniques</h2>
+                    <p class="max-w-prose text-balance">Once you have the basics covered, implement these advanced strategies for competitive advantage:</p>
 
                     <div class="space-y-4 my-8">
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">🌐 International SEO</h4>
-                            <p class="text-sm text-muted-foreground">Use hreflang tags for multi-language sites and implement proper URL structures for international targeting.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="globe" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>International SEO</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Use hreflang tags for multi-language sites and implement proper URL structures for international targeting.</p>
                         </div>
 
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">⚡ JavaScript SEO</h4>
-                            <p class="text-sm text-muted-foreground">Ensure search engines can crawl and index JavaScript-rendered content with proper server-side rendering or dynamic rendering.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>JavaScript SEO</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Ensure search engines can crawl and index JavaScript-rendered content with proper server-side rendering or dynamic rendering.</p>
                         </div>
 
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">🔗 Internal Linking Strategy</h4>
-                            <p class="text-sm text-muted-foreground">Create logical internal link structures to help search engines understand your site architecture and distribute link equity.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="link" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Internal Linking Strategy</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Create logical internal link structures to help search engines understand your site architecture and distribute link equity.</p>
                         </div>
                     </div>
 
-                    <h2>📈 Measuring SEO Success</h2>
-                    <p>Track these key metrics to understand your SEO performance and identify areas for improvement:</p>
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Measuring SEO Success</h2>
+                    <p class="max-w-prose text-balance">Track these key metrics to understand your SEO performance and identify areas for improvement:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🎯 Organic Traffic</h4>
-                            <p class="text-sm text-muted-foreground">Monitor visits from search engines and track growth over time.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Organic Traffic</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor visits from search engines and track growth over time.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📊 Keyword Rankings</h4>
-                            <p class="text-sm text-muted-foreground">Track positions for target keywords and identify ranking improvements.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Keyword Rankings</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Track positions for target keywords and identify ranking improvements.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🔗 Backlink Profile</h4>
-                            <p class="text-sm text-muted-foreground">Monitor the quality and quantity of inbound links to your site.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="link" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Backlink Profile</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor the quality and quantity of inbound links to your site.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📈 Conversion Rates</h4>
-                            <p class="text-sm text-muted-foreground">Measure how SEO traffic converts into business outcomes.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Conversion Rates</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Measure how SEO traffic converts into business outcomes.</p>
                         </div>
                     </div>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent">🚀 Ready to Optimize Your SEO?</h3>
-                        <p class="mb-4">Technical SEO is a developer superpower. When implemented correctly, it creates the foundation for sustainable organic growth and better user experiences.</p>
-                        <p class="mb-0">Need help implementing these SEO strategies on your website? Let's discuss how I can help optimize your technical foundation.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">Technical SEO isn't just about passing Lighthouse scores; it's about removing friction between search engine crawlers and your business value.</p>
+                        <p class="mb-0 max-w-prose text-balance">Is your organic traffic flatlining because of hidden rendering issues? Let's audit your architecture.</p>
                     </div>
 
-                    <h2>📝 Conclusion</h2>
-                    <p>SEO is a collaborative effort between marketers and developers, but the technical implementation falls squarely on developers. By mastering these technical SEO fundamentals: from meta tags to Core Web Vitals, you can build websites that not only rank well but also provide exceptional user experiences.</p>
-
-                    <p>Remember, SEO is an ongoing process. Stay updated with algorithm changes, monitor your performance, and continuously optimize based on data and user feedback. The websites that succeed in SEO are those that balance technical excellence with valuable, user-focused content.</p>
-
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="#" class="text-accent hover:text-primary transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>
@@ -408,25 +428,33 @@
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

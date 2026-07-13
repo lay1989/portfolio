@@ -1,0 +1,89 @@
+diff --git a/script.js b/script.js
+index a2d3e4b..b3e4f5c 100644
+--- a/script.js
++++ b/script.js
+@@ -18,6 +18,11 @@ function initializeApp() {
++    // 0. Initialize Lucide icons globally on page load
++    if (window.lucide && typeof window.lucide.createIcons === 'function') {
++        window.lucide.createIcons();
++    }
++
+     const navbar = document.getElementById('navbar');
+     const footer = document.querySelector('footer');
+ 
+diff --git a/components/header.html b/components/header.html
+index f5a6b7c..e8d9c0a 100644
+--- a/components/header.html
++++ b/components/header.html
+@@ -17,6 +17,6 @@
+                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+-                    <i data-lucide="moon" class="w-5 h-5"></i>
++                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                 </div>
+                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+-                    <i data-lucide="sun" class="w-5 h-5"></i>
++                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                 </div>
+             </div>
+@@ -35,6 +35,6 @@
+                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+-                    <i data-lucide="moon" class="w-5 h-5"></i>
++                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                 </div>
+                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+-                    <i data-lucide="sun" class="w-5 h-5"></i>
++                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                 </div>
+             </div>
+diff --git a/components/footer.html b/components/footer.html
+index a1b2c3d..e4f5g6h 100644
+--- a/components/footer.html
++++ b/components/footer.html
+@@ -12,8 +12,8 @@
+     <div class="flex gap-6 items-center">
+-        <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+-        <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+-        <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+-        <button id="back-to-top-btn" class="hover:text-accent transition-colors hidden" aria-label="Back to Top">
+-            <i data-lucide="arrow-up" class="w-5 h-5"></i>
++        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
++        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
++        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
++        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
++            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+         </button>
+     </div>
+diff --git a/templates/project-case-study.html b/templates/project-case-study.html
+index b8c9d0e..a1b2c3d 100644
+--- a/templates/project-case-study.html
++++ b/templates/project-case-study.html
+@@ -33,3 +33,3 @@
+             <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+-                <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
++                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                     <i data-lucide="user-circle" class="w-6 h-6" aria-hidden="true"></i>
+@@ -42,3 +42,3 @@
+             <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+-                <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
++                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                     <i data-lucide="clock" class="w-6 h-6" aria-hidden="true"></i>
+@@ -51,3 +51,3 @@
+             <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+-                <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
++                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                     <i data-lucide="wrench" class="w-6 h-6" aria-hidden="true"></i>
+@@ -67,3 +67,3 @@
+                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+-                    <i data-lucide="target" class="w-8 h-8 text-accent" aria-hidden="true"></i>
++                    <i data-lucide="target" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                     Problem
+@@ -80,3 +80,3 @@
+                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+-                    <i data-lucide="lightbulb" class="w-8 h-8 text-accent" aria-hidden="true"></i>
++                    <i data-lucide="lightbulb" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                     Approach &amp; Solution
+@@ -103,3 +103,3 @@
+                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+-                    <i data-lucide="trending-up" class="w-8 h-8 text-accent" aria-hidden="true"></i>
++                    <i data-lucide="trending-up" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                     <span id="results" class="scroll-mt-32">Results &amp; Impact</span>

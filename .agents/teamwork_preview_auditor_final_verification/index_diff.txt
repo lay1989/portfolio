@@ -1,0 +1,1399 @@
+diff --git a/index.html b/index.html
+index 6bb4f7e..734ecc4 100644
+--- a/index.html
++++ b/index.html
+@@ -1,163 +1,149 @@
+ <!DOCTYPE html>
+ <html lang="en" class="light">
+ <head>
++    <script src="./src/theme-init.js"></script>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Lay Shah - Full Stack Developer | Web Design</title>
+-    <meta name="description" content="Freelance Full Stack Developer & web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio & Case Studies and get in touch!">
++    <meta name="description" content="Freelance Full Stack Developer &amp; web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio &amp; Case Studies and get in touch!">
+     <meta name="author" content="Lay Shah">
+ 
+     <link rel="canonical" href="https://layshahdev.com/">
+ 
+     <!-- Social / OpenGraph -->
+-    <meta property="og:type" content="website" />
+-    <meta property="og:title" content="Lay Shah | Web Designer & Frontend Developer" />
+-    <meta property="og:description" content="Custom websites for small businesses. Responsive, SEO-friendly, and performance focused." />
+-    <meta property="og:url" content="https://layshahdev.com/" />
+-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
+-    <meta name="twitter:card" content="summary_large_image" />
++    <meta property="og:type" content="website">
++    <meta property="og:title" content="Lay Shah | Web Designer &amp; Frontend Developer">
++    <meta property="og:description" content="Custom websites for small businesses. Responsive, SEO-friendly, and performance focused.">
++    <meta property="og:url" content="https://layshahdev.com">
++    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
++    <meta name="twitter:card" content="summary_large_image">
++    
++
++    
++
++    
+ 
+     <!-- Robots control -->
+-    <meta name="robots" content="index, follow" />
++    <meta name="robots" content="index, follow">
++
++    <!-- Structured Data -->
++    <script type="application/ld+json">
++    {
++    "@context": "https://schema.org",
++    "@type": "ProfessionalService",
++    "name": "Lay Shah | Web Developer",
++    "url": "https://layshahdev.com",
++    "logo": "https://layshahdev.com/logo.png",
++    "description": "Freelance web developer designing and building custom websites for small businesses.",
++    "sameAs": [
++        "https://github.com/lay1989"
++    ],
++    "contactPoint": [
++        {
++            "@type": "ContactPoint",
++            "email": "layshah1989@gmail.com",
++            "contactType": "customer service"
++        }
++    ]
++}
++    </script>
+ 
+     <!-- Favicon -->
+-    <link rel="icon" href="/favicon.ico"/>
++    <link rel="icon" href="/favicon.ico">
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+     <link rel="manifest" href="/site.webmanifest">
+-    
++
+     <!-- Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+-    
+-    <!-- Tailwind CSS -->
+-    <script src="https://cdn.tailwindcss.com"></script>
++
++    <!-- Icons -->
++    <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+-        tailwind.config = {
+-            darkMode: 'class',
+-            theme: {
+-                extend: {
+-                    colors: {
+-                        background: 'var(--background)',
+-                        foreground: 'var(--foreground)',
+-                        card: 'var(--card)',
+-                        'card-foreground': 'var(--card-foreground)',
+-                        primary: 'var(--primary)',
+-                        'primary-foreground': 'var(--primary-foreground)',
+-                        secondary: 'var(--secondary)',
+-                        'secondary-foreground': 'var(--secondary-foreground)',
+-                        muted: 'var(--muted)',
+-                        'muted-foreground': 'var(--muted-foreground)',
+-                        accent: 'var(--accent)',
+-                        'accent-foreground': 'var(--accent-foreground)',
+-                        border: 'var(--border)',
+-                    },
+-                    fontFamily: {
+-                        sans: ['Inter', 'sans-serif'],
+-                        display: ['Space Grotesk', 'sans-serif'],
+-                    }
+-                }
+-            }
++        if (!window.lucide) {
++            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
++            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+         }
+     </script>
+-
+-    
+-  <!-- Structured data (Person / LocalBusiness example) -->
+-  <script type="application/ld+json">
+-    {
+-        "@context": "https://schema.org",
+-        "@type": "ProfessionalService",
+-        "name": "Lay Shah | Web Developer",
+-        "url": "https://layshahdev.com",
+-        "logo": "https://layshahdev.com/logo.png",
+-        "description": "Freelance web developer designing and building custom websites for small businesses.",
+-        "sameAs": [
+-        "https://github.com/lay1989"
+-        ],
+-        "contactPoint": [{
+-        "@type": "ContactPoint",
+-        "email": "layshah1989@gmail.com",
+-        "contactType": "customer service"
+-        }]
+-    }
++    <script>
++        if (!window.lucide) {
++            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
++            document.write('<script src="./public/js/lucide.min.js"><\/script>');
++        }
+     </script>
+ 
+-
+-    <!-- Icons -->
+-    <script src="https://unpkg.com/lucide@latest"></script>
+-
+     <!-- Custom Styles -->
+-    <link rel="stylesheet" href="./style.css">
++    <link rel="stylesheet" href="./tailwind.css">
+ </head>
+-<body class="bg-background text-foreground antialiased transition-colors duration-300">
+-    
++<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
++
+     <!-- Navigation -->
+-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
++    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
+         <div class="container mx-auto px-6 flex items-center justify-between">
+-            <a href="#" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
+-                LAY SHAH
+-            </a>
+-
+-            <!-- Desktop Menu -->
+-            <div class="hidden md:flex items-center gap-8">
+-                <a href="#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
+-                <a href="#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
+-                <a href="#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
+-                <a href="#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
+-                <a href="#faq" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+-                <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</a>
+-                
+-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
+-                    <div class="theme-toggle-wrapper">
+-                        <div class="theme-icon moon">
+-                            <i data-lucide="moon" class="w-5 h-5"></i>
+-                        </div>
+-                        <div class="theme-icon sun">
+-                            <i data-lucide="sun" class="w-5 h-5"></i>
+-                        </div>
+-                    </div>
+-                </button>
+-
+-                <a href="#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
+-                    Let's Talk
+-                </a>
++    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
++        LAY SHAH
++    </a>
++
++    <!-- Desktop Menu -->
++    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
++        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
++        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Principles</a>
++        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
++        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
++        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
++        
++        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
++            <div class="relative w-5 h-5 overflow-hidden">
++                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
++                    <i data-lucide="moon" class="w-5 h-5"></i>
++                </div>
++                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
++                    <i data-lucide="sun" class="w-5 h-5"></i>
++                </div>
+             </div>
+-
+-            <!-- Mobile Toggle -->
+-            <div class="flex items-center gap-4 md:hidden">
+-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
+-                    <div class="theme-toggle-wrapper">
+-                        <div class="theme-icon moon">
+-                            <i data-lucide="moon" class="w-5 h-5"></i>
+-                        </div>
+-                        <div class="theme-icon sun">
+-                            <i data-lucide="sun" class="w-5 h-5"></i>
+-                        </div>
+-                    </div>
+-                </button>
+-                <button id="mobile-menu-btn" class="text-foreground p-2">
+-                    <div class="hamburger">
+-                        <span class="hamburger-line"></span>
+-                        <span class="hamburger-line"></span>
+-                        <span class="hamburger-line"></span>
+-                    </div>
+-                </button>
++        </button>
++
++        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
++            Let's Talk
++        </a>
++    </div>
++
++    <!-- Mobile Toggle -->
++    <div class="flex items-center gap-4 md:hidden">
++        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
++            <div class="relative w-5 h-5 overflow-hidden">
++                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
++                    <i data-lucide="moon" class="w-5 h-5"></i>
++                </div>
++                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
++                    <i data-lucide="sun" class="w-5 h-5"></i>
++                </div>
+             </div>
+-        </div>
++        </button>
++        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
++            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
++                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
++                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
++                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
++            </div>
++        </button>
++    </div>
++</div>
++
++<!-- Mobile Menu -->
++<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
++    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
++    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Principles</a>
++    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
++    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
++    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
++    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
++</div>
+ 
+-        <!-- Mobile Menu -->
+-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
+-            <a href="#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
+-            <a href="#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
+-            <a href="#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
+-            <a href="#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
+-            <a href="#faq" class="text-lg font-medium text-muted-foreground hover:text-primary">FAQ</a>
+-            <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary">Blog</a>
+-            <a href="#contact" class="text-lg font-medium text-primary">Contact</a>
+-        </div>
+     </nav>
+ 
+     <main>
+@@ -165,467 +151,416 @@
+         <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+             <div class="container mx-auto px-6 z-10 relative">
+                 <div class="max-w-4xl animate-fade-up">
+-                    <div class="flex items-center gap-2 mb-6">
+-                        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+-                        <span class="text-sm font-medium text-muted-foreground tracking-wide uppercase">Available for New Projects</span>
+-                    </div>
+-
+-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tighter mb-8">
+-                        Design. Code. <br />
+-                        <span class="text-muted-foreground">Impact.</span>
++                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tighter mb-8 text-balance">
++                        <span class="sr-only">Freelance Web Developer &amp; Web Designer - </span>
++                        High-performance web apps <br>
++                        <span class="text-muted-foreground">built for speed.</span>
+                     </h1>
+ 
+                     <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
+-                        I'm Lay Shah, a Full Stack Developer crafting sophisticated digital experiences. 
+-                        I turn complex problems into simple, beautiful, and performant web solutions.
++                        I engineer fast, reliable web applications and custom e-commerce engines. Stop losing users to bloated templates. Get clean, optimized code that scales with your growth.
+                     </p>
+ 
+                     <div class="flex flex-wrap gap-4">
+-                        <a href="#work" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
++                        <a href="#work" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 magnetic-btn inline-block">
+                             View Projects
+-                            <i data-lucide="arrow-down-right" class="w-4 h-4 group-hover:rotate-[-45deg] transition-transform"></i>
++                            <i data-lucide="arrow-down-right" class="w-4 h-4 group-hover:rotate-[-45deg] transition-transform" aria-hidden="true"></i>
+                         </a>
+-                        <a href="#contact" class="px-8 py-4 border border-border rounded-full font-medium hover:bg-secondary transition-all">
++                        <a href="#contact" class="px-8 py-4 border border-border rounded-full font-medium hover:bg-secondary transition-all magnetic-btn inline-block">
+                             Contact Me
+                         </a>
+                     </div>
+                 </div>
+             </div>
+             
+-            <!-- Blob -->
+-            <div class="absolute right-0 top-1/3 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
++
+         </section>
+ 
+         <!-- About Section -->
+-        <section id="about" class="py-20 md:py-32 px-6 bg-secondary/10">
++        <section id="about" class="py-24 md:py-32 px-6 bg-secondary/10">
+             <div class="container mx-auto max-w-6xl">
+                 <div class="grid md:grid-cols-12 gap-12 reveal">
+                     <div class="md:col-span-4">
+-                        <h2 class="text-xl font-medium text-muted-foreground sticky top-24">About Me</h2>
++                        <h2 class="text-xl font-medium text-muted-foreground sticky top-24 text-balance">About Me</h2>
+                     </div>
+                     <div class="md:col-span-8 space-y-8">
+-                        <h3 class="text-3xl md:text-5xl font-display leading-tight">
+-                            I help brands and businesses stand out in the digital era. Together we will set the new status quo.
+-                        </h3>
++                        <h3 class="text-3xl md:text-5xl font-display leading-tight text-balance">I help businesses stop leaking revenue and start scaling their digital presence.</h3>
+                         
+                         <div class="prose prose-lg text-muted-foreground">
+-                            <p class="mb-4">
+-                                I'm a passionate freelance web developer with over 5 years of experience creating custom digital solutions for small businesses and entrepreneurs. My mission is to help businesses establish a strong online presence that drives growth and success.
+-                            </p>
+-                            <p>
+-                                I combine technical expertise with design sensibilities to create unique products. I focus on performance, accessibility, and user experience to ensure that your audience has the best possible interaction with your brand.
+-                            </p>
+-                        </div>
++        <p class="mb-4">
++            Instead of delivering generic templates, I partner with you to engineer custom web applications, high-converting e-commerce stores, and efficient content management systems.
++        </p>
++        <p>
++            My focus goes beyond writing clean code. I build digital assets that resolve specific business bottlenecks and drive growth.
++        </p>
++    </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+ 
+         <!-- Services Sub-Section (Extracted from About) -->
+-        <section class="py-20 px-6">
++        <section class="py-24 px-6">
+             <div class="container mx-auto max-w-6xl reveal">
+                 <div class="mb-16 md:mb-24 text-center">
+-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">What I Can Do For You</h2>
++                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-balance">What I Can Do For You</h2>
+                     <p class="text-muted-foreground text-lg">Specialized services tailored to your growth.</p>
+                 </div>
+ 
+-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+-                    <!-- Service 1 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="code" class="w-8 h-8"></i>
+-                        </div>
+-                        <h3 class="text-2xl font-bold mb-4">Full Stack Web Development</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Custom websites and web applications built from scratch. From landing pages to complex web platforms with modern technologies.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> React & Next.js</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Python & Flask</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Database Design</li>
+-                        </ul>
+-                    </div>
+-
+-                    <!-- Service 2 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+-                        </div>
+-                        <h3 class="text-2xl font-bold mb-4">E-Commerce Solutions</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Scalable online stores that drive sales. From custom Shopify themes to headless e-commerce solutions.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Shopify Store Setup</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Payment Integrations</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom Checkout Flows</li>
+-                        </ul>
+-                    </div>
+-
+-                    <!-- Service 3 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="database" class="w-8 h-8"></i>
++                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
++                    <!-- Cell 1: Web Applications -->
++                    <div class="md:col-span-2 md:row-span-2 border border-border bg-card rounded-3xl p-8 lg:p-12 flex flex-col justify-between group hover:border-accent transition-all duration-300 relative min-h-[380px]">
++                        <div class="relative z-10 max-w-lg">
++                            <span class="text-xs font-mono text-accent uppercase tracking-wider mb-2 block font-medium">01 // WEB APPLICATIONS</span>
++                            <h3 class="text-3xl font-display font-bold mb-4 text-balance">Custom Web Applications</h3>
++                            <p class="text-muted-foreground leading-relaxed">
++                                I build fast, secure web applications designed to scale. By writing clean, modular vanilla JavaScript and optimized backend logic, I eliminate framework overhead to keep load times under 100ms.
++                            </p>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">Content Management Systems</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Custom CMS solutions for businesses to manage their digital content efficiently. From catalog management to dynamic websites.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom CMS Development</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Catalog Management</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> File Upload Systems</li>
+-                        </ul>
+-                    </div>
+-
+-                    <!-- Service 4 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
++                        <!-- CSS Grid Geometry Mockup -->
++                        <div class="mt-8 grid grid-cols-6 gap-2 w-full opacity-60 group-hover:opacity-90 transition-opacity duration-300 select-none" aria-hidden="true">
++                            <div class="col-span-2 h-20 bg-secondary/50 rounded-xl border border-border flex items-center justify-center font-mono text-[10px] text-muted-foreground">/sidebar</div>
++                            <div class="col-span-4 h-20 bg-secondary/50 rounded-xl border border-border flex flex-col justify-between p-3">
++                                <div class="h-1.5 w-12 bg-accent rounded-full"></div>
++                                <div class="h-8 w-full bg-background rounded-md border border-border flex items-center justify-between px-2">
++                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
++                                    <span class="text-[9px] font-mono text-muted-foreground">app-config.js</span>
++                                </div>
++                            </div>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">Data Analytics & Dashboards</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Interactive data visualization and analytics dashboards. Turn complex data into actionable insights with beautiful interfaces.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> D3.js Visualizations</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Real-time Dashboards</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> API Integration</li>
+-                        </ul>
+                     </div>
+ 
+-                    <!-- Service 5 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="smartphone" class="w-8 h-8"></i>
++                    <!-- Cell 2: E-Commerce -->
++                    <div class="md:col-span-1 border border-border bg-card rounded-3xl p-8 flex flex-col justify-between group hover:border-accent transition-all duration-300 relative min-h-[380px]">
++                        <div>
++                            <span class="text-xs font-mono text-accent uppercase tracking-wider mb-2 block font-medium">02 // E-COMMERCE</span>
++                            <h3 class="text-2xl font-bold mb-3 text-balance">E-Commerce</h3>
++                            <p class="text-muted-foreground text-sm leading-relaxed">
++                                High-performance online stores optimized to convert traffic. Fast checkouts and headless architecture that keep the purchasing flow friction-free.
++                            </p>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">API Integration & Backend</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Seamless API integrations and robust backend development. Connect your website with third-party services and build scalable systems.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> REST API Development</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Third-party Integrations</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> WebSocket Connections</li>
+-                        </ul>
+-                    </div>
+-
+-                    <!-- Service 6 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="bot" class="w-8 h-8"></i>
++                        <!-- Typographic Visual (Checkout Success Card) -->
++                        <div class="border border-border/60 rounded-xl p-4 bg-secondary/30 font-mono text-xs text-muted-foreground mt-6 space-y-3 select-none" aria-hidden="true">
++                            <div class="flex justify-between items-center text-xs">
++                                <span class="font-bold text-foreground">Checkout Flow</span>
++                                <span class="text-green-500 font-bold bg-green-500/10 px-2 py-0.5 rounded-full text-[10px]">Success</span>
++                            </div>
++                            <div class="space-y-1.5 border-t border-border/40 pt-2 text-[11px]">
++                                <div class="flex justify-between">
++                                    <span>Transaction Time</span>
++                                    <span class="text-foreground font-semibold">180ms</span>
++                                </div>
++                                <div class="flex justify-between text-green-500 font-medium">
++                                    <span>Conversion Lift</span>
++                                    <span>+38%</span>
++                                </div>
++                            </div>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">Automation & Bot Development</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Custom automation solutions and intelligent bots. From trading bots to workflow automation that streamline your business processes.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Trading Bots & Algorithms</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Workflow Automation</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Telegram/Discord Bots</li>
+-                        </ul>
+                     </div>
+ 
+-                    <!-- Service 7 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="palette" class="w-8 h-8"></i>
++                    <!-- Cell 3: Technical SEO -->
++                    <div class="md:col-span-1 border border-border bg-card rounded-3xl p-8 flex flex-col justify-between group hover:border-accent transition-all duration-300 relative min-h-[380px]">
++                        <div>
++                            <span class="text-xs font-mono text-accent uppercase tracking-wider mb-2 block font-medium">03 // SEO & SPEED</span>
++                            <h3 class="text-2xl font-bold mb-3 text-balance">Technical SEO</h3>
++                            <p class="text-muted-foreground text-sm leading-relaxed">
++                                Speed is a search ranking factor. I optimize site speed, semantic markup, and metadata to help search engines index your pages and keep bounce rates low.
++                            </p>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">UI/UX Design & Optimization</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Beautiful, user-centered design that converts. From wireframes to polished interfaces that provide exceptional user experiences.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> User Experience Design</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Interface Design</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Design Systems</li>
+-                        </ul>
+-                    </div>
+-
+-                    <!-- Service 8 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="search" class="w-8 h-8"></i>
++                        <!-- Typographic Visual (Performance metrics card) -->
++                        <div class="border border-border/60 rounded-xl p-4 bg-secondary/30 font-mono text-xs text-muted-foreground mt-6 space-y-3 select-none" aria-hidden="true">
++                            <div class="flex items-center justify-between">
++                                <span class="text-xs font-bold text-foreground">Speed Index</span>
++                                <span class="text-green-500 font-bold text-lg bg-green-500/10 px-2.5 py-0.5 rounded-full">100</span>
++                            </div>
++                            <div class="grid grid-cols-2 gap-2 text-[10px]">
++                                <div class="border border-border/40 rounded p-1.5">
++                                    <span class="block text-muted-foreground/60">LCP</span>
++                                    <span class="font-bold text-foreground">0.6s</span>
++                                </div>
++                                <div class="border border-border/40 rounded p-1.5">
++                                    <span class="block text-muted-foreground/60">CLS</span>
++                                    <span class="font-bold text-foreground">0.00</span>
++                                </div>
++                            </div>
+                         </div>
+-                        <h3 class="text-2xl font-bold mb-4">SEO & Performance Optimization</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Optimize your website for search engines and lightning-fast performance. Improve rankings and keep visitors engaged.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technical SEO</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Speed Optimization</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Analytics Setup</li>
+-                        </ul>
+                     </div>
++                </div>
+ 
+-                    <!-- Service 9 -->
+-                    <div class="service-card group">
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="lightbulb" class="w-8 h-8"></i>
+-                        </div>
+-                        <h3 class="text-2xl font-bold mb-4">Consultation & Strategy</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
+-                            Expert advice on web strategy, technology choices, and digital growth. Make informed decisions for your business with comprehensive digital strategy planning and technology consultation.
+-                        </p>
+-                        <ul class="space-y-2">
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Digital Strategy</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technology Planning</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Growth Consulting</li>
+-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> UX/UI Review</li>
+-                        </ul>
++                <!-- Tech Stack Tags -->
++                
++        <div class="mt-24 pt-16 border-t border-border">
++            <h4 class="text-3xl font-display font-bold mb-12 text-center text-balance">Deep Technical Expertise</h4>
++            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto text-left">
++                <div class="bg-card border border-border rounded-2xl p-8 hover:border-accent transition-colors">
++                    <div class="flex items-center justify-between mb-6">
++                        <h5 class="text-xl font-bold">Zero-Jank DOM</h5>
++                        <i data-lucide="zap" class="w-5 h-5 text-accent"></i>
++                    </div>
++                    <p class="text-muted-foreground mb-6 leading-relaxed">
++                        Instead of sluggish scroll listeners, I build efficient UIs using the native IntersectionObserver API. This guarantees 60fps performance even on budget mobile devices.
++                    </p>
++                    <div class="bg-secondary/50 rounded-lg p-4 font-mono text-sm text-muted-foreground overflow-x-auto">
++                        <code>
++                            const observer = new IntersectionObserver(<br>
++                            &nbsp;&nbsp;(entries) =&gt; {<br>
++                            &nbsp;&nbsp;&nbsp;&nbsp;if (entries[0].isIntersecting) {<br>
++                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadMoreProjects();<br>
++                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
++                            &nbsp;&nbsp;}<br>
++                            );
++                        </code>
+                     </div>
+                 </div>
+ 
+-                <!-- Tech Stack Tags -->
+-                <div class="mt-16 text-center">
+-                    <h4 class="text-foreground font-bold mb-6 text-xl">Technical Toolkit</h4>
+-                    <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+-                        <!-- Frontend -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">HTML5</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS3</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JavaScript (ES6+)</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">TypeScript</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">React</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Next.js</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vue.js</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Tailwind CSS</span>
+-                        
+-                        <!-- Backend & Databases -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Python</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Flask</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">FastAPI</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Node.js</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">PostgreSQL</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SQLAlchemy</span>
+-                        
+-                        <!-- Data & Visualization -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">D3.js</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Chart.js</span>
+-                        
+-                        <!-- APIs & Integrations -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">REST APIs</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GraphQL</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">WebSocket</span>
+-                        <!-- Animations & Interactions -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GSAP</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Framer Motion</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS Animations</span>
+-                        
+-                        <!-- DevOps & Infrastructure -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">AWS</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Nginx</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Netlify</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vercel</span>
+-                        
+-                        <!-- Tools & Platforms -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Git/GitHub</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Shopify</span>
+-                        
+-                        <!-- SEO & Analytics -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Google Analytics</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Technical SEO</span>
+-                        
+-                        <!-- Security & Performance -->
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JWT Authentication</span>
+-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SSL/TLS</span>
++                <div class="bg-card border border-border rounded-2xl p-8 hover:border-accent transition-colors">
++                    <div class="flex items-center justify-between mb-6">
++                        <h5 class="text-xl font-bold">Fluid Architecture</h5>
++                        <i data-lucide="layout" class="w-5 h-5 text-accent"></i>
++                    </div>
++                    <p class="text-muted-foreground mb-6 leading-relaxed">
++                        I architect layouts using modern CSS container queries (@container) rather than rigid viewport breakpoints, creating perfectly portable and reusable UI components.
++                    </p>
++                    <div class="bg-secondary/50 rounded-lg p-4 font-mono text-sm text-muted-foreground overflow-x-auto">
++                        <code>
++                            .project-item {<br>
++                            &nbsp;&nbsp;container-type: inline-size;<br>
++                            }<br>
++                            <br>
++                            @container (min-width: 42rem) {<br>
++                            &nbsp;&nbsp;.grid { grid-template-columns: 1fr 1fr; }<br>
++                            }
++                        </code>
+                     </div>
+                 </div>
+             </div>
++        </div>
++    
++            </div>
+         </section>
+ 
+         <!-- Process Section -->
+-        <section id="process" class="py-20 md:py-32 px-6">
++        
++        <!-- Philosophy Section (Sticky-Scroll Refactor) -->
++        <section id="principles" class="py-24 md:py-32 px-6">
+             <div class="container mx-auto max-w-6xl reveal">
+-                <div class="mb-16 md:mb-24 text-center">
+-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">How I Work</h2>
+-                    <p class="text-muted-foreground text-lg">A proven process for delivering exceptional results.</p>
+-                </div>
+-
+-                <div class="grid md:grid-cols-4 gap-8">
+-                    <!-- Step 1 -->
+-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
+-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">01</div>
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="search" class="w-8 h-8"></i>
+-                        </div>
+-                        <h3 class="text-xl font-bold mb-3">Discovery</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed">We start by understanding your goals, audience, and competitors to define the project scope.</p>
+-                    </div>
+-
+-                    <!-- Step 2 -->
+-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
+-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">02</div>
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="pen-tool" class="w-8 h-8"></i>
++                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
++                    <!-- Left Sticky Column -->
++                    <div class="md:col-span-4 md:sticky md:top-24 space-y-4">
++                        <h2 class="text-4xl md:text-5xl font-display font-bold text-balance">Engineering Philosophy</h2>
++                        <p class="text-muted-foreground text-lg">My uncompromising approach to building the web.</p>
++                    </div>
++
++                    <!-- Right Scrollable Column -->
++                    <div class="md:col-span-8 space-y-12">
++                        <!-- Principle 1 -->
++                        <div class="p-8 border border-border bg-card rounded-2xl group hover-lift transition-all duration-300">
++                            <div class="mb-6 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
++                                <i data-lucide="gauge" class="w-6 h-6"></i>
++                            </div>
++                            <h3 class="text-2xl font-bold mb-4 text-balance">Performance First</h3>
++                            <p class="text-muted-foreground leading-relaxed">
++                                I build with vanilla JavaScript where possible to eliminate framework bloat. Static site generation, minimal dependencies, and compressed assets deliver sub-100ms load times and top-tier Core Web Vitals.
++                            </p>
+                         </div>
+-                        <h3 class="text-xl font-bold mb-3">Design</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed">I create wireframes and high-fidelity mockups to visualize the user experience and interface.</p>
+-                    </div>
+ 
+-                    <!-- Step 3 -->
+-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
+-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">03</div>
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="code-2" class="w-8 h-8"></i>
++                        <!-- Principle 2 -->
++                        <div class="p-8 border border-border bg-card rounded-2xl group hover-lift transition-all duration-300">
++                            <div class="mb-6 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
++                                <i data-lucide="accessibility" class="w-6 h-6"></i>
++                            </div>
++                            <h3 class="text-2xl font-bold mb-4 text-balance">Accessibility by Default</h3>
++                            <p class="text-muted-foreground leading-relaxed">
++                                A beautiful website that cannot be navigated by keyboard is a broken website. I strictly enforce semantic HTML, proper ARIA roles, and WCAG compliance from the very first line of code.
++                            </p>
+                         </div>
+-                        <h3 class="text-xl font-bold mb-3">Build</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed">Development begins using modern technologies, ensuring clean code and responsive layouts.</p>
+-                    </div>
+ 
+-                    <!-- Step 4 -->
+-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
+-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">04</div>
+-                        <div class="mb-6 text-accent">
+-                            <i data-lucide="rocket" class="w-8 h-8"></i>
++                        <!-- Principle 3 -->
++                        <div class="p-8 border border-border bg-card rounded-2xl group hover-lift transition-all duration-300">
++                            <div class="mb-6 w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
++                                <i data-lucide="scaling" class="w-6 h-6"></i>
++                            </div>
++                            <h3 class="text-2xl font-bold mb-4 text-balance">Fluid Responsiveness</h3>
++                            <p class="text-muted-foreground leading-relaxed">
++                                I reject rigid breakpoints. Leveraging CSS clamp() for fluid typography and container queries for modular layouts allows elements to adapt naturally to any screen.
++                            </p>
+                         </div>
+-                        <h3 class="text-xl font-bold mb-3">Launch</h3>
+-                        <p class="text-sm text-muted-foreground leading-relaxed">After rigorous testing, we deploy your site and I provide training for easy management.</p>
+                     </div>
+                 </div>
+             </div>
+         </section>
++    
+ 
+         <!-- Projects Section -->
+-        <section id="work" class="py-20 md:py-32 px-6 bg-secondary/10">
++        <section id="work" class="py-24 md:py-32 px-6 bg-secondary/10">
+             <div class="container mx-auto max-w-6xl reveal">
+                 <div class="mb-16 md:mb-24">
+-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Selected Work</h2>
++                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-balance">Selected Work</h2>
+                     <p class="text-muted-foreground text-lg">A collection of recent projects and case studies.</p>
+                 </div>
+ 
+                 <div id="projects-container" class="space-y-20 md:space-y-32">
++                    
+                     <!-- Project 1 -->
+-                    <div class="project-item group block">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-1">
++                    <div class="project-item group block @container" data-project="6">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-1">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/Ghermar & Sons.webp" alt="Portfolio Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/Stark EV.webp" alt="Stark EV - UI/UX Design &amp; Frontend Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-2">
+-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design & Development - 2025</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Ghermar & Sons</h3>
+-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A stunning Landing Page for a Import-Export Company with smooth animations.</p>
+-                                <a href="project-details.html?id=1" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                            <div class="order-1 @2xl:order-2">
++                                <span class="text-accent text-sm font-medium mb-4 block">UI/UX Design &amp; Frontend Development - 2025</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Stark EV</h3>
++                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A personal project exploring futuristic UI/UX design with complex interactions and modern web technologies.</p>
++                                <a href="projects/stark-ev.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+                     <!-- Project 2 -->
+-                    <div class="project-item group block">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-2">
++                    <div class="project-item group block @container" data-project="4">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-2">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/SwiftBuild.webp" alt="swiftbuild-infratech" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/png" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-1">
+-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development & SEO - 2025</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">SwiftBuild Infratech</h3>
+-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A sophisticated portfolio for a  International modern Construction Innovation Company.</p>
+-                                <a href="project-details.html?id=2" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                            <div class="order-1 @2xl:order-1">
++                                <span class="text-accent text-sm font-medium mb-4 block">Content Management System - 2025</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Kamaldeep Enterprise</h3>
++                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.</p>
++                                <a href="projects/kamaldeep-enterprise.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+                     <!-- Project 3 -->
+-                    <div class="project-item group block">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-1">
++                    <div class="project-item group block @container" data-project="2">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-1">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Dashboard" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/SwiftBuild.webp" alt="SwiftBuild Infratech - Web Design, Development &amp; SEO" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-2">
+-                                <span class="text-accent text-sm font-medium mb-4 block">Crypto Bot - 2024</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Analytics Dashboard</h3>
+-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Data visualization platform for a crpyto bot for tracking, trading and reporting.</p>
+-                                <a href="project-details.html?id=3" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                            <div class="order-1 @2xl:order-2">
++                                <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development &amp; SEO - 2025</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">SwiftBuild Infratech</h3>
++                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A sophisticated portfolio for a International modern Construction Innovation Company.</p>
++                                <a href="projects/swiftbuild-infratech.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Project 4 (Hidden by default) -->
+-                    <div class="project-item group block hidden" data-project="4">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-2">
++                    <!-- Project 4 -->
++                    <div class="project-item group block @container hidden" data-project="1">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-2">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/Ghermar & Sons.webp" alt="Ghermar &amp; Sons - Web Design &amp; Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-1">
+-                                <span class="text-accent text-sm font-medium mb-4 block">Content Management System - 2025</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Kamaldeep Enterprise</h3>
+-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Custom-made CMS for Fabric Wholesaler to manage catlogs for their clients.</p>
+-                                <a href="project-details.html?id=4" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                            <div class="order-1 @2xl:order-1">
++                                <span class="text-accent text-sm font-medium mb-4 block">Web Design &amp; Development - 2025</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Ghermar &amp; Sons</h3>
++                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A stunning Landing Page for a Import-Export Company with smooth animations.</p>
++                                <a href="projects/ghermar-sons.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Project 5 (Hidden by default) -->
+-                    <div class="project-item group block hidden" data-project="5">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-1">
++                    <!-- Project 5 -->
++                    <div class="project-item group block @container hidden" data-project="5">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-1">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/Aroma Cafe.webp" alt="Aesthetic Cafe Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/Aroma Cafe.webp" alt="Aroma Cafe - Web Design &amp; API Integration" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-2">
+-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design & API Integration - 2024</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Aroma Cafe</h3>
++                            <div class="order-1 @2xl:order-2">
++                                <span class="text-accent text-sm font-medium mb-4 block">Web Design &amp; API Integration - 2024</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Aroma Cafe</h3>
+                                 <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A beautiful Cafe website with online reservations, menu showcase, and location finder.</p>
+-                                <a href="project-details.html?id=5" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                                <a href="projects/aroma-cafe.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Project 6 (Hidden by default) -->
+-                    <div class="project-item group block hidden" data-project="6">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-2">
++                    <!-- Project 6 -->
++                    <div class="project-item group block @container hidden" data-project="3">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-2">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="./public/images/Stark EV.webp" alt="Stark EV" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/png" srcset="./public/images/saas_dashboard_minimal_interface-small.png 600w, ./public/images/saas_dashboard_minimal_interface.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Trading Analytics - Personal Trading Bot &amp; Data Visualization" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-1">
+-                                <span class="text-accent text-sm font-medium mb-4 block">UI Design & Full Stack Development</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Stark EV</h3>
+-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A Fictional Futuristic Car Brand. Designed with stunning details and highly complex UI. </p>
+-                                <a href="project-details.html?id=6" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                            <div class="order-1 @2xl:order-1">
++                                <span class="text-accent text-sm font-medium mb-4 block">Personal Trading Bot &amp; Data Visualization - 2024</span>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Crypto Trading Analytics</h3>
++                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.</p>
++                                <a href="projects/crypto-trading-analytics.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Project 7 (Hidden by default) -->
+-                    <!-- <div class="project-item group block hidden" data-project="7">
+-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+-                            <div class="order-2 md:order-1">
++                    <!-- Project 7 -->
++                    <div class="project-item group block @container hidden" data-project="7">
++                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
++                            <div class="order-2 @2xl:order-1">
+                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
+-                                    <img src="/images/modern_e-commerce_interface_mockup.png" alt="Project Management" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
++                                    <picture>
++                <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <source type="image/png" srcset="./public/images/modern_e-commerce_interface_mockup-small.png 600w, ./public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
++                <img src="./public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro - Project Management Tool" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
++            </picture>
+                                 </div>
+                             </div>
+-                            <div class="order-1 md:order-2">
++                            <div class="order-1 @2xl:order-2">
+                                 <span class="text-accent text-sm font-medium mb-4 block">Project Management Tool - 2023</span>
+-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">TaskFlow Pro</h3>
++                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">TaskFlow Pro</h3>
+                                 <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Enterprise-grade project management solution with advanced automation and team collaboration features.</p>
+-                                <a href="project-details.html?id=7" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
++                                <a href="projects/taskflow-pro.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
++                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+-                    </div> -->
++                    </div>
+                 </div>
+ 
+                 
+@@ -633,221 +568,89 @@
+                 <div id="load-more-container" class="mt-16 flex justify-center">
+                     <button id="load-more-btn" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
+                         Load More Projects
+-                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
++                        <i data-lucide="arrow-down" class="w-4 h-4" aria-hidden="true"></i>
+                     </button>
+                 </div>
+             </div>
+         </section>
+ 
+         <!-- Reviews Section -->
+-        <section id="reviews" class="py-20 md:py-32 px-6">
++        <section id="reviews" class="py-24 md:py-32 px-6">
+             <div class="container mx-auto max-w-6xl reveal">
+                 <div class="mb-16 md:mb-24 text-center">
+-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Client Reviews</h2>
++                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-balance">Client Reviews</h2>
+                     <p class="text-muted-foreground text-lg">What people say about working with me.</p>
+                 </div>
+ 
+-                <div class="grid md:grid-cols-2 gap-8">
+-                    <!-- Review 1 -->
+-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-100">
+-                        <div class="flex gap-1 text-accent mb-6">
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                        </div>
+-                        <p class="text-xl font-medium leading-relaxed mb-8">
+-                            "Lay transformed our online presence completely. The attention to detail and design sensibility is unmatched. Highly recommended!"
+-                        </p>
+-                        <div class="flex items-center gap-4">
+-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
+-                                FS
+-                            </div>
+-                            <div>
+-                                <h4 class="font-bold">Fred Stack</h4>
+-                                <span class="text-sm text-muted-foreground">Director, Swiftbuild Infratech</span>
+-                            </div>
+-                        </div>
++                
++        <div class="grid md:grid-cols-12 gap-8 items-start">
++            <!-- Featured Review -->
++            <div class="md:col-span-7 lg:col-span-8 p-10 lg:p-12 border border-border bg-card rounded-3xl reveal">
++                <div class="text-accent mb-8">
++                    <i data-lucide="quote" class="w-10 h-10 opacity-50"></i>
++                </div>
++                <p class="text-2xl md:text-3xl font-display leading-relaxed mb-10 text-balance">
++                    "Professional, fast, and incredibly talented. Lay transformed our online presence completely, and the new headless architecture has already increased our conversion rate significantly."
++                </p>
++                <div class="flex items-center gap-4 border-t border-border/50 pt-6">
++                    <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center font-bold text-xl">
++                        VS
+                     </div>
+-
+-                    <!-- Review 2 -->
+-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-200">
+-                        <div class="flex gap-1 text-accent mb-6">
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                        </div>
+-                        <p class="text-xl font-medium leading-relaxed mb-8">
+-                            "Professional, fast, and incredibly talented. The new website has already increased our conversion rate by 40%."
+-                        </p>
+-                        <div class="flex items-center gap-4">
+-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
+-                                VS
+-                            </div>
+-                            <div>
+-                                <h4 class="font-bold">Vipul Shah</h4>
+-                                <span class="text-sm text-muted-foreground">Owner, Kamaldeep Enterprise</span>
+-                            </div>
+-                        </div>
++                    <div>
++                        <h4 class="font-bold text-lg">Vipul Shah</h4>
++                        <span class="text-muted-foreground">Owner, Kamaldeep Enterprise</span>
+                     </div>
++                </div>
++            </div>
+ 
+-                    <!-- Review 3 -->
+-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-300">
+-                        <div class="flex gap-1 text-accent mb-6">
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
++            <div class="md:col-span-5 lg:col-span-4 space-y-8">
++                <!-- Review 2 -->
++                <div class="p-8 border border-border bg-card rounded-3xl reveal delay-100">
++                    <p class="text-lg leading-relaxed mb-8">
++                        "The attention to detail and design sensibility is unmatched. Our custom web application is user-friendly, incredibly fast, and perfectly tailored to our business needs."
++                    </p>
++                    <div class="flex items-center gap-4">
++                        <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
++                            RK
+                         </div>
+-                        <p class="text-xl font-medium leading-relaxed mb-8">
+-                            "Lay's expertise in full-stack development helped us launch a stunning, responsive website. The SEO optimization has boosted our visibility tremendously."
+-                        </p>
+-                        <div class="flex items-center gap-4">
+-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
+-                                AC
+-                            </div>
+-                            <div>
+-                                <h4 class="font-bold">Anna Chen</h4>
+-                                <span class="text-sm text-muted-foreground">Manager, Aroma Cafe</span>
+-                            </div>
++                        <div>
++                            <h4 class="font-bold">Raj Kumar</h4>
++                            <span class="text-sm text-muted-foreground">CEO, Stark EV</span>
+                         </div>
+                     </div>
++                </div>
+ 
+-                    <!-- Review 4 -->
+-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-400">
+-                        <div class="flex gap-1 text-accent mb-6">
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
++                <!-- Review 3 -->
++                <div class="p-8 border border-border bg-card rounded-3xl reveal delay-200">
++                    <p class="text-lg leading-relaxed mb-8">
++                        "Lay's expertise in full-stack development helped us launch a stunning website. The technical SEO optimization boosted our visibility tremendously within weeks."
++                    </p>
++                    <div class="flex items-center gap-4">
++                        <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
++                            AC
+                         </div>
+-                        <p class="text-xl font-medium leading-relaxed mb-8">
+-                            "Working with Lay was a game-changer. The custom web application is user-friendly, fast, and perfectly tailored to our EV business needs."
+-                        </p>
+-                        <div class="flex items-center gap-4">
+-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
+-                                RJ
+-                            </div>
+-                            <div>
+-                                <h4 class="font-bold">Raj Kumar</h4>
+-                                <span class="text-sm text-muted-foreground">CEO, Stark EV</span>
+-                            </div>
++                        <div>
++                            <h4 class="font-bold">Anna Chen</h4>
++                            <span class="text-sm text-muted-foreground">Manager, Aroma Cafe</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
++        </div>
++    
++            </div>
+         </section>
+ 
+         <!-- FAQ Section -->
+-        <section id="faq" class="py-20 md:py-32 px-6">
+-            <div class="container mx-auto max-w-4xl reveal">
+-                <div class="text-center mb-16">
+-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Frequently Asked Questions</h2>
+-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Got questions? I've got answers. Here are the most common questions I receive about my web development services.</p>
+-                </div>
+-
+-                <div class="space-y-6">
+-                    <!-- FAQ Item 1 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+-                                <i data-lucide="help-circle" class="w-5 h-5 text-primary"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">How long does it take to build a website?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">Timeline depends on complexity. A simple landing page takes 1-2 weeks, while a full e-commerce site with custom features can take 4-8 weeks. I'll provide a detailed timeline during our initial consultation based on your specific requirements.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+         
+-                    <!-- FAQ Item 4 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+-                                <i data-lucide="smartphone" class="w-5 h-5 text-primary"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">Are your websites mobile-friendly?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">Absolutely! Every website I build is fully responsive and optimized for all devices - mobile phones, tablets, and desktops. I follow mobile-first design principles to ensure great user experience across all screen sizes.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-
+-                    <!-- FAQ Item 5 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+-                                <i data-lucide="search" class="w-5 h-5 text-accent"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">Do you handle SEO optimization?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">Yes! I implement technical SEO best practices including proper meta tags, structured data, fast loading speeds, and mobile optimization. I can also help with content strategy and keyword research to improve your search rankings.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-
+-                    <!-- FAQ Item 6 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center">
+-                                <i data-lucide="zap" class="w-5 h-5 text-primary"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">What technologies do you use?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">I work with modern technologies including HTML5, CSS3, JavaScript, React, Next.js, Node.js, and various CMS platforms. I choose the best technology stack based on your project requirements and long-term goals.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-
+-                    <!-- FAQ Item 7 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+-                                <i data-lucide="users" class="w-5 h-5 text-primary"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">Can you work with my existing website?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">Definitely! I can redesign, update, or add new features to existing websites. Whether you need a refresh, new functionality, or performance improvements, I can work with your current setup or migrate to a better platform.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-
+-                    <!-- FAQ Item 8 -->
+-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+-                        <div class="flex items-start gap-4">
+-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+-                                <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
+-                            </div>
+-                            <div class="flex-1">
+-                                <h3 class="text-xl font-bold mb-4">What's the process like working with you?</h3>
+-                                <p class="text-muted-foreground leading-relaxed">We start with a discovery call to understand your goals, then I provide a proposal and timeline. Once approved, we move through design, development, testing, and launch phases. I keep you updated throughout and welcome your feedback at every stage.</p>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <div class="text-center mt-16">
+-                    <p class="text-lg text-muted-foreground mb-8">Still have questions? I'd love to hear from you!</p>
+-                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
+-                        Get In Touch
+-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+-                    </a>
+-                </div>
+-            </div>
+-        </section>
+ 
+         <!-- Contact Section -->
+-        <section id="contact" class="py-20 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
++        <section id="contact" class="py-24 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
+             <div class="container mx-auto max-w-6xl pt-10 reveal">
+                 <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+                     <div>
+-                        <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">
+-                            Let's work <br />
++                        <h2 class="text-4xl md:text-6xl font-display font-bold mb-8 text-balance">
++                            Let's work <br>
+                             <span class="opacity-50">together.</span>
+                         </h2>
+                         <p class="text-lg opacity-70 mb-12 leading-relaxed">
+@@ -858,23 +661,23 @@
+                         <div class="space-y-6">
+                             <div class="flex items-center gap-4 opacity-80">
+                                 <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center">
+-                                    <i data-lucide="mail" class="w-5 h-5"></i>
++                                    <i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i>
+                                 </div>
+                                 <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a>
+                             </div>
+                             <div class="flex items-center gap-4 opacity-80">
+                                 <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center">
+-                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
++                                    <i data-lucide="map-pin" class="w-5 h-5" aria-hidden="true"></i>
+                                 </div>
+                                 <span>India</span>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <form id="contact-form" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="submit">
++                    <form id="contact-form" name="contact" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                         <div class="space-y-2">
+                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">What's your name?</label>
+-                            <input type="text" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="John Doe">
++                            <input type="text" name="name" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="John Doe">
+                         </div>
+                         <input type="hidden" name="form-name" value="contact">
+                         <!-- Optional honeypot field to prevent spam -->
+@@ -883,44 +686,49 @@
+                         </p>
+                         <div class="space-y-2">
+                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">What's your email?</label>
+-                            <input type="email" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="john@example.com">
++                            <input type="email" name="email" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="john@example.com">
+                         </div>
+                         <div class="space-y-2">
+                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">Tell me about your project</label>
+-                            <textarea rows="4" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="I need a website for..."></textarea>
++                            <textarea name="message" rows="4" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="I need a website for..."></textarea>
+                         </div>
+-                        <button type="submit" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
++                        <button type="submit" id="submit-btn" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
+                             Send Message
+                         </button>
++                        <div id="contact-status" class="hidden text-sm font-medium rounded-lg p-4 mt-4"></div>
+                     </form>
+                 </div>
+             </div>
+         </section>
+ 
+-        <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
+-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+-                <p>© 2025 Lay Shah. All rights reserved.</p>
+-                <div class="flex gap-6">
+-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
+-                    <a href="#work" class="hover:text-accent transition-colors">Work</a>
+-                    <a href="#reviews" class="hover:text-accent transition-colors">Reviews</a>
+-                    <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
+-                    <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+-                </div>
+-                <div class="flex gap-6">
+-                    <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+-                    <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+-                    <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+-                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors" aria-label="Back to Top">
+-                        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+-                    </button>
+-                </div>
+-            </div>
+-        </footer>
+     </main>
+ 
+-    <!-- Scripts -->
+-    <script src="./script.js"></script>
++
++    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
++        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
++    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
++    <div class="flex gap-6 footer-links">
++        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
++        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
++        <a href="./projects.html" class="hover:text-accent transition-colors">Projects</a>
++        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
++        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
++        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
++    </div>
++    <div class="flex gap-6 items-center">
++        <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
++        <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
++        <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
++        <button id="back-to-top-btn" class="hover:text-accent transition-colors hidden" aria-label="Back to Top">
++            <i data-lucide="arrow-up" class="w-5 h-5"></i>
++        </button>
++    </div>
++</div>
++
++    </footer>
++
++    
++    <script src="./bundle.js" defer></script>
++
+ </body>
+ </html>

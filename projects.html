@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <script src="./src/theme-init.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Lay Shah | Web Development Portfolio</title>
+    <meta name="description" content="Browse my complete portfolio of web development projects. From landing pages to full-stack applications, each case study details the problem, approach, and measurable results.">
+    <meta name="author" content="Lay Shah">
+
+    <link rel="canonical" href="https://layshahdev.com/projects.html">
+
+    <!-- Social / OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects - Lay Shah | Web Development Portfolio">
+    <meta property="og:description" content="Browse my complete portfolio of web development projects with detailed case studies.">
+    <meta property="og:url" content="https://layshahdev.com/projects.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
+
+    <!-- Robots control -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+</head>
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
+            </div>
+        </button>
+
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
+            </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
+    </nav>
+
+    <!-- Projects Listing Page — Body Content -->
+<!-- Generated filters and project cards are filled by build-html.js from projects.json -->
+
+<main class="pt-32 pb-24 px-6">
+    <div class="container mx-auto max-w-6xl">
+        <!-- Page Header -->
+        <div class="mb-16 reveal">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 text-balance">All Projects</h1>
+            <p class="text-xl text-muted-foreground max-w-2xl leading-relaxed">A complete portfolio of web development case studies &mdash; from landing pages to full-stack applications.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="mb-12 flex flex-wrap gap-3 reveal" id="project-filters">
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-primary text-primary-foreground transition-all duration-300" data-filter="all">All</button>
+            <!-- Filter buttons are injected by build-html.js -->
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="web-design-development">Web Design &amp; Development</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="web-design-development-seo">Web Design, Development &amp; SEO</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="personal-trading-bot-data-visualization">Personal Trading Bot &amp; Data Visualization</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="content-management-system">Content Management System</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="web-design-api-integration">Web Design &amp; API Integration</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="ui-ux-design-frontend-development">UI/UX Design &amp; Frontend Development</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="project-management-tool">Project Management Tool</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+            
+            <div class="project-card group reveal" data-category="ui-ux-design-frontend-development">
+                <a href="./projects/stark-ev.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Stark EV.webp" alt="Stark EV - UI/UX Design &amp; Frontend Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">UI/UX Design &amp; Frontend Development</span>
+                            <span class="text-muted-foreground text-sm">2025</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">Stark EV</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">A personal project exploring futuristic UI/UX design with complex interactions and modern web technologies.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="content-management-system">
+                <a href="./projects/kamaldeep-enterprise.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Content Management System</span>
+                            <span class="text-muted-foreground text-sm">2025</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">Kamaldeep Enterprise</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="web-design-development-seo">
+                <a href="./projects/swiftbuild-infratech.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/SwiftBuild.webp" alt="SwiftBuild Infratech - Web Design, Development &amp; SEO" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Web Design, Development &amp; SEO</span>
+                            <span class="text-muted-foreground text-sm">2025</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">SwiftBuild Infratech</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">A sophisticated portfolio for a International modern Construction Innovation Company.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="web-design-development">
+                <a href="./projects/ghermar-sons.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Ghermar & Sons.webp" alt="Ghermar &amp; Sons - Web Design &amp; Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Web Design &amp; Development</span>
+                            <span class="text-muted-foreground text-sm">2025</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">Ghermar &amp; Sons</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">A high-performance Landing Page for an Import-Export Company focused on conversion.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="web-design-api-integration">
+                <a href="./projects/aroma-cafe.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Aroma Cafe.webp" alt="Aroma Cafe - Web Design &amp; API Integration" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Web Design &amp; API Integration</span>
+                            <span class="text-muted-foreground text-sm">2024</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">Aroma Cafe</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">A beautiful Cafe website with online reservations, menu showcase, and location finder.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="personal-trading-bot-data-visualization">
+                <a href="./projects/crypto-trading-analytics.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/saas_dashboard_minimal_interface-small.png 600w, ./public/images/saas_dashboard_minimal_interface.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Trading Analytics - Personal Trading Bot &amp; Data Visualization" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Personal Trading Bot &amp; Data Visualization</span>
+                            <span class="text-muted-foreground text-sm">2024</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">Crypto Trading Analytics</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card group reveal" data-category="project-management-tool">
+                <a href="./projects/taskflow-pro.html" class="block">
+                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
+                        <picture>
+                <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/modern_e-commerce_interface_mockup-small.png 600w, ./public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro - Project Management Tool" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-accent text-sm font-medium">Project Management Tool</span>
+                            <span class="text-muted-foreground text-sm">2023</span>
+                        </div>
+                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">TaskFlow Pro</h2>
+                        <p class="text-muted-foreground leading-relaxed line-clamp-2">Enterprise-grade project management solution with advanced automation and team collaboration features.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-24 p-12 bg-accent/5 border border-accent/20 rounded-3xl text-center reveal">
+            <h3 class="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">Have a project in mind?</h3>
+            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Let&rsquo;s discuss how we can build something exceptional together.</p>
+            <a href="./index.html#contact" class="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo magnetic-btn">Start a Project</a>
+        </div>
+    </div>
+</main>
+
+<!-- Filter logic (inline, page-specific) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-primary', 'text-primary-foreground');
+                b.classList.add('bg-transparent', 'text-muted-foreground', 'hover:bg-secondary');
+            });
+            btn.classList.add('bg-primary', 'text-primary-foreground');
+            btn.classList.remove('bg-transparent', 'text-muted-foreground', 'hover:bg-secondary');
+
+            const filter = btn.dataset.filter;
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                    card.classList.add('reveal', 'active');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+
+
+    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
+    </footer>
+
+    
+    <script src="./bundle.js" defer></script>
+
+</body>
+</html>

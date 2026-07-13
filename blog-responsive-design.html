@@ -1,132 +1,163 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Importance of Responsive Web Design in 2025 | Lay Shah</title>
-    <meta name="description" content="Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.">
+    <meta name="description" content="Read about the importance of responsive web design in 2025 by Lay Shah.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-responsive-design.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="The Importance of Responsive Web Design in 2025 | Lay Shah" />
-    <meta property="og:description" content="Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites." />
-    <meta property="og:url" content="https://layshahdev.com/blog-responsive-design.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Importance of Responsive Web Design in 2025 | Lay Shah">
+    <meta property="og:description" content="Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.">
+    <meta property="og:url" content="https://layshahdev.com/blog-responsive-design.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Importance of Responsive Web Design in 2025",
+    "description": "Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.",
+    "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://layshahdev.com/logo.png"
+        }
+    },
+    "datePublished": "2026-02-07",
+    "dateModified": "2026-02-07",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-responsive-design.html"
+    }
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
-    
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <i data-lucide="moon" class="w-5 h-5"></i>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
@@ -139,21 +170,21 @@
                         <span class="text-sm text-muted-foreground">•</span>
                         <span class="text-sm text-muted-foreground">5 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">The Importance of Responsive Web Design in 2025</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices, improving user experience and SEO rankings.</p>
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">The Importance of Responsive Web Design in 2025</h1>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">If your site isn't fully fluid, you are actively losing customers to competitors who are. I don't just "make it work on mobile" — I build resilient, fluid layouts that adapt seamlessly from a 320px smartwatch screen to a 4K monitor.</p>
                 </header>
 
                 <div class="prose prose-lg max-w-none">
                     <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2 flex items-center gap-2"><i data-lucide="smartphone" class="w-5 h-5 text-accent"></i> Key Insight</p>
-                        <p class="mb-0">With over 60% of web traffic coming from mobile devices, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices, improving user experience and SEO rankings.</p>
+                        <p class="text-lg font-medium mb-2 flex items-center gap-2 max-w-prose text-balance"><i data-lucide="smartphone" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">With over 60% of web traffic coming from mobile devices, a clunky mobile experience destroys trust instantly. I use modern CSS fluid typography and container queries to ensure perfect legibility, rather than relying on brittle media query breakpoints.</p>
                     </div>
 
-                    <h2><i data-lucide="trending-up" class="w-6 h-6 text-accent inline mr-2"></i>The Mobile Revolution in 2025</h2>
-                    <p>The mobile revolution has fundamentally changed how we interact with the web. In 2025, with the proliferation of foldable devices, smartwatches, and various screen sizes, responsive design has evolved from a nice-to-have feature to a critical business requirement.</p>
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Designing Beyond Breakpoints</h2>
+                    <p class="max-w-prose text-balance">The old way of writing responsive CSS meant defining strict boundaries for tablet and mobile. Modern layout requires a fluid approach where components adapt to their container size, keeping the UI intact on folding phones or ultra-wide monitors.</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i> Critical Statistics</h3>
+                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2 text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Critical Statistics</h3>
                         <div class="grid md:grid-cols-3 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">92.3%</div>
@@ -161,7 +192,7 @@
                             </div>
                             <div>
                                 <div class="text-2xl font-bold text-accent">53%</div>
-                                <div class="text-sm text-muted-foreground">abandon sites taking >3 seconds to load</div>
+                                <div class="text-sm text-muted-foreground">abandon sites taking &gt;3 seconds to load</div>
                             </div>
                             <div>
                                 <div class="text-2xl font-bold text-accent">100%</div>
@@ -170,93 +201,93 @@
                         </div>
                     </div>
 
-                    <h2><i data-lucide="target" class="w-6 h-6 text-accent inline mr-2"></i>SEO Benefits of Responsive Design</h2>
-                    <p>Google prioritizes mobile-friendly websites in search results. A responsive site improves your chances of ranking higher and reaching more potential customers. Here's how:</p>
+                    <h2 class="text-balance"><i data-lucide="target" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>SEO Benefits of Responsive Design</h2>
+                    <p class="max-w-prose text-balance">Google prioritizes mobile-friendly websites in search results. A responsive site improves your chances of ranking higher and reaching more potential customers. Here's how:</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="link" class="w-6 h-6 text-accent"></i>
+                                <i data-lucide="link" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Single URL Structure</h3>
-                                <p class="text-muted-foreground">Responsive design uses a single URL for all devices, eliminating duplicate content issues that can harm SEO. This means search engines only need to crawl and index one version of your site.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Single URL Structure</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Responsive design uses a single URL for all devices, eliminating duplicate content issues that can harm SEO. This means search engines only need to crawl and index one version of your site.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
+                                <i data-lucide="zap" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Faster Page Load Times</h3>
-                                <p class="text-muted-foreground">Mobile-optimized sites typically load faster, which is a key ranking factor. Responsive design allows you to serve appropriately sized images and content based on the user's device.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Faster Page Load Times</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Mobile-optimized sites typically load faster, which is a key ranking factor. Responsive design allows you to serve appropriately sized images and content based on the user's device.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="users" class="w-6 h-6 text-accent"></i>
+                                <i data-lucide="users" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Improved User Experience</h3>
-                                <p class="text-muted-foreground">Google's algorithms increasingly consider user engagement metrics. A responsive site reduces bounce rates and increases time on page, signaling to search engines that your content is valuable.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Improved User Experience</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Google's algorithms increasingly consider user engagement metrics. A responsive site reduces bounce rates and increases time on page, signaling to search engines that your content is valuable.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="wrench" class="w-6 h-6 text-accent inline mr-2"></i>Technical Implementation Strategies</h2>
-                    <p>As a developer, I implement responsive design using modern techniques that ensure optimal performance across all devices.</p>
+                    <h2 class="text-balance"><i data-lucide="wrench" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Technical Implementation Strategies</h2>
+                    <p class="max-w-prose text-balance">As a developer, I implement responsive design using modern techniques that ensure optimal performance across all devices.</p>
 
-                    <h3><i data-lucide="layout" class="w-5 h-5 text-accent inline mr-2"></i>Fluid Grid Systems</h3>
-                    <p>Using relative units like percentages and viewport units instead of fixed pixels allows layouts to adapt smoothly to different screen sizes. Tools like Tailwind CSS make this implementation straightforward.</p>
+                    <h3 class="text-balance"><i data-lucide="layout" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Fluid Grid Systems</h3>
+                    <p class="max-w-prose text-balance">Using relative units like percentages and viewport units instead of fixed pixels allows layouts to adapt smoothly to different screen sizes. Tools like Tailwind CSS make this implementation straightforward.</p>
 
-                    <h3><i data-lucide="image" class="w-5 h-5 text-accent inline mr-2"></i>Flexible Media</h3>
-                    <p>Images and videos must scale appropriately. Using CSS properties like <code class="bg-secondary/20 px-2 py-1 rounded text-sm">max-width: 100%</code> and modern image formats ensures media looks great on all devices without wasting bandwidth.</p>
+                    <h3 class="text-balance"><i data-lucide="image" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Flexible Media</h3>
+                    <p class="max-w-prose text-balance">Images and videos must scale appropriately. Using CSS properties like <code class="bg-secondary/20 px-2 py-1 rounded text-sm">max-width: 100%</code> and modern image formats ensures media looks great on all devices without wasting bandwidth.</p>
 
-                    <h3><i data-lucide="smartphone" class="w-5 h-5 text-accent inline mr-2"></i>Media Queries</h3>
-                    <p>Strategic breakpoints allow you to adjust layouts at specific screen sizes. I typically use a mobile-first approach, starting with small screens and enhancing for larger displays.</p>
+                    <h3 class="text-balance"><i data-lucide="smartphone" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Media Queries</h3>
+                    <p class="max-w-prose text-balance">Strategic breakpoints allow you to adjust layouts at specific screen sizes. I typically use a mobile-first approach, starting with small screens and enhancing for larger displays.</p>
 
                     <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 flex items-center gap-2"><i data-lucide="lightbulb" class="w-5 h-5 text-accent"></i> Pro Tip</h3>
-                        <p class="mb-0">Always test your responsive design on real devices, not just browser dev tools. Emulators can't replicate the actual user experience on different devices.</p>
+                        <h3 class="text-lg font-semibold mb-3 flex items-center gap-2 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Pro Tip</h3>
+                        <p class="mb-0 max-w-prose text-balance">Always test your responsive design on real devices, not just browser dev tools. Emulators can't replicate the actual user experience on different devices.</p>
                     </div>
 
-                    <h2><i data-lucide="zap" class="w-6 h-6 text-accent inline mr-2"></i>Performance Optimization Techniques</h2>
-                    <p>Responsive design goes hand-in-hand with performance optimization. Here are key strategies I employ:</p>
+                    <h2 class="text-balance"><i data-lucide="zap" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Performance Optimization Techniques</h2>
+                    <p class="max-w-prose text-balance">Responsive design goes hand-in-hand with performance optimization. Here are key strategies I employ:</p>
 
                     <div class="grid md:grid-cols-2 gap-6 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="eye" class="w-5 h-5 text-accent"></i> Lazy Loading
+                                <i data-lucide="eye" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Lazy Loading
                             </h4>
-                            <p class="text-sm text-muted-foreground">Images below the fold are loaded only when needed, reducing initial page load times significantly.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Images below the fold are loaded only when needed, reducing initial page load times significantly.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="target" class="w-5 h-5 text-accent"></i> Critical CSS
+                                <i data-lucide="target" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Critical CSS
                             </h4>
-                            <p class="text-sm text-muted-foreground">Delivering only the CSS needed for the initial viewport improves perceived performance.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Delivering only the CSS needed for the initial viewport improves perceived performance.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="trending-up" class="w-5 h-5 text-accent"></i> Progressive Enhancement
+                                <i data-lucide="trending-up" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Progressive Enhancement
                             </h4>
-                            <p class="text-sm text-muted-foreground">Starting with a solid foundation that works on all devices, then adding enhancements for more capable browsers.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Starting with a solid foundation that works on all devices, then adding enhancements for more capable browsers.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="cloud" class="w-5 h-5 text-accent"></i> CDN Implementation
+                                <i data-lucide="cloud" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> CDN Implementation
                             </h4>
-                            <p class="text-sm text-muted-foreground">Content delivery networks ensure fast loading times regardless of user location.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Content delivery networks ensure fast loading times regardless of user location.</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="flask-conical" class="w-6 h-6 text-accent inline mr-2"></i>Testing and Maintenance</h2>
-                    <p>Responsive design requires ongoing testing and maintenance. I regularly test sites across multiple devices and browsers, using tools like:</p>
+                    <h2 class="text-balance"><i data-lucide="flask-conical" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Testing and Maintenance</h2>
+                    <p class="max-w-prose text-balance">Responsive design requires ongoing testing and maintenance. I regularly test sites across multiple devices and browsers, using tools like:</p>
 
                     <ul class="space-y-2">
                         <li><strong class="text-accent">Browser developer tools</strong> for responsive testing</li>
@@ -265,45 +296,39 @@
                         <li><strong class="text-accent">User feedback and analytics data</strong> for real-world insights</li>
                     </ul>
 
-                    <h2><i data-lucide="crystal-ball" class="w-6 h-6 text-accent inline mr-2"></i>The Future of Responsive Design</h2>
-                    <p>As technology evolves, so does responsive design. We're seeing trends like:</p>
+                    <h2 class="text-balance"><i data-lucide="crystal-ball" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>The Future of Responsive Design</h2>
+                    <p class="max-w-prose text-balance">As technology evolves, so does responsive design. We're seeing trends like:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="box" class="w-4 h-4 text-accent"></i> Container Queries</h4>
-                            <p class="text-sm text-muted-foreground">Allowing components to respond to their container's size rather than the viewport</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="box" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Container Queries</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Allowing components to respond to their container's size rather than the viewport</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="type" class="w-4 h-4 text-accent"></i> Fluid Typography</h4>
-                            <p class="text-sm text-muted-foreground">Text that scales smoothly across all devices</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="type" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Fluid Typography</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Text that scales smoothly across all devices</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-accent"></i> Advanced CSS</h4>
-                            <p class="text-sm text-muted-foreground">New features like CSS Grid and Flexbox for more sophisticated layouts</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Advanced CSS</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">New features like CSS Grid and Flexbox for more sophisticated layouts</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="bot" class="w-4 h-4 text-accent"></i> AI-Powered Design</h4>
-                            <p class="text-sm text-muted-foreground">Tools that automatically optimize layouts for different devices</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="bot" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> AI-Powered Design</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Tools that automatically optimize layouts for different devices</p>
                         </div>
                     </div>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent flex items-center gap-2"><i data-lucide="rocket" class="w-5 h-5"></i> Ready to Make Your Website Responsive?</h3>
-                        <p class="mb-4">Don't let mobile users miss out on your content. A responsive website isn't just good practice, it's essential for business success in 2025.</p>
-                        <p class="mb-0">Contact me today to discuss making your website mobile-friendly and future-proof.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent flex items-center gap-2 text-balance"><i data-lucide="rocket" class="w-5 h-5" aria-hidden="true"/> The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">A site that breaks on mobile isn't just an annoyance; it actively erodes your brand's credibility and plummets your conversion rate.</p>
+                        <p class="mb-0 max-w-prose text-balance">Are you losing mobile traffic because your layout is broken? Let's rebuild it to be completely fluid.</p>
                     </div>
 
-                    <h2><i data-lucide="file-text" class="w-6 h-6 text-accent inline mr-2"></i>Conclusion</h2>
-                    <p>Responsive web design is crucial for success in 2025 and beyond. It improves user experience, boosts SEO, and ensures your website reaches its full potential. As a full-stack developer, I make responsive design a cornerstone of every project I undertake.</p>
-
-                    <p>If you're looking to modernize your website or build a new one from scratch, responsive design should be at the top of your priority list. The investment pays dividends in user satisfaction, search rankings, and business growth.</p>
-
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="#" class="text-accent hover:text-primary transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>
@@ -320,25 +345,33 @@
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

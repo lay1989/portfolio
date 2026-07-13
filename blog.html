@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,244 +12,246 @@
     <link rel="canonical" href="https://layshahdev.com/blog.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Blog - Lay Shah | Web Development Insights" />
-    <meta property="og:description" content="Insights on web development, design, and freelancing from a full-stack developer." />
-    <meta property="og:url" content="https://layshahdev.com/blog.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - Lay Shah | Web Development Insights">
+    <meta property="og:description" content="Insights on web development, design, and freelancing from a full-stack developer.">
+    <meta property="og:url" content="https://layshahdev.com/blog.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
-    
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
-        <div class="container mx-auto max-w-6xl px-6">
+        <div class="container">
             <header class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">Insights & Thoughts</h1>
-                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
+                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-balance">Insights &amp; Thoughts</h1>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
             </header>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Blog Post Card 1 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                        <i data-lucide="smartphone" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="smartphone" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Web Design</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">The Importance of Responsive Web Design in 2025</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
-                        <a href="./blog-responsive-design.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">The Importance of Responsive Web Design in 2025</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
+                        <a href="./blog-responsive-design.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post Card 2 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center">
-                        <i data-lucide="code" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="code" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Development</span>
                             <span class="text-xs text-muted-foreground">January 15, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Building Custom Websites: From Concept to Launch</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
-                        <a href="./blog-custom-websites.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Building Custom Websites: From Concept to Launch</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
+                        <a href="./blog-custom-websites.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post Card 3 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group md:col-span-2 lg:col-span-1">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group md:col-span-2 lg:col-span-1 shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-accent/10 to-secondary/20 flex items-center justify-center">
-                        <i data-lucide="users" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="users" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Freelancing</span>
                             <span class="text-xs text-muted-foreground">December 20, 2025</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Why Choose a Freelance Web Developer?</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
-                        <a href="./blog-freelance-developer.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Why Choose a Freelance Web Developer?</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
+                        <a href="./blog-freelance-developer.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post Card 4 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <i data-lucide="search" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="search" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">SEO & Performance</span>
+                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">SEO &amp; Performance</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">SEO for Developers: Technical Implementation Guide</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
-                        <a href="./blog-seo-developers.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">SEO for Developers: Technical Implementation Guide</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
+                        <a href="./blog-seo-developers.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post Card 5 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-secondary/10 to-primary/20 flex items-center justify-center">
-                        <i data-lucide="layers" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="layers" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">JavaScript</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
-                        <a href="./blog-javascript-frameworks.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
+                        <a href="./blog-javascript-frameworks.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post Card 6 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group md:col-span-2 lg:col-span-1">
+                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group md:col-span-2 lg:col-span-1 shadow-sm dark:shadow-none">
                     <div class="aspect-video bg-gradient-to-br from-accent/20 to-secondary/10 flex items-center justify-center">
-                        <i data-lucide="zap" class="w-16 h-16 text-primary"></i>
+                        <i data-lucide="zap" class="w-16 h-16 text-primary" aria-hidden="true"/>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Performance</span>
                             <span class="text-xs text-muted-foreground">February 7, 2026</span>
                         </div>
-                        <h2 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Web Performance Optimization: Speed Up Your Website</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
-                        <a href="./blog-performance-optimization.html" class="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors">
+                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Web Performance Optimization: Speed Up Your Website</h2>
+                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
+                        <a href="./blog-performance-optimization.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
                             Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
                         </a>
                     </div>
                 </article>
@@ -256,35 +259,43 @@
 
             <!-- Newsletter Signup -->
             <div class="bg-secondary/10 rounded-2xl p-8 md:p-12 text-center">
-                <h2 class="text-3xl font-display font-bold mb-4">Stay Updated</h2>
-                <p class="text-muted-foreground mb-6 max-w-md mx-auto">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
-                <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-colors">
+                <h2 class="text-2xl md:text-3xl font-display font-bold mb-4 text-balance">Stay Updated</h2>
+                <p class="text-muted-foreground mb-6 max-w-md mx-auto leading-relaxed">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
+                <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
                     Get in Touch
-                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"/>
                 </a>
             </div>
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

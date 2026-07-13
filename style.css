@@ -1,64 +1,167 @@
-/* CSS Variables for Theming */
-:root {
-    /* Light Mode (Default) */
-    --background: #ffffff;
-    --foreground: #080808;
-    --card: #f5f5f5;
-    --card-foreground: #080808;
-    --primary: #080808;
-    --primary-foreground: #ffffff;
-    --secondary: #f0f0f0;
-    --secondary-foreground: #080808;
-    --muted: #f5f5f5;
-    --muted-foreground: #666666;
-    --accent: #FF6B35;
-    --accent-foreground: #ffffff;
-    --border: #e5e5e5;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* CSS Variables for Theming */
+    :root {
+        /* Base Palette Tokens */
+        --color-white: #ffffff;
+        --color-black: #080808;
+        --color-cream: #F5F0EA;
+        --color-cream-card: #EDE8E1;
+        --color-cream-border: #D8D2CA;
+        --color-gray-very-light: #f5f5f5;
+        --color-gray-soft: #f0f0f0;
+        --color-gray-muted: #666666;
+        --color-gray-dark-muted: #999999;
+        --color-gray-light-bg: #f2f2f2;
+        --color-accent: #FF6B35;
+        --color-border-light: #e5e5e5;
+        
+        --color-dark-card: #111111;
+        --color-dark-muted: #1a1a1a;
+        --color-dark-border: #242424;
+
+        /* Component-specific & Effect Tokens */
+        --navbar-bg: rgba(245, 240, 234, 0.88);
+        --shadow-hover: rgba(0, 0, 0, 0.08);
+
+        /* Semantic Variables Mapping (Light Mode) */
+        --background: var(--color-cream);
+        --foreground: var(--color-black);
+        --card: var(--color-cream-card);
+        --card-foreground: var(--color-black);
+        --primary: var(--color-black);
+        --primary-foreground: var(--color-cream);
+        --secondary: var(--color-cream-card);
+        --secondary-foreground: var(--color-black);
+        --muted: var(--color-cream-card);
+        --muted-foreground: var(--color-gray-muted);
+        --accent: var(--color-accent);
+        --accent-foreground: var(--color-white);
+        --border: var(--color-cream-border);
+
+        /* Animation Offsets & Magic Number Abstractions */
+        --reveal-offset: 30px;
+        --theme-toggle-offset: 30px;
+        --hover-lift-offset: -5px;
+        --hamburger-translate: 8px;
+    }
+
+    .dark {
+        /* Component-specific & Effect Tokens (Dark Mode overrides) */
+        --navbar-bg: rgba(8, 8, 8, 0.88);
+        --shadow-hover: rgba(0, 0, 0, 0.5);
+
+        /* Semantic Variables Mapping (Dark Mode) */
+        --background: var(--color-black);
+        --foreground: var(--color-gray-light-bg);
+        --card: var(--color-dark-card);
+        --card-foreground: var(--color-gray-light-bg);
+        --primary: var(--color-white);
+        --primary-foreground: var(--color-black);
+        --secondary: var(--color-dark-muted);
+        --secondary-foreground: var(--color-white);
+        --muted: var(--color-dark-muted);
+        --muted-foreground: var(--color-gray-dark-muted);
+        --accent: var(--color-accent);
+        --accent-foreground: var(--color-white);
+        --border: var(--color-dark-border);
+    }
+
+    /* Smooth Scrolling (Lenis overrides this when active) */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
+
 }
 
-.dark {
-    /* Dark Mode */
-    --background: #080808;
-    --foreground: #f2f2f2;
-    --card: #121212;
-    --card-foreground: #f2f2f2;
-    --primary: #ffffff;
-    --primary-foreground: #080808;
-    --secondary: #1f1f1f;
-    --secondary-foreground: #ffffff;
-    --muted: #1f1f1f;
-    --muted-foreground: #999999;
-    --accent: #FF6B35;
-    --accent-foreground: #ffffff;
-    --border: #262626;
+
+
+
+@layer utilities {
+
+    /* Reveal animation (fallback for non-GSAP elements) */
+    .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* iMessage-style review bubble directional animations */
+    .review-bubble-left {
+        opacity: 0;
+        transform: translateX(-40px) translateY(16px);
+        transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .review-bubble-right {
+        opacity: 0;
+        transform: translateX(40px) translateY(16px);
+        transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .review-bubble-left.active,
+    .review-bubble-right.active {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+
+    /* Counter animation target */
+    .stat-counter {
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Marquee strip */
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee-scroll 28s linear infinite;
+        will-change: transform;
+    }
+
+    .marquee-track:hover {
+        animation-play-state: paused;
+    }
+
+    /* Counter animation target */
+    .stat-counter {
+        font-variant-numeric: tabular-nums;
+    }
+
 }
 
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
+/* Marquee keyframe */
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--muted-foreground);
-    border-radius: 4px;
-    opacity: 0.5;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-}
-
-/* Animation Utilities */
-@keyframes fadeUp {
+/* Hero entrance animation */
+@keyframes hero-fade-up {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(24px);
     }
     to {
         opacity: 1;
@@ -66,123 +169,59 @@ html {
     }
 }
 
-.animate-fade-up {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-label    { animation: hero-fade-up 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both; }
+.hero-headline { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both; }
+.hero-sub      { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both; }
+.hero-ctas     { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.55s both; }
+
+/* Ripple on theme toggle */
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered Animation Delays */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-
-/* Navbar Blur */
-.nav-scrolled {
-    background-color: rgba(var(--background), 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-/* Subtle Hover Animations */
-.hover-lift {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-}
-.dark .hover-lift:hover {
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-}
-
-/* Hamburger Menu Animation */
-.hamburger {
-    width: 24px;
-    height: 24px;
+.theme-toggle-btn {
     position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    z-index: 60;
-}
-
-.hamburger-line {
-    width: 100%;
-    height: 2px;
-    background-color: var(--foreground);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-origin: center;
-}
-
-.hamburger.active .hamburger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-10px);
-}
-
-.hamburger.active .hamburger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Theme Toggle Animation */
-.theme-toggle-wrapper {
-    position: relative;
-    width: 20px;
-    height: 20px;
     overflow: hidden;
 }
 
-.theme-icon {
+.theme-toggle-btn::after {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.theme-icon.sun {
-    transform: translateY(0) rotate(0);
-    opacity: 1;
-}
-.dark .theme-icon.sun {
-    transform: translateY(30px) rotate(90deg);
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
+    pointer-events: none;
 }
 
-.theme-icon.moon {
-    transform: translateY(-30px) rotate(-90deg);
-    opacity: 0;
-}
-.dark .theme-icon.moon {
-    transform: translateY(0) rotate(0);
-    opacity: 1;
+.theme-toggle-btn:active::after {
+    animation: ripple 0.4s ease-out;
 }
 
-/* Card Grid for Services */
-.service-card {
-    border: 1px solid var(--border);
-    background-color: var(--card);
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Lenis smooth scroll */
+html.lenis {
+    height: auto;
 }
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
 }

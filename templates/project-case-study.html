@@ -1,0 +1,164 @@
+<!-- Project Case Study Template -->
+<!-- This template is used by build-html.js to generate individual project pages -->
+<!-- Placeholders: {{PROJECT_*}} are replaced with data from projects.json -->
+
+<main class="pt-32 pb-24 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <!-- Back to Projects -->
+        <a href="{{BASE_PATH}}projects.html" class="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8">
+            <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i>
+            Back to Projects
+        </a>
+
+        <!-- Project Header -->
+        <div class="mb-12">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="text-accent text-sm font-medium uppercase tracking-wider">{{PROJECT_CATEGORY}}</span>
+                <span class="text-muted-foreground">•</span>
+                <span class="text-muted-foreground text-sm">{{PROJECT_YEAR}}</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">{{PROJECT_TITLE}}</h1>
+            <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+                {{PROJECT_OVERVIEW}}
+            </p>
+        </div>
+
+        <!-- Project Hero Image -->
+        <div class="rounded-xl overflow-hidden border border-border shadow-2xl mb-16">
+            {{PROJECT_HERO_IMAGE}}
+        </div>
+
+        <!-- Project Details Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                    <i data-lucide="user-circle" class="w-6 h-6" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Role</h3>
+                    <p class="text-foreground font-medium">{{PROJECT_ROLE}}</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                    <i data-lucide="clock" class="w-6 h-6" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Timeline</h3>
+                    <p class="text-foreground font-medium">{{PROJECT_TIMELINE}}</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
+                    <i data-lucide="wrench" class="w-6 h-6" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Tools</h3>
+                    <p class="text-foreground font-medium">{{PROJECT_TOOLS}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Sections -->
+        <div class="space-y-20">
+            <!-- Challenge Section -->
+            <div>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+                    <i data-lucide="target" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                    Problem
+                </h2>
+                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
+                    <p class="text-lg text-muted-foreground leading-relaxed">
+                        {{PROJECT_CHALLENGE}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+                    <i data-lucide="lightbulb" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                    Approach &amp; Solution
+                </h2>
+                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                        {{PROJECT_SOLUTION}}
+                    </p>
+                    {{PROJECT_CONTENT_IMAGE}}
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            {{PROJECT_PROCESS_SECTION}}
+
+            <!-- Technologies Section -->
+            {{PROJECT_TECHNOLOGIES_SECTION}}
+
+            <!-- Key Features Section -->
+            {{PROJECT_FEATURES_SECTION}}
+
+            <!-- Results Section -->
+            <div>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
+                    <i data-lucide="trending-up" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
+                    <span id="results" class="scroll-mt-32">Results &amp; Impact</span>
+                </h2>
+                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                        {{PROJECT_RESULTS}}
+                    </p>
+                    {{PROJECT_METRICS}}
+                </div>
+            </div>
+
+            <!-- Testimonial Section -->
+            {{PROJECT_TESTIMONIAL_SECTION}}
+
+            <!-- Lessons Learned Section -->
+            {{PROJECT_LESSONS_SECTION}}
+
+            <!-- Screenshots Gallery -->
+            {{PROJECT_GALLERY_SECTION}}
+        </div>
+
+        <!-- Project Links -->
+        <div class="mt-20 pt-12 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div>
+                <h3 class="text-xl md:text-2xl font-display font-bold mb-2">View Live Project</h3>
+                <p class="text-muted-foreground">{{PROJECT_LIVE_TEXT}}</p>
+            </div>
+            <div class="flex gap-4">
+                {{PROJECT_ACTION_BUTTONS}}
+            </div>
+        </div>
+
+        <!-- Stronger CTA -->
+        <div class="mt-24 p-12 bg-accent/5 border border-accent/20 rounded-3xl text-center">
+            <h3 class="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">Ready for a similar result?</h3>
+            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Let\u2019s discuss how we can achieve your business goals with a custom web solution.</p>
+            <a href="{{BASE_PATH}}index.html#contact" class="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo magnetic-btn">Start a Project</a>
+        </div>
+
+        <!-- Next Project Loop -->
+        {{PROJECT_NEXT_LINK}}
+
+        <!-- Social Sharing -->
+        <div class="mt-12 pt-8 border-t border-border">
+            <h3 class="text-base md:text-lg font-bold mb-4">Share this project</h3>
+            <div class="flex gap-4">
+                <button onclick="shareOnTwitter()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
+                    <i data-lucide="twitter" class="w-4 h-4" aria-hidden="true"></i>
+                    Twitter
+                </button>
+                <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
+                    <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
+                    LinkedIn
+                </button>
+                <button onclick="copyProjectLink()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
+                    <i data-lucide="link" class="w-4 h-4" aria-hidden="true"></i>
+                    Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

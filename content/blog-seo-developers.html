@@ -1,0 +1,266 @@
+<main class="pt-32 pb-20">
+        <div class="container mx-auto max-w-4xl px-6">
+            <article>
+                <header class="mb-12">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">SEO &amp; Performance</span>
+                        <span class="text-sm text-muted-foreground">7 min read</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">SEO for Developers: Technical Implementation Guide</h1>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Content alone won't save you if Google's bots can't parse your DOM. Here is how I set up technical SEO infrastructure on modern JS frameworks to guarantee that top-tier content actually gets indexed and ranked.</p>
+                </header>
+
+                <div class="prose prose-lg max-w-none">
+                    <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
+                        <p class="text-lg font-medium mb-2 flex items-center gap-2 max-w-prose text-balance"><i data-lucide="search" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">SEO isn't just for marketers, developers play a crucial role in implementing the technical foundations that search engines need to understand and rank your content effectively.</p>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>The SEO-Developer Relationship</h2>
+                    <p class="max-w-prose text-balance">While marketers focus on keywords and content strategy, developers implement the technical infrastructure that makes SEO possible. Understanding both sides creates websites that are both user-friendly and search-engine optimized.</p>
+
+                    <div class="bg-secondary/20 p-6 rounded-lg my-8">
+                        <h3 class="text-lg font-semibold mb-4 text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>SEO Impact Metrics</h3>
+                        <div class="grid md:grid-cols-4 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-accent">75%</div>
+                                <div class="text-sm text-muted-foreground">of clicks go to first page results</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">50%</div>
+                                <div class="text-sm text-muted-foreground">of searches are questions</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">3.5x</div>
+                                <div class="text-sm text-muted-foreground">mobile searches vs desktop</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">100%</div>
+                                <div class="text-sm text-muted-foreground">technical SEO is developer territory</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="tag" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Meta Tags and Document Structure</h2>
+                    <p class="max-w-prose text-balance">The foundation of SEO starts with proper HTML structure and meta tags. These elements tell search engines what your page is about and how to display it in search results.</p>
+
+                    <div class="space-y-6 my-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="file-text" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Title Tags</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Keep them under 60 characters and include primary keywords. Use separators like pipes or dashes for readability.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="file-text" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Meta Descriptions</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Write compelling 150-160 character descriptions that include keywords and call-to-action language.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="link" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Canonical URLs</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Prevent duplicate content issues by specifying the preferred version of each page.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="clipboard-list" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Structured Data Implementation</h2>
+                    <p class="max-w-prose text-balance">Structured data (Schema.org markup) helps search engines understand your content better, leading to rich snippets and enhanced search results.</p>
+
+                    <h3 class="text-balance"><i data-lucide="newspaper" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Article Schema</h3>
+                    <p class="max-w-prose text-balance">For blog posts and articles, implement Article schema to qualify for rich snippets:</p>
+
+                    <div class="bg-secondary/10 p-4 rounded-lg my-4">
+                        <pre class="text-sm overflow-x-auto"><code class="language-json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your Article Title",
+  "author": {
+    "@type": "Person",
+    "name": "Lay Shah"
+  },
+  "datePublished": "2026-02-07",
+  "dateModified": "2026-02-07"
+}</code></pre>
+                    </div>
+
+                    <h3 class="text-balance"><i data-lucide="building" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Organization Schema</h3>
+                    <p class="max-w-prose text-balance">Add organization markup to your homepage for local SEO and brand recognition:</p>
+
+                    <div class="bg-secondary/10 p-4 rounded-lg my-4">
+                        <pre class="text-sm overflow-x-auto"><code class="language-json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Lay Shah",
+  "url": "https://layshahdev.com",
+  "logo": "https://layshahdev.com/logo.png"
+}</code></pre>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
+                        <h3 class="text-lg font-semibold mb-3 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Pro Tip</h3>
+                        <p class="mb-0 max-w-prose text-balance">Use Google's Rich Results Test tool to validate your structured data implementation and see how it will appear in search results.</p>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Core Web Vitals Optimization</h2>
+                    <p class="max-w-prose text-balance">Google's Core Web Vitals are user experience metrics that affect search rankings. As developers, we control these technical factors.</p>
+
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <div class="bg-card p-6 rounded-lg border border-border">
+                            <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                <i data-lucide="gauge" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Largest Contentful Paint (LCP)
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Optimize server response times, remove render-blocking resources, and optimize images for fast loading.</p>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg border border-border">
+                            <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                <i data-lucide="smartphone" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>First Input Delay (FID)
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Minimize JavaScript execution time, break up long tasks, and use web workers for heavy computations.</p>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg border border-border">
+                            <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                <i data-lucide="layout" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Cumulative Layout Shift (CLS)
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Include size attributes on images, avoid inserting content above existing content, and reserve space for ads.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Technical SEO Checklist</h2>
+                    <p class="max-w-prose text-balance">Use this comprehensive checklist to ensure your websites are technically optimized for search engines:</p>
+
+                    <div class="space-y-4 my-8">
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                <i data-lucide="smartphone" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Mobile-First Design
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Ensure your site works perfectly on mobile devices with responsive design and fast loading times.</p>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                <i data-lucide="lock" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>HTTPS Implementation
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Secure your site with SSL certificates for better rankings and user trust.</p>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                <i data-lucide="map" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>XML Sitemap
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Create and submit XML sitemaps to help search engines discover and index your pages.</p>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                <i data-lucide="bot" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Robots.txt Optimization
+                            </h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Guide search engine crawlers to important pages while blocking unnecessary areas.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="hammer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Developer Tools for SEO</h2>
+                    <p class="max-w-prose text-balance">Leverage these tools to monitor and improve your SEO performance:</p>
+
+                    <div class="grid md:grid-cols-2 gap-4 my-6">
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="search" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Google Search Console</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor indexing status, search performance, and technical issues.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Google Analytics</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Track user behavior, conversion rates, and identify optimization opportunities.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Lighthouse</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Audit performance, accessibility, SEO, and best practices.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Screaming Frog</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Crawl your site to identify technical SEO issues and broken links.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Advanced SEO Techniques</h2>
+                    <p class="max-w-prose text-balance">Once you have the basics covered, implement these advanced strategies for competitive advantage:</p>
+
+                    <div class="space-y-4 my-8">
+                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2"><i data-lucide="globe" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>International SEO</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Use hreflang tags for multi-language sites and implement proper URL structures for international targeting.</p>
+                        </div>
+
+                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>JavaScript SEO</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Ensure search engines can crawl and index JavaScript-rendered content with proper server-side rendering or dynamic rendering.</p>
+                        </div>
+
+                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2"><i data-lucide="link" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Internal Linking Strategy</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Create logical internal link structures to help search engines understand your site architecture and distribute link equity.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Measuring SEO Success</h2>
+                    <p class="max-w-prose text-balance">Track these key metrics to understand your SEO performance and identify areas for improvement:</p>
+
+                    <div class="grid md:grid-cols-2 gap-4 my-6">
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Organic Traffic</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor visits from search engines and track growth over time.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Keyword Rankings</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Track positions for target keywords and identify ranking improvements.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="link" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Backlink Profile</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor the quality and quantity of inbound links to your site.</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-4">
+                            <h4 class="font-semibold mb-2"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Conversion Rates</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Measure how SEO traffic converts into business outcomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">Technical SEO isn't just about passing Lighthouse scores; it's about removing friction between search engine crawlers and your business value.</p>
+                        <p class="mb-0 max-w-prose text-balance">Is your organic traffic flatlining because of hidden rendering issues? Let's audit your architecture.</p>
+                    </div>
+
+                    <div class="bg-secondary/10 p-6 rounded-xl mt-8">
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
+                            <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-border">
+                    <div class="flex items-center justify-between">
+                        <a href="./blog.html" class="text-accent hover:text-primary transition-colors font-medium">← Back to Blog</a>
+                        <div class="flex gap-4">
+                            <a href="./blog-freelance-developer.html" class="text-accent hover:text-primary transition-colors font-medium">Previous Article</a>
+                            <a href="./blog-javascript-frameworks.html" class="text-accent hover:text-primary transition-colors font-medium">Next Article →</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>

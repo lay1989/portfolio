@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,122 +12,152 @@
     <link rel="canonical" href="https://layshahdev.com/blog-custom-websites.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Building Custom Websites: From Concept to Launch | Lay Shah" />
-    <meta property="og:description" content="Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions." />
-    <meta property="og:url" content="https://layshahdev.com/blog-custom-websites.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Building Custom Websites: From Concept to Launch | Lay Shah">
+    <meta property="og:description" content="Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.">
+    <meta property="og:url" content="https://layshahdev.com/blog-custom-websites.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building Custom Websites: From Concept to Launch",
+    "description": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+    "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://layshahdev.com/logo.png"
+        }
+    },
+    "datePublished": "2026-01-15",
+    "dateModified": "2026-01-15",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-custom-websites.html"
+    }
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
-    
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <i data-lucide="moon" class="w-5 h-5"></i>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
@@ -139,21 +170,20 @@
                         <span class="text-sm text-muted-foreground">•</span>
                         <span class="text-sm text-muted-foreground">8 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">Building Custom Websites: From Concept to Launch</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind. This comprehensive guide walks you through the entire process.</p>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Most agencies sell you a template disguised as a custom build. I build from the ground up, writing clean, semantic markup and deploying on modern edge infrastructure to ensure your site actually converts, instead of just looking pretty.</p>
                 </header>
 
                 <div class="prose prose-lg max-w-none">
                     <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2 flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-accent"></i> Key Insight</p>
-                        <p class="mb-0">Every successful website starts with a clear vision and meticulous planning. As a full-stack developer, I've refined this process over years of building custom solutions for clients across various industries.</p>
+                        <p class="text-lg font-medium mb-2 flex items-center gap-2 max-w-prose text-balance"><i data-lucide="target" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">Every successful website starts with a clear vision and meticulous planning. As a full-stack developer, I've refined this process over years of building custom solutions for clients across various industries.</p>
                     </div>
 
-                    <h2><i data-lucide="trending-up" class="w-6 h-6 text-accent inline mr-2"></i>The Custom Website Advantage</h2>
-                    <p>While templates and website builders have their place, custom development offers unique advantages that can give your business a competitive edge. Here's why custom websites outperform generic solutions:</p>
+                    <h2 class="text-balance"><i data-lucide="trending-up" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>The Custom Website Advantage</h2>
+                    <p class="max-w-prose text-balance">While templates and website builders have their place, custom development offers unique advantages that can give your business a competitive edge. Here's why custom websites outperform generic solutions:</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i> Success Metrics</h3>
+                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2 text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Success Metrics</h3>
                         <div class="grid md:grid-cols-4 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">3x</div>
@@ -174,69 +204,69 @@
                         </div>
                     </div>
 
-                    <h2><i data-lucide="rocket" class="w-6 h-6 text-accent inline mr-2"></i>Phase 1: Discovery and Strategic Planning</h2>
-                    <p>The foundation of any great website is thorough discovery. This phase sets the tone for the entire project and helps avoid costly mistakes down the line.</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Phase 1: Discovery and Strategic Planning</h2>
+                    <p class="max-w-prose text-balance">The foundation of any great website is thorough discovery. This phase sets the tone for the entire project and helps avoid costly mistakes down the line.</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="target" class="w-6 h-6 text-accent"></i>
+                                <i data-lucide="target" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Client Consultation</h3>
-                                <p class="text-muted-foreground">I begin with in-depth conversations to understand business goals, target audience, competitive landscape, technical requirements, and budget constraints.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Client Consultation</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">I begin with in-depth conversations to understand business goals, target audience, competitive landscape, technical requirements, and budget constraints.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="bar-chart-3" class="w-6 h-6 text-accent"></i>
+                                <i data-lucide="bar-chart-3" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Market Research and Analysis</h3>
-                                <p class="text-muted-foreground">Before writing a single line of code, I research industry trends, competitor websites, user behavior patterns, and technical requirements specific to your industry.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Market Research and Analysis</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Before writing a single line of code, I research industry trends, competitor websites, user behavior patterns, and technical requirements specific to your industry.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="palette" class="w-6 h-6 text-accent inline mr-2"></i>Phase 2: Design and User Experience</h2>
-                    <p>Design is where your website's personality comes to life. This phase bridges the gap between business requirements and technical implementation.</p>
+                    <h2 class="text-balance"><i data-lucide="palette" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Phase 2: Design and User Experience</h2>
+                    <p class="max-w-prose text-balance">Design is where your website's personality comes to life. This phase bridges the gap between business requirements and technical implementation.</p>
 
                     <div class="grid md:grid-cols-2 gap-6 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="folder-open" class="w-5 h-5 text-accent"></i> Information Architecture
+                                <i data-lucide="folder-open" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Information Architecture
                             </h4>
-                            <p class="text-sm text-muted-foreground">Creating a sitemap that organizes content logically with main navigation, content hierarchy, user flows, and strategic call-to-action placement.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Creating a sitemap that organizes content logically with main navigation, content hierarchy, user flows, and strategic call-to-action placement.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="pen-tool" class="w-5 h-5 text-accent"></i> Wireframing and Prototyping
+                                <i data-lucide="pen-tool" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Wireframing and Prototyping
                             </h4>
-                            <p class="text-sm text-muted-foreground">Low-fidelity wireframes visualize layout without design distractions, including homepage, key templates, mobile variations, and interaction flows.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Low-fidelity wireframes visualize layout without design distractions, including homepage, key templates, mobile variations, and interaction flows.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="palette" class="w-5 h-5 text-accent"></i> Visual Design
+                                <i data-lucide="palette" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Visual Design
                             </h4>
-                            <p class="text-sm text-muted-foreground">Developing visual identity with color palettes, typography, iconography, and brand consistency guidelines that reflect your unique brand personality.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Developing visual identity with color palettes, typography, iconography, and brand consistency guidelines that reflect your unique brand personality.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="users" class="w-5 h-5 text-accent"></i> User Experience Focus
+                                <i data-lucide="users" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> User Experience Focus
                             </h4>
-                            <p class="text-sm text-muted-foreground">Ensuring intuitive navigation, clear information hierarchy, and seamless user journeys that guide visitors toward your business goals.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Ensuring intuitive navigation, clear information hierarchy, and seamless user journeys that guide visitors toward your business goals.</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="settings" class="w-6 h-6 text-accent inline mr-2"></i>Phase 3: Development and Implementation</h2>
-                    <p>This is where the rubber meets the road. I transform designs into functional, performant code using modern technologies and best practices.</p>
+                    <h2 class="text-balance"><i data-lucide="settings" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Phase 3: Development and Implementation</h2>
+                    <p class="max-w-prose text-balance">This is where the rubber meets the road. I transform designs into functional, performant code using modern technologies and best practices.</p>
 
-                    <h3><i data-lucide="wrench" class="w-5 h-5 text-accent inline mr-2"></i>Technology Stack Selection</h3>
-                    <p>I choose technologies based on project requirements and scalability needs:</p>
+                    <h3 class="text-balance"><i data-lucide="wrench" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Technology Stack Selection</h3>
+                    <p class="max-w-prose text-balance">I choose technologies based on project requirements and scalability needs:</p>
 
                     <div class="bg-secondary/10 p-4 rounded-lg my-6">
                         <div class="grid md:grid-cols-2 gap-4 text-sm">
@@ -255,8 +285,8 @@
                         </div>
                     </div>
 
-                    <h3><i data-lucide="sparkles" class="w-5 h-5 text-accent inline mr-2"></i>Clean Code Practices</h3>
-                    <p>I write maintainable code following industry standards:</p>
+                    <h3 class="text-balance"><i data-lucide="sparkles" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Clean Code Practices</h3>
+                    <p class="max-w-prose text-balance">I write maintainable code following industry standards:</p>
 
                     <ul class="space-y-2">
                         <li><strong class="text-accent">Semantic HTML structure</strong> for accessibility and SEO</li>
@@ -266,105 +296,105 @@
                     </ul>
 
                     <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 flex items-center gap-2"><i data-lucide="lightbulb" class="w-5 h-5 text-accent"></i> Performance First</h3>
-                        <p class="mb-0">Performance is built-in from the start with image optimization, lazy loading, minification, caching strategies, and CDN implementation for lightning-fast loading times.</p>
+                        <h3 class="text-lg font-semibold mb-3 flex items-center gap-2 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Performance First</h3>
+                        <p class="mb-0 max-w-prose text-balance">Performance is built-in from the start with image optimization, lazy loading, minification, caching strategies, and CDN implementation for lightning-fast loading times.</p>
                     </div>
 
-                    <h2><i data-lucide="flask-conical" class="w-6 h-6 text-accent inline mr-2"></i>Phase 4: Testing and Quality Assurance</h2>
-                    <p>Thorough testing ensures your website works flawlessly across all scenarios and devices.</p>
+                    <h2 class="text-balance"><i data-lucide="flask-conical" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Phase 4: Testing and Quality Assurance</h2>
+                    <p class="max-w-prose text-balance">Thorough testing ensures your website works flawlessly across all scenarios and devices.</p>
 
                     <div class="space-y-4 my-8">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="globe" class="w-5 h-5 text-accent"></i> Cross-Browser Testing
+                                <i data-lucide="globe" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Cross-Browser Testing
                             </h4>
-                            <p class="text-sm text-muted-foreground">Testing on Chrome, Firefox, Safari, Edge, and mobile browsers across different screen sizes and resolutions.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Testing on Chrome, Firefox, Safari, Edge, and mobile browsers across different screen sizes and resolutions.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="settings" class="w-5 h-5 text-accent"></i> Functionality Testing
+                                <i data-lucide="settings" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Functionality Testing
                             </h4>
-                            <p class="text-sm text-muted-foreground">Every feature tested including forms, interactions, e-commerce flows, and third-party integrations.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Every feature tested including forms, interactions, e-commerce flows, and third-party integrations.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i> Performance Testing
+                                <i data-lucide="bar-chart-3" class="w-5 h-5 text-primary dark:text-accent" aria-hidden="true"/> Performance Testing
                             </h4>
-                            <p class="text-sm text-muted-foreground">Using Lighthouse, WebPageTest, and GTmetrix to ensure fast loading and optimal Core Web Vitals scores.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Using Lighthouse, WebPageTest, and GTmetrix to ensure fast loading and optimal Core Web Vitals scores.</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="rocket" class="w-6 h-6 text-accent inline mr-2"></i>Phase 5: Launch and Post-Launch Support</h2>
-                    <p>Launch day is just the beginning of your website's journey. I provide comprehensive support to ensure long-term success.</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Phase 5: Launch and Post-Launch Support</h2>
+                    <p class="max-w-prose text-balance">Launch day is just the beginning of your website's journey. I provide comprehensive support to ensure long-term success.</p>
 
-                    <h3><i data-lucide="clipboard-check" class="w-5 h-5 text-accent inline mr-2"></i>Pre-Launch Checklist</h3>
+                    <h3 class="text-balance"><i data-lucide="clipboard-check" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Pre-Launch Checklist</h3>
                     <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg my-4">
                         <ul class="space-y-1 text-sm">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Final content review and approval</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Domain and hosting setup</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> SSL certificate installation</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Search console and analytics setup</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Final content review and approval</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Domain and hosting setup</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> SSL certificate installation</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Search console and analytics setup</li>
                         </ul>
                     </div>
 
-                    <h3><i data-lucide="target" class="w-5 h-5 text-accent inline mr-2"></i>Soft Launch Strategy</h3>
-                    <p>I recommend a soft launch to test everything in a real environment, gather initial feedback, monitor performance, and build confidence before full promotion.</p>
+                    <h3 class="text-balance"><i data-lucide="target" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Soft Launch Strategy</h3>
+                    <p class="max-w-prose text-balance">I recommend a soft launch to test everything in a real environment, gather initial feedback, monitor performance, and build confidence before full promotion.</p>
 
-                    <h3><i data-lucide="refresh-cw" class="w-5 h-5 text-accent inline mr-2"></i>Ongoing Maintenance</h3>
-                    <p>Websites require regular care including security updates, content freshening, performance monitoring, and feature enhancements based on user feedback.</p>
+                    <h3 class="text-balance"><i data-lucide="refresh-cw" class="w-5 h-5 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Ongoing Maintenance</h3>
+                    <p class="max-w-prose text-balance">Websites require regular care including security updates, content freshening, performance monitoring, and feature enhancements based on user feedback.</p>
 
-                    <h2><i data-lucide="alert-triangle" class="w-6 h-6 text-accent inline mr-2"></i>Common Challenges and Solutions</h2>
-                    <p>Every project has its unique challenges. Here are some common ones I help clients navigate:</p>
+                    <h2 class="text-balance"><i data-lucide="alert-triangle" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Common Challenges and Solutions</h2>
+                    <p class="max-w-prose text-balance">Every project has its unique challenges. Here are some common ones I help clients navigate:</p>
 
                     <div class="grid md:grid-cols-3 gap-4 my-8">
                         <div class="bg-red-50 dark:bg-red-950/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
                             <h4 class="font-semibold text-red-800 dark:text-red-200 mb-2">Scope Creep</h4>
-                            <p class="text-sm text-red-700 dark:text-red-300">Projects expanding beyond original scope</p>
-                            <p class="text-xs mt-2 font-medium">Solution: Clear change management with documented approvals</p>
+                            <p class="text-sm text-red-700 dark:text-red-300 max-w-prose text-balance">Projects expanding beyond original scope</p>
+                            <p class="text-xs mt-2 font-medium max-w-prose text-balance">Solution: Clear change management with documented approvals</p>
                         </div>
 
                         <div class="bg-orange-50 dark:bg-orange-950/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
                             <h4 class="font-semibold text-orange-800 dark:text-orange-200 mb-2">Content Delays</h4>
-                            <p class="text-sm text-orange-700 dark:text-orange-300">Clients struggling to provide content</p>
-                            <p class="text-xs mt-2 font-medium">Solution: Content strategy planning and phased delivery</p>
+                            <p class="text-sm text-orange-700 dark:text-orange-300 max-w-prose text-balance">Clients struggling to provide content</p>
+                            <p class="text-xs mt-2 font-medium max-w-prose text-balance">Solution: Content strategy planning and phased delivery</p>
                         </div>
 
                         <div class="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
                             <h4 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Technical Complexity</h4>
-                            <p class="text-sm text-blue-700 dark:text-blue-300">Over-engineering simple requirements</p>
-                            <p class="text-xs mt-2 font-medium">Solution: MVP approach focusing on core functionality first</p>
+                            <p class="text-sm text-blue-700 dark:text-blue-300 max-w-prose text-balance">Over-engineering simple requirements</p>
+                            <p class="text-xs mt-2 font-medium max-w-prose text-balance">Solution: MVP approach focusing on core functionality first</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="bar-chart-3" class="w-6 h-6 text-accent inline mr-2"></i>Measuring Success</h2>
-                    <p>How do you know if your website is successful? I help clients track key performance indicators:</p>
+                    <h2 class="text-balance"><i data-lucide="bar-chart-3" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Measuring Success</h2>
+                    <p class="max-w-prose text-balance">How do you know if your website is successful? I help clients track key performance indicators:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-accent"></i> User Engagement</h4>
-                            <p class="text-sm text-muted-foreground">Time on site, pages per session, bounce rate</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> User Engagement</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Time on site, pages per session, bounce rate</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="dollar-sign" class="w-4 h-4 text-accent"></i> Conversion Metrics</h4>
-                            <p class="text-sm text-muted-foreground">Form submissions, sales, sign-ups</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="dollar-sign" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Conversion Metrics</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Form submissions, sales, sign-ups</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-accent"></i> Technical Performance</h4>
-                            <p class="text-sm text-muted-foreground">Loading speed, mobile-friendliness</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> Technical Performance</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Loading speed, mobile-friendliness</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="search" class="w-4 h-4 text-accent"></i> SEO Performance</h4>
-                            <p class="text-sm text-muted-foreground">Search rankings, organic traffic growth</p>
+                            <h4 class="font-semibold mb-2 flex items-center gap-2"><i data-lucide="search" class="w-4 h-4 text-primary dark:text-accent" aria-hidden="true"/> SEO Performance</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Search rankings, organic traffic growth</p>
                         </div>
                     </div>
 
-                    <h2><i data-lucide="trophy" class="w-6 h-6 text-accent inline mr-2"></i>Why Choose Custom Development</h2>
-                    <p>While templates have their place, custom development offers unique advantages that drive business success:</p>
+                    <h2 class="text-balance"><i data-lucide="trophy" class="w-6 h-6 text-primary dark:text-accent inline mr-2" aria-hidden="true"/>Why Choose Custom Development</h2>
+                    <p class="max-w-prose text-balance">While templates have their place, custom development offers unique advantages that drive business success:</p>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent flex items-center gap-2"><i data-lucide="rocket" class="w-5 h-5"></i> Competitive Advantages</h3>
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent flex items-center gap-2 text-balance"><i data-lucide="rocket" class="w-5 h-5" aria-hidden="true"/> Competitive Advantages</h3>
                         <ul class="space-y-2">
                             <li><strong>Tailored Solutions:</strong> Built specifically for your business needs and processes</li>
                             <li><strong>Scalability:</strong> Can grow and evolve with your business requirements</li>
@@ -373,17 +403,17 @@
                         </ul>
                     </div>
 
-                    <h2><i data-lucide="target" class="w-6 h-6 text-accent inline mr-2"></i>Ready to Build Your Custom Website?</h2>
-                    <p>Building a custom website is a significant investment, but when done right, it becomes one of your most valuable business assets. The process requires careful planning, skilled execution, and ongoing maintenance, but the results improved user experience, better conversions, and business growth which make it worthwhile.</p>
-
-                    <p>If you're considering a custom website, I'd love to discuss your project. Every great website starts with a conversation. Let's build something amazing together.</p>
+                    <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">A custom website isn't just about unique branding; it's about owning a digital asset that scales perfectly with your business without the bloated overhead of off-the-shelf themes.</p>
+                        <p class="mb-0 max-w-prose text-balance">Are you tired of fighting with restrictive templates? Let's engineer a solution that actually fits your needs.</p>
+                    </div>
 
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="#" class="text-accent hover:text-primary transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>
@@ -401,25 +431,33 @@
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

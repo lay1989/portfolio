@@ -1,0 +1,505 @@
+{
+  "index.html": {
+    "title": "Lay Shah - Full Stack Developer | Web Design",
+    "description": "Freelance Full Stack Developer & web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio & Case Studies and get in touch!",
+    "canonical": "https://layshahdev.com/",
+    "ogType": "website",
+    "ogTitle": "Lay Shah | Web Designer & Frontend Developer",
+    "ogDescription": "Custom websites for small businesses. Responsive, SEO-friendly, and performance focused.",
+    "ogUrl": "https://layshahdev.com",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Lay Shah | Web Developer",
+      "url": "https://layshahdev.com",
+      "logo": "https://layshahdev.com/logo.png",
+      "description": "Freelance web developer designing and building custom websites for small businesses.",
+      "sameAs": [
+        "https://github.com/lay1989"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "layshah1989@gmail.com",
+          "contactType": "customer service"
+        }
+      ]
+    },
+    "content": "content/index.html"
+  },
+  "blog.html": {
+    "title": "Blog - Lay Shah | Web Development Insights",
+    "description": "Read insights on web development, design tips, and freelance advice from Lay Shah, a full-stack developer. Learn about responsive web design, custom websites, and more.",
+    "canonical": "https://layshahdev.com/blog.html",
+    "ogType": "website",
+    "ogTitle": "Blog - Lay Shah | Web Development Insights",
+    "ogDescription": "Insights on web development, design, and freelancing from a full-stack developer.",
+    "ogUrl": "https://layshahdev.com/blog.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "content": "content/blog.html"
+  },
+  "blog-custom-websites.html": {
+    "title": "Building Custom Websites: From Concept to Launch | Lay Shah",
+    "description": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+    "canonical": "https://layshahdev.com/blog-custom-websites.html",
+    "ogType": "article",
+    "ogTitle": "Building Custom Websites: From Concept to Launch | Lay Shah",
+    "ogDescription": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+    "ogUrl": "https://layshahdev.com/blog-custom-websites.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Building Custom Websites: From Concept to Launch",
+      "description": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-01-15",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-custom-websites.html"
+      }
+    },
+    "content": "content/blog-custom-websites.html"
+  },
+  "blog-freelance-developer.html": {
+    "title": "Why Choose a Freelance Web Developer? | Lay Shah",
+    "description": "Read about why choose a freelance web developer? by Lay Shah.",
+    "canonical": "https://layshahdev.com/blog-freelance-developer.html",
+    "ogType": "article",
+    "ogTitle": "Why Choose a Freelance Web Developer? | Lay Shah",
+    "ogDescription": "Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.",
+    "ogUrl": "https://layshahdev.com/blog-freelance-developer.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why Choose a Freelance Web Developer?",
+      "description": "Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-12-20",
+      "dateModified": "2025-12-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-freelance-developer.html"
+      }
+    },
+    "content": "content/blog-freelance-developer.html"
+  },
+  "blog-javascript-frameworks.html": {
+    "title": "Modern JavaScript Frameworks: Choosing the Right Tool | Lay Shah",
+    "description": "Read about modern javascript frameworks: choosing the right tool by Lay Shah.",
+    "canonical": "https://layshahdev.com/blog-javascript-frameworks.html",
+    "ogType": "article",
+    "ogTitle": "Modern JavaScript Frameworks: Choosing the Right Tool",
+    "ogDescription": "Navigate the JavaScript framework landscape with this comprehensive guide comparing React, Vue, Angular, Svelte, and Next.js for your project needs.",
+    "ogUrl": "https://layshahdev.com/blog-javascript-frameworks.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Modern JavaScript Frameworks: Choosing the Right Tool",
+      "description": "Navigate the JavaScript framework landscape with this comprehensive guide. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project needs.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-javascript-frameworks.html"
+      }
+    },
+    "articleMeta": {
+      "author": "Lay Shah",
+      "publishedTime": "2026-02-07"
+    },
+    "content": "content/blog-javascript-frameworks.html"
+  },
+  "blog-performance-optimization.html": {
+    "title": "Web Performance Optimization: Speed Up Your Website | Lay Shah",
+    "description": "Read about web performance optimization: speed up your website by Lay Shah.",
+    "canonical": "https://layshahdev.com/blog-performance-optimization.html",
+    "ogType": "article",
+    "ogTitle": "Web Performance Optimization: Speed Up Your Website",
+    "ogDescription": "Master web performance optimization with this comprehensive guide covering Core Web Vitals, image optimization, code splitting, and monitoring techniques.",
+    "ogUrl": "https://layshahdev.com/blog-performance-optimization.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Web Performance Optimization: Speed Up Your Website",
+      "description": "Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, caching strategies, and monitoring techniques to create lightning-fast websites.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-performance-optimization.html"
+      }
+    },
+    "articleMeta": {
+      "author": "Lay Shah",
+      "publishedTime": "2026-02-07"
+    },
+    "content": "content/blog-performance-optimization.html"
+  },
+  "blog-responsive-design.html": {
+    "title": "The Importance of Responsive Web Design in 2025 | Lay Shah",
+    "description": "Read about the importance of responsive web design in 2025 by Lay Shah.",
+    "canonical": "https://layshahdev.com/blog-responsive-design.html",
+    "ogType": "article",
+    "ogTitle": "The Importance of Responsive Web Design in 2025 | Lay Shah",
+    "ogDescription": "Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.",
+    "ogUrl": "https://layshahdev.com/blog-responsive-design.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "The Importance of Responsive Web Design in 2025",
+      "description": "Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-responsive-design.html"
+      }
+    },
+    "content": "content/blog-responsive-design.html"
+  },
+  "blog-seo-developers.html": {
+    "title": "SEO for Developers: Technical Implementation Guide | Lay Shah",
+    "description": "Read about seo for developers: technical implementation guide by Lay Shah.",
+    "canonical": "https://layshahdev.com/blog-seo-developers.html",
+    "ogType": "article",
+    "ogTitle": "SEO for Developers: Technical Implementation Guide",
+    "ogDescription": "Master SEO as a developer with this comprehensive technical guide covering meta tags, structured data, Core Web Vitals, and implementation strategies.",
+    "ogUrl": "https://layshahdev.com/blog-seo-developers.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "SEO for Developers: Technical Implementation Guide",
+      "description": "Master SEO as a developer with this comprehensive technical guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies.",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-seo-developers.html"
+      }
+    },
+    "articleMeta": {
+      "author": "Lay Shah",
+      "publishedTime": "2026-02-07"
+    },
+    "content": "content/blog-seo-developers.html"
+  },
+  "projects.html": {
+    "title": "Projects - Lay Shah | Web Development Portfolio",
+    "description": "Browse my complete portfolio of web development projects. From landing pages to full-stack applications, each case study details the problem, approach, and measurable results.",
+    "canonical": "https://layshahdev.com/projects.html",
+    "ogType": "website",
+    "ogTitle": "Projects - Lay Shah | Web Development Portfolio",
+    "ogDescription": "Browse my complete portfolio of web development projects with detailed case studies.",
+    "ogUrl": "https://layshahdev.com/projects.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "content": "content/projects.html"
+  },
+  "projects/ghermar-sons.html": {
+    "type": "project",
+    "projectSlug": "ghermar-sons",
+    "title": "Ghermar & Sons - Case Study | Lay Shah",
+    "description": "A stunning Landing Page for a Import-Export Company with smooth animations.",
+    "canonical": "https://layshahdev.com/projects/ghermar-sons.html",
+    "ogType": "article",
+    "ogTitle": "Ghermar & Sons - Case Study | Lay Shah",
+    "ogDescription": "A stunning Landing Page for a Import-Export Company with smooth animations.",
+    "ogUrl": "https://layshahdev.com/projects/ghermar-sons.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ghermar & Sons - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/swiftbuild-infratech.html": {
+    "type": "project",
+    "projectSlug": "swiftbuild-infratech",
+    "title": "SwiftBuild Infratech - Case Study | Lay Shah",
+    "description": "A sophisticated portfolio for a International modern Construction Innovation Company.",
+    "canonical": "https://layshahdev.com/projects/swiftbuild-infratech.html",
+    "ogType": "article",
+    "ogTitle": "SwiftBuild Infratech - Case Study | Lay Shah",
+    "ogDescription": "A sophisticated portfolio for a International modern Construction Innovation Company.",
+    "ogUrl": "https://layshahdev.com/projects/swiftbuild-infratech.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "SwiftBuild Infratech - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/crypto-trading-analytics.html": {
+    "type": "project",
+    "projectSlug": "crypto-trading-analytics",
+    "title": "Crypto Trading Analytics - Case Study | Lay Shah",
+    "description": "Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.",
+    "canonical": "https://layshahdev.com/projects/crypto-trading-analytics.html",
+    "ogType": "article",
+    "ogTitle": "Crypto Trading Analytics - Case Study | Lay Shah",
+    "ogDescription": "Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.",
+    "ogUrl": "https://layshahdev.com/projects/crypto-trading-analytics.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Crypto Trading Analytics - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/kamaldeep-enterprise.html": {
+    "type": "project",
+    "projectSlug": "kamaldeep-enterprise",
+    "title": "Kamaldeep Enterprise - Case Study | Lay Shah",
+    "description": "Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.",
+    "canonical": "https://layshahdev.com/projects/kamaldeep-enterprise.html",
+    "ogType": "article",
+    "ogTitle": "Kamaldeep Enterprise - Case Study | Lay Shah",
+    "ogDescription": "Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.",
+    "ogUrl": "https://layshahdev.com/projects/kamaldeep-enterprise.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Kamaldeep Enterprise - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/aroma-cafe.html": {
+    "type": "project",
+    "projectSlug": "aroma-cafe",
+    "title": "Aroma Cafe - Case Study | Lay Shah",
+    "description": "A beautiful Cafe website with online reservations, menu showcase, and location finder.",
+    "canonical": "https://layshahdev.com/projects/aroma-cafe.html",
+    "ogType": "article",
+    "ogTitle": "Aroma Cafe - Case Study | Lay Shah",
+    "ogDescription": "A beautiful Cafe website with online reservations, menu showcase, and location finder.",
+    "ogUrl": "https://layshahdev.com/projects/aroma-cafe.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Aroma Cafe - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/stark-ev.html": {
+    "type": "project",
+    "projectSlug": "stark-ev",
+    "title": "Stark EV - Case Study | Lay Shah",
+    "description": "A personal project exploring futuristic UI/UX design with complex interactions and modern web technologies.",
+    "canonical": "https://layshahdev.com/projects/stark-ev.html",
+    "ogType": "article",
+    "ogTitle": "Stark EV - Case Study | Lay Shah",
+    "ogDescription": "A personal project exploring futuristic UI/UX design with complex interactions and modern web technologies.",
+    "ogUrl": "https://layshahdev.com/projects/stark-ev.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Stark EV - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  },
+  "projects/taskflow-pro.html": {
+    "type": "project",
+    "projectSlug": "taskflow-pro",
+    "title": "TaskFlow Pro - Case Study | Lay Shah",
+    "description": "Enterprise-grade project management solution with advanced automation and team collaboration features.",
+    "canonical": "https://layshahdev.com/projects/taskflow-pro.html",
+    "ogType": "article",
+    "ogTitle": "TaskFlow Pro - Case Study | Lay Shah",
+    "ogDescription": "Enterprise-grade project management solution with advanced automation and team collaboration features.",
+    "ogUrl": "https://layshahdev.com/projects/taskflow-pro.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TaskFlow Pro - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2025-02-07",
+      "dateModified": "2025-02-07"
+    }
+  }
+}

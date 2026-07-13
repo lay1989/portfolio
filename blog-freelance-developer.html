@@ -1,132 +1,163 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why Choose a Freelance Web Developer? | Lay Shah</title>
-    <meta name="description" content="Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.">
+    <meta name="description" content="Read about why choose a freelance web developer? by Lay Shah.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-freelance-developer.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Why Choose a Freelance Web Developer? | Lay Shah" />
-    <meta property="og:description" content="Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs." />
-    <meta property="og:url" content="https://layshahdev.com/blog-freelance-developer.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Choose a Freelance Web Developer? | Lay Shah">
+    <meta property="og:description" content="Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.">
+    <meta property="og:url" content="https://layshahdev.com/blog-freelance-developer.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Choose a Freelance Web Developer?",
+    "description": "Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.",
+    "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://layshahdev.com/logo.png"
+        }
+    },
+    "datePublished": "2025-12-20",
+    "dateModified": "2025-12-20",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-freelance-developer.html"
+    }
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
-    
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <i data-lucide="moon" class="w-5 h-5"></i>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
@@ -139,21 +170,20 @@
                         <span class="text-sm text-muted-foreground">•</span>
                         <span class="text-sm text-muted-foreground">6 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">Why Choose a Freelance Web Developer?</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites for small businesses. Here's why working with a freelancer might be the right choice for your project.</p>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Agencies will sell you their A-team and then hand your project to a junior dev. Working with a senior freelancer means the person you talk to is the person writing your code. Direct accountability, zero bloat, and faster shipping.</p>
                 </header>
 
                 <div class="prose prose-lg max-w-none">
                     <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2">🤝 Key Insight</p>
-                        <p class="mb-0">In the world of web development, you have many options, from large agencies to solo freelancers. While there's no one-size-fits-all solution, freelancing offers unique advantages that make it an excellent choice for many businesses.</p>
+                        <p class="text-lg font-medium mb-2 max-w-prose text-balance"><i data-lucide="handshake" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">In the world of web development, you have many options, from large agencies to solo freelancers. While there's no one-size-fits-all solution, freelancing offers unique advantages that make it an excellent choice for many businesses.</p>
                     </div>
 
-                    <h2>📊 The Freelance Advantage in Numbers</h2>
-                    <p>Working with a freelancer isn't just about cost savings. It's about getting a dedicated partner who understands your business intimately and delivers results that drive growth.</p>
+                    <h2 class="text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Freelance Advantage in Numbers</h2>
+                    <p class="max-w-prose text-balance">Working with a freelancer isn't just about cost savings. It's about getting a dedicated partner who understands your business intimately and delivers results that drive growth.</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4">📈 Freelance vs Agency Comparison</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Freelance vs Agency Comparison</h3>
                         <div class="grid md:grid-cols-4 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">3x</div>
@@ -174,169 +204,169 @@
                         </div>
                     </div>
 
-                    <h2>🎯 1. Personalized Attention and Direct Communication</h2>
-                    <p>Unlike large agencies where you might be just another client, freelancers work directly with you throughout the entire project.</p>
+                    <h2 class="text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>1. Personalized Attention and Direct Communication</h2>
+                    <p class="max-w-prose text-balance">Unlike large agencies where you might be just another client, freelancers work directly with you throughout the entire project.</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">🚫</span>
+                                <i data-lucide="ban" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">No Middlemen</h3>
-                                <p class="text-muted-foreground">When you hire a freelancer, you're dealing directly with the person who will be writing your code and designing your interface. This eliminates miscommunication and ensures your vision is implemented exactly as intended.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">No Middlemen</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">When you hire a freelancer, you're dealing directly with the person who will be writing your code and designing your interface. This eliminates miscommunication and ensures your vision is implemented exactly as intended.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">⚡</span>
+                                <i data-lucide="zap" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Rapid Response Times</h3>
-                                <p class="text-muted-foreground">Freelancers typically respond to emails and messages within hours, not days. Need a quick change or have a question? You'll get immediate attention without waiting for someone to escalate your request.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Rapid Response Times</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Freelancers typically respond to emails and messages within hours, not days. Need a quick change or have a question? You'll get immediate attention without waiting for someone to escalate your request.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">🎯</span>
+                                <i data-lucide="target" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Deep Business Understanding</h3>
-                                <p class="text-muted-foreground">Freelancers take the time to understand your industry, your competitors, and your unique challenges. This contextual knowledge leads to better solutions that are tailored to your specific situation.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Deep Business Understanding</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Freelancers take the time to understand your industry, your competitors, and your unique challenges. This contextual knowledge leads to better solutions that are tailored to your specific situation.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2>💰 2. Cost-Effective Solutions</h2>
-                    <p>Freelancers often provide better value for money than traditional agencies, but the savings go beyond just hourly rates.</p>
+                    <h2 class="text-balance"><i data-lucide="dollar-sign" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>2. Cost-Effective Solutions</h2>
+                    <p class="max-w-prose text-balance">Freelancers often provide better value for money than traditional agencies, but the savings go beyond just hourly rates.</p>
 
                     <div class="grid md:grid-cols-3 gap-4 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>🏢</span> Lower Overhead
+                                <i data-lucide="building" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Lower Overhead
                             </h4>
-                            <p class="text-sm text-muted-foreground">No office space, benefits packages, or large marketing budgets. This allows competitive pricing while maintaining high quality standards.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">No office space, benefits packages, or large marketing budgets. This allows competitive pricing while maintaining high quality standards.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>💳</span> Flexible Pricing
+                                <i data-lucide="credit-card" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Flexible Pricing
                             </h4>
-                            <p class="text-sm text-muted-foreground">Fixed-price projects, hourly rates, or retainer agreements based on your needs and project scope.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Fixed-price projects, hourly rates, or retainer agreements based on your needs and project scope.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>💯</span> Transparent Costs
+                                <i data-lucide="award" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Transparent Costs
                             </h4>
-                            <p class="text-sm text-muted-foreground">No hidden fees for "project management" or "account coordination." You pay for the actual work performed.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">No hidden fees for "project management" or "account coordination." You pay for the actual work performed.</p>
                         </div>
                     </div>
 
-                    <h2>🚀 3. Faster Turnaround and Flexibility</h2>
-                    <p>Agency processes can be slow and rigid. Freelancers offer speed and adaptability that keeps your business moving forward.</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>3. Faster Turnaround and Flexibility</h2>
+                    <p class="max-w-prose text-balance">Agency processes can be slow and rigid. Freelancers offer speed and adaptability that keeps your business moving forward.</p>
 
-                    <h3>⚡ Rapid Project Initiation</h3>
-                    <p>While agencies might take weeks to assemble a team and create project plans, freelancers can often start work within days. This is crucial when you need to move quickly to capitalize on market opportunities.</p>
+                    <h3 class="text-balance"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Rapid Project Initiation</h3>
+                    <p class="max-w-prose text-balance">While agencies might take weeks to assemble a team and create project plans, freelancers can often start work within days. This is crucial when you need to move quickly to capitalize on market opportunities.</p>
 
-                    <h3>🔄 Agile Development Process</h3>
+                    <h3 class="text-balance"><i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Agile Development Process</h3>
                     <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg my-4">
                         <ul class="space-y-1 text-sm">
-                            <li>✅ Regular feedback and iteration cycles</li>
-                            <li>✅ Flexible scope adjustments as needed</li>
-                            <li>✅ Quick pivots based on new information</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Regular feedback and iteration cycles</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Flexible scope adjustments as needed</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Quick pivots based on new information</li>
                         </ul>
                     </div>
 
-                    <h3>📈 Scalability</h3>
-                    <p>Start with a small project and scale up as needed. Freelancers can bring in additional talent for larger initiatives or handle everything themselves for smaller projects.</p>
+                    <h3 class="text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Scalability</h3>
+                    <p class="max-w-prose text-balance">Start with a small project and scale up as needed. Freelancers can bring in additional talent for larger initiatives or handle everything themselves for smaller projects.</p>
 
-                    <h2>🛠️ 4. Specialized Expertise and Modern Skills</h2>
-                    <p>Freelancers often have deep, specialized knowledge that generalist agencies might lack.</p>
+                    <h2 class="text-balance"><i data-lucide="hammer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>4. Specialized Expertise and Modern Skills</h2>
+                    <p class="max-w-prose text-balance">Freelancers often have deep, specialized knowledge that generalist agencies might lack.</p>
 
                     <div class="space-y-4 my-8">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🔥</span> Latest Technologies
+                                <i data-lucide="flame" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Latest Technologies
                             </h4>
-                            <p class="text-sm text-muted-foreground">Freelancers stay current with the latest tools and frameworks because their livelihood depends on it. They don't have legacy systems holding them back.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Freelancers stay current with the latest tools and frameworks because their livelihood depends on it. They don't have legacy systems holding them back.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🔄</span> Full-Stack Capabilities
+                                <i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Full-Stack Capabilities
                             </h4>
-                            <p class="text-sm text-muted-foreground">Many freelancers handle both frontend and backend development. This ensures seamless integration and eliminates handoff problems between different agency teams.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Many freelancers handle both frontend and backend development. This ensures seamless integration and eliminates handoff problems between different agency teams.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🎯</span> Industry-Specific Knowledge
+                                <i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Industry-Specific Knowledge
                             </h4>
-                            <p class="text-sm text-muted-foreground">Freelancers who specialize in certain industries develop deep knowledge of sector-specific challenges and solutions, leading to more relevant and effective websites.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Freelancers who specialize in certain industries develop deep knowledge of sector-specific challenges and solutions, leading to more relevant and effective websites.</p>
                         </div>
                     </div>
 
-                    <h2>🤝 5. Long-Term Partnership Potential</h2>
-                    <p>The best client-freelancer relationships evolve into ongoing partnerships that grow with your business.</p>
+                    <h2 class="text-balance"><i data-lucide="handshake" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>5. Long-Term Partnership Potential</h2>
+                    <p class="max-w-prose text-balance">The best client-freelancer relationships evolve into ongoing partnerships that grow with your business.</p>
 
                     <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3">🌱 Growth Together</h3>
-                        <p class="mb-0">As your business evolves, your freelancer can grow with you. They understand your systems, your processes, and your goals, making it easier to add new features or expand existing functionality.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-balance"><i data-lucide="sprout" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Growth Together</h3>
+                        <p class="mb-0 max-w-prose text-balance">As your business evolves, your freelancer can grow with you. They understand your systems, your processes, and your goals, making it easier to add new features or expand existing functionality.</p>
                     </div>
 
-                    <h3>🔧 Continued Support</h3>
-                    <p>Freelancers can provide ongoing maintenance, updates, and support long after the initial project is complete. This continuity is valuable for businesses that need reliable technical support.</p>
+                    <h3 class="text-balance"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Continued Support</h3>
+                    <p class="max-w-prose text-balance">Freelancers can provide ongoing maintenance, updates, and support long after the initial project is complete. This continuity is valuable for businesses that need reliable technical support.</p>
 
-                    <h2>⚠️ When Freelancing Might Not Be Right</h2>
-                    <p>While freelancing offers many advantages, it's not always the best choice for every situation.</p>
+                    <h2 class="text-balance"><i data-lucide="alert-triangle" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>When Freelancing Might Not Be Right</h2>
+                    <p class="max-w-prose text-balance">While freelancing offers many advantages, it's not always the best choice for every situation.</p>
 
                     <div class="grid md:grid-cols-3 gap-4 my-8">
                         <div class="bg-red-50 dark:bg-red-950/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
                             <h4 class="font-semibold text-red-800 dark:text-red-200 mb-2">Large-Scale Projects</h4>
-                            <p class="text-sm text-red-700 dark:text-red-300">If you need a large team working simultaneously on multiple aspects of a complex project, an agency might be more appropriate.</p>
+                            <p class="text-sm text-red-700 dark:text-red-300 max-w-prose text-balance">If you need a large team working simultaneously on multiple aspects of a complex project, an agency might be more appropriate.</p>
                         </div>
 
                         <div class="bg-orange-50 dark:bg-orange-950/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
                             <h4 class="font-semibold text-orange-800 dark:text-orange-200 mb-2">Extensive Hand-Holding</h4>
-                            <p class="text-sm text-orange-700 dark:text-orange-300">Some clients prefer agencies because they provide project managers and account coordinators.</p>
+                            <p class="text-sm text-orange-700 dark:text-orange-300 max-w-prose text-balance">Some clients prefer agencies because they provide project managers and account coordinators.</p>
                         </div>
 
                         <div class="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
                             <h4 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Highly Specialized Needs</h4>
-                            <p class="text-sm text-blue-700 dark:text-blue-300">If your project requires very niche expertise that few freelancers possess, an agency might have access to a broader talent pool.</p>
+                            <p class="text-sm text-blue-700 dark:text-blue-300 max-w-prose text-balance">If your project requires very niche expertise that few freelancers possess, an agency might have access to a broader talent pool.</p>
                         </div>
                     </div>
 
-                    <h2>🎯 How to Choose the Right Freelancer</h2>
-                    <p>Finding the right freelancer is crucial for project success. Here's what to look for:</p>
+                    <h2 class="text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>How to Choose the Right Freelancer</h2>
+                    <p class="max-w-prose text-balance">Finding the right freelancer is crucial for project success. Here's what to look for:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📁 Portfolio & Experience</h4>
-                            <p class="text-sm text-muted-foreground">Review their past work. Do they have experience in your industry? Have they solved similar problems before?</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="folder" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Portfolio &amp; Experience</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Review their past work. Do they have experience in your industry? Have they solved similar problems before?</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">💬 Communication Skills</h4>
-                            <p class="text-sm text-muted-foreground">Can they explain complex concepts simply? Do they respond promptly and clearly?</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="message-square" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Communication Skills</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Can they explain complex concepts simply? Do they respond promptly and clearly?</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">⭐ References & Reviews</h4>
-                            <p class="text-sm text-muted-foreground">Speak with past clients. What was their experience like? Did they deliver on time and within budget?</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="star" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>References &amp; Reviews</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Speak with past clients. What was their experience like? Did they deliver on time and within budget?</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🤝 Cultural Fit</h4>
-                            <p class="text-sm text-muted-foreground">Do your working styles align? Are they proactive or do they need detailed instructions?</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="handshake" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Cultural Fit</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Do your working styles align? Are they proactive or do they need detailed instructions?</p>
                         </div>
                     </div>
 
-                    <h2>👨‍💻 My Approach as a Freelance Developer</h2>
-                    <p>As someone who has been freelancing for several years, I bring a unique perspective to each project:</p>
+                    <h2 class="text-balance"><i data-lucide="code-2" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>My Approach as a Freelance Developer</h2>
+                    <p class="max-w-prose text-balance">As someone who has been freelancing for several years, I bring a unique perspective to each project:</p>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent">🎯 My Commitment to You</h3>
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>My Commitment to You</h3>
                         <ul class="space-y-2">
                             <li><strong>Client-Centric:</strong> Your success is my success. I'm invested in your results.</li>
                             <li><strong>Transparent:</strong> Regular updates, clear timelines, and honest communication about challenges.</li>
@@ -345,22 +375,22 @@
                         </ul>
                     </div>
 
-                    <h2>🚀 Getting Started</h2>
-                    <p>If you're considering hiring a freelance web developer, start by clearly defining your project scope and goals. Then reach out to a few candidates for initial consultations. The right freelancer will ask insightful questions and provide thoughtful recommendations, not just a generic proposal.</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Getting Started</h2>
+                    <p class="max-w-prose text-balance">If you're considering hiring a freelance web developer, start by clearly defining your project scope and goals. Then reach out to a few candidates for initial consultations. The right freelancer will ask insightful questions and provide thoughtful recommendations, not just a generic proposal.</p>
 
-                    <p>Remember, the cheapest option isn't always the best value. Look for someone who understands your business, communicates effectively, and demonstrates genuine enthusiasm for your project.</p>
+                    <p class="max-w-prose text-balance">Remember, the cheapest option isn't always the best value. Look for someone who understands your business, communicates effectively, and demonstrates genuine enthusiasm for your project.</p>
 
-                    <h2>🎉 Conclusion</h2>
-                    <p>Freelance web developers offer a compelling alternative to traditional agencies, providing personalized service, faster turnaround, and cost-effective solutions. When you find the right freelancer, you're not just hiring a service, you're gaining a partner invested in your success.</p>
-
-                    <p>If you're ready to explore how freelancing could benefit your next web project, I'd love to chat. Let's discuss your goals and see if we're a good fit to work together.</p>
+                    <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">When you hire a freelancer, you're bypassing the agency bloat and getting direct access to technical expertise.</p>
+                        <p class="mb-0 max-w-prose text-balance">Tired of playing telephone with project managers? Let's talk directly about your business goals.</p>
+                    </div>
 
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="#" class="text-accent hover:text-primary transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>
@@ -378,25 +408,33 @@
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

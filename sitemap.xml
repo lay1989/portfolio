@@ -1,39 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://layshahdev.com/</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://layshahdev.com/project-details.html</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://layshahdev.com/blog.html</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://layshahdev.com/blog-responsive-design.html</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://layshahdev.com/blog-custom-websites.html</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-07-13T11:17:51.278Z</lastmod>
   </url>
   <url>
     <loc>https://layshahdev.com/blog-freelance-developer.html</loc>
-    <lastmod>2025-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/blog-javascript-frameworks.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/blog-performance-optimization.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/blog-responsive-design.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/blog-seo-developers.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/blog.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/index.html</loc>
+    <lastmod>2026-07-13T11:17:51.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/aroma-cafe.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/crypto-trading-analytics.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/ghermar-sons.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/kamaldeep-enterprise.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/stark-ev.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/swiftbuild-infratech.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
+  </url>
+  <url>
+    <loc>https://layshahdev.com/projects/taskflow-pro.html</loc>
+    <lastmod>2026-07-13T11:17:51.281Z</lastmod>
   </url>
 </urlset>

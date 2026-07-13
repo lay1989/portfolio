@@ -1,150 +1,89 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+import { throttle } from './src/utils.js';
+import { initTheme } from './src/theme.js';
+import { rewriteLinks, highlightActivePage, initNav } from './src/nav.js';
+import { initScrollReveal, initReadingProgressBar, initMagneticButtons, initServicesAnimations, initProcessAnimations, initReviewBubbleAnimations } from './src/animations.js';
+import { initContactForm, initLoadMoreProjects } from './src/components.js';
+import { initLenisScroll, initSplitTextReveal, initHeroAnimation, initMarquee, initCounters, initProjectParallax } from './src/gsap-animations.js';
 
-// Theme Toggle Logic
-const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn'); // Changed to querySelectorAll
-const htmlElement = document.documentElement;
+// Determine if current page is the homepage
+const isHomePage = window.location.pathname === '/' ||
+                   window.location.pathname.endsWith('/index.html') ||
+                   window.location.pathname === '' ||
+                   !window.location.pathname.includes('.html');
 
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    if (savedTheme === 'dark') {
-        htmlElement.classList.add('dark');
-    } else {
-        htmlElement.classList.remove('dark');
+/**
+ * Coordinates application initialization on DOMContentLoaded.
+ * Resolves link rewriting, theme togglers, navigation, animations, and forms.
+ */
+function initializeApp() {
+    // 0. Initialize Lucide icons globally on page load
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
     }
+
+    const navbar = document.getElementById('navbar');
+    const footer = document.querySelector('footer');
+
+    // 1. Rewrite links for static SPA behavior
+    rewriteLinks(navbar, isHomePage);
+    rewriteLinks(footer, isHomePage);
+
+    // 2. Highlight active links
+    highlightActivePage(navbar);
+
+    // 3. Cache and initialize theme toggles
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    initTheme(themeToggleBtns);
+
+    // 4. Initialize navigation event handlers and scroll listeners (throttled)
+    initNav(isHomePage, throttle);
+
+    // 5. Lenis smooth scrolling (replaces native scroll-behavior: smooth)
+    initLenisScroll();
+
+    // 5.1. Scroll reveal animation observer (legacy CSS fallback)
+    initScrollReveal();
+
+    // 5.2. Initialize services list animations with GSAP
+    initServicesAnimations();
+
+    // 5.3. Initialize process (How I Work) animations with GSAP
+    initProcessAnimations();
+
+    // 5.4. Initialize iMessage-style review bubble directional animations
+    initReviewBubbleAnimations();
+
+    // 5.4. Split-word text reveals on headings (data-split-reveal)
+    initSplitTextReveal();
+
+    // 5.5. Hero entry animation sequence
+    initHeroAnimation();
+
+    // 5.6. Marquee strip initialization
+    initMarquee();
+
+    // 5.7. Stat counter animations (data-count)
+    initCounters();
+
+    // 5.8. Project thumbnail subtle parallax
+    initProjectParallax();
+
+    // 5.9. Initialize reading progress bar for blog articles
+    initReadingProgressBar(throttle);
+
+    // 6. Contact form AJAX submission
+    initContactForm();
+
+    // 7. Initialize magnetic buttons for premium cursor interaction
+    initMagneticButtons();
+
+    // 8. Homepage projects pagination load-more controls
+    initLoadMoreProjects();
+}
+
+// Initialize on DOMContentLoaded or immediately if DOM is already fully loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-    htmlElement.classList.remove('dark');
-}
-
-function toggleTheme() {
-    htmlElement.classList.toggle('dark');
-    const isDark = htmlElement.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-// Attach listeners to all theme toggle buttons
-themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleTheme);
-});
-
-
-// Mobile Menu Logic
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = mobileMenu.querySelectorAll('a');
-const hamburger = document.querySelector('.hamburger');
-
-if(mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('flex');
-        hamburger.classList.toggle('active');
-    });
-}
-
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        hamburger.classList.remove('active');
-    });
-});
-
-
-// Navbar Scroll Effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('nav-scrolled');
-        // Fix for navbar background color in light/dark mode when scrolled using inline styles or specific class logic
-        if(htmlElement.classList.contains('dark')) {
-            navbar.style.backgroundColor = 'rgba(8, 8, 8, 0.8)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-        }
-    } else {
-        navbar.classList.remove('nav-scrolled');
-        navbar.style.backgroundColor = 'transparent';
-    }
-});
-
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-
-// Form submission
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-  
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  })
-  .then(() => {
-    // Show your success UI/Message here
-    alert("Success!");
-  })
-  .catch((error) => alert(error));
-});
-
-// Load More Projects Logic
-const loadMoreBtn = document.getElementById('load-more-btn');
-const loadMoreContainer = document.getElementById('load-more-container');
-const projectsContainer = document.getElementById('projects-container');
-
-if(loadMoreBtn && projectsContainer) {
-    let currentIndex = 3; // Start showing 3 projects
-    const projectsPerLoad = 3;
-    const allProjects = projectsContainer.querySelectorAll('.project-item');
-    const totalProjects = allProjects.length;
-
-    function showProjects() {
-        let visibleCount = 0;
-        allProjects.forEach((project, index) => {
-            if(index < currentIndex) {
-                project.style.display = 'block';
-                visibleCount++;
-            } else {
-                project.style.display = 'none';
-            }
-        });
-
-        // Hide "Load More" button if all projects are visible
-        if(currentIndex >= totalProjects) {
-            loadMoreContainer.style.display = 'none';
-        }
-
-        // Re-initialize lucide icons for newly visible projects
-        lucide.createIcons();
-    }
-
-    loadMoreBtn.addEventListener('click', () => {
-        currentIndex += projectsPerLoad;
-        showProjects();
-    });
-
-    // Initial setup - hide all projects initially, then show first 3
-    allProjects.forEach((project, index) => {
-        project.style.display = 'none';
-    });
-    showProjects();
+    initializeApp();
 }

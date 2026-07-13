@@ -1,926 +1,840 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lay Shah - Full Stack Developer | Web Design</title>
-    <meta name="description" content="Freelance Full Stack Developer & web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio & Case Studies and get in touch!">
+    <meta name="description" content="Freelance Full Stack Developer &amp; web designer (Lay Shah). I build custom websites and web applications that are fast, responsive, conversion-focused and user-friendly. View my portfolio &amp; Case Studies and get in touch!">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Lay Shah | Web Designer & Frontend Developer" />
-    <meta property="og:description" content="Custom websites for small businesses. Responsive, SEO-friendly, and performance focused." />
-    <meta property="og:url" content="https://layshahdev.com/" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lay Shah | Web Designer &amp; Frontend Developer">
+    <meta property="og:description" content="Custom websites for small businesses. Responsive, SEO-friendly, and performance focused.">
+    <meta property="og:url" content="https://layshahdev.com">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Lay Shah | Web Developer",
+    "url": "https://layshahdev.com",
+    "logo": "https://layshahdev.com/logo.png",
+    "description": "Freelance web developer designing and building custom websites for small businesses.",
+    "sameAs": [
+        "https://github.com/lay1989"
+    ],
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "email": "layshah1989@gmail.com",
+            "contactType": "customer service"
+        }
+    ]
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    
-  <!-- Structured data (Person / LocalBusiness example) -->
-  <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Lay Shah | Web Developer",
-        "url": "https://layshahdev.com",
-        "logo": "https://layshahdev.com/logo.png",
-        "description": "Freelance web developer designing and building custom websites for small businesses.",
-        "sameAs": [
-        "https://github.com/lay1989"
-        ],
-        "contactPoint": [{
-        "@type": "ContactPoint",
-        "email": "layshah1989@gmail.com",
-        "contactType": "customer service"
-        }]
-    }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
-    
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="#" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="#faq" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">FAQ</a>
-                <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</a>
-                
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="#faq" class="text-lg font-medium text-muted-foreground hover:text-primary">FAQ</a>
-            <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary">Blog</a>
-            <a href="#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- ======================================== -->
+        <!-- HERO SECTION                             -->
+        <!-- ======================================== -->
+        <section id="hero" class="relative min-h-[85vh] flex flex-col justify-center overflow-hidden pt-24 pb-16 md:pb-24">
             <div class="container mx-auto px-6 z-10 relative">
-                <div class="max-w-4xl animate-fade-up">
-                    <div class="flex items-center gap-2 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                        <span class="text-sm font-medium text-muted-foreground tracking-wide uppercase">Available for New Projects</span>
-                    </div>
+                <div class="max-w-6xl mx-auto">
+                    
+                    <div class="flex flex-col items-start text-left">
+                        <!-- Label -->
+                        <span class="hero-label text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-[0.2em] mb-8 block">
+                            (FULL-STACK DEVELOPER &middot; AVAILABLE FOR PROJECTS)
+                        </span>
 
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tighter mb-8">
-                        Design. Code. <br />
-                        <span class="text-muted-foreground">Impact.</span>
-                    </h1>
+                        <!-- Headline -->
+                        <h1 class="hero-headline font-serif font-normal leading-[1.0] tracking-tight text-foreground mb-6 text-balance" style="font-size: clamp(3.5rem, 10vw, 8rem);">
+                            High-end websites<br>
+                            that <span class="italic text-accent">actually perform.</span>
+                        </h1>
 
-                    <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-                        I'm Lay Shah, a Full Stack Developer crafting sophisticated digital experiences. 
-                        I turn complex problems into simple, beautiful, and performant web solutions.
-                    </p>
+                        <!-- Sub-headline -->
+                        <p class="hero-sub text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+                            I build custom web applications and fast, revenue-driving websites for founders who refuse to settle. No templates, no jargon, no disappearing acts.
+                        </p>
 
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#work" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
-                            View Projects
-                            <i data-lucide="arrow-down-right" class="w-4 h-4 group-hover:rotate-[-45deg] transition-transform"></i>
-                        </a>
-                        <a href="#contact" class="px-8 py-4 border border-border rounded-full font-medium hover:bg-secondary transition-all">
-                            Contact Me
-                        </a>
+                        <!-- CTAs -->
+                        <div class="hero-ctas flex flex-wrap items-center gap-4 md:gap-6">
+                            <a href="#contact" class="group flex items-center gap-3 px-8 py-4 bg-accent text-white rounded-full font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-hover-lift hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                                Start a project
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
+                            </a>
+                            <a href="#work" class="group flex items-center gap-3 px-8 py-4 border border-foreground bg-foreground text-background rounded-full font-medium hover:bg-transparent hover:text-foreground transition-all duration-300 shadow-hover-lift hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground">
+                                View my work
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
-            
-            <!-- Blob -->
-            <div class="absolute right-0 top-1/3 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 md:py-32 px-6 bg-secondary/10">
+        <!-- ======================================== -->
+        <!-- MARQUEE TICKER STRIP                     -->
+        <!-- ======================================== -->
+        <div class="overflow-hidden py-6 bg-secondary/30" aria-hidden="true">
+            <div class="marquee-track flex items-center">
+                <!-- First copy -->
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Fast by default</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">No page builders</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">SEO-ready from day one</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Mobile-first</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Clean code, handed over</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Full-stack, one person</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <!-- Second copy (seamless loop) -->
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Fast by default</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">No page builders</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">SEO-ready from day one</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Mobile-first</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Clean code, handed over</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Full-stack, one person</span>
+                <span class="text-accent text-xl md:text-2xl leading-none">&bull;</span>
+            </div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- ABOUT SECTION                            -->
+        <!-- ======================================== -->
+        <section id="about" class="py-24 md:py-36 px-6">
             <div class="container mx-auto max-w-6xl">
-                <div class="grid md:grid-cols-12 gap-12 reveal">
-                    <div class="md:col-span-4">
-                        <h2 class="text-xl font-medium text-muted-foreground sticky top-24">About Me</h2>
+                <div class="grid md:grid-cols-12 gap-12 md:gap-20 items-start">
+                    <div class="md:col-span-7 lg:col-span-8">
+                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 block">(ABOUT)</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight text-foreground text-balance reveal">
+                            Five years.<br>
+                            Dozens of shipped platforms.<br>
+                            <span class="text-accent italic font-serif font-normal">Zero templates.</span>
+                        </h2>
                     </div>
-                    <div class="md:col-span-8 space-y-8">
-                        <h3 class="text-3xl md:text-5xl font-display leading-tight">
-                            I help brands and businesses stand out in the digital era. Together we will set the new status quo.
-                        </h3>
-                        
-                        <div class="prose prose-lg text-muted-foreground">
-                            <p class="mb-4">
-                                I'm a passionate freelance web developer with over 5 years of experience creating custom digital solutions for small businesses and entrepreneurs. My mission is to help businesses establish a strong online presence that drives growth and success.
+                    <div class="md:col-span-5 lg:col-span-4 space-y-8 pt-0 md:pt-[64px]">
+                        <p class="text-lg text-muted-foreground leading-relaxed reveal max-w-[52ch]">
+                            I architect and build the entire stack. From database schema to browser rendering—no handoffs, no dropped requirements, no finger-pointing.
+                        </p>
+                        <p class="text-lg text-muted-foreground leading-relaxed reveal delay-100 max-w-[52ch]">
+                            Most of my clients are founders and small teams who need a real website, not a template. I write code that's fast, accessible, and easy for the next person to touch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SERVICES SECTION                         -->
+        <!-- ======================================== -->
+        <section id="services" class="py-24 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Top Section -->
+                <div class="grid md:grid-cols-12 gap-8 items-start mb-16 md:mb-24">
+                    <div class="md:col-span-7 lg:col-span-8">
+                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(WHAT I BUILD)</span>
+                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
+                            Six services. <span class="text-accent italic font-serif font-normal">One developer.</span>
+                        </h2>
+                    </div>
+                    <div class="md:col-span-5 lg:col-span-4 pt-0 md:pt-[48px]">
+                        <p class="text-lg text-muted-foreground leading-relaxed text-balance reveal">
+                            Five years in. Below is what I've actually shipped for real clients, in plain English.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Services List -->
+                <div class="border-b border-border mb-20" id="services-list">
+                    <!-- Row 1 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            01
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            Websites &amp; Landing Pages
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                Hand-coded, responsive, SEO-ready from day one. Under 2s on mobile, no page builders.
                             </p>
-                            <p>
-                                I combine technical expertise with design sensibilities to create unique products. I focus on performance, accessibility, and user experience to ensure that your audience has the best possible interaction with your brand.
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">HTML/CSS</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">TAILWIND</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">GSAP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            02
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            Web Applications
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                React on the front, Python on the back. Dashboards, portals, and tools your team will actually open every morning.
                             </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">REACT</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">NEXT.JS</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">PYTHON</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">POSTGRESQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            03
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            E-Commerce
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                Shopify custom themes or headless builds. Focused on getting people to checkout, not just looking good.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">SHOPIFY</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">LIQUID</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">HEADLESS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            04
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            Custom CMS &amp; Admin Tools
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                Internal tools your team can use without calling me every time. Catalog systems, role-based access, the lot.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">FLASK</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">SQLALCHEMY</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">REST</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            05
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            Dashboards &amp; Data Viz
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                Interactive charts, real-time feeds, live trading analytics. Monitors that make sense at a glance.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">D3.JS</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">CHART.JS</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">WEBSOCKET</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 6 -->
+                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
+                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
+                            06
+                        </div>
+                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
+                            Automation &amp; Bots
+                        </div>
+                        <div class="md:col-span-6 space-y-4">
+                            <p class="text-lg text-muted-foreground leading-relaxed">
+                                Trading bots, scrapers, workflow automation. If it's repetitive, it can probably be automated away.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">PYTHON</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">BINANCE API</span>
+                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">TELEGRAM</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
         </section>
 
-        <!-- Services Sub-Section (Extracted from About) -->
-        <section class="py-20 px-6">
-            <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">What I Can Do For You</h2>
-                    <p class="text-muted-foreground text-lg">Specialized services tailored to your growth.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    <!-- Service 1 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="code" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Full Stack Web Development</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom websites and web applications built from scratch. From landing pages to complex web platforms with modern technologies.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> React & Next.js</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Python & Flask</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Database Design</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="shopping-bag" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">E-Commerce Solutions</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Scalable online stores that drive sales. From custom Shopify themes to headless e-commerce solutions.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Shopify Store Setup</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Payment Integrations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom Checkout Flows</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="database" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Content Management Systems</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom CMS solutions for businesses to manage their digital content efficiently. From catalog management to dynamic websites.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Custom CMS Development</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Catalog Management</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> File Upload Systems</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Data Analytics & Dashboards</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Interactive data visualization and analytics dashboards. Turn complex data into actionable insights with beautiful interfaces.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> D3.js Visualizations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Real-time Dashboards</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> API Integration</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="smartphone" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">API Integration & Backend</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Seamless API integrations and robust backend development. Connect your website with third-party services and build scalable systems.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> REST API Development</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Third-party Integrations</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> WebSocket Connections</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="bot" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Automation & Bot Development</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Custom automation solutions and intelligent bots. From trading bots to workflow automation that streamline your business processes.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Trading Bots & Algorithms</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Workflow Automation</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Telegram/Discord Bots</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 7 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="palette" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">UI/UX Design & Optimization</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Beautiful, user-centered design that converts. From wireframes to polished interfaces that provide exceptional user experiences.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> User Experience Design</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Interface Design</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Design Systems</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 8 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="search" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">SEO & Performance Optimization</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Optimize your website for search engines and lightning-fast performance. Improve rankings and keep visitors engaged.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technical SEO</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Speed Optimization</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Analytics Setup</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 9 -->
-                    <div class="service-card group">
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="lightbulb" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Consultation & Strategy</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed mb-6">
-                            Expert advice on web strategy, technology choices, and digital growth. Make informed decisions for your business with comprehensive digital strategy planning and technology consultation.
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Digital Strategy</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Technology Planning</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Growth Consulting</li>
-                            <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> UX/UI Review</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Tech Stack Tags -->
-                <div class="mt-16 text-center">
-                    <h4 class="text-foreground font-bold mb-6 text-xl">Technical Toolkit</h4>
-                    <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                        <!-- Frontend -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">HTML5</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS3</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JavaScript (ES6+)</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">TypeScript</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">React</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Next.js</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vue.js</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Tailwind CSS</span>
-                        
-                        <!-- Backend & Databases -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Python</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Flask</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">FastAPI</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Node.js</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">PostgreSQL</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SQLAlchemy</span>
-                        
-                        <!-- Data & Visualization -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">D3.js</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Chart.js</span>
-                        
-                        <!-- APIs & Integrations -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">REST APIs</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GraphQL</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">WebSocket</span>
-                        <!-- Animations & Interactions -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">GSAP</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Framer Motion</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">CSS Animations</span>
-                        
-                        <!-- DevOps & Infrastructure -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">AWS</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Nginx</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Netlify</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Vercel</span>
-                        
-                        <!-- Tools & Platforms -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Git/GitHub</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Shopify</span>
-                        
-                        <!-- SEO & Analytics -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Google Analytics</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">Technical SEO</span>
-                        
-                        <!-- Security & Performance -->
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">JWT Authentication</span>
-                        <span class="px-4 py-2 bg-secondary text-secondary-foreground text-sm rounded-full border border-border hover:border-accent transition-colors cursor-default">SSL/TLS</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section id="process" class="py-20 md:py-32 px-6">
-            <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">How I Work</h2>
-                    <p class="text-muted-foreground text-lg">A proven process for delivering exceptional results.</p>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-8">
-                    <!-- Step 1 -->
-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">01</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="search" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Discovery</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">We start by understanding your goals, audience, and competitors to define the project scope.</p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">02</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="pen-tool" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Design</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">I create wireframes and high-fidelity mockups to visualize the user experience and interface.</p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">03</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="code-2" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Build</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">Development begins using modern technologies, ensuring clean code and responsive layouts.</p>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="relative p-6 border border-border bg-card rounded-2xl hover-lift group">
-                        <div class="text-6xl font-display font-bold text-muted/20 absolute top-4 right-6 group-hover:text-accent/10 transition-colors">04</div>
-                        <div class="mb-6 text-accent">
-                            <i data-lucide="rocket" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Launch</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">After rigorous testing, we deploy your site and I provide training for easy management.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="work" class="py-20 md:py-32 px-6 bg-secondary/10">
-            <div class="container mx-auto max-w-6xl reveal">
+        <!-- ======================================== -->
+        <!-- HOW I WORK SECTION                       -->
+        <!-- ======================================== -->
+        <section id="principles" class="pt-20 pb-20 md:pt-24 md:pb-24 px-6 bg-secondary/30 rounded-[3rem] my-12 md:my-16">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Top Section -->
                 <div class="mb-16 md:mb-24">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Selected Work</h2>
-                    <p class="text-muted-foreground text-lg">A collection of recent projects and case studies.</p>
+                    <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(PROCESS)</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance">
+                        No surprises. <span class="text-accent italic font-serif font-normal">No scope creep.</span>
+                    </h2>
+                </div>
+
+                <!-- Process Grid Bento Container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="process-container">
+                    <!-- Column 1: Talk -->
+                    <div class="process-col p-10 border border-border bg-card rounded-3xl md:col-span-1 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="space-y-6">
+                            <span class="text-sm font-mono text-accent block">01</span>
+                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Talk</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                A 30-minute call, no forms, no packages to choose from. You tell me what you need; I actually listen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Direction -->
+                    <div class="process-col p-10 border border-border bg-secondary/20 rounded-3xl md:col-span-2 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="space-y-6">
+                            <span class="text-sm font-mono text-accent block">02</span>
+                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Direction</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                I show you a clear layout, structure, and tone before a single line of code. You sign off, then I build.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Build properly -->
+                    <div class="process-col p-10 border border-border bg-card rounded-3xl md:col-span-2 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="space-y-6">
+                            <span class="text-sm font-mono text-accent block">03</span>
+                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Build properly</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                Clean code, tested on real devices, fast load times. I don't cut corners because I don't want to fix it later.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Stay after launch -->
+                    <div class="process-col p-10 bg-accent text-white rounded-3xl md:col-span-1 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <div class="space-y-6">
+                            <span class="text-sm font-mono opacity-80 block">04</span>
+                            <h3 class="text-2xl font-display font-bold process-title">Stay after launch</h3>
+                            <p class="opacity-90 leading-relaxed">
+                                I walk you through everything and stay reachable. Most clients come back. That's the goal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SELECTED WORK SECTION                    -->
+        <!-- ======================================== -->
+        <section id="work" class="py-24 md:py-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="grid md:grid-cols-12 gap-8 items-start md:items-end mb-16 md:mb-24">
+                    <div class="md:col-span-8">
+                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(SELECTED WORK)</span>
+                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
+                            Work I'm <span class="italic font-serif font-normal text-accent">proud of.</span>
+                        </h2>
+                    </div>
+                    <div class="md:col-span-4 flex md:justify-end items-end">
+                        <a href="projects.html" class="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 reveal">
+                            All projects
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div id="projects-container" class="space-y-20 md:space-y-32">
+                    
                     <!-- Project 1 -->
-                    <div class="project-item group block">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-1">
+                    <div class="project-item group block @container" data-project="6">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Ghermar & Sons.webp" alt="Portfolio Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Stark EV.webp" alt="Stark EV - UI/UX Design &amp; Frontend Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design & Development - 2025</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Ghermar & Sons</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A stunning Landing Page for a Import-Export Company with smooth animations.</p>
-                                <a href="project-details.html?id=1" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <div class="order-1 @2xl:order-2">
+                                <span class="text-accent text-sm font-medium mb-4 block">UI/UX Design &amp; Frontend Development - 2025</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Stark EV</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A personal project exploring futuristic UI/UX design with complex interactions and modern web technologies.</p>
+                                <a href="projects/stark-ev.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-item group block">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-2">
+                    <div class="project-item group block @container" data-project="4">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/SwiftBuild.webp" alt="swiftbuild-infratech" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-1">
-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development & SEO - 2025</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">SwiftBuild Infratech</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A sophisticated portfolio for a  International modern Construction Innovation Company.</p>
-                                <a href="project-details.html?id=2" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <div class="order-1 @2xl:order-1">
+                                <span class="text-accent text-sm font-medium mb-4 block">Content Management System - 2025</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Kamaldeep Enterprise</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.</p>
+                                <a href="projects/kamaldeep-enterprise.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-item group block">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-1">
+                    <div class="project-item group block @container" data-project="2">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Dashboard" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/SwiftBuild.webp" alt="SwiftBuild Infratech - Web Design, Development &amp; SEO" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Crypto Bot - 2024</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Analytics Dashboard</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Data visualization platform for a crpyto bot for tracking, trading and reporting.</p>
-                                <a href="project-details.html?id=3" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <div class="order-1 @2xl:order-2">
+                                <span class="text-accent text-sm font-medium mb-4 block">Web Design, Development &amp; SEO - 2025</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">SwiftBuild Infratech</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A sophisticated portfolio for a International modern Construction Innovation Company.</p>
+                                <a href="projects/swiftbuild-infratech.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 4 (Hidden by default) -->
-                    <div class="project-item group block hidden" data-project="4">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-2">
+                    <!-- Project 4 -->
+                    <div class="project-item group block @container hidden" data-project="1">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Content Management System" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Ghermar & Sons.webp" alt="Ghermar &amp; Sons - Web Design &amp; Development" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-1">
-                                <span class="text-accent text-sm font-medium mb-4 block">Content Management System - 2025</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Kamaldeep Enterprise</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Custom-made CMS for Fabric Wholesaler to manage catlogs for their clients.</p>
-                                <a href="project-details.html?id=4" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <div class="order-1 @2xl:order-1">
+                                <span class="text-accent text-sm font-medium mb-4 block">Web Design &amp; Development - 2025</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Ghermar &amp; Sons</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A high-performance Landing Page for an Import-Export Company focused on conversion.</p>
+                                <a href="projects/ghermar-sons.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 5 (Hidden by default) -->
-                    <div class="project-item group block hidden" data-project="5">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-1">
+                    <!-- Project 5 -->
+                    <div class="project-item group block @container hidden" data-project="5">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Aroma Cafe.webp" alt="Aesthetic Cafe Website" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/Aroma Cafe.webp" alt="Aroma Cafe - Web Design &amp; API Integration" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Web Design & API Integration - 2024</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Aroma Cafe</h3>
+                            <div class="order-1 @2xl:order-2">
+                                <span class="text-accent text-sm font-medium mb-4 block">Web Design &amp; API Integration - 2024</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Aroma Cafe</h3>
                                 <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A beautiful Cafe website with online reservations, menu showcase, and location finder.</p>
-                                <a href="project-details.html?id=5" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                <a href="projects/aroma-cafe.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 6 (Hidden by default) -->
-                    <div class="project-item group block hidden" data-project="6">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-2">
+                    <!-- Project 6 -->
+                    <div class="project-item group block @container hidden" data-project="3">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-2">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="./public/images/Stark EV.webp" alt="Stark EV" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/saas_dashboard_minimal_interface-small.png 600w, ./public/images/saas_dashboard_minimal_interface.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Trading Analytics - Personal Trading Bot &amp; Data Visualization" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-1">
-                                <span class="text-accent text-sm font-medium mb-4 block">UI Design & Full Stack Development</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">Stark EV</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">A Fictional Futuristic Car Brand. Designed with stunning details and highly complex UI. </p>
-                                <a href="project-details.html?id=6" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <div class="order-1 @2xl:order-1">
+                                <span class="text-accent text-sm font-medium mb-4 block">Personal Trading Bot &amp; Data Visualization - 2024</span>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Crypto Trading Analytics</h3>
+                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.</p>
+                                <a href="projects/crypto-trading-analytics.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 7 (Hidden by default) -->
-                    <!-- <div class="project-item group block hidden" data-project="7">
-                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div class="order-2 md:order-1">
+                    <!-- Project 7 -->
+                    <div class="project-item group block @container hidden" data-project="7">
+                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
+                            <div class="order-2 @2xl:order-1">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <img src="/images/modern_e-commerce_interface_mockup.png" alt="Project Management" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                    <picture>
+                <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <source type="image/png" srcset="./public/images/modern_e-commerce_interface_mockup-small.png 600w, ./public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
+                <img src="./public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro - Project Management Tool" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
+            </picture>
                                 </div>
                             </div>
-                            <div class="order-1 md:order-2">
+                            <div class="order-1 @2xl:order-2">
                                 <span class="text-accent text-sm font-medium mb-4 block">Project Management Tool - 2023</span>
-                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors">TaskFlow Pro</h3>
+                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">TaskFlow Pro</h3>
                                 <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Enterprise-grade project management solution with advanced automation and team collaboration features.</p>
-                                <a href="project-details.html?id=7" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                <a href="projects/taskflow-pro.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
-                
                 <!-- Load More Button -->
                 <div id="load-more-container" class="mt-16 flex justify-center">
                     <button id="load-more-btn" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
                         Load More Projects
-                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        <i data-lucide="arrow-down" class="w-4 h-4" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews Section -->
-        <section id="reviews" class="py-20 md:py-32 px-6">
-            <div class="container mx-auto max-w-6xl reveal">
-                <div class="mb-16 md:mb-24 text-center">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Client Reviews</h2>
-                    <p class="text-muted-foreground text-lg">What people say about working with me.</p>
+        <!-- ======================================== -->
+        <!-- REVIEWS SECTION                          -->
+        <!-- ======================================== -->
+        <section id="reviews" class="py-24 md:py-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+
+                <!-- Section Header -->
+                <div class="mb-20 md:mb-28">
+                    <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 block">(REVIEWS)</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
+                        From people I've <span class="italic font-serif font-normal text-accent">actually worked with.</span>
+                    </h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Review 1 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-100">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <!-- Conversation Stack -->
+                <div class="max-w-4xl mx-auto space-y-8 md:space-y-12" id="reviews-thread">
+
+                    <!-- Review 1 — LEFT (Vipul Shah) -->
+                    <div class="flex flex-col review-bubble-left">
+                        <div class="flex items-end gap-4">
+                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">VS</div>
+                            <div class="max-w-[85%] md:max-w-[75%] bg-card border border-border rounded-3xl rounded-bl-md px-7 py-6">
+                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
+                                    "Professional, fast, and <em class="not-italic font-serif text-accent">incredibly talented</em>. Lay transformed our online presence completely, and the new headless architecture has already <em class="not-italic font-serif text-accent">increased our conversion rate significantly</em>."
+                                </p>
+                            </div>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Lay transformed our online presence completely. The attention to detail and design sensibility is unmatched. Highly recommended!"
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                FS
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Fred Stack</h4>
-                                <span class="text-sm text-muted-foreground">Director, Swiftbuild Infratech</span>
-                            </div>
+                        <div class="pl-14 mt-2">
+                            <span class="font-bold text-sm font-display text-foreground">Vipul Shah</span>
+                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Owner, Kamaldeep Enterprise</span>
                         </div>
                     </div>
 
-                    <!-- Review 2 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-200">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <!-- Review 2 — RIGHT (Fred Stack) -->
+                    <div class="flex flex-col review-bubble-right">
+                        <div class="flex items-end gap-4 flex-row-reverse">
+                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">FS</div>
+                            <div class="max-w-[85%] md:max-w-[75%] bg-accent/10 border border-accent/20 rounded-3xl rounded-br-md px-7 py-6">
+                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
+                                    "We needed something that looked credible to international clients. <em class="not-italic font-serif text-accent">Within two weeks of going live</em>, we started getting inquiries from Dubai and Singapore. Our old site hadn't done that <em class="not-italic font-serif text-accent">in three years</em>."
+                                </p>
+                            </div>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Professional, fast, and incredibly talented. The new website has already increased our conversion rate by 40%."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                VS
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Vipul Shah</h4>
-                                <span class="text-sm text-muted-foreground">Owner, Kamaldeep Enterprise</span>
-                            </div>
+                        <div class="pr-2 md:pr-14 mt-2 text-right">
+                            <span class="font-bold text-sm font-display text-foreground">Fred Stack</span>
+                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Director, SwiftBuild Infratech</span>
                         </div>
                     </div>
 
-                    <!-- Review 3 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-300">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <!-- Review 3 — LEFT (Parth Patel) -->
+                    <div class="flex flex-col review-bubble-left">
+                        <div class="flex items-end gap-4">
+                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">PP</div>
+                            <div class="max-w-[85%] md:max-w-[75%] bg-card border border-border rounded-3xl rounded-bl-md px-7 py-6">
+                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
+                                    "We needed a site that <em class="not-italic font-serif text-accent">instantly communicated trust</em> to our global B2B partners. Lay stripped away the clutter and built a lightning-fast landing page. The difference in how international clients perceive us now is <em class="not-italic font-serif text-accent">night and day</em>."
+                                </p>
+                            </div>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Lay's expertise in full-stack development helped us launch a stunning, responsive website. The SEO optimization has boosted our visibility tremendously."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                AC
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Anna Chen</h4>
-                                <span class="text-sm text-muted-foreground">Manager, Aroma Cafe</span>
-                            </div>
+                        <div class="pl-14 mt-2">
+                            <span class="font-bold text-sm font-display text-foreground">Parth Patel</span>
+                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">CEO, Ghermar &amp; Sons</span>
                         </div>
                     </div>
 
-                    <!-- Review 4 -->
-                    <div class="p-10 border border-border bg-card rounded-2xl hover-lift reveal delay-400">
-                        <div class="flex gap-1 text-accent mb-6">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <!-- Review 4 — RIGHT (Vinish) -->
+                    <div class="flex flex-col review-bubble-right">
+                        <div class="flex items-end gap-4 flex-row-reverse">
+                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">V</div>
+                            <div class="max-w-[85%] md:max-w-[75%] bg-accent/10 border border-accent/20 rounded-3xl rounded-br-md px-7 py-6">
+                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
+                                    "Lay built a <em class="not-italic font-serif text-accent">high-performance website</em> that perfectly positions our commercial tyre retreading business. The site looks incredibly premium, and it immediately started <em class="not-italic font-serif text-accent">driving qualified leads</em> from major fleet operators across Pune."
+                                </p>
+                            </div>
                         </div>
-                        <p class="text-xl font-medium leading-relaxed mb-8">
-                            "Working with Lay was a game-changer. The custom web application is user-friendly, fast, and perfectly tailored to our EV business needs."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-lg">
-                                RJ
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Raj Kumar</h4>
-                                <span class="text-sm text-muted-foreground">CEO, Stark EV</span>
-                            </div>
+                        <div class="pr-2 md:pr-14 mt-2 text-right">
+                            <span class="font-bold text-sm font-display text-foreground">Vinish</span>
+                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Owner, Capital Tyres</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 md:py-32 px-6">
-            <div class="container mx-auto max-w-4xl reveal">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Frequently Asked Questions</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Got questions? I've got answers. Here are the most common questions I receive about my web development services.</p>
-                </div>
 
-                <div class="space-y-6">
-                    <!-- FAQ Item 1 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="help-circle" class="w-5 h-5 text-primary"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">How long does it take to build a website?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Timeline depends on complexity. A simple landing page takes 1-2 weeks, while a full e-commerce site with custom features can take 4-8 weeks. I'll provide a detailed timeline during our initial consultation based on your specific requirements.</p>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- FAQ Item 4 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="smartphone" class="w-5 h-5 text-primary"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">Are your websites mobile-friendly?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Absolutely! Every website I build is fully responsive and optimized for all devices - mobile phones, tablets, and desktops. I follow mobile-first design principles to ensure great user experience across all screen sizes.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="search" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">Do you handle SEO optimization?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Yes! I implement technical SEO best practices including proper meta tags, structured data, fast loading speeds, and mobile optimization. I can also help with content strategy and keyword research to improve your search rankings.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 6 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center">
-                                <i data-lucide="zap" class="w-5 h-5 text-primary"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">What technologies do you use?</h3>
-                                <p class="text-muted-foreground leading-relaxed">I work with modern technologies including HTML5, CSS3, JavaScript, React, Next.js, Node.js, and various CMS platforms. I choose the best technology stack based on your project requirements and long-term goals.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 7 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="users" class="w-5 h-5 text-primary"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">Can you work with my existing website?</h3>
-                                <p class="text-muted-foreground leading-relaxed">Definitely! I can redesign, update, or add new features to existing websites. Whether you need a refresh, new functionality, or performance improvements, I can work with your current setup or migrate to a better platform.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 8 -->
-                    <div class="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold mb-4">What's the process like working with you?</h3>
-                                <p class="text-muted-foreground leading-relaxed">We start with a discovery call to understand your goals, then I provide a proposal and timeline. Once approved, we move through design, development, testing, and launch phases. I keep you updated throughout and welcome your feedback at every stage.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-16">
-                    <p class="text-lg text-muted-foreground mb-8">Still have questions? I'd love to hear from you!</p>
-                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300">
-                        Get In Touch
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
+        <!-- ======================================== -->
+        <!-- CONTACT SECTION                          -->
+        <!-- ======================================== -->
+        <section id="contact" class="py-24 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
             <div class="container mx-auto max-w-6xl pt-10 reveal">
                 <div class="grid md:grid-cols-2 gap-16 md:gap-24">
                     <div>
-                        <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">
-                            Let's work <br />
-                            <span class="opacity-50">together.</span>
+                        <span class="text-xs font-mono uppercase tracking-widest opacity-40 mb-8 block">(GET IN TOUCH)</span>
+                        <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-balance leading-tight">
+                            Let's build<br>
+                            <span class="italic font-serif font-normal opacity-50">something good.</span>
                         </h2>
-                        <p class="text-lg opacity-70 mb-12 leading-relaxed">
-                            I'm always interested in hearing about new projects and opportunities. 
-                            Drop me a message and let's create something amazing.
+                        <p class="text-lg opacity-60 mb-12 leading-relaxed">
+                            No discovery calls. No 20-page proposals. Tell me what you need and I'll tell you if I can build it.
                         </p>
 
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4 opacity-80">
-                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center">
-                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                        <div class="space-y-6 mb-12">
+                            <div class="flex items-center gap-4 opacity-70">
+                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i>
                                 </div>
                                 <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a>
                             </div>
-                            <div class="flex items-center gap-4 opacity-80">
-                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center">
-                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            <div class="flex items-center gap-4 opacity-70">
+                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5" aria-hidden="true"></i>
                                 </div>
                                 <span>India</span>
                             </div>
                         </div>
+
                     </div>
 
-                    <form id="contact-form" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="submit">
+                    <form id="contact-form" name="contact" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                         <div class="space-y-2">
                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">What's your name?</label>
-                            <input type="text" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="John Doe">
+                            <input type="text" name="name" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20" placeholder="Jane Smith">
                         </div>
                         <input type="hidden" name="form-name" value="contact">
-                        <!-- Optional honeypot field to prevent spam -->
+                        <!-- Honeypot (spam prevention) -->
                         <p style="display: none;">
-                            <label>Don’t fill this out: <input name="bot-field"></label>
+                            <label>Don't fill this out: <input name="bot-field"></label>
                         </p>
                         <div class="space-y-2">
                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">What's your email?</label>
-                            <input type="email" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20" placeholder="john@example.com">
+                            <input type="email" name="email" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20" placeholder="jane@example.com">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-medium uppercase tracking-wide opacity-50">Tell me about your project</label>
-                            <textarea rows="4" required class="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="I need a website for..."></textarea>
+                            <textarea name="message" rows="4" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="I need a website that..."></textarea>
                         </div>
-                        <button type="submit" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
+                        <button type="submit" id="submit-btn" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-white transition-colors duration-300">
                             Send Message
                         </button>
+                        <div id="contact-status" class="hidden text-sm font-medium rounded-lg p-4 mt-4"></div>
                     </form>
                 </div>
             </div>
         </section>
 
-        <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-                <p>© 2025 Lay Shah. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="#work" class="hover:text-accent transition-colors">Work</a>
-                    <a href="#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                    <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
-                    <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
-                </div>
-                <div class="flex gap-6">
-                    <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                    <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                    <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors" aria-label="Back to Top">
-                        <i data-lucide="arrow-up" class="w-5 h-5"></i>
-                    </button>
-                </div>
-            </div>
-        </footer>
     </main>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+
+    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
+    </footer>
+
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

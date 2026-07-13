@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern JavaScript Frameworks: Choosing the Right Tool - Lay Shah</title>
-    <meta name="description" content="Navigate the JavaScript framework landscape with this comprehensive guide. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project needs.">
+    <title>Modern JavaScript Frameworks: Choosing the Right Tool | Lay Shah</title>
+    <meta name="description" content="Read about modern javascript frameworks: choosing the right tool by Lay Shah.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-javascript-frameworks.html">
 
     <!-- Social / OpenGraph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Modern JavaScript Frameworks: Choosing the Right Tool" />
-    <meta property="og:description" content="Navigate the JavaScript framework landscape with this comprehensive guide comparing React, Vue, Angular, Svelte, and Next.js for your project needs." />
-    <meta property="og:url" content="https://layshahdev.com/blog-javascript-frameworks.html" />
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Modern JavaScript Frameworks: Choosing the Right Tool">
+    <meta property="og:description" content="Navigate the JavaScript framework landscape with this comprehensive guide comparing React, Vue, Angular, Svelte, and Next.js for your project needs.">
+    <meta property="og:url" content="https://layshahdev.com/blog-javascript-frameworks.html">
+    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
-    <!-- Article meta -->
-    <meta property="article:author" content="Lay Shah" />
-    <meta property="article:published_time" content="2026-02-07" />
+    <meta property="article:author" content="Lay Shah">
+    <meta property="article:published_time" content="2026-02-07">
+
+    
 
     <!-- Robots control -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Modern JavaScript Frameworks: Choosing the Right Tool",
+    "description": "Navigate the JavaScript framework landscape with this comprehensive guide. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project needs.",
+    "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://layshahdev.com/logo.png"
+        }
+    },
+    "datePublished": "2026-02-07",
+    "dateModified": "2026-02-07",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://layshahdev.com/blog-javascript-frameworks.html"
+    }
+}
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,104 +67,98 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'var(--background)',
-                        foreground: 'var(--foreground)',
-                        card: 'var(--card)',
-                        'card-foreground': 'var(--card-foreground)',
-                        primary: 'var(--primary)',
-                        'primary-foreground': 'var(--primary-foreground)',
-                        secondary: 'var(--secondary)',
-                        'secondary-foreground': 'var(--secondary-foreground)',
-                        muted: 'var(--muted)',
-                        'muted-foreground': 'var(--muted-foreground)',
-                        accent: 'var(--accent)',
-                        'accent-foreground': 'var(--accent-foreground)',
-                        border: 'var(--border)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+        }
+    </script>
+    <script>
+        if (!window.lucide) {
+            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
+            document.write('<script src="./public/js/lucide.min.js"><\/script>');
+        }
+    </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300">
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
-                LAY SHAH
-            </a>
+    <a href="./index.html" class="text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link">
+        LAY SHAH
+    </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="./index.html#process" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Process</a>
-                <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Work</a>
-                <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Reviews</a>
-                <a href="./blog.html" class="text-sm font-medium text-primary hover:text-primary transition-colors">Blog</a>
-
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors" aria-label="Toggle Dark Mode">
-                    <div class="theme-toggle-wrapper">
-                        <div class="theme-icon moon">
-                            <i data-lucide="moon" class="w-5 h-5"></i>
-                        </div>
-                        <div class="theme-icon sun">
-                            <i data-lucide="sun" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-colors">
-                    Let's Talk
-                </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="./index.html#work" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
+        </button>
 
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-4 md:hidden">
-                <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-colors">
-                    <div class="theme-toggle-wrapper">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </div>
-                </button>
-                <button id="mobile-menu-btn" class="text-foreground p-2">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
-                </button>
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 md:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
             </div>
-        </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 hidden md:hidden flex-col gap-4 shadow-lg">
-            <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary">About</a>
-            <a href="./index.html#process" class="text-lg font-medium text-muted-foreground hover:text-primary">Process</a>
-            <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary">Work</a>
-            <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary">Reviews</a>
-            <a href="./blog.html" class="text-lg font-medium text-primary">Blog</a>
-            <a href="./index.html#contact" class="text-lg font-medium text-primary">Contact</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="./index.html#work" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
     </nav>
 
     <main class="pt-32 pb-20">
@@ -143,21 +169,21 @@
                         <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">JavaScript</span>
                         <span class="text-sm text-muted-foreground">9 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">Modern JavaScript Frameworks: Choosing the Right Tool</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed">Navigate the crowded JavaScript framework landscape with confidence. This comprehensive guide compares React, Vue, Angular, Svelte, and Next.js to help you choose the perfect framework for your project needs and team dynamics.</p>
+                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">Modern JavaScript Frameworks: Choosing the Right Tool</h1>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Choosing the wrong framework isn't just a technical debt issue; it's a business liability. Stop chasing GitHub stars and read this uncompromising breakdown of React, Vue, Svelte, and Next.js based on actual production deployments.</p>
                 </header>
 
                 <div class="prose prose-lg max-w-none">
                     <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2">🎯 Key Insight</p>
-                        <p class="mb-0">The right framework isn't about popularity, it's about finding the tool that best fits your project requirements, team expertise, and long-term maintenance needs.</p>
+                        <p class="text-lg font-medium mb-2 max-w-prose text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Key Insight</p>
+                        <p class="mb-0 max-w-prose text-balance">The right framework isn't about popularity, it's about finding the tool that best fits your project requirements, team expertise, and long-term maintenance needs.</p>
                     </div>
 
-                    <h2>📊 The Framework Landscape in 2025</h2>
-                    <p>The JavaScript ecosystem continues to evolve rapidly, with frameworks competing for developer attention. Each framework has its strengths, weaknesses, and ideal use cases.</p>
+                    <h2 class="text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Framework Landscape in 2025</h2>
+                    <p class="max-w-prose text-balance">The JavaScript ecosystem continues to evolve rapidly, with frameworks competing for developer attention. Each framework has its strengths, weaknesses, and ideal use cases.</p>
 
                     <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4">📈 Framework Popularity Trends</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Framework Popularity Trends</h3>
                         <div class="grid md:grid-cols-5 gap-4 text-center">
                             <div>
                                 <div class="text-2xl font-bold text-accent">React</div>
@@ -182,140 +208,140 @@
                         </div>
                     </div>
 
-                    <h2>⚛️ React: The Industry Standard</h2>
-                    <p>React remains the most popular framework, powering millions of websites and mobile apps. Its component-based architecture and virtual DOM make it incredibly flexible.</p>
+                    <h2 class="text-balance"><i data-lucide="atom" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>React: The Industry Standard</h2>
+                    <p class="max-w-prose text-balance">React remains the most popular framework, powering millions of websites and mobile apps. Its component-based architecture and virtual DOM make it incredibly flexible.</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">✅</span>
+                                <i data-lucide="check" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Strengths</h3>
-                                <p class="text-muted-foreground">Huge ecosystem, excellent performance, flexible architecture, strong community support, and works great for both web and mobile (React Native).</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Strengths</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Huge ecosystem, excellent performance, flexible architecture, strong community support, and works great for both web and mobile (React Native).</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">❌</span>
+                                <i data-lucide="x" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Challenges</h3>
-                                <p class="text-muted-foreground">Steep learning curve for JSX, requires additional libraries for routing/state management, and frequent updates can be overwhelming.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Challenges</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Steep learning curve for JSX, requires additional libraries for routing/state management, and frequent updates can be overwhelming.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3">💡 Best For</h3>
-                        <p class="mb-0">Large-scale applications, teams with React experience, projects requiring complex state management, and companies already invested in the React ecosystem.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Best For</h3>
+                        <p class="mb-0 max-w-prose text-balance">Large-scale applications, teams with React experience, projects requiring complex state management, and companies already invested in the React ecosystem.</p>
                     </div>
 
-                    <h2>🟢 Vue.js: The Developer-Friendly Choice</h2>
-                    <p>Vue.js consistently ranks as the most loved framework in developer surveys. Its gentle learning curve and excellent documentation make it accessible to developers of all skill levels.</p>
+                    <h2 class="text-balance"><i data-lucide="circle" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Vue.js: The Developer-Friendly Choice</h2>
+                    <p class="max-w-prose text-balance">Vue.js consistently ranks as the most loved framework in developer surveys. Its gentle learning curve and excellent documentation make it accessible to developers of all skill levels.</p>
 
                     <div class="grid md:grid-cols-2 gap-6 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>📈</span> Advantages
+                                <i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Advantages
                             </h4>
-                            <p class="text-sm text-muted-foreground">Intuitive syntax, excellent documentation, progressive framework (use as much or as little as needed), and great performance with virtual DOM.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Intuitive syntax, excellent documentation, progressive framework (use as much or as little as needed), and great performance with virtual DOM.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>🔧</span> Ecosystem
+                                <i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Ecosystem
                             </h4>
-                            <p class="text-sm text-muted-foreground">Nuxt.js for SSR, Vuex for state management, Vue Router for routing, and a rich collection of UI component libraries.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Nuxt.js for SSR, Vuex for state management, Vue Router for routing, and a rich collection of UI component libraries.</p>
                         </div>
                     </div>
 
-                    <h3>🎯 When to Choose Vue</h3>
+                    <h3 class="text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>When to Choose Vue</h3>
                     <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg my-4">
                         <ul class="space-y-1 text-sm">
-                            <li>✅ Teams transitioning from jQuery or vanilla JavaScript</li>
-                            <li>✅ Projects requiring rapid prototyping</li>
-                            <li>✅ Applications needing both SPA and traditional multi-page features</li>
-                            <li>✅ Developer experience is a top priority</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Teams transitioning from jQuery or vanilla JavaScript</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Projects requiring rapid prototyping</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Applications needing both SPA and traditional multi-page features</li>
+                            <li><i data-lucide="check" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Developer experience is a top priority</li>
                         </ul>
                     </div>
 
-                    <h2>🅰️ Angular: The Enterprise Solution</h2>
-                    <p>Angular is Google's comprehensive framework, designed for large-scale enterprise applications. It provides everything you need out of the box, following strict architectural patterns.</p>
+                    <h2 class="text-balance"><i data-lucide="shield" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Angular: The Enterprise Solution</h2>
+                    <p class="max-w-prose text-balance">Angular is Google's comprehensive framework, designed for large-scale enterprise applications. It provides everything you need out of the box, following strict architectural patterns.</p>
 
                     <div class="space-y-4 my-8">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🏢</span> Enterprise Features
+                                <i data-lucide="building" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Enterprise Features
                             </h4>
-                            <p class="text-sm text-muted-foreground">Built-in dependency injection, comprehensive testing tools, TypeScript-first approach, and strong architectural patterns that scale well for large teams.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Built-in dependency injection, comprehensive testing tools, TypeScript-first approach, and strong architectural patterns that scale well for large teams.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>📚</span> Learning Curve
+                                <i data-lucide="book-open" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Learning Curve
                             </h4>
-                            <p class="text-sm text-muted-foreground">Steepest learning curve among the major frameworks, but provides excellent long-term maintainability and scalability for complex applications.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Steepest learning curve among the major frameworks, but provides excellent long-term maintainability and scalability for complex applications.</p>
                         </div>
                     </div>
 
-                    <h3>🎯 Angular Use Cases</h3>
-                    <p>Choose Angular for large enterprise applications, complex SPAs, applications requiring strict architectural patterns, and teams that value TypeScript and comprehensive tooling.</p>
+                    <h3 class="text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Angular Use Cases</h3>
+                    <p class="max-w-prose text-balance">Choose Angular for large enterprise applications, complex SPAs, applications requiring strict architectural patterns, and teams that value TypeScript and comprehensive tooling.</p>
 
-                    <h2>⚡ Svelte: The New Kid on the Block</h2>
-                    <p>Svelte takes a different approach by shifting work from runtime to compile time, resulting in smaller bundle sizes and excellent performance without a virtual DOM.</p>
+                    <h2 class="text-balance"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Svelte: The New Kid on the Block</h2>
+                    <p class="max-w-prose text-balance">Svelte takes a different approach by shifting work from runtime to compile time, resulting in smaller bundle sizes and excellent performance without a virtual DOM.</p>
 
                     <div class="grid md:grid-cols-3 gap-4 my-8">
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>🚀</span> Performance
+                                <i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Performance
                             </h4>
-                            <p class="text-sm text-muted-foreground">No virtual DOM overhead, compiles to vanilla JavaScript, resulting in smaller bundles and faster runtime performance.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">No virtual DOM overhead, compiles to vanilla JavaScript, resulting in smaller bundles and faster runtime performance.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>📝</span> Developer Experience
+                                <i data-lucide="file-text" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Developer Experience
                             </h4>
-                            <p class="text-sm text-muted-foreground">Intuitive syntax, less boilerplate code, and built-in state management without additional libraries.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Intuitive syntax, less boilerplate code, and built-in state management without additional libraries.</p>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg border border-border">
                             <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <span>🌱</span> Ecosystem Maturity
+                                <i data-lucide="sprout" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Ecosystem Maturity
                             </h4>
-                            <p class="text-sm text-muted-foreground">Growing rapidly but still smaller than React/Vue ecosystems. Great for smaller projects and teams willing to contribute to the community.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Growing rapidly but still smaller than React/Vue ecosystems. Great for smaller projects and teams willing to contribute to the community.</p>
                         </div>
                     </div>
 
-                    <h2>🔄 Next.js: The Full-Stack Framework</h2>
-                    <p>Next.js is a React framework that adds server-side rendering, static site generation, and other production-ready features. It's essentially React with batteries included.</p>
+                    <h2 class="text-balance"><i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Next.js: The Full-Stack Framework</h2>
+                    <p class="max-w-prose text-balance">Next.js is a React framework that adds server-side rendering, static site generation, and other production-ready features. It's essentially React with batteries included.</p>
 
                     <div class="space-y-6 my-8">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">🎨</span>
+                                <i data-lucide="palette" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Key Features</h3>
-                                <p class="text-muted-foreground">Server-side rendering, static site generation, API routes, image optimization, and built-in CSS support with zero configuration.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Key Features</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Server-side rendering, static site generation, API routes, image optimization, and built-in CSS support with zero configuration.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <span class="text-2xl">📊</span>
+                                <i data-lucide="bar-chart-3" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"/>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg mb-2">Performance Benefits</h3>
-                                <p class="text-muted-foreground">Automatic code splitting, optimized images, and intelligent bundling result in excellent Core Web Vitals scores out of the box.</p>
+                                <h3 class="font-semibold text-lg mb-2 text-balance">Performance Benefits</h3>
+                                <p class="text-muted-foreground max-w-prose text-balance">Automatic code splitting, optimized images, and intelligent bundling result in excellent Core Web Vitals scores out of the box.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2>🛠️ Framework Comparison Matrix</h2>
-                    <p>Use this comparison to evaluate frameworks based on your specific needs:</p>
+                    <h2 class="text-balance"><i data-lucide="hammer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Framework Comparison Matrix</h2>
+                    <p class="max-w-prose text-balance">Use this comparison to evaluate frameworks based on your specific needs:</p>
 
                     <div class="overflow-x-auto my-8">
                         <table class="w-full border-collapse border border-border rounded-lg">
@@ -374,100 +400,94 @@
                         </table>
                     </div>
 
-                    <h2>🤔 How to Choose the Right Framework</h2>
-                    <p>Selecting a framework involves considering multiple factors beyond just popularity or trends.</p>
+                    <h2 class="text-balance"><i data-lucide="help-circle" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>How to Choose the Right Framework</h2>
+                    <p class="max-w-prose text-balance">Selecting a framework involves considering multiple factors beyond just popularity or trends.</p>
 
                     <div class="space-y-4 my-8">
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>👥</span> Team Expertise
+                                <i data-lucide="users" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Team Expertise
                             </h4>
-                            <p class="text-sm text-muted-foreground">Choose a framework your team already knows or is willing to learn. Consider the learning curve and available training resources.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Choose a framework your team already knows or is willing to learn. Consider the learning curve and available training resources.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🎯</span> Project Requirements
+                                <i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Project Requirements
                             </h4>
-                            <p class="text-sm text-muted-foreground">Consider project size, complexity, performance needs, and whether you need SSR, static generation, or mobile development.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Consider project size, complexity, performance needs, and whether you need SSR, static generation, or mobile development.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🔧</span> Ecosystem and Community
+                                <i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Ecosystem and Community
                             </h4>
-                            <p class="text-sm text-muted-foreground">Evaluate available libraries, tools, documentation, and community support. Larger ecosystems mean more solutions but also more choice paralysis.</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Evaluate available libraries, tools, documentation, and community support. Larger ecosystems mean more solutions but also more choice paralysis.</p>
                         </div>
 
                         <div class="border border-border rounded-lg p-4">
                             <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <span>🏢</span> Long-term Maintenance
+                                <i data-lucide="building" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Long-term Maintenance
                             </h4>
-                            <p class="text-sm text-muted-foreground">Consider framework stability, update frequency, breaking changes, and long-term support. Will the framework still be relevant in 2-3 years?</p>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Consider framework stability, update frequency, breaking changes, and long-term support. Will the framework still be relevant in 2-3 years?</p>
                         </div>
                     </div>
 
-                    <h2>🚀 Framework Migration Strategies</h2>
-                    <p>If you're considering switching frameworks, plan your migration carefully:</p>
+                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Framework Migration Strategies</h2>
+                    <p class="max-w-prose text-balance">If you're considering switching frameworks, plan your migration carefully:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-6">
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🔄 Gradual Migration</h4>
-                            <p class="text-sm text-muted-foreground">Start with new features in the new framework while maintaining existing code. Use micro-frontends or component libraries as bridges.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Gradual Migration</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Start with new features in the new framework while maintaining existing code. Use micro-frontends or component libraries as bridges.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📋 Complete Rewrite</h4>
-                            <p class="text-sm text-muted-foreground">For smaller applications, a complete rewrite might be faster. Ensure you have comprehensive tests and clear requirements before starting.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="clipboard-list" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Complete Rewrite</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">For smaller applications, a complete rewrite might be faster. Ensure you have comprehensive tests and clear requirements before starting.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">🛠️ Tool-Assisted Migration</h4>
-                            <p class="text-sm text-muted-foreground">Use tools like React's create-react-app for new projects, or migration tools specific to your source and target frameworks.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="hammer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Tool-Assisted Migration</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Use tools like React's create-react-app for new projects, or migration tools specific to your source and target frameworks.</p>
                         </div>
                         <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">📚 Team Training</h4>
-                            <p class="text-sm text-muted-foreground">Invest in team training and pair programming to ensure smooth knowledge transfer and maintain productivity during the transition.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="book-open" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Team Training</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Invest in team training and pair programming to ensure smooth knowledge transfer and maintain productivity during the transition.</p>
                         </div>
                     </div>
 
-                    <h2>🔮 The Future of JavaScript Frameworks</h2>
-                    <p>The framework landscape continues to evolve. Here are some trends to watch:</p>
+                    <h2 class="text-balance"><i data-lucide="sparkles" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Future of JavaScript Frameworks</h2>
+                    <p class="max-w-prose text-balance">The framework landscape continues to evolve. Here are some trends to watch:</p>
 
                     <div class="grid md:grid-cols-2 gap-4 my-8">
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">⚡ Performance-First Frameworks</h4>
-                            <p class="text-sm text-muted-foreground">Frameworks like Svelte and SolidJS that prioritize runtime performance and smaller bundle sizes will continue to gain popularity.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Performance-First Frameworks</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Frameworks like Svelte and SolidJS that prioritize runtime performance and smaller bundle sizes will continue to gain popularity.</p>
                         </div>
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">🔧 Full-Stack Solutions</h4>
-                            <p class="text-sm text-muted-foreground">Frameworks that handle both frontend and backend (like Next.js with API routes) will become more common for rapid development.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Full-Stack Solutions</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Frameworks that handle both frontend and backend (like Next.js with API routes) will become more common for rapid development.</p>
                         </div>
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">🎨 Meta-Frameworks</h4>
-                            <p class="text-sm text-muted-foreground">Higher-level frameworks built on top of existing ones (like Nuxt.js on Vue or Remix on React) will simplify complex use cases.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="palette" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>Meta-Frameworks</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Higher-level frameworks built on top of existing ones (like Nuxt.js on Vue or Remix on React) will simplify complex use cases.</p>
                         </div>
                         <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">🤖 AI-Assisted Development</h4>
-                            <p class="text-sm text-muted-foreground">AI tools will help with code generation, optimization suggestions, and framework selection based on project requirements.</p>
+                            <h4 class="font-semibold mb-2"><i data-lucide="bot" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>AI-Assisted Development</h4>
+                            <p class="text-sm text-muted-foreground max-w-prose text-balance">AI tools will help with code generation, optimization suggestions, and framework selection based on project requirements.</p>
                         </div>
                     </div>
 
                     <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-accent">🚀 Ready to Choose Your Framework?</h3>
-                        <p class="mb-4">The best framework is the one that fits your project needs, team skills, and long-term goals. Don't follow trends blindly, evaluate each option based on your specific requirements.</p>
-                        <p class="mb-0">Need help choosing or implementing a JavaScript framework for your project? Let's discuss your needs and find the perfect solution.</p>
+                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"/>The Bottom Line</h3>
+                        <p class="mb-4 max-w-prose text-balance">Your tech stack should accelerate your business, not constrain it. Don't let a bad framework choice cost you months of refactoring.</p>
+                        <p class="mb-0 max-w-prose text-balance">Stuck trying to scale a legacy React app? Let's map out a modernization strategy.</p>
                     </div>
 
-                    <h2>📝 Conclusion</h2>
-                    <p>The JavaScript framework landscape offers excellent options for every type of project. React remains the most popular and flexible choice, Vue offers the best developer experience, Angular provides enterprise-grade architecture, Svelte delivers unmatched performance, and Next.js offers a complete full-stack solution.</p>
-
-                    <p>Remember, the "best" framework depends on your specific context. Consider your team expertise, project requirements, timeline, and long-term maintenance needs when making your decision. The framework that helps you ship faster and maintain code more easily is the right choice for your project.</p>
-
                     <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2">Share this article:</p>
+                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-primary transition-colors">Twitter</a>
                             <a href="#" class="text-accent hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="#" class="text-accent hover:text-primary transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>
@@ -485,25 +505,33 @@
         </div>
     </main>
 
+
     <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 Lay Shah. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
-                <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
-                <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
-                <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
-                <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
-            </div>
-            <div class="flex gap-6">
-                <a href="tel:+919099340548" class="hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
-                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
-                <a href="https://github.com/lay1989" class="hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
-            </div>
-        </div>
+    <p>&copy; 2025 Lay Shah. All rights reserved.</p>
+    <div class="flex gap-6 footer-links">
+        <a href="./index.html#about" class="hover:text-accent transition-colors">About</a>
+        <a href="./index.html#services" class="hover:text-accent transition-colors">Services</a>
+        <a href="./index.html#principles" class="hover:text-accent transition-colors">Process</a>
+        <a href="./index.html#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="./index.html#reviews" class="hover:text-accent transition-colors">Reviews</a>
+        <a href="./blog.html" class="hover:text-accent transition-colors">Blog</a>
+        <a href="./index.html#contact" class="hover:text-accent transition-colors">Contact</a>
+    </div>
+    <div class="flex gap-6 items-center">
+        <a href="tel:+919099340548" class="text-muted-foreground hover:text-accent transition-colors" aria-label="Call"><i data-lucide="phone" class="w-5 h-5"></i></a>
+        <a href="mailto:layshah1989@gmail.com" class="text-muted-foreground hover:text-accent transition-colors" aria-label="email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+        <a href="https://github.com/lay1989" class="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+        <button id="back-to-top-btn" class="text-muted-foreground hover:text-accent transition-colors hidden" aria-label="Back to Top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </div>
+</div>
+
     </footer>
 
-    <!-- Scripts -->
-    <script src="./script.js"></script>
+    
+    <script src="./bundle.js" defer></script>
+
 </body>
 </html>

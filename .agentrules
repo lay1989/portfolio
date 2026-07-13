@@ -1,0 +1,52 @@
+# AI Agent Rules & Coding Standards
+
+This file establishes the development boundaries, rules, and coding standards for AI agents working in this repository.
+
+## Core Tech Stack
+- **Frontend Core**: Semantic HTML5, Vanilla JavaScript (ES6+ modular structure in `src/`), Tailwind CSS v3.
+- **Build System**: Custom Node.js Static Site Generator (SSG) in `scripts/build-html.js` using Cheerio.
+- **JS Bundler**: `esbuild` for minifying and bundling JavaScript into a single `bundle.js` IIFE.
+- **CSS Preprocessor**: Tailwind CLI for compiling `style.css` (input) into `tailwind.css` (output).
+- **Icons**: Lucide Icons loaded via CDN with 3-tier fallback (unpkg -> jsdelivr -> local).
+- **SEO & Metadata**: Static site sitemap generation (`scripts/sitemap.js`) and canonical tags configured through `pages.json`.
+
+## Architecture Constraints
+- **NO FRAMEWORKS**: Do not introduce React, Vue, Svelte, Next.js, or SvelteKit. Maintain a vanilla architecture.
+- **Single Source of Truth (SSG)**:
+  - DO NOT edit the HTML files in the root folder (`index.html`, `blog.html`, `projects.html`, etc.) or inside the `projects/` directory directly. These are build outputs and will be overwritten.
+  - Make changes in `content/` (page body fragments), `components/` (nav/footer fragments), `templates/` (base shell layouts), or `data/projects.json` (project case study data).
+- **Subdirectory Safe Paths**: All assets and links in templates must use the `{{BASE_PATH}}` placeholder so that pages inside subdirectories (like `projects/`) resolve paths correctly (e.g. `../tailwind.css` instead of `./tailwind.css`).
+
+## Coding Standards & Conventions
+- **JavaScript Modularization**:
+  - Keep client-side logic organized in `src/` (e.g., animations in `src/animations.js`, navigation in `src/nav.js`, API calls in `src/api.js`).
+  - Use modern ES6+ imports. Bundle the entry point `script.js` into `bundle.js` using `npm run build:js`.
+  - Use JSDoc type annotations for non-trivial functions to ensure clear interface definitions.
+- **Styles**:
+  - Do not add custom utility rules or styling in `style.css` if it can be achieved using native Tailwind CSS classes.
+  - Rely on the theme tokens defined in `tailwind.config.js` and `style.css` variables (e.g. `bg-background`, `text-primary`).
+- **Naming Conventions**:
+  - File/folder naming: Use kebab-case for all files, directories, and assets (e.g., `blog-responsive-design.html`, `stark-ev.html`).
+  - Project slugs: Match the casing and hyphenation used in `data/projects.json` to generate routes (e.g., `ghermar-sons`).
+
+## UI/UX & Copywriting Standards
+
+### 1. Anti-Slop Copywriting Standards
+- NEVER use generic AI introductory phrases (e.g., "In today's fast-paced digital world," "Welcome to our website," "Revolutionizing the industry," "Unleash the power of..." or any other buzzwords).
+- BAN excessive punctuation: Do not overuse em-dashes (—) to connect thoughts, and avoid heavy reliance on colons or bulleted lists for simple paragraphs.
+- BAN AI buzzwords: Never use "seamless," "elevate," "supercharge," "delve," "testament," "unlock," "bespoke," or "synergy."
+- NO robotic transitions: Do not start sentences with "Furthermore," "Moreover," "Ultimately," or "In conclusion." Write naturally and conversationally.
+- Keep copy punchy, concise, and human. Write like a top-tier product marketer (think Stripe, Linear, or Apple).
+- Prioritize showing over telling. Use active verbs. 
+- Avoid overly enthusiastic, cheesy, or robotic tones. Strip out unnecessary adjectives and adverbs. 
+
+### 2. High-End UI/UX Design Standards
+- Always include thoughtful micro-details: focus states, hover effects, smooth transitions, and proper responsive padding/margins.
+- NO "Hero Pills": Do not automatically add a tiny rounded badge above the H1 (e.g., "✨ Introducing [Feature]") unless explicitly instructed.
+- NO "3-Card Feature Grids": Avoid the default layout of three identical cards with a centered icon, a bold title, and two lines of gray text. Design unique, asymmetric, interactive, or context-specific feature highlights instead.
+- NO "Zig-Zag" Layouts: Avoid the standard "text on left, generic image on right" alternating rows. Think about modern bento boxes, masonry grids, or interactive scroll states instead.
+- NO generic gradients: Avoid defaulting to the classic "AI purple-to-blue" gradient text or backgrounds. 
+- NO generic icons: Stop using default FontAwesome or basic SVG icons to represent complex ideas. Use actual UI mockups, typography-driven layouts, or high-quality product screenshots instead.
+
+## AI Context Maintenance Rule
+- **Always update memory.md after completing a significant task.** Write down changes, new quirks discovered, active context status, and completed milestones.

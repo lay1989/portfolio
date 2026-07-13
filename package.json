@@ -1,0 +1,32 @@
+{
+  "name": "lay-shah-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Lay Shah",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./style.css -o ./tailwind.css --minify",
+    "build:js": "esbuild script.js --bundle --outfile=bundle.js --format=iife --minify",
+    "build:html": "node scripts/build-html.js && node scripts/sitemap.js",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "watch:css": "tailwindcss -i ./style.css -o ./tailwind.css --watch",
+    "build:images": "node scripts/generate-responsive-images.js",
+    "postinstall": "node scripts/copy-lucide.js",
+    "dev": "npm run watch:css"
+  },
+  "keywords": [],
+  "author": "Lay Shah",
+  "license": "ISC",
+  "dependencies": {
+    "lucide": "^0.395.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.13",
+    "autoprefixer": "^10.4.19",
+    "cheerio": "^1.2.0",
+    "esbuild": "^0.28.1",
+    "postcss": "^8.4.38",
+    "sharp": "^0.33.4",
+    "tailwindcss": "^3.4.4"
+  }
+}
