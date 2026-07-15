@@ -127,12 +127,7 @@ function renderResponsivePicture(imgPath, alt, className, sizes, eager, pageBase
     const loadAttr = eager ? '' : ' loading="lazy"';
     const sizesAttr = sizes || '(max-width: 768px) 90vw, 896px';
 
-    let pictureClass = 'block';
-    if (className.includes('h-full')) pictureClass += ' h-full';
-    if (className.includes('w-full')) pictureClass += ' w-full';
-    if (className.includes('h-auto')) pictureClass += ' h-auto';
-
-    return `<picture class="${pictureClass}">
+    return `<picture>
                 <source type="image/webp" srcset="${webpSmall} 600w, ${webpFull} 1200w" sizes="${sizesAttr}">
                 <source type="image/${ext === 'jpg' ? 'jpeg' : ext}" srcset="${fallbackSmall} 600w, ${fallbackFull} 1200w" sizes="${sizesAttr}">
                 <img src="${fallbackFull}" alt="${escHtml(alt)}" class="${className || 'w-full h-auto object-cover'}"${loadAttr}>
@@ -386,20 +381,15 @@ function renderProjectsListing() {
     });
 
     // Helper: render stats grid (3 columns)
-    // Helper: render stats grid (3 columns)
     function buildStatsGrid(metrics) {
         if (!metrics) return '';
         const entries = Object.entries(metrics).slice(0, 3);
-        return entries.map(([key, val]) => {
-            const formattedKey = key.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
-            const sentenceCaseKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
-            return `
+        return entries.map(([key, val]) => `
         <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">${escHtml(String(val))}</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">${escHtml(sentenceCaseKey)}</dd>
+            <div class="font-serif font-medium text-4xl lg:text-5xl text-foreground mb-1">${escHtml(String(val))}</div>
+            <div class="text-sm text-muted-foreground capitalize">${escHtml(key.replace(/([A-Z])/g, ' $1').trim())}</div>
         </div>
-    `;
-        }).join('');
+    `).join('');
     }
 
     // Helper: render stack tags
@@ -407,7 +397,7 @@ function renderProjectsListing() {
         if (!technologies) return '';
         const allTechs = Object.values(technologies).flat().slice(0, 4);
         return allTechs.map(t => `
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">${escHtml(t)}</span>
+        <span class="text-xs text-muted-foreground border border-border rounded-full px-4 py-1.5">${escHtml(t)}</span>
     `).join('');
     }
 
@@ -415,65 +405,20 @@ function renderProjectsListing() {
 
     // 1. Build Work Reel (Desktop)
     let reelSlides = sorted.map((p, index) => `
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="${index}" data-title="${escHtml(p.title)}">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
+        <article class="w-[88vw] max-w-[1200px] px-4 lg:px-8 h-full flex flex-col justify-center relative work-slide flex-shrink-0" data-index="${index}" data-title="${escHtml(p.title)}">
+            <div class="grid grid-cols-12 gap-8 lg:gap-16 items-center">
                 
                 <!-- Left Column: Image -->
-                <a aria-label="Open case study: ${escHtml(p.title)}" href="${basePath}projects/${p.slug}.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    ${renderResponsivePicture(p.heroImg, p.title, 'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]', '(max-width: 768px) 90vw, 45vw', index === 0, basePath)}
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">${String(index + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">${p.year}</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">${escHtml(p.role)}</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">${escHtml(p.title)}</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">${escHtml(p.shortDesc)}</p>
+                <a href="${basePath}projects/${p.slug}.html" aria-label="Open case study: ${escHtml(p.title)}" class="col-span-12 md:col-span-6 relative group block rounded-[2rem] overflow-hidden bg-card aspect-[4/3] lg:aspect-[3/4] xl:aspect-[4/3] transform transition-transform duration-700 hover:scale-[1.02]">
+                    <!-- Pill Badge -->
+                    <div class="absolute top-6 left-6 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium tracking-widest">
+                        ${String(index + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}
                     </div>
                     
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            ${buildStatsGrid(p.metrics)}
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            ${buildStackChips(p.technologies)}
-                        </div>
-                        
-                        <a href="${basePath}projects/${p.slug}.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    `).join('\n');
-
-    const workReelHtml = `
-    <div class="hidden md:block work-reel-container" aria-label="Work reel">
-        <div class="h-screen overflow-hidden relative" id="work-reel-pin">
-            <!-- Track -->
-            <div class="flex h-full items-center work-reel-track w-max pt-16 pb-12">
-                <!-- Intro Spacer -->
-                <div class="flex h-full w-[40vw] shrink-0 items-end px-10 pb-4">
-                    <div>
-                        <div class="font-mono text-xs uppercase tracking-widest text-muted-foreground">Begin the reel</div>
-                        <div class="mt-2 font-serif text-3xl italic text-muted-foreground">Scroll &rarr;</div>
-                    </div>
+                    ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-full object-cover', '(max-width: 768px) 90vw, 45vw', index === 0, basePath)}
+                <div class="w-[30vw] flex-shrink-0 h-full flex flex-col justify-end pb-[20vh] pr-12">
+                    <p class="font-mono text-muted-foreground text-sm uppercase tracking-widest mb-4">BEGIN THE REEL</p>
+                    <p class="font-serif italic text-4xl lg:text-5xl text-foreground">Scroll &rarr;</p>
                 </div>
                 ${reelSlides}
                 <!-- End Spacer -->
@@ -481,10 +426,10 @@ function renderProjectsListing() {
             </div>
             
             <!-- Bottom Overlay Bar -->
-            <div class="absolute inset-x-0 bottom-0 z-20 border-t border-foreground/10 flex items-center justify-between px-6 md:px-10 py-2.5 h-12">
+            <div class="absolute inset-x-0 bottom-0 z-20 bg-background/90 backdrop-blur-md border-t border-border flex items-center justify-between px-6 md:px-10 py-5 h-20">
                 <div class="font-mono text-muted-foreground text-sm tracking-widest reel-counter w-24">01 / ${String(sorted.length).padStart(2, '0')}</div>
                 <div class="flex-1 mx-8 relative h-full flex items-center">
-                    <div class="absolute left-0 w-full h-px bg-foreground/10"></div>
+                    <div class="absolute left-0 w-full h-px bg-border/50"></div>
                     <div class="absolute left-0 h-[2px] bg-foreground reel-progress transition-all duration-100" style="width: 0%"></div>
                 </div>
                 <div class="font-serif text-foreground text-lg reel-active-title w-64 text-right truncate">

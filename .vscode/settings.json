@@ -1,0 +1,26 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "import": true,
+        "root": true,
+        "root.glob('**/*.html')": true,
+        "lines": true,
+        "i": true,
+        "ch": true,
+        "f": true,
+        "for": true,
+        "i,": true,
+        "line": true,
+        "/^cd c:\\\\Users\\\\SHREE\\\\Desktop\\\\portfolio\\.worktrees\\\\copilot-worktree-2026-07-13T11-48-56; python -c \"import pathlib; root=pathlib\\.Path\\('\\.'\\);\nfor f in sorted\\(root\\.glob\\('\\*\\*/\\*\\.html'\\)\\):\n    text=f\\.read_text\\(encoding='utf-8', errors='replace'\\)\n    lines=\\[\\(i,line\\) for i,line in enumerate\\(text\\.splitlines\\(\\),1\\) if any\\(ord\\(ch\\)>127 for ch in line\\)\\]\n    if lines:\n        print\\(f\\)\n        for i,line in lines\\[:20\\]:\n            print\\(i, repr\\(line\\)\\)\n        print\\('---'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd c:\\\\Users\\\\SHREE\\\\Desktop\\\\portfolio\\.worktrees\\\\copilot-worktree-2026-07-13T11-48-56; python -X utf8 -c \"import pathlib; root=pathlib\\.Path\\('\\.'\\);\nfor f in sorted\\(root\\.glob\\('\\*\\*/\\*\\.html'\\)\\):\n    text=f\\.read_text\\(encoding='utf-8', errors='replace'\\)\n    lines=\\[\\(i,line\\) for i,line in enumerate\\(text\\.splitlines\\(\\),1\\) if any\\(ord\\(ch\\)>127 for ch in line\\)\\]\n    if lines:\n        print\\(f\\)\n        for i,line in lines\\[:20\\]:\n            print\\(i, line\\.encode\\('unicode_escape'\\)\\.decode\\('ascii'\\)\\)\n        print\\('---'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd c:\\\\Users\\\\SHREE\\\\Desktop\\\\portfolio\\.worktrees\\\\copilot-worktree-2026-07-13T11-48-56; python -X utf8 -c \"from pathlib import Path; import re; files=sorted\\(Path\\('\\.'\\)\\.glob\\('blog-\\*\\.html'\\)\\)\\+sorted\\(Path\\('content'\\)\\.glob\\('blog-\\*\\.html'\\)\\)\\+sorted\\(Path\\('projects'\\)\\.glob\\('\\*\\.html'\\)\\)\\+\\[Path\\('templates/project-case-study\\.html'\\)\\]; updated=\\[\\]; \nfor fp in files:\n    text=fp\\.read_text\\(encoding='utf-8', errors='replace'\\)\n    orig=text\n    text=re\\.sub\\(r'\\(<i\\\\\\\\b\\[\\^>\\]\\*\\?\\)\\\\\\\\s\\*/>', r'\\\\\\\\1></i>', text\\)\n    text=text\\.replace\\('<span class=\\\\'text-sm text-muted-foreground\\\\'>•</span>', '<i data-lucide=\\\\'circle\\\\' class=\\\\'w-2\\.5 h-2\\.5 text-muted-foreground self-center\\\\' aria-hidden=\\\\'true\\\\'></i>'\\)\n    text=text\\.replace\\('<span class=\\\\'text-muted-foreground\\\\'>•</span>', '<i data-lucide=\\\\'circle\\\\' class=\\\\'w-2\\.5 h-2\\.5 text-muted-foreground self-center\\\\' aria-hidden=\\\\'true\\\\'></i>'\\)\n    text=text\\.replace\\('>← Back to Blog</a>', '><i data-lucide=\\\\'arrow-left\\\\' class=\\\\'w-4 h-4 inline mr-2\\\\' aria-hidden=\\\\'true\\\\'></i>Back to Blog</a>'\\)\n    text=text\\.replace\\('>Next Article →</a>', '>Next Article<i data-lucide=\\\\'arrow-right\\\\' class=\\\\'w-4 h-4 inline ml-2\\\\' aria-hidden=\\\\'true\\\\'></i></a>'\\)\n    if text!=orig:\n        fp\\.write_text\\(text, encoding='utf-8'\\)\n        updated\\.append\\(str\\(fp\\)\\)\nprint\\('Updated files:', len\\(updated\\)\\)\nfor f in updated:\n    print\\(f\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

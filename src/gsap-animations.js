@@ -274,8 +274,8 @@ export function initWorkReel() {
             if (activeSlide && activeTitle && counter) {
                 counter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(numSlides).padStart(2, '0')}`;
                 const titleStr = activeSlide.dataset.title;
-                const yearStr = activeSlide.querySelector('span.font-mono').textContent;
-                activeTitle.innerHTML = `${titleStr} &middot; ${yearStr}`;
+                const yearStr = activeSlide.querySelector('.project-year').textContent;
+                activeTitle.innerHTML = `${titleStr} <span class="font-mono text-sm text-muted-foreground ml-3 tracking-widest">&mdash; ${yearStr}</span>`;
             }
         }
     });
