@@ -255,6 +255,89 @@
       "websiteUrl": "https://kamaldeep-enterprise.onrender.com/"
     },
     {
+      "id": 3,
+      "slug": "crypto-trading-analytics",
+      "title": "Crypto Trading Analytics",
+      "category": "Personal Trading Bot & Data Visualization",
+      "year": "2024",
+      "shortDesc": "Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.",
+      "heroImg": "./public/images/saas_dashboard_minimal_interface.png",
+      "role": "Full Stack Developer",
+      "timeline": "Ongoing",
+      "tools": "Python, Flask, PostgreSQL, Telegram Bot, Binance API, D3.js",
+      "budget": "Personal Project",
+      "clientType": "Personal Project",
+      "liveUrl": "#",
+      "githubUrl": null,
+      "overview": "A personal cryptocurrency trading bot I developed to automate trading strategies and analyze market data. The system includes real-time data visualization, automated trading signals, and comprehensive performance reporting. Built as a learning project to explore algorithmic trading and data visualization techniques.",
+      "challenge": "Create a personal trading system that can analyze cryptocurrency markets, execute automated trades, and provide detailed performance analytics. The main challenges included implementing reliable trading algorithms, handling real-time market data, and creating an intuitive dashboard for monitoring trades and performance.",
+      "solution": "Developed a comprehensive trading bot using Python with Flask backend and interactive D3.js visualizations. Implemented multiple trading strategies with risk management features. Created a responsive dashboard for real-time monitoring and historical analysis. Integrated with multiple cryptocurrency exchanges via their APIs for diversified trading.",
+      "process": [
+        "Market Research: Studied cryptocurrency trading patterns and algorithms",
+        "Strategy Development: Designed and tested various trading strategies",
+        "System Architecture: Built scalable backend with real-time capabilities",
+        "Dashboard Creation: Developed interactive analytics interface",
+        "Risk Management: Implemented stop-loss and position sizing algorithms",
+        "Testing & Optimization: Backtested strategies and optimized performance"
+      ],
+      "technologies": {
+        "backend": [
+          "Python",
+          "Flask",
+          "PostgreSQL",
+          "Redis",
+          "Celery"
+        ],
+        "frontend": [
+          "JavaScript",
+          "D3.js",
+          "Chart.js",
+          "HTML5",
+          "CSS3"
+        ],
+        "apis": [
+          "Binance API",
+          "Coinbase Pro API",
+          "WebSocket",
+          "REST APIs"
+        ],
+        "infrastructure": [
+          "Docker",
+          "AWS EC2",
+          "Nginx",
+          "SSL/TLS"
+        ],
+        "security": [
+          "JWT Authentication",
+          "API Rate Limiting",
+          "Data Encryption"
+        ]
+      },
+      "keyFeatures": [
+        "Automated trading strategies with customizable parameters",
+        "Real-time market data analysis and visualization",
+        "Risk management with stop-loss and take-profit orders",
+        "Performance tracking and detailed reporting",
+        "Telegram bot integration for trade notifications",
+        "Historical data analysis and backtesting",
+        "Multi-exchange support for diversified trading",
+        "Portfolio optimization algorithms"
+      ],
+      "results": "Successfully automated trading operations with improved consistency compared to manual trading. The system processes real-time market data and executes trades based on predefined algorithms. Achieved better risk-adjusted returns through systematic trading approach.",
+      "metrics": {
+        "Uptime": "99.5%",
+        "Trades executed": "500+",
+        "Data points": "10K+ daily"
+      },
+      "screenshots": [
+        "./public/images/saas_dashboard_minimal_interface.png"
+      ],
+      "testimonial": null,
+      "lessonsLearned": "Building a trading system taught me the importance of risk management and the challenges of algorithmic trading. Real-time data processing, API reliability, and market volatility are critical considerations. The project significantly improved my understanding of financial markets and quantitative analysis.",
+      "contentImg": "./public/images/saas_dashboard_minimal_interface.png",
+      "websiteUrl": "#"
+    },
+    {
       "id": 5,
       "slug": "aroma-cafe",
       "title": "Aroma Cafe",
@@ -412,89 +495,6 @@
       "lessonsLearned": "This personal project significantly improved my understanding of advanced UI/UX principles and modern web technologies. Working with complex animations and interactions taught me the importance of performance optimization and user experience design. The project reinforced the value of building personal projects for skill development.",
       "contentImg": "./public/images/Stark EV 2.png",
       "websiteUrl": "https://lay1989.github.io/StarkEV/"
-    },
-    {
-      "id": 3,
-      "slug": "crypto-trading-analytics",
-      "title": "Crypto Trading Analytics",
-      "category": "Personal Trading Bot & Data Visualization",
-      "year": "2024",
-      "shortDesc": "Personal cryptocurrency trading bot with advanced analytics dashboard for automated trading and performance tracking.",
-      "heroImg": "./public/images/saas_dashboard_minimal_interface.png",
-      "role": "Full Stack Developer",
-      "timeline": "Ongoing",
-      "tools": "Python, Flask, PostgreSQL, Telegram Bot, Binance API, D3.js",
-      "budget": "Personal Project",
-      "clientType": "Personal Project",
-      "liveUrl": "#",
-      "githubUrl": null,
-      "overview": "A personal cryptocurrency trading bot I developed to automate trading strategies and analyze market data. The system includes real-time data visualization, automated trading signals, and comprehensive performance reporting. Built as a learning project to explore algorithmic trading and data visualization techniques.",
-      "challenge": "Create a personal trading system that can analyze cryptocurrency markets, execute automated trades, and provide detailed performance analytics. The main challenges included implementing reliable trading algorithms, handling real-time market data, and creating an intuitive dashboard for monitoring trades and performance.",
-      "solution": "Developed a comprehensive trading bot using Python with Flask backend and interactive D3.js visualizations. Implemented multiple trading strategies with risk management features. Created a responsive dashboard for real-time monitoring and historical analysis. Integrated with multiple cryptocurrency exchanges via their APIs for diversified trading.",
-      "process": [
-        "Market Research: Studied cryptocurrency trading patterns and algorithms",
-        "Strategy Development: Designed and tested various trading strategies",
-        "System Architecture: Built scalable backend with real-time capabilities",
-        "Dashboard Creation: Developed interactive analytics interface",
-        "Risk Management: Implemented stop-loss and position sizing algorithms",
-        "Testing & Optimization: Backtested strategies and optimized performance"
-      ],
-      "technologies": {
-        "backend": [
-          "Python",
-          "Flask",
-          "PostgreSQL",
-          "Redis",
-          "Celery"
-        ],
-        "frontend": [
-          "JavaScript",
-          "D3.js",
-          "Chart.js",
-          "HTML5",
-          "CSS3"
-        ],
-        "apis": [
-          "Binance API",
-          "Coinbase Pro API",
-          "WebSocket",
-          "REST APIs"
-        ],
-        "infrastructure": [
-          "Docker",
-          "AWS EC2",
-          "Nginx",
-          "SSL/TLS"
-        ],
-        "security": [
-          "JWT Authentication",
-          "API Rate Limiting",
-          "Data Encryption"
-        ]
-      },
-      "keyFeatures": [
-        "Automated trading strategies with customizable parameters",
-        "Real-time market data analysis and visualization",
-        "Risk management with stop-loss and take-profit orders",
-        "Performance tracking and detailed reporting",
-        "Telegram bot integration for trade notifications",
-        "Historical data analysis and backtesting",
-        "Multi-exchange support for diversified trading",
-        "Portfolio optimization algorithms"
-      ],
-      "results": "Successfully automated trading operations with improved consistency compared to manual trading. The system processes real-time market data and executes trades based on predefined algorithms. Achieved better risk-adjusted returns through systematic trading approach.",
-      "metrics": {
-        "Uptime": "99.5%",
-        "Trades executed": "500+",
-        "Data points": "10K+ daily"
-      },
-      "screenshots": [
-        "./public/images/saas_dashboard_minimal_interface.png"
-      ],
-      "testimonial": null,
-      "lessonsLearned": "Building a trading system taught me the importance of risk management and the challenges of algorithmic trading. Real-time data processing, API reliability, and market volatility are critical considerations. The project significantly improved my understanding of financial markets and quantitative analysis.",
-      "contentImg": "./public/images/saas_dashboard_minimal_interface.png",
-      "websiteUrl": "#"
     },
     {
       "id": 7,
