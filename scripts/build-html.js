@@ -45,8 +45,10 @@ const headerHtml = fs.readFileSync(path.join(root, 'components', 'header.html'),
 const footerHtml = fs.readFileSync(path.join(root, 'components', 'footer.html'), 'utf-8');
 const pagesJson = JSON.parse(fs.readFileSync(path.join(root, 'pages.json'), 'utf-8'));
 const projectsData = JSON.parse(fs.readFileSync(path.join(root, 'data', 'projects.json'), 'utf-8'));
+const postsData = fs.existsSync(path.join(root, 'data', 'posts.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'data', 'posts.json'), 'utf-8')) : { posts: [] };
 
 const projects = projectsData.projects;
+const posts = postsData.posts;
 
 // ──────────────────────────────────────────
 // Helper: resolve base path for assets
@@ -578,6 +580,191 @@ function renderHomepageProjects() {
 }
 
 // ──────────────────────────────────────────
+// Helper: render blog post page content
+// ──────────────────────────────────────────
+function renderBlogPost(post, basePath) {
+    // Formatting date
+    const dateObj = new Date(post.date);
+    const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    // Header
+    const headerHtml = `
+        <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
+            <a href="${basePath}blog.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All posts
+            </a>
+            
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
+                <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">${escHtml(post.category)}</span>
+                <span class="text-foreground/30">&middot;</span>
+                <span>${formattedDate}</span>
+                <span class="text-foreground/30">&middot;</span>
+                <span>${post.readMinutes || 5} min read</span>
+            </div>
+            
+            <h1 class="font-serif font-medium text-4xl md:text-6xl leading-[1.05] tracking-tight mt-8 text-foreground">${escHtml(post.title)}</h1>
+            
+            <p class="text-xl md:text-2xl leading-snug text-muted-foreground mt-6">${escHtml(post.dek)}</p>
+            
+            <div class="mt-10 flex items-center justify-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-foreground text-background flex items-center justify-center font-serif text-sm">LS</div>
+                <div class="text-left leading-tight">
+                    <div class="text-sm font-medium text-foreground">Lay Shah</div>
+                    <div class="text-xs text-muted-foreground mt-0.5">Full-Stack Engineer</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Cover (optional)
+    let coverHtml = '';
+    if (post.cover) {
+        coverHtml = `
+            <div class="max-w-[1100px] mx-auto px-6 mb-16">
+                <div class="rounded-2xl bg-card overflow-hidden border border-border shadow-lg">
+                    <img src="${basePath}${post.cover}" alt="Cover image for ${escHtml(post.title)}" loading="eager" class="w-full h-auto object-cover aspect-video md:aspect-[21/9]">
+                </div>
+            </div>
+        `;
+    }
+
+    // Body
+    const bodyHtml = `
+        <div class="max-w-[680px] mx-auto px-6 prose-reveal">
+            ${post.body}
+        </div>
+    `;
+
+    // End Rule
+    const endRuleHtml = `
+        <div aria-hidden="true" class="max-w-[680px] mx-auto flex items-center gap-6 my-16 px-6">
+            <div class="h-px flex-1 bg-foreground/10"></div>
+            <div class="font-serif text-2xl text-accent">&sect;</div>
+            <div class="h-px flex-1 bg-foreground/10"></div>
+        </div>
+    `;
+
+    // Author Card
+    const authorCardHtml = `
+        <div class="max-w-[680px] mx-auto px-6">
+            <div class="p-6 md:p-8 rounded-2xl border border-border bg-card/30 flex flex-col md:flex-row items-center md:items-center justify-between text-center md:text-left gap-6 transition-all hover:border-accent/30">
+                <div class="flex flex-col md:flex-row items-center gap-5">
+                    <div class="w-16 h-16 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-serif text-xl border border-border">LS</div>
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-1">Written by</span>
+                        <h3 class="font-serif font-medium text-xl text-foreground mb-1">Lay Shah</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed max-w-md">Independent developer building fast, hand-crafted websites and platforms for founders and small teams.</p>
+                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Contact CTA
+    const contactCtaHtml = `
+        <div class="max-w-[1100px] mx-auto mt-24 mb-16 px-6">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                
+                <!-- Content (Left side) -->
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Enjoyed this? · Booking Q3 2026</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Have a website you want to actually ship?</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                </div>
+
+                <!-- Action Buttons (Right side) -->
+                <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
+                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    </a>
+                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    </a>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    // Keep Reading
+    const relatedPosts = posts.filter(p => p.slug !== post.slug).slice(0, 2);
+    let keepReadingHtml = '';
+    if (relatedPosts.length > 0) {
+        keepReadingHtml = `
+            <div class="max-w-[1200px] mx-auto px-6 pt-16 pb-24 md:pb-40">
+                <div class="flex items-center justify-between border-b border-foreground/10 pb-4 mb-10">
+                    <span class="text-accent font-medium">Keep reading</span>
+                    <a href="${basePath}blog.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">All posts <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    ${relatedPosts.map(rp => `
+                        <a href="${basePath}${rp.slug}.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
+                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">${escHtml(rp.category)}</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">${escHtml(rp.title)}</h3>
+                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">${escHtml(rp.dek)}</p>
+                            <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                        </a>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // Reading Progress & Scripts
+    const pageScripts = `
+        <div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width: 0%;"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script>
+            // Reading Progress
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('reading-progress').style.width = scrolled + '%';
+            });
+            
+            // ProseReveal GSAP
+            document.addEventListener('DOMContentLoaded', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    
+                    if (!prefersReducedMotion) {
+                        const proseChildren = document.querySelectorAll('.prose-reveal > *');
+                        proseChildren.forEach((el) => {
+                            gsap.fromTo(el, 
+                                { y: 16, opacity: 0 },
+                                { 
+                                    y: 0, 
+                                    opacity: 1, 
+                                    duration: 0.6, 
+                                    ease: "power2.out",
+                                    scrollTrigger: {
+                                        trigger: el,
+                                        start: "top 85%",
+                                    }
+                                }
+                            );
+                        });
+                    }
+                }
+            });
+        </script>
+    `;
+
+    return pageScripts + headerHtml + coverHtml + bodyHtml + endRuleHtml + authorCardHtml + contactCtaHtml + keepReadingHtml;
+}
+
+// ──────────────────────────────────────────
 // Core: assemble a page from template + metadata + content
 // ──────────────────────────────────────────
 function buildPage(outputFile, pageConfig, bodyContent) {
@@ -633,6 +820,15 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
         }
         const basePath = getBasePath(outputFile);
         const body = renderCaseStudy(project, basePath);
+        buildPage(outputFile, config, body);
+    } else if (config.type === 'post') {
+        const post = posts.find(p => p.slug === config.postSlug);
+        if (!post) {
+            console.warn(`  SKIP ${outputFile} (post slug "${config.postSlug}" not found)`);
+            return;
+        }
+        const basePath = getBasePath(outputFile);
+        const body = renderBlogPost(post, basePath);
         buildPage(outputFile, config, body);
     } else if (outputFile === 'projects.html') {
         // Build projects listing page

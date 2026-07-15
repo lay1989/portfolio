@@ -7,40 +7,37 @@
     :root {
         /* Base Palette Tokens */
         --color-white: #ffffff;
-        --color-black: #080808;
-        --color-cream: #F5F0EA;
-        --color-cream-card: #EDE8E1;
-        --color-cream-border: #D8D2CA;
-        --color-gray-very-light: #f5f5f5;
-        --color-gray-soft: #f0f0f0;
-        --color-gray-muted: #666666;
-        --color-gray-dark-muted: #999999;
-        --color-gray-light-bg: #f2f2f2;
-        --color-accent: #FF6B35;
-        --color-border-light: #e5e5e5;
+        --color-slate-50: #f8fafc;
+        --color-slate-100: #f1f5f9;
+        --color-slate-200: #e2e8f0;
+        --color-slate-400: #94a3b8;
+        --color-slate-500: #64748b;
+        --color-slate-700: #334155;
+        --color-slate-800: #1e293b;
+        --color-slate-900: #0f172a;
+        --color-slate-950: #020617;
         
-        --color-dark-card: #111111;
-        --color-dark-muted: #1a1a1a;
-        --color-dark-border: #242424;
+        --color-trust-green: #059669; /* Emerald 600 - Deep, stable green */
+        --color-trust-green-light: #10B981; /* Emerald 500 */
 
         /* Component-specific & Effect Tokens */
-        --navbar-bg: rgba(245, 240, 234, 0.88);
-        --shadow-hover: rgba(0, 0, 0, 0.08);
+        --navbar-bg: rgba(248, 250, 252, 0.88);
+        --shadow-hover: rgba(15, 23, 42, 0.08);
 
         /* Semantic Variables Mapping (Light Mode) */
-        --background: var(--color-cream);
-        --foreground: var(--color-black);
-        --card: var(--color-cream-card);
-        --card-foreground: var(--color-black);
-        --primary: var(--color-black);
-        --primary-foreground: var(--color-cream);
-        --secondary: var(--color-cream-card);
-        --secondary-foreground: var(--color-black);
-        --muted: var(--color-cream-card);
-        --muted-foreground: var(--color-gray-muted);
-        --accent: var(--color-accent);
+        --background: var(--color-slate-50);
+        --foreground: var(--color-slate-900);
+        --card: var(--color-white);
+        --card-foreground: var(--color-slate-900);
+        --primary: var(--color-slate-900);
+        --primary-foreground: var(--color-white);
+        --secondary: var(--color-slate-100);
+        --secondary-foreground: var(--color-slate-900);
+        --muted: var(--color-slate-100);
+        --muted-foreground: var(--color-slate-500);
+        --accent: var(--color-trust-green);
         --accent-foreground: var(--color-white);
-        --border: var(--color-cream-border);
+        --border: var(--color-slate-200);
 
         /* Animation Offsets & Magic Number Abstractions */
         --reveal-offset: 30px;
@@ -51,23 +48,23 @@
 
     .dark {
         /* Component-specific & Effect Tokens (Dark Mode overrides) */
-        --navbar-bg: rgba(8, 8, 8, 0.88);
+        --navbar-bg: rgba(2, 6, 23, 0.88);
         --shadow-hover: rgba(0, 0, 0, 0.5);
 
         /* Semantic Variables Mapping (Dark Mode) */
-        --background: var(--color-black);
-        --foreground: var(--color-gray-light-bg);
-        --card: var(--color-dark-card);
-        --card-foreground: var(--color-gray-light-bg);
+        --background: var(--color-slate-950);
+        --foreground: var(--color-slate-50);
+        --card: var(--color-slate-900);
+        --card-foreground: var(--color-slate-50);
         --primary: var(--color-white);
-        --primary-foreground: var(--color-black);
-        --secondary: var(--color-dark-muted);
+        --primary-foreground: var(--color-slate-900);
+        --secondary: var(--color-slate-800);
         --secondary-foreground: var(--color-white);
-        --muted: var(--color-dark-muted);
-        --muted-foreground: var(--color-gray-dark-muted);
-        --accent: var(--color-accent);
+        --muted: var(--color-slate-800);
+        --muted-foreground: var(--color-slate-400);
+        --accent: var(--color-trust-green-light);
         --accent-foreground: var(--color-white);
-        --border: var(--color-dark-border);
+        --border: var(--color-slate-800);
     }
 
     /* Smooth Scrolling (Lenis overrides this when active) */
@@ -224,4 +221,151 @@ html.lenis {
 }
 .lenis.lenis-scrolling iframe {
     pointer-events: none;
+}
+
+/* Blog Prose Styles */
+@layer components {
+    .drop-cap::first-letter {
+        float: left;
+        color: var(--accent);
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-size: 4rem;
+        line-height: 0.8;
+        padding-top: 0.1em;
+        padding-right: 0.1em;
+        margin-left: -0.05em;
+        font-weight: 500;
+    }
+
+    .prose-reveal p {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+        line-height: 1.75;
+        color: var(--foreground);
+    }
+    @media (min-width: 768px) {
+        .prose-reveal p {
+            font-size: 1.2rem;
+        }
+    }
+
+    .prose-reveal h2 {
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-weight: 500;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+        font-size: 1.875rem;
+        line-height: 1.25;
+        letter-spacing: -0.025em;
+        color: var(--foreground);
+    }
+    @media (min-width: 768px) {
+        .prose-reveal h2 {
+            font-size: 2.5rem;
+        }
+    }
+
+    .prose-reveal h3 {
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-weight: 500;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.25rem;
+        letter-spacing: -0.025em;
+        color: var(--foreground);
+    }
+    @media (min-width: 768px) {
+        .prose-reveal h3 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .prose-reveal a {
+        color: var(--accent);
+        text-decoration-line: underline;
+        text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+        text-underline-offset: 4px;
+        transition: text-decoration-color 0.2s;
+    }
+    .prose-reveal a:hover {
+        text-decoration-color: var(--accent);
+    }
+
+    .prose-reveal ul, .prose-reveal ol {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        font-size: 1.125rem;
+        color: var(--foreground);
+    }
+    .prose-reveal ul {
+        list-style-type: disc;
+    }
+    .prose-reveal ol {
+        list-style-type: decimal;
+    }
+    .prose-reveal li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    @media (min-width: 768px) {
+        .prose-reveal ul, .prose-reveal ol {
+            font-size: 1.25rem;
+        }
+    }
+
+    .prose-reveal blockquote {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding-left: 1.5rem;
+        border-left-width: 2px;
+        border-left-color: var(--accent);
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        line-height: 1.375;
+        color: var(--foreground);
+    }
+    @media (min-width: 768px) {
+        .prose-reveal blockquote {
+            font-size: 1.875rem;
+        }
+    }
+
+    .prose-reveal code:not(pre code) {
+        background-color: var(--card);
+        border-radius: 0.25rem;
+        padding: 0.125rem 0.375rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.9em;
+        color: var(--accent);
+    }
+
+    .prose-reveal pre {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.75rem;
+        border-width: 1px;
+        border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+        background-color: var(--card);
+        padding: 1.5rem;
+        font-size: 0.875rem;
+        color: var(--foreground);
+        overflow-x: auto;
+    }
+
+    .prose-reveal pre code {
+        background-color: transparent;
+        padding: 0;
+        color: var(--foreground);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .prose-reveal hr {
+        margin-top: 3.5rem;
+        margin-bottom: 3.5rem;
+        border-top-width: 1px;
+        border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+    }
 }

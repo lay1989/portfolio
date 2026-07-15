@@ -39,19 +39,19 @@
     "content": "content/blog.html"
   },
   "blog-custom-websites.html": {
-    "title": "Building Custom Websites: From Concept to Launch | Lay Shah",
-    "description": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+    "title": "The Custom Website Development Process: A Blueprint for Growth | Lay Shah",
+    "description": "Why templates fail growing businesses, and how a custom website development process transforms your online presence into a conversion engine.",
     "canonical": "https://layshahdev.com/blog-custom-websites.html",
     "ogType": "article",
-    "ogTitle": "Building Custom Websites: From Concept to Launch | Lay Shah",
-    "ogDescription": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+    "ogTitle": "The Custom Website Development Process: A Blueprint for Growth | Lay Shah",
+    "ogDescription": "Why templates fail growing businesses, and how a custom website development process transforms your online presence into a conversion engine.",
     "ogUrl": "https://layshahdev.com/blog-custom-websites.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Building Custom Websites: From Concept to Launch",
-      "description": "Learn the complete process of building custom websites. From initial concept to final launch, discover the steps involved in creating high-quality, conversion-focused web solutions.",
+      "headline": "The Custom Website Development Process: A Blueprint for Growth",
+      "description": "Why templates fail growing businesses, and how a custom website development process transforms your online presence into a conversion engine.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -72,22 +72,23 @@
         "@id": "https://layshahdev.com/blog-custom-websites.html"
       }
     },
-    "content": "content/blog-custom-websites.html"
+    "type": "post",
+    "postSlug": "blog-custom-websites"
   },
   "blog-freelance-developer.html": {
-    "title": "Why Choose a Freelance Web Developer? | Lay Shah",
-    "description": "Read about why choose a freelance web developer? by Lay Shah.",
+    "title": "Why Hire a Freelance Web Developer Over a Bloated Agency? | Lay Shah",
+    "description": "Agencies promise the world but deliver massive overhead. Discover the strategic advantages when you hire a freelance web developer for your business.",
     "canonical": "https://layshahdev.com/blog-freelance-developer.html",
     "ogType": "article",
-    "ogTitle": "Why Choose a Freelance Web Developer? | Lay Shah",
-    "ogDescription": "Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.",
+    "ogTitle": "Why Hire a Freelance Web Developer Over a Bloated Agency? | Lay Shah",
+    "ogDescription": "Agencies promise the world but deliver massive overhead. Discover the strategic advantages when you hire a freelance web developer for your business.",
     "ogUrl": "https://layshahdev.com/blog-freelance-developer.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Why Choose a Freelance Web Developer?",
-      "description": "Discover the advantages of hiring a freelance web developer. Learn about personalized service, faster turnaround, and cost-effective solutions for your web development needs.",
+      "headline": "Why Hire a Freelance Web Developer Over a Bloated Agency?",
+      "description": "Agencies promise the world but deliver massive overhead. Discover the strategic advantages when you hire a freelance web developer for your business.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -108,22 +109,23 @@
         "@id": "https://layshahdev.com/blog-freelance-developer.html"
       }
     },
-    "content": "content/blog-freelance-developer.html"
+    "type": "post",
+    "postSlug": "blog-freelance-developer"
   },
   "blog-javascript-frameworks.html": {
-    "title": "Modern JavaScript Frameworks: Choosing the Right Tool | Lay Shah",
-    "description": "Read about modern javascript frameworks: choosing the right tool by Lay Shah.",
+    "title": "Choosing the Best JavaScript Frameworks for Enterprise Web Apps | Lay Shah",
+    "description": "Don't let tech-stack paralysis stall your project. A business owner's guide to evaluating the best JavaScript frameworks in 2026 for speed and scalability.",
     "canonical": "https://layshahdev.com/blog-javascript-frameworks.html",
     "ogType": "article",
-    "ogTitle": "Modern JavaScript Frameworks: Choosing the Right Tool",
-    "ogDescription": "Navigate the JavaScript framework landscape with this comprehensive guide comparing React, Vue, Angular, Svelte, and Next.js for your project needs.",
+    "ogTitle": "Choosing the Best JavaScript Frameworks for Enterprise Web Apps | Lay Shah",
+    "ogDescription": "Don't let tech-stack paralysis stall your project. A business owner's guide to evaluating the best JavaScript frameworks in 2026 for speed and scalability.",
     "ogUrl": "https://layshahdev.com/blog-javascript-frameworks.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Modern JavaScript Frameworks: Choosing the Right Tool",
-      "description": "Navigate the JavaScript framework landscape with this comprehensive guide. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project needs.",
+      "headline": "Choosing the Best JavaScript Frameworks for Enterprise Web Apps",
+      "description": "Don't let tech-stack paralysis stall your project. A business owner's guide to evaluating the best JavaScript frameworks in 2026 for speed and scalability.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -148,22 +150,23 @@
       "author": "Lay Shah",
       "publishedTime": "2026-02-07"
     },
-    "content": "content/blog-javascript-frameworks.html"
+    "type": "post",
+    "postSlug": "blog-javascript-frameworks"
   },
   "blog-performance-optimization.html": {
-    "title": "Web Performance Optimization: Speed Up Your Website | Lay Shah",
-    "description": "Read about web performance optimization: speed up your website by Lay Shah.",
+    "title": "Website Performance Optimization Techniques That Drive Revenue | Lay Shah",
+    "description": "Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.",
     "canonical": "https://layshahdev.com/blog-performance-optimization.html",
     "ogType": "article",
-    "ogTitle": "Web Performance Optimization: Speed Up Your Website",
-    "ogDescription": "Master web performance optimization with this comprehensive guide covering Core Web Vitals, image optimization, code splitting, and monitoring techniques.",
+    "ogTitle": "Website Performance Optimization Techniques That Drive Revenue | Lay Shah",
+    "ogDescription": "Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.",
     "ogUrl": "https://layshahdev.com/blog-performance-optimization.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Web Performance Optimization: Speed Up Your Website",
-      "description": "Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, caching strategies, and monitoring techniques to create lightning-fast websites.",
+      "headline": "Website Performance Optimization Techniques That Drive Revenue",
+      "description": "Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -188,22 +191,23 @@
       "author": "Lay Shah",
       "publishedTime": "2026-02-07"
     },
-    "content": "content/blog-performance-optimization.html"
+    "type": "post",
+    "postSlug": "blog-performance-optimization"
   },
   "blog-responsive-design.html": {
-    "title": "The Importance of Responsive Web Design in 2025 | Lay Shah",
-    "description": "Read about the importance of responsive web design in 2025 by Lay Shah.",
+    "title": "Mastering Responsive Web Design Best Practices for 2026 | Lay Shah",
+    "description": "Over 60% of your traffic comes from mobile devices. Learn the responsive web design best practices that guarantee a flawless user experience on any screen.",
     "canonical": "https://layshahdev.com/blog-responsive-design.html",
     "ogType": "article",
-    "ogTitle": "The Importance of Responsive Web Design in 2025 | Lay Shah",
-    "ogDescription": "Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.",
+    "ogTitle": "Mastering Responsive Web Design Best Practices for 2026 | Lay Shah",
+    "ogDescription": "Over 60% of your traffic comes from mobile devices. Learn the responsive web design best practices that guarantee a flawless user experience on any screen.",
     "ogUrl": "https://layshahdev.com/blog-responsive-design.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "The Importance of Responsive Web Design in 2025",
-      "description": "Explore why responsive web design is crucial in 2025. Learn about mobile-first strategies, SEO benefits, and best practices for building adaptive websites.",
+      "headline": "Mastering Responsive Web Design Best Practices for 2026",
+      "description": "Over 60% of your traffic comes from mobile devices. Learn the responsive web design best practices that guarantee a flawless user experience on any screen.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -224,22 +228,23 @@
         "@id": "https://layshahdev.com/blog-responsive-design.html"
       }
     },
-    "content": "content/blog-responsive-design.html"
+    "type": "post",
+    "postSlug": "blog-responsive-design"
   },
   "blog-seo-developers.html": {
-    "title": "SEO for Developers: Technical Implementation Guide | Lay Shah",
-    "description": "Read about seo for developers: technical implementation guide by Lay Shah.",
+    "title": "Technical SEO Best Practices for Developers | Lay Shah",
+    "description": "Great code doesn't guarantee traffic. Bridge the gap between engineering and marketing with these essential technical SEO best practices for developers.",
     "canonical": "https://layshahdev.com/blog-seo-developers.html",
     "ogType": "article",
-    "ogTitle": "SEO for Developers: Technical Implementation Guide",
-    "ogDescription": "Master SEO as a developer with this comprehensive technical guide covering meta tags, structured data, Core Web Vitals, and implementation strategies.",
+    "ogTitle": "Technical SEO Best Practices for Developers | Lay Shah",
+    "ogDescription": "Great code doesn't guarantee traffic. Bridge the gap between engineering and marketing with these essential technical SEO best practices for developers.",
     "ogUrl": "https://layshahdev.com/blog-seo-developers.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "SEO for Developers: Technical Implementation Guide",
-      "description": "Master SEO as a developer with this comprehensive technical guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies.",
+      "headline": "Technical SEO Best Practices for Developers",
+      "description": "Great code doesn't guarantee traffic. Bridge the gap between engineering and marketing with these essential technical SEO best practices for developers.",
       "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -264,7 +269,8 @@
       "author": "Lay Shah",
       "publishedTime": "2026-02-07"
     },
-    "content": "content/blog-seo-developers.html"
+    "type": "post",
+    "postSlug": "blog-seo-developers"
   },
   "projects.html": {
     "title": "Selected Work — Lay Shah",

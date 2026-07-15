@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Performance Optimization: Speed Up Your Website | Lay Shah</title>
-    <meta name="description" content="Read about web performance optimization: speed up your website by Lay Shah.">
+    <title>Website Performance Optimization Techniques That Drive Revenue | Lay Shah</title>
+    <meta name="description" content="Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-performance-optimization.html">
 
     <!-- Social / OpenGraph -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Web Performance Optimization: Speed Up Your Website">
-    <meta property="og:description" content="Master web performance optimization with this comprehensive guide covering Core Web Vitals, image optimization, code splitting, and monitoring techniques.">
+    <meta property="og:title" content="Website Performance Optimization Techniques That Drive Revenue | Lay Shah">
+    <meta property="og:description" content="Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.">
     <meta property="og:url" content="https://layshahdev.com/blog-performance-optimization.html">
     <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -33,8 +33,8 @@
     {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Web Performance Optimization: Speed Up Your Website",
-    "description": "Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, caching strategies, and monitoring techniques to create lightning-fast websites.",
+    "headline": "Website Performance Optimization Techniques That Drive Revenue",
+    "description": "Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.",
     "author": {
         "@type": "Person",
         "name": "Lay Shah",
@@ -161,324 +161,171 @@
 
     </nav>
 
-    <main class="pt-32 pb-20">
-        <div class="container max-w-4xl">
-            <article>
-                <header class="mb-12">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-sm font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">Performance</span>
-                        <span class="text-sm text-muted-foreground">8 min read</span>
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">Web Performance Optimization: Speed Up Your Website</h1>
-                    <p class="text-xl text-muted-foreground leading-relaxed max-w-prose text-balance">Most clients don't care about Core Web Vitals until I show them how their 4-second load time is costing them 25% of their mobile conversions. Here's exactly how I optimize performance in production, from image strategy to advanced caching techniques.</p>
-                </header>
-
-                <div class="prose prose-lg max-w-none">
-                    <div class="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl mb-8 border-l-4 border-accent">
-                        <p class="text-lg font-medium mb-2 max-w-prose text-balance"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Key Insight</p>
-                        <p class="mb-0 max-w-prose text-balance">Performance isn't a luxury, it's essential. A one-second delay in page load time can result in 7% loss in conversions, 11% fewer page views, and 16% decrease in customer satisfaction.</p>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>The Performance Imperative</h2>
-                    <p class="max-w-prose text-balance">In 2025, web performance directly impacts your bottom line. Google's Core Web Vitals have become ranking factors, and users expect instant loading times across all devices.</p>
-
-                    <div class="bg-secondary/20 p-6 rounded-lg my-8">
-                        <h3 class="text-lg font-semibold mb-4 text-balance"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Performance Impact Statistics</h3>
-                        <div class="grid md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-accent">53%</div>
-                                <div class="text-sm text-muted-foreground">of users abandon sites loading &gt;3 seconds</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-accent">7%</div>
-                                <div class="text-sm text-muted-foreground">conversion loss per second of delay</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-accent">20%</div>
-                                <div class="text-sm text-muted-foreground">SEO ranking improvement with fast sites</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-accent">100%</div>
-                                <div class="text-sm text-muted-foreground">of Core Web Vitals affect rankings</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Core Web Vitals Mastery</h2>
-                    <p class="max-w-prose text-balance">Google's Core Web Vitals are the three key metrics that measure user experience. Mastering these is essential for both SEO and user satisfaction.</p>
-
-                    <div class="space-y-6 my-8">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="gauge" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg mb-2 text-balance">Largest Contentful Paint (LCP)</h3>
-                                <p class="text-muted-foreground max-w-prose text-balance">Measures loading performance. Aim for under 2.5 seconds. Optimize server response times, eliminate render-blocking resources, and optimize images.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="smartphone" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg mb-2 text-balance">First Input Delay (FID)</h3>
-                                <p class="text-muted-foreground max-w-prose text-balance">Measures interactivity. Keep under 100 milliseconds. Minimize JavaScript execution, break up long tasks, and use web workers for heavy computations.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="layout" class="w-6 h-6 text-primary dark:text-accent" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg mb-2 text-balance">Cumulative Layout Shift (CLS)</h3>
-                                <p class="text-muted-foreground max-w-prose text-balance">Measures visual stability. Maintain under 0.1. Include size attributes on images, avoid inserting content above existing content, and reserve space for dynamic content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="image" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Image Optimization Techniques</h2>
-                    <p class="max-w-prose text-balance">Images often account for the largest portion of a webpage's weight. Proper optimization can dramatically improve loading times.</p>
-
-                    <div class="grid md:grid-cols-2 gap-6 my-8">
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="palette" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Modern Formats
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Use WebP or AVIF formats for better compression. Provide fallbacks for older browsers and use the picture element for art direction.</p>
-                        </div>
-
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="ruler" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Responsive Images
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Serve appropriately sized images with srcset and sizes attributes. Generate multiple sizes and let the browser choose the best one.</p>
-                        </div>
-
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="eye" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Lazy Loading
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Load images only when they enter the viewport. Use the loading="lazy" attribute for automatic lazy loading in modern browsers.</p>
-                        </div>
-
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="shrink" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Compression
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Compress images without quality loss using tools like ImageOptim, TinyPNG, or automated build processes with imagemin.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-secondary/20 to-primary/10 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-balance"><i data-lucide="lightbulb" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Pro Tip</h3>
-                        <p class="mb-0 max-w-prose text-balance">Use modern image formats like WebP with fallbacks. A single WebP image can be 25-35% smaller than equivalent JPEG or PNG files while maintaining quality.</p>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="package" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Code Splitting and Bundle Optimization</h2>
-                    <p class="max-w-prose text-balance">Large JavaScript bundles can significantly slow down your site. Smart code splitting ensures users only download what they need.</p>
-
-                    <h3 class="text-balance"><i data-lucide="split" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Dynamic Imports</h3>
-                    <p class="max-w-prose text-balance">Use dynamic imports to split code into smaller chunks:</p>
-
-                    <div class="bg-secondary/10 p-4 rounded-lg my-4">
-                        <pre class="text-sm overflow-x-auto"><code class="language-javascript">// Instead of importing everything at once
-import { heavyFunction } from './heavy-module.js';
-
-// Use dynamic imports for code splitting
-const heavyFunction = () =&gt; import('./heavy-module.js')
-  .then(module =&gt; module.heavyFunction);</code></pre>
-                    </div>
-
-                    <h3 class="text-balance"><i data-lucide="layers" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Route-Based Splitting</h3>
-                    <p class="max-w-prose text-balance">Split code by routes so users only load the JavaScript for the current page:</p>
-
-                    <div class="bg-secondary/10 p-4 rounded-lg my-4">
-                        <pre class="text-sm overflow-x-auto"><code class="language-javascript">// React Router with code splitting
-const HomePage = lazy(() =&gt; import('./pages/HomePage'));
-const AboutPage = lazy(() =&gt; import('./pages/AboutPage'));
-
-// Each page loads its own JavaScript bundle</code></pre>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="hard-drive" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Caching Strategies</h2>
-                    <p class="max-w-prose text-balance">Effective caching reduces server load and improves user experience by serving content from local storage.</p>
-
-                    <div class="space-y-4 my-8">
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="globe" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Browser Caching
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Set appropriate cache headers for static assets. Use Cache-Control headers to specify how long browsers should cache resources.</p>
-                        </div>
-
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Service Workers
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Implement service workers for advanced caching strategies, offline functionality, and background sync capabilities.</p>
-                        </div>
-
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="cloud" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>CDN Implementation
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Use Content Delivery Networks to serve assets from geographically distributed servers, reducing latency for global users.</p>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Server-Side Optimization</h2>
-                    <p class="max-w-prose text-balance">Server performance directly impacts user experience. Optimize your backend for speed and reliability.</p>
-
-                    <div class="grid md:grid-cols-3 gap-4 my-8">
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Fast Hosting
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Choose hosting providers with fast servers, SSD storage, and optimized infrastructure for your tech stack.</p>
-                        </div>
-
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="server" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Database Optimization
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Optimize database queries, use proper indexing, and implement caching layers like Redis for frequently accessed data.</p>
-                        </div>
-
-                        <div class="bg-card p-6 rounded-lg border border-border">
-                            <h4 class="font-semibold mb-3 flex items-center gap-2">
-                                <i data-lucide="wrench" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>API Optimization
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Implement efficient APIs with proper HTTP caching, compression, and minimize the number of round trips with batching.</p>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Performance Monitoring and Tools</h2>
-                    <p class="max-w-prose text-balance">Continuous monitoring ensures your optimizations maintain their effectiveness over time.</p>
-
-                    <div class="space-y-4 my-8">
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="home" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Lighthouse
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Google's comprehensive performance auditing tool. Run it regularly to identify performance issues and track improvements.</p>
-                        </div>
-
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Web Vitals
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Monitor Core Web Vitals in production using tools like web-vitals library or Google Analytics 4.</p>
-                        </div>
-
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="search" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Real User Monitoring (RUM)
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Track actual user experiences with tools like Sentry, New Relic, or custom RUM implementations.</p>
-                        </div>
-
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2 flex items-center gap-2">
-                                <i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Performance Budgets
-                            </h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Set performance budgets in your build process to prevent performance regressions during development.</p>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="palette" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Frontend Optimization Techniques</h2>
-                    <p class="max-w-prose text-balance">Optimize your frontend code for better performance and user experience.</p>
-
-                    <div class="grid md:grid-cols-2 gap-4 my-6">
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="cpu" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Web Workers</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Offload heavy computations to background threads to keep the main thread responsive.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Virtual Scrolling</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Render only visible items in large lists to improve performance with thousands of items.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="zap" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Debouncing</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Limit function calls for events like scrolling or typing to improve performance.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="shrink" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Tree Shaking</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Remove unused code from your bundles with modern bundlers like Webpack or Rollup.</p>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="smartphone" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Mobile Performance Optimization</h2>
-                    <p class="max-w-prose text-balance">Mobile users expect fast experiences. Optimize specifically for mobile devices and networks.</p>
-
-                    <div class="space-y-4 my-8">
-                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2"><i data-lucide="wifi" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Network Conditions</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Test on slow 3G connections and optimize for variable network conditions. Use responsive images and progressive loading.</p>
-                        </div>
-
-                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2"><i data-lucide="mouse-pointer" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Touch Interactions</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Optimize for touch with appropriate touch targets (44px minimum) and prevent 300ms click delays with proper viewport meta tags.</p>
-                        </div>
-
-                        <div class="bg-accent/5 border border-accent/20 p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2"><i data-lucide="battery" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Battery Optimization</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Minimize battery drain with efficient animations, reduce JavaScript execution, and avoid unnecessary background processes.</p>
-                        </div>
-                    </div>
-
-                    <h2 class="text-balance"><i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Continuous Optimization</h2>
-                    <p class="max-w-prose text-balance">Performance optimization is an ongoing process, not a one-time task.</p>
-
-                    <div class="grid md:grid-cols-2 gap-4 my-6">
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="refresh-cw" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Regular Audits</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Schedule regular performance audits using Lighthouse and other tools to catch regressions.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>A/B Testing</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Test performance optimizations with real users to ensure they actually improve business metrics.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="trending-up" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>Monitoring</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Set up alerts for performance regressions and monitor trends over time.</p>
-                        </div>
-                        <div class="border border-border rounded-lg p-4">
-                            <h4 class="font-semibold mb-2"><i data-lucide="target" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>User Feedback</h4>
-                            <p class="text-sm text-muted-foreground max-w-prose text-balance">Collect user feedback on perceived performance and correlate with technical metrics.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-accent/5 border border-accent/20 p-6 rounded-xl my-8">
-                        <h3 class="text-lg font-semibold mb-3 text-primary dark:text-accent text-balance"><i data-lucide="rocket" class="w-5 h-5 inline-block mr-2 text-primary dark:text-accent" aria-hidden="true"></i>The Bottom Line</h3>
-                        <p class="mb-4 max-w-prose text-balance">Performance isn't an afterthought—it's a feature. From lazy loading to server-side optimization, the techniques discussed here are what separate amateur builds from enterprise-grade platforms.</p>
-                        <p class="mb-0 max-w-prose text-balance">If your current site takes more than 2 seconds to load, you are actively losing revenue. Want a site that loads instantly? Let's talk about your project.</p>
-                    </div>
-
-                    <div class="bg-secondary/10 p-6 rounded-xl mt-8">
-                        <p class="text-sm text-muted-foreground mb-2 max-w-prose text-balance">Was this breakdown helpful? Share it with your team:</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-accent hover:text-primary transition-all duration-300 ease-out-expo">Twitter</a>
-                            <a href="#" class="text-accent hover:text-primary transition-all duration-300 ease-out-expo">LinkedIn</a>
-                        </div>
-                    </div>
+    
+        <div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width: 0%;"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script>
+            // Reading Progress
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('reading-progress').style.width = scrolled + '%';
+            });
+            
+            // ProseReveal GSAP
+            document.addEventListener('DOMContentLoaded', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    
+                    if (!prefersReducedMotion) {
+                        const proseChildren = document.querySelectorAll('.prose-reveal > *');
+                        proseChildren.forEach((el) => {
+                            gsap.fromTo(el, 
+                                { y: 16, opacity: 0 },
+                                { 
+                                    y: 0, 
+                                    opacity: 1, 
+                                    duration: 0.6, 
+                                    ease: "power2.out",
+                                    scrollTrigger: {
+                                        trigger: el,
+                                        start: "top 85%",
+                                    }
+                                }
+                            );
+                        });
+                    }
+                }
+            });
+        </script>
+    
+        <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
+            <a href="./blog.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All posts
+            </a>
+            
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
+                <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">Performance</span>
+                <span class="text-foreground/30">&middot;</span>
+                <span>Feb 7, 2026</span>
+                <span class="text-foreground/30">&middot;</span>
+                <span>5 min read</span>
+            </div>
+            
+            <h1 class="font-serif font-medium text-4xl md:text-6xl leading-[1.05] tracking-tight mt-8 text-foreground">Website Performance Optimization Techniques That Drive Revenue</h1>
+            
+            <p class="text-xl md:text-2xl leading-snug text-muted-foreground mt-6">Slow websites kill sales. Implement these core website performance optimization techniques to instantly improve your conversion rates and search rankings.</p>
+            
+            <div class="mt-10 flex items-center justify-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-foreground text-background flex items-center justify-center font-serif text-sm">LS</div>
+                <div class="text-left leading-tight">
+                    <div class="text-sm font-medium text-foreground">Lay Shah</div>
+                    <div class="text-xs text-muted-foreground mt-0.5">Full-Stack Engineer</div>
                 </div>
-
-                <div class="mt-12 pt-8 border-t border-border">
-                    <div class="flex items-center justify-between">
-                        <a href="./blog.html" class="text-accent hover:text-primary transition-all duration-300 ease-out-expo font-medium">← Back to Blog</a>
-                        <div class="flex gap-4">
-                            <a href="./blog-javascript-frameworks.html" class="text-accent hover:text-primary transition-all duration-300 ease-out-expo font-medium">Previous Article</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
+            </div>
         </div>
-    </main>
+    
+            <div class="max-w-[1100px] mx-auto px-6 mb-16">
+                <div class="rounded-2xl bg-card overflow-hidden border border-border shadow-lg">
+                    <img src="./assets/blog/cover-performance.png" alt="Cover image for Website Performance Optimization Techniques That Drive Revenue" loading="eager" class="w-full h-auto object-cover aspect-video md:aspect-[21/9]">
+                </div>
+            </div>
+        
+        <div class="max-w-[680px] mx-auto px-6 prose-reveal">
+            <div>
+    <p class="drop-cap">Every second your website takes to load, your bounce rate increases by roughly 32%. In today's hyper-competitive digital landscape, speed is no longer a luxury—it is a critical revenue driver. Implementing proven website performance optimization techniques is the highest ROI investment you can make.</p>
+</div>
 
+<h2>The Psychology of Speed</h2>
+<p>Modern consumers have zero tolerance for latency. A slow website signals unreliability and instantly erodes the trust you've worked hard to build with your brand. If your competitor's site loads instantly and yours stutters, you have already lost the sale.</p>
+
+<h2>Core Website Performance Optimization Techniques</h2>
+<p>As a performance-focused developer, I don't rely on "plugins" to fix speed. True optimization happens at the architectural level. Here are the three non-negotiable techniques every serious business website must implement:</p>
+<p><strong>1. Next-Gen Image Formatting & Delivery:</strong> Images often account for 60% of a page's total weight. By serving modern formats like WebP or AVIF and implementing aggressive lazy-loading, we can slash payload sizes by half without sacrificing visual fidelity.</p>
+<p><strong>2. Edge Caching & CDNs:</strong> Your users shouldn't have to wait for a server halfway across the world to respond. A Content Delivery Network (CDN) caches your static assets globally, ensuring your site loads instantly worldwide.</p>
+<p><strong>3. Minimizing Main-Thread Blocking:</strong> Third-party scripts (like analytics and chat widgets) severely damage interactivity. We utilize techniques like Web Workers and asynchronous loading to ensure these scripts never block the user from interacting with your core content.</p>
+
+<h2>Core Web Vitals & SEO</h2>
+<p>Google now uses Core Web Vitals (LCP, INP, CLS) as a direct ranking factor. If your site fails these metrics, your SEO efforts are being actively suppressed. Proper optimization is the prerequisite for ranking on page one. Don't let a sluggish infrastructure sabotage your marketing spend; applying ruthless website performance optimization techniques will guarantee every visitor gets the seamless, premium experience your brand deserves.</p>
+        </div>
+    
+        <div aria-hidden="true" class="max-w-[680px] mx-auto flex items-center gap-6 my-16 px-6">
+            <div class="h-px flex-1 bg-foreground/10"></div>
+            <div class="font-serif text-2xl text-accent">&sect;</div>
+            <div class="h-px flex-1 bg-foreground/10"></div>
+        </div>
+    
+        <div class="max-w-[680px] mx-auto px-6">
+            <div class="p-6 md:p-8 rounded-2xl border border-border bg-card/30 flex flex-col md:flex-row items-center md:items-center justify-between text-center md:text-left gap-6 transition-all hover:border-accent/30">
+                <div class="flex flex-col md:flex-row items-center gap-5">
+                    <div class="w-16 h-16 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-serif text-xl border border-border">LS</div>
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-muted-foreground block mb-1">Written by</span>
+                        <h3 class="font-serif font-medium text-xl text-foreground mb-1">Lay Shah</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed max-w-md">Independent developer building fast, hand-crafted websites and platforms for founders and small teams.</p>
+                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="max-w-[1100px] mx-auto mt-24 mb-16 px-6">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                
+                <!-- Content (Left side) -->
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Enjoyed this? · Booking Q3 2026</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Have a website you want to actually ship?</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                </div>
+
+                <!-- Action Buttons (Right side) -->
+                <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
+                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    </a>
+                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    </a>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                </div>
+
+            </div>
+        </div>
+    
+            <div class="max-w-[1200px] mx-auto px-6 pt-16 pb-24 md:pb-40">
+                <div class="flex items-center justify-between border-b border-foreground/10 pb-4 mb-10">
+                    <span class="text-accent font-medium">Keep reading</span>
+                    <a href="./blog.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">All posts <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                        <a href="./blog-custom-websites.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
+                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Development</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">The Custom Website Development Process: A Blueprint for Growth</h3>
+                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">Why templates fail growing businesses, and how a custom website development process transforms your online presence into a conversion engine.</p>
+                            <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                        </a>
+                    
+                        <a href="./blog-freelance-developer.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
+                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Freelancing</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">Why Hire a Freelance Web Developer Over a Bloated Agency?</h3>
+                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">Agencies promise the world but deliver massive overhead. Discover the strategic advantages when you hire a freelance web developer for your business.</p>
+                            <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                        </a>
+                    
+                </div>
+            </div>
+        
 
         <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
         <div class="container mx-auto max-w-[1400px]">
