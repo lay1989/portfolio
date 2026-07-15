@@ -378,12 +378,8 @@ function renderCaseStudy(project, basePath) {
 // Helper: render projects listing page content
 // ──────────────────────────────────────────
 function renderProjectsListing() {
-    // Sort projects: newest first
-    const sorted = [...projects].sort((a, b) => {
-        const yearDiff = parseInt(b.year) - parseInt(a.year);
-        if (yearDiff !== 0) return yearDiff;
-        return b.id - a.id;
-    });
+    // Use the exact order provided by projects.json
+    const sorted = [...projects];
 
     // Helper: render stats grid (3 columns)
     // Helper: render stats grid (3 columns)
