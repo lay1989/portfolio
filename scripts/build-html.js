@@ -373,41 +373,161 @@ function renderCaseStudy(project, basePath) {
 // Helper: render projects listing page content
 // ──────────────────────────────────────────
 function renderProjectsListing() {
-    // Collect unique categories for filter buttons
-    const categories = [...new Set(projects.map(p => p.category))];
-    const filterBtns = categories.map(cat => {
-        const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
-        return `<button class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-border bg-transparent text-muted-foreground hover:bg-secondary transition-all duration-300" data-filter="${slug}">${escHtml(cat)}</button>`;
-    }).join('\n            ');
-
-    // Sort projects: newest first (by year desc, then by id desc)
+    // Sort projects: newest first
     const sorted = [...projects].sort((a, b) => {
         const yearDiff = parseInt(b.year) - parseInt(a.year);
         if (yearDiff !== 0) return yearDiff;
         return b.id - a.id;
     });
 
-    const cards = sorted.map(p => {
-        const catSlug = p.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
-        return `
-            <div class="project-card group reveal" data-category="${catSlug}">
-                <a href="./projects/${p.slug}.html" class="block">
-                    <div class="overflow-hidden rounded-xl border border-border shadow-lg mb-6 hover-lift">
-                        ${renderResponsivePicture(p.heroImg, `${p.title} - ${p.category}`, 'w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out', '(max-width: 768px) 90vw, 45vw')}
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-accent text-sm font-medium">${escHtml(p.category)}</span>
-                            <span class="text-muted-foreground text-sm">${escHtml(p.year)}</span>
-                        </div>
-                        <h2 class="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors text-balance">${escHtml(p.title)}</h2>
-                        <p class="text-muted-foreground leading-relaxed line-clamp-2">${escHtml(p.shortDesc)}</p>
-                    </div>
-                </a>
-            </div>`;
-    }).join('\n');
+    // Helper: render stats grid (3 columns)
+    // Helper: render stats grid (3 columns)
+    function buildStatsGrid(metrics) {
+        if (!metrics) return '';
+        const entries = Object.entries(metrics).slice(0, 3);
+        return entries.map(([key, val]) => {
+            const formattedKey = key.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
+            const sentenceCaseKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
+            return `
+        <div>
+            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">${escHtml(String(val))}</dt>
+            <dd class="mt-1 text-xs text-muted-foreground">${escHtml(sentenceCaseKey)}</dd>
+        </div>
+    `;
+        }).join('');
+    }
 
-    return { filterBtns, cards };
+    // Helper: render stack tags
+    function buildStackChips(technologies) {
+        if (!technologies) return '';
+        const allTechs = Object.values(technologies).flat().slice(0, 4);
+        return allTechs.map(t => `
+        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">${escHtml(t)}</span>
+    `).join('');
+    }
+
+    const basePath = './';
+
+    // 1. Build Work Reel (Desktop)
+    let reelSlides = sorted.map((p, index) => `
+        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="${index}" data-title="${escHtml(p.title)}">
+            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 items-center gap-8 lg:gap-12">
+                
+                <!-- Left Column: Image -->
+                <a aria-label="Open case study: ${escHtml(p.title)}" href="${basePath}projects/${p.slug}.html" class="group relative col-span-7 h-full overflow-hidden rounded-2xl bg-card">
+                    ${renderResponsivePicture(p.heroImg, p.title, 'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]', '(max-width: 768px) 90vw, 45vw', index === 0, basePath)}
+                    
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                    
+                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">${String(index + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</span>
+                    
+                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </span>
+                </a>
+                
+                <!-- Right Column: Meta -->
+                <div class="col-span-5 flex h-full flex-col justify-between py-8">
+                    <div>
+                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
+                            <span class="font-mono">${p.year}</span>
+                            <span class="h-px w-12 bg-muted-foreground/30"></span>
+                            <span class="font-mono">${escHtml(p.role)}</span>
+                        </div>
+                        <h2 class="mt-6 font-serif text-4xl font-medium leading-[1.02] tracking-tight lg:text-6xl text-foreground">${escHtml(p.title)}</h2>
+                        <p class="mt-4 max-w-md text-base text-muted-foreground lg:text-lg">${escHtml(p.shortDesc)}</p>
+                    </div>
+                    
+                    <div class="mt-8 space-y-8">
+                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-8">
+                            ${buildStatsGrid(p.metrics)}
+                        </dl>
+                        
+                        <div class="flex flex-wrap items-center gap-3">
+                            ${buildStackChips(p.technologies)}
+                        </div>
+                        
+                        <a href="${basePath}projects/${p.slug}.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max">
+                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </article>
+    `).join('\n');
+
+    const workReelHtml = `
+    <div class="hidden md:block work-reel-container" aria-label="Work reel">
+        <div class="h-screen overflow-hidden relative" id="work-reel-pin">
+            <!-- Track -->
+            <div class="flex h-full items-center work-reel-track w-max">
+                <!-- Intro Spacer -->
+                <div class="flex h-full w-[40vw] shrink-0 items-end px-10 pb-24">
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-muted-foreground">Begin the reel</div>
+                        <div class="mt-2 font-serif text-3xl italic text-muted-foreground">Scroll &rarr;</div>
+                    </div>
+                </div>
+                ${reelSlides}
+                <!-- End Spacer -->
+                <div class="w-[10vw] flex-shrink-0 h-full"></div>
+            </div>
+            
+            <!-- Bottom Overlay Bar -->
+            <div class="absolute inset-x-0 bottom-0 z-20 bg-background/90 backdrop-blur-md border-t border-border flex items-center justify-between px-6 md:px-10 py-5 h-20">
+                <div class="font-mono text-muted-foreground text-sm tracking-widest reel-counter w-24">01 / ${String(sorted.length).padStart(2, '0')}</div>
+                <div class="flex-1 mx-8 relative h-full flex items-center">
+                    <div class="absolute left-0 w-full h-px bg-border/50"></div>
+                    <div class="absolute left-0 h-[2px] bg-foreground reel-progress transition-all duration-100" style="width: 0%"></div>
+                </div>
+                <div class="font-serif text-foreground text-lg reel-active-title w-64 text-right truncate">
+                    ${escHtml(sorted[0].title)} <span class="font-mono text-sm text-muted-foreground ml-3 tracking-widest">&mdash; ${sorted[0].year}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    // 2. Build Work Stack (Mobile)
+    let stackItems = sorted.map((p, i) => `
+        <li>
+            <a href="${basePath}projects/${p.slug}.html" class="block group" aria-label="Open case study: ${escHtml(p.title)}">
+                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
+                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">${String(i + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</div>
+                    ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out', '(max-width: 768px) 100vw, 100vw', i < 2, basePath)}
+                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">${p.year}</span>
+                    <span class="w-1 h-1 rounded-full bg-border"></span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">${escHtml(p.role)}</span>
+                </div>
+                
+                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">${escHtml(p.title)}</h2>
+                
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">${escHtml(p.shortDesc)}</p>
+                
+                <div class="flex flex-wrap gap-2">
+                    ${Object.values(p.technologies || {}).flat().slice(0, 3).map(t => `<span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">${escHtml(t)}</span>`).join('')}
+                </div>
+            </a>
+        </li>
+    `).join('');
+
+    const workStackHtml = `
+    <div class="md:hidden mt-20 max-w-[1400px] px-6 mx-auto">
+        <ul class="space-y-20">
+            ${stackItems}
+        </ul>
+    </div>
+    `;
+
+    return { workReelHtml, workStackHtml };
 }
 
 // ──────────────────────────────────────────
@@ -521,9 +641,9 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
         // Build projects listing page
         const contentPath = path.join(root, config.content);
         let content = fs.readFileSync(contentPath, 'utf-8');
-        const { filterBtns, cards } = renderProjectsListing();
-        content = content.replace('{{PROJECT_FILTER_BUTTONS}}', filterBtns);
-        content = content.replace('{{PROJECT_CARDS}}', cards);
+        const { workReelHtml, workStackHtml } = renderProjectsListing();
+        content = content.replace('{{WORK_REEL}}', workReelHtml);
+        content = content.replace('{{WORK_STACK}}', workStackHtml);
         buildPage(outputFile, config, content);
     } else {
         // Build standard page from content fragment

@@ -12,6 +12,16 @@ fs.readdirSync(rootDir).forEach(file => {
     }
 });
 
+// Also check files in projects/ subdirectory
+const projectsDir = path.join(rootDir, 'projects');
+if (fs.existsSync(projectsDir)) {
+    fs.readdirSync(projectsDir).forEach(file => {
+        if (file.endsWith('.html')) {
+            filesToCheck.push(path.join(projectsDir, file));
+        }
+    });
+}
+
 let failed = false;
 
 // Contrast failure check function

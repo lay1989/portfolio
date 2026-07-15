@@ -29,14 +29,13 @@
     "content": "content/index.html"
   },
   "blog.html": {
-    "title": "Blog - Lay Shah | Web Development Insights",
-    "description": "Read insights on web development, design tips, and freelance advice from Lay Shah, a full-stack developer. Learn about responsive web design, custom websites, and more.",
+    "title": "Field Notes — Blog · Lay Shah",
+    "description": "Discoverable index of essays on engineering, design, and field notes by Lay Shah.",
     "canonical": "https://layshahdev.com/blog.html",
     "ogType": "website",
-    "ogTitle": "Blog - Lay Shah | Web Development Insights",
-    "ogDescription": "Insights on web development, design, and freelancing from a full-stack developer.",
+    "ogTitle": "Field Notes — Blog · Lay Shah",
+    "ogDescription": "Discoverable index of essays on engineering, design, and field notes by Lay Shah.",
     "ogUrl": "https://layshahdev.com/blog.html",
-    "ogImage": "https://layshahdev.com/og-image.jpg",
     "content": "content/blog.html"
   },
   "blog-custom-websites.html": {
@@ -268,14 +267,13 @@
     "content": "content/blog-seo-developers.html"
   },
   "projects.html": {
-    "title": "Projects - Lay Shah | Web Development Portfolio",
-    "description": "Browse my complete portfolio of web development projects. From landing pages to full-stack applications, each case study details the problem, approach, and measurable results.",
+    "title": "Selected Work — Lay Shah",
+    "description": "Take a horizontal walk through my selected web development case studies.",
     "canonical": "https://layshahdev.com/projects.html",
     "ogType": "website",
-    "ogTitle": "Projects - Lay Shah | Web Development Portfolio",
-    "ogDescription": "Browse my complete portfolio of web development projects with detailed case studies.",
+    "ogTitle": "Selected Work — Lay Shah",
+    "ogDescription": "Take a horizontal walk through my selected web development case studies.",
     "ogUrl": "https://layshahdev.com/projects.html",
-    "ogImage": "https://layshahdev.com/og-image.jpg",
     "content": "content/projects.html"
   },
   "projects/ghermar-sons.html": {

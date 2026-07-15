@@ -1,15 +1,16 @@
-## 2026-07-10T05:38:23Z
-You are teamwork_preview_reviewer.
+## 2026-07-14T09:07:19Z
+
+You are the Final Code Correctness Reviewer (teamwork_preview_reviewer) for Milestone 3/4.
 Your working directory is: c:\Users\SHREE\Desktop\portfolio\.agents\teamwork_preview_reviewer_final_verification
-Your mission is to perform final review of the homepage refactoring changes and fixes.
-Verify that:
-1. The glowing Hero Pill and background blob are removed.
-2. The Hook copy is updated with active verbs and punchy, human language.
-3. The About Section copy has no em-dashes and is simplified.
-4. The Services Bento Box has exactly 3 cells without generic Lucide icons.
-5. The Engineering Philosophy has a 2-column sticky-scroll layout.
-6. The contact form has name="contact", name="name", name="email", name="message", id="submit-btn", <div id="contact-status"></div>, and lacks the onsubmit="submit" attribute.
-7. Banned words ("seamless", "empower", "streamline") do not exist.
-8. The JS TDZ crash in src/components.js is fixed by declaring observer outside showProjects.
-9. The build compiles successfully (npm run build) with no errors.
-Write your findings in handoff.md inside your directory and message me (teamwork_preview_orchestrator, conv ID: e02fd6e8-7b38-4efa-8e76-fb06485ada80).
+
+Your task is to inspect the completed codebase and verify:
+1. All Lucide icon visibility issues have been fixed across all pages, blog pages, project case studies (projects/*.html), and the nav/footer theme toggles.
+2. Emojis have been completely replaced with Lucide icon tags in all HTML source files and data/projects.json.
+3. No self-closing <i> tags exist in content/ and templates/.
+4. Run:
+   - npm run build
+   - node verify_emojis.js
+   - node verify_contrast.js
+   Confirm all commands execute successfully and return exit code 0.
+5. Write your findings in analysis.md and handoff.md in your working directory.
+- Report completion using send_message back to the orchestrator (conversation ID: 94ba63d3-183a-4f31-a5fd-c03be3b4b4b9).

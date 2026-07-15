@@ -1,72 +1,56 @@
-# Handoff Report — Final Verification of Homepage Refactoring
+# Handoff Report — Final Verification of Icon Visibility and Emoji Replacement (Milestone 3/4)
+
+This report details the final code correctness review and verification for Milestone 3/4. All checks for emojis, Lucide icons, HTML tag validity, and validation command executions have successfully passed.
+
+---
 
 ## 1. Observation
-- **Observation 1 (Hero Pill and Blob)**: In `content/index.html` (lines 3–10) and root `index.html` (lines 151–158), there are no absolute background gradients, blur elements (`blur-[120px]`), or pill badge elements ("Accepting Projects").
-- **Observation 2 (Hook Copy)**: In `content/index.html` (lines 6–14) and `index.html` (lines 154–162), the Hook and sub-headline are:
+
+- **Observation 1 (Emoji Removal in Source Files)**: Executed a custom Node.js script search on source folders: `content/`, `templates/`, and `data/` using RegExp `/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu`. The command exited successfully and outputted 0 matches.
+- **Observation 2 (Emoji Verification in Compiled Output)**: Executed command `node verify_emojis.js` on generated HTML files in process root and `projects/` subdirectories. Output:
+  ```
+  Verification PASSED: 0 raw unicode emojis found in generated HTML files.
+  ```
+- **Observation 3 (Contrast Verification)**: Executed command `node verify_contrast.js`. Output:
+  ```
+  Verifying WCAG contrast for icons in 15 HTML files...
+
+  Verification PASSED: All checked icons have high contrast colors in light mode.
+  ```
+- **Observation 4 (Self-Closing Tags)**: Executed grep regex search `Query: <i[^>]*\/>` on `content/` and `templates/` folders. 0 results were found. All `<i>` tags are written as `<i ...></i>`.
+- **Observation 5 (Theme Toggle Icons)**: Checked `components/header.html` (lines 15-24 and 33-42). The theme toggles use:
   ```html
-  High-performance web apps <br>
-  <span class="text-muted-foreground">built for speed.</span>
-  ...
-  I engineer fast, reliable web applications and custom e-commerce engines. Stop losing users to bloated templates. Get clean, optimized code that scales with your growth.
+  <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+  <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
   ```
-- **Observation 3 (About Copy & em-dashes)**: In `content/index.html` (lines 31–52) and `index.html` (lines 179–200), the copy does not contain any em-dashes (—) or robotic expressions. It reads:
-  ```html
-  I help businesses stop leaking revenue and start scaling their digital presence.
-  ...
-  Instead of delivering generic templates, I partner with you to engineer custom web applications, high-converting e-commerce stores, and efficient content management systems.
-  My focus goes beyond writing clean code. I build digital assets that resolve specific business bottlenecks and drive growth.
-  ```
-- **Observation 4 (Services Bento Box)**: In `content/index.html` (lines 62–140) and `index.html` (lines 210–288), there are exactly three grid cells:
-  1. `Custom Web Applications` (spanning `md:col-span-2 md:row-span-2`) with a CSS grid/app layout mockup.
-  2. `E-Commerce` (spanning `md:col-span-1`) with a checkout flow typographic visual card.
-  3. `Technical SEO` (spanning `md:col-span-1`) with a speed index performance metric visual card.
-  No generic Lucide icons are used for list decorations.
-- **Observation 5 (Engineering Philosophy Layout)**: In `content/index.html` (lines 197–243) and `index.html` (lines 345–391), the layout uses:
-  - Left column: `md:col-span-4 md:sticky md:top-24` (sticky behavior).
-  - Right column: `md:col-span-8 space-y-12` (scrollable container list).
-- **Observation 6 (Contact Form Attributes)**: In `content/index.html` (lines 369–391) and `index.html` (lines 517–539), the form is configured as:
-  ```html
-  <form id="contact-form" name="contact" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-  ...
-  <input type="text" name="name" ...>
-  ...
-  <input type="email" name="email" ...>
-  ...
-  <textarea name="message" ...></textarea>
-  ...
-  <button type="submit" id="submit-btn" ...>
-  ...
-  <div id="contact-status" class="hidden text-sm font-medium rounded-lg p-4 mt-4"></div>
-  ```
-  The form lacks the `onsubmit="submit"` attribute completely.
-- **Observation 7 (Banned Words)**: Grep search throughout the codebase (excluding `.agents` and `node_modules`) for "seamless", "empower", and "streamline" returned 0 matches.
-- **Observation 8 (JS TDZ Crash Fix)**: In `src/components.js`, `let observer;` is declared at line 93 (outside of `showProjects`). `showProjects()` is defined at line 95 and called at line 117. `observer` is initialized at line 119 via `observer = new IntersectionObserver(...)`.
-- **Observation 9 (Successful Build)**: Command `npm run build` executed and exited with code `0`. Output:
-  ```
-  > npm run build:css && npm run build:js && npm run build:html
-  Rebuilding... Done in 2435ms.
-  bundle.js  6.3kb Done in 14ms
-  Building pages... ✓ Build complete! 16 pages generated. Sitemap generated.
-  ```
+  Both moon and sun icons utilize the `text-foreground` utility class, which maps dynamically via CSS variables in `style.css` (lines 32 and 59) to `#080808` (light mode) and `#f2f2f2` (dark mode) on light cream and black backgrounds respectively.
+- **Observation 6 (Project Case Study Icons)**: Checked `scripts/build-html.js` git diff and found that all case study icons have been modified from `text-accent` to `text-primary dark:text-accent` (e.g. lines 179, 204, 227, 233, 263, 267, 293, 312).
+- **Observation 7 (Build Completion)**: Executed `npm run build` which successfully minified CSS/JS and built 16 static HTML pages and `sitemap.xml` with exit code 0.
+
+---
 
 ## 2. Logic Chain
-1. **Hero elements check**: Since Observation 1 verifies the deletion of `.blur-` and the "Accepting Projects" badge from both content source and compiled homepages, the Hero Pill and background blob are confirmed to be removed.
-2. **Hook copy check**: Observation 2 shows active, developer-centric language focused on CRO and speed ("engineer", "scales", "Stop losing users") rather than vague, robotic slogans. This proves compliance with the copywriting requirements.
-3. **About copy check**: Observation 3 confirms the copy is direct, concise, and completely devoid of em-dashes.
-4. **Bento Box structure**: Observation 4 verifies the bento box contains exactly 3 cells with unique custom CSS mockups instead of generic Lucide icon list items, meeting the styling instructions.
-5. **Layout correctness**: Observation 5 shows the left column is marked `md:sticky md:top-24` and the right column contains all scrollable cards, proving the sticky-scroll layout is correctly implemented.
-6. **Form attributes correctness**: Observation 6 confirms the form name is `contact`, input names are `name`, `email`, `message`, the submit button is `id="submit-btn"`, status div is `id="contact-status"`, and no `onsubmit` handler is present.
-7. **Banned words check**: Observation 7 shows that no instances of banned slop words exist in the project files.
-8. **TDZ Fix validity**: In JavaScript, variables declared with `let` inside a block are subject to the Temporal Dead Zone (TDZ) before their declaration line is evaluated. Because `let observer;` is declared at line 93, before it is referenced inside the `showProjects` closure (defined at line 95) and before `showProjects()` is called (line 117), it does not trigger a ReferenceError, resolving the crash.
-9. **Build execution**: Since `npm run build` succeeds and compiles all assets, there are no static compiling errors.
+
+1. **Emoji Replacement Check**: Since Observations 1 and 2 verify that zero unicode emojis exist in both source directories and compiled HTML files, all emojis are confirmed to have been fully replaced.
+2. **Lucide Icon Visibility & Contrast Check**:
+   - In blog posts and projects pages, the icons are styled with `text-primary dark:text-accent`. In light mode, `text-primary` maps to black (`#080808`) on a cream background, resolving contrast violations. In dark mode, `dark:text-accent` maps to orange (`#FF6B35`) on black, ensuring strong visibility.
+   - Observation 3 confirms that all 15 compiled files pass the automated contrast checks.
+   - Observation 5 confirms the theme toggles use `text-foreground` mapping to high contrast color tokens.
+   - Therefore, all Lucide icon visibility issues have been completely fixed.
+3. **HTML Structural Check**: Since Observation 4 confirms that no self-closing `<i>` tags exist in the source content and templates, there is no risk of template parsing errors.
+4. **Command Execution Check**: Since all three commands (`npm run build`, `node verify_emojis.js`, and `node verify_contrast.js`) execute successfully with exit code 0, all build and validation requirements are satisfied.
+
+---
 
 ## 3. Caveats
-- No caveats. All checklist items have been fully verified and pass.
+
+- **No Caveats**: All requested verification tests have been executed on the codebase and pass.
+
+---
 
 ## 4. Conclusion
-The home page refactoring and bug fixes successfully satisfy all requirements. The code exhibits high quality, conforms to `.agentrules`, runs without JavaScript temporal dead zone errors, and compiles correctly.
 
-**Final Review Verdict: APPROVE**
+The codebase is correct, fully compliant, and successfully verified. No regressions, raw emojis, self-closing `<i>` tags, or poor contrast icons were detected. The verdict is **APPROVE**.
 
 ---
 
@@ -75,15 +59,12 @@ The home page refactoring and bug fixes successfully satisfy all requirements. T
 **Verdict**: APPROVE
 
 ## Verified Claims
-- Hero Pill and Blob Removed → verified via file content analysis of `content/index.html` and `index.html` → **PASS**
-- Hook Copy Optimization → verified via active verb check → **PASS**
-- About Section Copy Simplified → verified via em-dash search → **PASS**
-- Services Bento Box Layout → verified grid columns and custom mockups → **PASS**
-- Sticky-Scroll Philosophy → verified `md:sticky` and grid classes → **PASS**
-- Contact Form Attributes → verified names, IDs, and absence of `onsubmit` → **PASS**
-- Banned Words Absence → verified via global project grep search → **PASS**
-- JS TDZ Bug Fix → verified declaration of `observer` outside `showProjects` in `src/components.js` → **PASS**
-- Compiling Build → verified by running `npm run build` successfully → **PASS**
+- Emoji Elimination in Output → verified via `verify_emojis.js` → **PASS**
+- Emoji Elimination in Source → verified via inline regex search of source files → **PASS**
+- WCAG Icon Contrast → verified via `verify_contrast.js` → **PASS**
+- Theme Toggles Contrast → verified via `text-foreground` theme variables analysis → **PASS**
+- No Self-Closing i Tags → verified via grep regex search → **PASS**
+- Project Build Success → verified via `npm run build` → **PASS**
 
 ---
 
@@ -91,24 +72,29 @@ The home page refactoring and bug fixes successfully satisfy all requirements. T
 
 **Overall risk assessment**: LOW
 
-### Assumptions Challenged
+### Challenges
 
-- **Assumption**: Swapping the form node in `initContactForm()` preserves form listeners and submissions.
-  - *Status*: Robust. Replacing the node with its clone removes all previous event listeners, preventing double submission issues, while registering the fresh submit handler correctly.
-- **Assumption**: JavaScript load-more IntersectionObserver handles empty or small project lists gracefully.
-  - *Status*: Robust. If `currentIndex >= totalProjects` on initial run, `observer` remains undefined, but the check `if (observer) observer.disconnect()` handles this safely without throwing ReferenceErrors.
+- **Assumption challenged**: The custom CSS animations could cause flash of un-themed content or icon rendering delay.
+  - *Status*: Robust. Local fallback scripts and inline `theme-init.js` prevent unstyled content.
+- **Assumption challenged**: Self-closing tags might cause build script or browser parsing failures.
+  - *Status*: Mitigation complete. All self-closing `<i>` tags were replaced with explicit open/close pairs (`<i></i>`).
 
 ---
 
 ## 5. Verification Method
-To independently verify the implementation, run:
+
+To independently verify these findings, run the following commands in the workspace root:
+
 ```powershell
-# 1. Run the build command
+# 1. Compile the website assets
 npm run build
 
-# 2. Check for TDZ variables or syntax errors in bundled output
-node bundle.js
+# 2. Run the emoji validation script (expected output: 0 emojis found)
+node verify_emojis.js
 
-# 3. Check for banned words in source files
-git grep -iE "seamless|empower|streamline" -- "*.html" "*.js" "*.css"
+# 3. Run the contrast validation script (expected output: 15 files checked, all passed)
+node verify_contrast.js
+
+# 4. Search for self-closing <i> tags (expected output: 0 results)
+git grep -iE "<i[^>]*\/>" -- "content/" "templates/"
 ```

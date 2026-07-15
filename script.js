@@ -2,8 +2,8 @@ import { throttle } from './src/utils.js';
 import { initTheme } from './src/theme.js';
 import { rewriteLinks, highlightActivePage, initNav } from './src/nav.js';
 import { initScrollReveal, initReadingProgressBar, initMagneticButtons, initServicesAnimations, initProcessAnimations, initReviewBubbleAnimations } from './src/animations.js';
-import { initContactForm, initLoadMoreProjects } from './src/components.js';
-import { initLenisScroll, initSplitTextReveal, initHeroAnimation, initMarquee, initCounters, initProjectParallax } from './src/gsap-animations.js';
+import { initContactForm, initLoadMoreProjects, initBlogFilter } from './src/components.js';
+import { initLenisScroll, initSplitTextReveal, initHeroAnimation, initMarquee, initCounters, initProjectParallax, initWorkReel } from './src/gsap-animations.js';
 
 // Determine if current page is the homepage
 const isHomePage = window.location.pathname === '/' ||
@@ -58,6 +58,9 @@ function initializeApp() {
 
     // 5.5. Hero entry animation sequence
     initHeroAnimation();
+    
+    // 5.6. Work Reel animation (only active on /work or projects list)
+    initWorkReel();
 
     // 5.6. Marquee strip initialization
     initMarquee();
@@ -79,6 +82,9 @@ function initializeApp() {
 
     // 8. Homepage projects pagination load-more controls
     initLoadMoreProjects();
+
+    // 9. Blog filter and search logic
+    initBlogFilter();
 }
 
 // Initialize on DOMContentLoaded or immediately if DOM is already fully loaded

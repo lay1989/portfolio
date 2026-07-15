@@ -3,7 +3,9 @@ module.exports = {
     content: [
         "./*.html",
         "./components/**/*.html",
+        "./content/**/*.html",
         "./src/**/*.{ts,tsx,html,js}",
+        "./scripts/**/*.js",
         "./script.js"
     ],
     darkMode: 'class',
@@ -43,6 +45,11 @@ module.exports = {
                 accent: 'var(--accent)',
                 'accent-foreground': 'var(--accent-foreground)',
                 border: 'var(--border)',
+                ember: 'var(--ember)',
+                ink: 'var(--ink)',
+                'ink-soft': 'var(--ink-soft)',
+                paper: 'var(--paper)',
+                'paper-2': 'var(--paper-2)',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],

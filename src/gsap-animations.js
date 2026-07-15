@@ -220,3 +220,63 @@ export function initProjectParallax() {
         );
     });
 }
+
+/**
+ * Initializes the Work Reel horizontal scroll animation.
+ * Pins the container and moves the track horizontally.
+ */
+export function initWorkReel() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    
+    const reelContainer = document.querySelector('.work-reel-container');
+    if (!reelContainer) return;
+
+    // Mobile bail out check
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
+    const track = reelContainer.querySelector('.work-reel-track');
+    const slides = reelContainer.querySelectorAll('.work-slide');
+    const progressBar = reelContainer.querySelector('.reel-progress');
+    const activeTitle = reelContainer.querySelector('.reel-active-title');
+    const counter = reelContainer.querySelector('.reel-counter');
+
+    if (!track || !slides.length) return;
+
+    const numSlides = slides.length;
+    
+    function getScrollAmount() {
+        return track.scrollWidth - window.innerWidth;
+    }
+
+    const tween = gsap.to(track, {
+        x: () => -getScrollAmount(),
+        ease: "none"
+    });
+
+    ScrollTrigger.create({
+        trigger: "#work-reel-pin",
+        start: "top top",
+        end: () => `+=${getScrollAmount()}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            
+            if (progressBar) {
+                progressBar.style.width = `${progress * 100}%`;
+            }
+            
+            const activeIndex = Math.round(progress * (numSlides - 1));
+            const activeSlide = slides[activeIndex];
+            if (activeSlide && activeTitle && counter) {
+                counter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(numSlides).padStart(2, '0')}`;
+                const titleStr = activeSlide.dataset.title;
+                const yearStr = activeSlide.querySelector('span.font-mono').textContent;
+                activeTitle.innerHTML = `${titleStr} &middot; ${yearStr}`;
+            }
+        }
+    });
+}

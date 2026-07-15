@@ -70,8 +70,45 @@
 
     {{BODY_CONTENT}}
 
-    <footer class="bg-background text-foreground py-8 px-6 border-t border-border">
-        {{FOOTER_CONTENT}}
+        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
+        <div class="container mx-auto max-w-[1400px]">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
+                <!-- Left Column -->
+                <div class="md:col-span-12 lg:col-span-6">
+                    <a href="./index.html" class="text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 inline-block">LAY SHAH</a>
+                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+                        Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
+                    </p>
+                </div>
+                
+                <!-- Middle Column -->
+                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
+                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
+                    <ul class="flex flex-col gap-4 text-sm text-foreground">
+                        <li><a href="./index.html" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="./index.html#work" class="hover:text-accent transition-colors">Work</a></li>
+                        <li><a href="./blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="md:col-span-6 lg:col-span-3">
+                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
+                    <ul class="flex flex-col gap-4 text-sm text-foreground">
+                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
+                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
+                <p>&copy; 2026 Lay Shah. All rights reserved.</p>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
+                </button>
+            </div>
+        </div>
     </footer>
 
     {{PAGE_SCRIPTS}}
@@ -79,3 +116,5 @@
 
 </body>
 </html>
+
+

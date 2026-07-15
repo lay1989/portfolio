@@ -126,3 +126,72 @@ export function initLoadMoreProjects() {
         observer.observe(loadMoreContainer);
     }
 }
+
+/**
+ * Initializes the blog category filter and search functionality.
+ */
+export function initBlogFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('blog-search');
+    const postRows = document.querySelectorAll('.post-row');
+    const emptyState = document.getElementById('empty-state');
+    const emptyQuery = document.getElementById('empty-query');
+
+    if (!filterBtns.length || !searchInput || !postRows.length) return;
+
+    let currentCategory = 'All';
+    let currentSearch = '';
+
+    const filterPosts = () => {
+        let visibleCount = 0;
+        const searchLower = currentSearch.toLowerCase();
+
+        postRows.forEach(row => {
+            const category = row.getAttribute('data-category') || '';
+            const title = (row.querySelector('.post-title')?.textContent || '').toLowerCase();
+            const dek = (row.querySelector('.post-dek')?.textContent || '').toLowerCase();
+            
+            const matchesCategory = currentCategory === 'All' || category === currentCategory;
+            const matchesSearch = !searchLower || title.includes(searchLower) || dek.includes(searchLower) || category.toLowerCase().includes(searchLower);
+
+            if (matchesCategory && matchesSearch) {
+                row.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+
+        if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+            if (currentSearch) {
+                emptyQuery.textContent = currentSearch;
+            } else {
+                emptyQuery.textContent = currentCategory !== 'All' ? currentCategory : 'any criteria';
+            }
+        } else {
+            emptyState.classList.add('hidden');
+        }
+    };
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Update active state
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-foreground', 'text-background', 'border-foreground');
+                b.classList.add('border-foreground/15', 'text-muted-foreground');
+            });
+            const target = e.currentTarget;
+            target.classList.add('bg-foreground', 'text-background', 'border-foreground');
+            target.classList.remove('border-foreground/15', 'text-muted-foreground');
+
+            currentCategory = target.getAttribute('data-filter');
+            filterPosts();
+        });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim();
+        filterPosts();
+    });
+}

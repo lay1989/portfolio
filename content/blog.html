@@ -1,133 +1,143 @@
-<main class="pt-32 pb-20">
-        <div class="container">
-            <header class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-balance">Insights &amp; Thoughts</h1>
-                <p class="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Exploring web development, design trends, and the freelance journey. Sharing knowledge and experiences to help others in the tech community.</p>
+    <main class="bg-background">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20">
+            <!-- Header Block -->
+            <header class="grid grid-cols-1 md:grid-cols-12 border-b border-foreground/10 pb-16">
+                <p class="md:col-span-2 font-mono text-muted-foreground uppercase tracking-widest text-sm mb-4 md:mb-0">Field Notes</p>
+                <div class="md:col-span-10">
+                    <h1 class="font-serif text-5xl md:text-7xl font-medium text-foreground leading-tight">
+                        Writing about the craft.<br/>
+                        <span class="italic text-muted-foreground">And the business around it.</span>
+                    </h1>
+                    <p class="mt-6 text-muted-foreground md:text-lg max-w-2xl leading-relaxed">
+                        Short essays on shipping websites, GSAP animation without the jank, and how the person paying for the build should talk to the person writing the code.
+                    </p>
+                </div>
             </header>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Blog Post Card 1 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                        <i data-lucide="smartphone" class="w-16 h-16 text-primary" aria-hidden="true"/>
+            <!-- Featured Post -->
+            <a href="./blog-responsive-design.html" class="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center group block" data-featured="true">
+                <div class="lg:col-span-7 overflow-hidden rounded-2xl bg-card aspect-[4/3] md:aspect-video relative border border-foreground/10">
+                    <img src="./public/images/featured-blog-cover.png" alt="Featured blog post illustration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+                <div class="lg:col-span-5 flex flex-col justify-center py-6 lg:py-0 pr-4">
+                    <div class="mb-6 flex flex-wrap items-center gap-4">
+                        <span class="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono font-medium text-accent tracking-widest uppercase">Featured</span>
+                        <span class="text-xs font-mono text-muted-foreground tracking-widest uppercase">Feb 7, 2026 &nbsp;&middot;&nbsp; 5 min read</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Web Design</span>
-                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
-                        </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">The Importance of Responsive Web Design in 2025</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...</p>
-                        <a href="./blog-responsive-design.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
+                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium mb-6 text-foreground group-hover:text-accent transition-colors duration-300 leading-tight">
+                        The Importance of Responsive Web Design in 2025
+                    </h2>
+                    <p class="text-muted-foreground md:text-lg mb-8 leading-relaxed">
+                        In today's mobile-first world, responsive web design is no longer optional, it's essential. As a full-stack developer, I ensure every website I build adapts seamlessly to all devices...
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-medium text-accent transition-colors group-hover:text-accent/80">
+                        Read More
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
-                </article>
+                </div>
+            </a>
 
-                <!-- Blog Post Card 2 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center">
-                        <i data-lucide="code" class="w-16 h-16 text-primary" aria-hidden="true"/>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Development</span>
-                            <span class="text-xs text-muted-foreground">January 15, 2026</span>
-                        </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Building Custom Websites: From Concept to Launch</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
-                        <a href="./blog-custom-websites.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
-                    </div>
-                </article>
+            <!-- Filter Bar -->
+            <div class="mt-24 flex flex-col md:flex-row md:items-center justify-between border-b border-foreground/10 pb-6 gap-6">
+                <div class="flex flex-wrap items-center gap-2" id="category-filters">
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground bg-foreground text-background transition-colors filter-btn active" data-filter="All">All</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Engineering">Engineering</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Design">Design</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Field Notes">Field Notes</button>
+                </div>
+                <div class="relative w-full md:w-72 shrink-0">
+                    <label class="sr-only" for="blog-search">Search posts</label>
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true"></i>
+                    <input type="search" id="blog-search" placeholder="Search posts…" aria-label="Search posts" class="w-full rounded-full border border-foreground/15 bg-background pl-9 pr-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all">
+                </div>
+            </div>
 
-                <!-- Blog Post Card 3 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group md:col-span-2 lg:col-span-1 shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-accent/10 to-secondary/20 flex items-center justify-center">
-                        <i data-lucide="users" class="w-16 h-16 text-primary" aria-hidden="true"/>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Freelancing</span>
-                            <span class="text-xs text-muted-foreground">December 20, 2025</span>
+            <!-- List -->
+            <div class="mt-4 divide-y divide-foreground/10" id="post-list">
+                <!-- Post Row 1 (Design) -->
+                <a href="./blog-custom-websites.html" class="group block py-12 post-row" data-category="Design">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 lg:gap-6 items-start">
+                        <div class="hidden md:block md:col-span-1 text-xs font-mono text-muted-foreground pt-1.5">01</div>
+                        <div class="md:col-span-7 flex flex-col">
+                            <span class="font-mono text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest mb-4">Design</span>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors duration-300 post-title leading-tight">Building Custom Websites: From Concept to Launch</h3>
+                            <p class="text-muted-foreground md:text-lg mt-4 leading-relaxed post-dek">Creating a custom website involves careful planning, design, and development. I start with client needs, wireframe the layout, and code with performance in mind...</p>
                         </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Why Choose a Freelance Web Developer?</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
-                        <a href="./blog-freelance-developer.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-4 md:mt-0">Jan 15, 2026</div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-1 md:mt-0">7 min read</div>
                     </div>
-                </article>
+                </a>
 
-                <!-- Blog Post Card 4 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <i data-lucide="search" class="w-16 h-16 text-primary" aria-hidden="true"/>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">SEO &amp; Performance</span>
-                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                <!-- Post Row 2 (Field Notes) -->
+                <a href="./blog-freelance-developer.html" class="group block py-12 post-row" data-category="Field Notes">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 lg:gap-6 items-start">
+                        <div class="hidden md:block md:col-span-1 text-xs font-mono text-muted-foreground pt-1.5">02</div>
+                        <div class="md:col-span-7 flex flex-col">
+                            <span class="font-mono text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest mb-4">Field Notes</span>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors duration-300 post-title leading-tight">Why Choose a Freelance Web Developer?</h3>
+                            <p class="text-muted-foreground md:text-lg mt-4 leading-relaxed post-dek">Freelancers offer personalized service, faster turnaround, and cost-effective solutions. As a freelance full-stack developer, I specialize in responsive, SEO-friendly websites...</p>
                         </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">SEO for Developers: Technical Implementation Guide</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
-                        <a href="./blog-seo-developers.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-4 md:mt-0">Dec 20, 2025</div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-1 md:mt-0">4 min read</div>
                     </div>
-                </article>
+                </a>
 
-                <!-- Blog Post Card 5 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-secondary/10 to-primary/20 flex items-center justify-center">
-                        <i data-lucide="layers" class="w-16 h-16 text-primary" aria-hidden="true"/>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">JavaScript</span>
-                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                <!-- Post Row 3 (Engineering) -->
+                <a href="./blog-seo-developers.html" class="group block py-12 post-row" data-category="Engineering">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 lg:gap-6 items-start">
+                        <div class="hidden md:block md:col-span-1 text-xs font-mono text-muted-foreground pt-1.5">03</div>
+                        <div class="md:col-span-7 flex flex-col">
+                            <span class="font-mono text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest mb-4">Engineering</span>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors duration-300 post-title leading-tight">SEO for Developers: Technical Implementation Guide</h3>
+                            <p class="text-muted-foreground md:text-lg mt-4 leading-relaxed post-dek">Master the technical side of SEO with this comprehensive guide. Learn about meta tags, structured data, Core Web Vitals, and technical SEO implementation strategies...</p>
                         </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Modern JavaScript Frameworks: Choosing the Right Tool</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
-                        <a href="./blog-javascript-frameworks.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-4 md:mt-0">Feb 7, 2026</div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-1 md:mt-0">10 min read</div>
                     </div>
-                </article>
+                </a>
 
-                <!-- Blog Post Card 6 -->
-                <article class="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 ease-out-expo group md:col-span-2 lg:col-span-1 shadow-sm dark:shadow-none">
-                    <div class="aspect-video bg-gradient-to-br from-accent/20 to-secondary/10 flex items-center justify-center">
-                        <i data-lucide="zap" class="w-16 h-16 text-primary" aria-hidden="true"/>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">Performance</span>
-                            <span class="text-xs text-muted-foreground">February 7, 2026</span>
+                <!-- Post Row 4 (Engineering) -->
+                <a href="./blog-javascript-frameworks.html" class="group block py-12 post-row" data-category="Engineering">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 lg:gap-6 items-start">
+                        <div class="hidden md:block md:col-span-1 text-xs font-mono text-muted-foreground pt-1.5">04</div>
+                        <div class="md:col-span-7 flex flex-col">
+                            <span class="font-mono text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest mb-4">Engineering</span>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors duration-300 post-title leading-tight">Modern JavaScript Frameworks: Choosing the Right Tool</h3>
+                            <p class="text-muted-foreground md:text-lg mt-4 leading-relaxed post-dek">Navigate the crowded JavaScript framework landscape with confidence. Compare React, Vue, Angular, Svelte, and Next.js to find the perfect framework for your project...</p>
                         </div>
-                        <h2 class="text-lg md:text-xl font-bold mb-3 group-hover:text-accent transition-colors duration-300 ease-out-expo text-balance">Web Performance Optimization: Speed Up Your Website</h2>
-                        <p class="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
-                        <a href="./blog-performance-optimization.html" class="inline-flex items-center gap-2 text-primary dark:text-accent hover:text-accent dark:hover:text-primary font-medium transition-colors duration-300 ease-out-expo">
-                            Read More
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 ease-out-expo" aria-hidden="true"/>
-                        </a>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-4 md:mt-0">Feb 7, 2026</div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-1 md:mt-0">8 min read</div>
                     </div>
-                </article>
+                </a>
+
+                <!-- Post Row 5 (Engineering) -->
+                <a href="./blog-performance-optimization.html" class="group block py-12 post-row" data-category="Engineering">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 lg:gap-6 items-start">
+                        <div class="hidden md:block md:col-span-1 text-xs font-mono text-muted-foreground pt-1.5">05</div>
+                        <div class="md:col-span-7 flex flex-col">
+                            <span class="font-mono text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest mb-4">Engineering</span>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors duration-300 post-title leading-tight">Web Performance Optimization: Speed Up Your Website</h3>
+                            <p class="text-muted-foreground md:text-lg mt-4 leading-relaxed post-dek">Master web performance optimization with this comprehensive guide. Learn Core Web Vitals, image optimization, code splitting, and monitoring techniques...</p>
+                        </div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-4 md:mt-0">Feb 7, 2026</div>
+                        <div class="md:col-span-2 text-sm text-muted-foreground md:text-right pt-1.5 mt-1 md:mt-0">6 min read</div>
+                    </div>
+                </a>
+
+                <!-- Empty state (hidden by default) -->
+                <div id="empty-state" class="hidden py-16 text-center text-muted-foreground">
+                    <p class="font-serif text-2xl mb-2 text-foreground">No posts found</p>
+                    <p>No posts match "<span id="empty-query" class="font-mono"></span>" in the selected category.</p>
+                </div>
             </div>
 
             <!-- Newsletter Signup -->
-            <div class="bg-secondary/10 rounded-2xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-display font-bold mb-4 text-balance">Stay Updated</h2>
-                <p class="text-muted-foreground mb-6 max-w-md mx-auto leading-relaxed">Get notified when I publish new articles about web development, design tips, and industry insights.</p>
-                <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    Get in Touch
-                    <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"/>
+            <div class="mt-32 bg-secondary/30 rounded-2xl p-8 md:p-12 text-center border border-border/50">
+                <h2 class="text-2xl md:text-3xl font-serif font-medium mb-4 text-balance">Have a project in mind?</h2>
+                <p class="text-muted-foreground mb-6 max-w-md mx-auto leading-relaxed">I'm currently available for freelance work. Let's discuss how we can build something great together.</p>
+                <a href="./index.html#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-medium hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
+                    Let's Talk
+                    <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
