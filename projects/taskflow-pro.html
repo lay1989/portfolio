@@ -159,409 +159,389 @@
 <!-- This template is used by build-html.js to generate individual project pages -->
 <!-- Placeholders: {{PROJECT_*}} are replaced with data from projects.json -->
 
-<main class="pt-32 pb-24 px-6">
-    <div class="container mx-auto max-w-4xl">
-        <!-- Back to Projects -->
-        <a href="../projects.html" class="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8">
-            <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i>
-            Back to Projects
-        </a>
+<main class="relative bg-background text-foreground pb-0">
 
-        <!-- Project Header -->
-        <div class="mb-12">
-            <div class="flex items-center gap-4 mb-6">
-                <span class="text-accent text-sm font-medium uppercase tracking-wider">Project Management Tool</span>
-                <span class="text-muted-foreground">•</span>
-                <span class="text-muted-foreground text-sm">2023</span>
+    <!-- CaseHero -->
+    <section id="hero" class="relative">
+        <div class="mx-auto max-w-[1400px] px-6 pt-40 md:px-10 md:pt-56">
+            <a href="../projects.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All work
+            </a>
+            
+            <div data-eyebrow class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <span>Enterprise Software</span>
+                <span class="h-px w-8 bg-border"></span>
+                <span>2023</span>
+                <span class="h-px w-8 bg-border"></span>
+                <span>Product Manager &amp; Developer</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">TaskFlow Pro</h1>
-            <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-                TaskFlow Pro is a comprehensive project management solution designed for modern teams. The platform combines intuitive task management with powerful automation capabilities, enabling teams to streamline workflows and boost productivity through intelligent process automation.
+            
+            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[0.95] tracking-tight md:text-8xl">
+                <span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">TaskFlow</span></span><span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">Pro</span></span>
+            </h1>
+            
+            <div data-underline class="mt-2 h-[3px] w-24 bg-accent md:w-40 scale-x-0 origin-left"></div>
+            
+            <p data-tagline class="mt-8 max-w-2xl text-xl leading-snug text-muted-foreground md:text-3xl">
+                Design an intuitive project management solution that simplifies team workflows while providing powerful automation capabilities. The tool needed to handle complex project hierarchies and large teams efficiently. Key challenges included creating a user-friendly interface that didn't compromise on advanced features.
             </p>
         </div>
-
-        <!-- Project Hero Image -->
-        <div class="rounded-xl overflow-hidden border border-border shadow-2xl mb-16">
-            <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/modern_e-commerce_interface_mockup-small.webp 600w, ../public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <source type="image/png" srcset="../public/images/modern_e-commerce_interface_mockup-small.png 600w, ../public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <img src="../public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro - Project Case Study Hero Showcase" class="w-full h-auto object-cover">
-            </picture>
-        </div>
-
-        <!-- Project Details Grid -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="user-circle" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Role</h3>
-                    <p class="text-foreground font-medium">Product Manager &amp; Developer</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="clock" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Timeline</h3>
-                    <p class="text-foreground font-medium">16 Weeks</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="wrench" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Tools</h3>
-                    <p class="text-foreground font-medium">Vue.js, Python, PostgreSQL, Kubernetes</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project Sections -->
-        <div class="space-y-20">
-            <!-- Challenge Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="target" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    Problem
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        Design an intuitive project management solution that simplifies team workflows while providing powerful automation capabilities. The tool needed to handle complex project hierarchies and large teams efficiently. Key challenges included creating a user-friendly interface that didn't compromise on advanced features.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Solution Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="lightbulb" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    Approach &amp; Solution
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                        Created an intuitive interface for project and task management with drag-and-drop functionality. Built a comprehensive workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added seamless integrations with popular tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.
-                    </p>
-                    
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/minimalist_dark_mode_website_mockup-small.webp 600w, ../public/images/minimalist_dark_mode_website_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <source type="image/png" srcset="../public/images/minimalist_dark_mode_website_mockup-small.png 600w, ../public/images/minimalist_dark_mode_website_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <img src="../public/images/minimalist_dark_mode_website_mockup.png" alt="TaskFlow Pro - Custom Solution Interface Showcase" class="w-full h-auto object-cover" loading="lazy">
-            </picture>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Process Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="workflow" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Development Process
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">1</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Market Research: Analyzed competitor products and user needs</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">2</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Product Planning: Defined feature roadmap and user personas</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">3</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Architecture Design: Planned scalable microservices architecture</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">4</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">UI/UX Design: Created intuitive dashboard and workflow designs</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">5</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Backend Development: Built REST APIs and automation engine</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">6</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Frontend Development: Developed responsive Vue.js interface</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">7</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Testing &amp; Deployment: Comprehensive QA and Kubernetes deployment</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technologies Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="code" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Technologies Used
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">frontend</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Vue.js</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Vuex</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Vue Router</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Tailwind CSS</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">backend</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Python</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">FastAPI</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">PostgreSQL</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Redis</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">infrastructure</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Kubernetes</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Docker</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">AWS EKS</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Nginx</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">integrations</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Slack API</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">GitHub API</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Jira API</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Google Workspace</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">monitoring</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Prometheus</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Grafana</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">ELK Stack</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">tools</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Figma</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Postman</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">GitLab CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Features Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="star" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Key Features
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Advanced workflow automation</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Real-time collaboration tools</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Custom dashboard widgets</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Advanced reporting and analytics</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Third-party integrations</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Role-based access control</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Mobile-responsive design</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">API for custom integrations</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="trending-up" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    <span id="results" class="scroll-mt-32">Results &amp; Impact</span>
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                        Improved team productivity by 35% through automation. Successfully handled projects with up to 500 users with seamless performance. Client reported significant ROI within the first quarter of deployment.
-                    </p>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">+35%</div>
-                            <div class="text-sm text-muted-foreground capitalize">productivity Increase</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">500+ users</div>
-                            <div class="text-sm text-muted-foreground capitalize">user Capacity</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">99.9%</div>
-                            <div class="text-sm text-muted-foreground capitalize">uptime</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">&lt; 200ms</div>
-                            <div class="text-sm text-muted-foreground capitalize">response Time</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">10,000+ monthly</div>
-                            <div class="text-sm text-muted-foreground capitalize">automation Tasks</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">95%</div>
-                            <div class="text-sm text-muted-foreground capitalize">client Satisfaction</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="quote" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Client Feedback
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <blockquote class="text-lg text-muted-foreground leading-relaxed mb-6 italic">
-                        &ldquo;TaskFlow Pro transformed how our team manages projects. The automation features alone saved us countless hours, and the intuitive interface made adoption effortless.&rdquo;
-                    </blockquote>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-6 h-6 text-accent" aria-hidden="true"></i></div>
-                        <div>
-                            <div class="font-bold">Jennifer Martinez</div>
-                            <div class="text-sm text-muted-foreground">VP of Engineering, TechFlow Inc.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Lessons Learned Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="book-open" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Lessons Learned
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        Building enterprise software requires careful consideration of scalability and user adoption. The automation engine was the most complex component, but it delivered the highest value. Investing in comprehensive testing and documentation was crucial for enterprise deployment.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Screenshots Gallery -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="image" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Project Gallery
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/minimalist_dark_mode_website_mockup-small.webp 600w, ../public/images/minimalist_dark_mode_website_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/png" srcset="../public/images/minimalist_dark_mode_website_mockup-small.png 600w, ../public/images/minimalist_dark_mode_website_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="../public/images/minimalist_dark_mode_website_mockup.png" alt="TaskFlow Pro Screenshot 1 - Interface Detail" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300 ease-out-expo" loading="lazy">
-            </picture>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project Links -->
-        <div class="mt-20 pt-12 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div>
-                <h3 class="text-xl md:text-2xl font-display font-bold mb-2">View Live Project</h3>
-                <p class="text-muted-foreground">Live preview coming soon.</p>
-            </div>
-            <div class="flex gap-4">
-                <button disabled class="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-medium cursor-not-allowed opacity-50">
-                    <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Coming Soon
-                </button>
-            </div>
-        </div>
-
-        <!-- Stronger CTA -->
-        <div class="mt-24 p-12 bg-accent/5 border border-accent/20 rounded-3xl text-center">
-            <h3 class="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">Ready for a similar result?</h3>
-            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Let\u2019s discuss how we can achieve your business goals with a custom web solution.</p>
-            <a href="../index.html#contact" class="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo magnetic-btn">Start a Project</a>
-        </div>
-
-        <!-- Next Project Loop -->
         
-        <div class="mt-12 text-center">
-            <p class="text-muted-foreground mb-2">Back to Portfolio</p>
-            <a href="../projects.html" class="text-2xl md:text-4xl font-display font-bold hover:text-accent transition-colors duration-300">
-                View All Projects &rarr;
-            </a>
-        </div>
-
-        <!-- Social Sharing -->
-        <div class="mt-12 pt-8 border-t border-border">
-            <h3 class="text-base md:text-lg font-bold mb-4">Share this project</h3>
-            <div class="flex gap-4">
-                <button onclick="shareOnTwitter()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="twitter" class="w-4 h-4" aria-hidden="true"></i>
-                    Twitter
-                </button>
-                <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
-                    LinkedIn
-                </button>
-                <button onclick="copyProjectLink()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="link" class="w-4 h-4" aria-hidden="true"></i>
-                    Copy Link
-                </button>
+        <!-- CaseHero Cover -->
+        <div class="mt-16 overflow-hidden">
+            <div class="mx-auto max-w-[1600px] px-6 md:px-10">
+                <div data-cover class="relative aspect-[16/9] overflow-hidden rounded-3xl bg-card">
+                    <picture class="block h-full w-full">
+                <source type="image/webp" srcset="../public/images/modern_e-commerce_interface_mockup-small.webp 600w, ../public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
+                <source type="image/png" srcset="../public/images/modern_e-commerce_interface_mockup-small.png 600w, ../public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
+                <img src="../public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro - Project Case Study Hero Showcase" class="absolute inset-0 w-full h-full object-cover case-hero-cover-img">
+            </picture>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CaseBody -->
+    <section class="mx-auto mt-24 max-w-[1400px] px-6 md:mt-40 md:px-10">
+        <div class="grid gap-12 md:grid-cols-12 md:gap-16 mb-32">
+            
+            <!-- Sticky Meta Rail -->
+            <aside class="md:col-span-4 relative">
+                <div class="md:sticky md:top-32 space-y-6">
+                    <!-- At a glance -->
+                    <div class="rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-5">At a glance</div>
+                        <dl class="space-y-4 text-sm">
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Client</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">Enterprise Software</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Role</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">Product Manager &amp; Developer</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Timeline</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">16 Weeks</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Year</dt>
+                                <dd class="text-right text-foreground">2023</dd>
+                            </div>
+                        </dl>
+                        
+                        <div class="mt-6">
+                            <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Stack</div>
+                            <div class="mt-2 flex flex-wrap gap-1.5">
+                                <span class="rounded-full border border-border px-2.5 py-0.5 text-xs">Vue.js</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">Python</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">PostgreSQL</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">Kubernetes</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Outcomes At a glance -->
+                    <div class="mt-6 rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-6">Outcomes</div>
+                        <div class="space-y-5">
+                            
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">+35%</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">productivity Increase</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">500+ users</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">user Capacity</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">99.9%</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">uptime</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">&lt; 200ms</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">response Time</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">10,000+ monthly</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">automation Tasks</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">95%</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">client Satisfaction</div>
+            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Story Column -->
+            <div class="md:col-span-8">
+                <!-- Brief -->
+                <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">The Brief</div>
+                <div class="mt-4 [&_p]:mb-6 [&_p]:text-xl [&_p]:leading-[1.55] [&_p]:text-foreground md:[&_p]:text-2xl mb-20 prose-reveal">
+                    <p class="drop-cap">TaskFlow Pro is a comprehensive project management solution designed for modern teams. The platform combines intuitive task management with powerful automation capabilities, enabling teams to streamline workflows and boost productivity through intelligent process automation.</p>
+                </div>
+
+                <!-- Approach -->
+                <div class="mb-24">
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Approach</h2>
+                    <ul class="space-y-0">
+                        
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Market Research</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Analyzed competitor products and user needs</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Product Planning</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Defined feature roadmap and user personas</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Architecture Design</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Planned scalable microservices architecture</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">UI/UX Design</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Created intuitive dashboard and workflow designs</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Backend Development</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Built REST APIs and automation engine</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">06</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Frontend Development</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Developed responsive Vue.js interface</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">07</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Testing &amp; Deployment</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Comprehensive QA and Kubernetes deployment</div>
+                </div>
+            </li>
+                    </ul>
+                </div>
+
+                <!-- Editorial Gallery -->
+                <div class="mb-24">
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Gallery</h2>
+                    <div class="space-y-12">
+                        
+                <figure class="mb-16 md:max-w-[85%]">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                        <picture class="block w-full h-auto">
+                <source type="image/webp" srcset="../public/images/minimalist_dark_mode_website_mockup-small.webp 600w, ../public/images/minimalist_dark_mode_website_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 85vw">
+                <source type="image/png" srcset="../public/images/minimalist_dark_mode_website_mockup-small.png 600w, ../public/images/minimalist_dark_mode_website_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 85vw">
+                <img src="../public/images/minimalist_dark_mode_website_mockup.png" alt="TaskFlow Pro Interface 1" class="w-full h-auto object-cover" loading="lazy">
+            </picture>
+                    </div>
+                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 01</figcaption>
+                </figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Quote (Optional) -->
+        
+            <div class="relative mb-32 rounded-3xl bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 border border-border px-8 py-14 md:px-16 md:py-20 transition-all hover:border-accent/20">
+                <span class="absolute -top-6 left-8 md:-top-10 md:left-10 font-serif text-[8rem] md:text-[10rem] italic leading-none text-accent select-none">&ldquo;</span>
+                <blockquote class="relative z-10 mb-8 font-serif text-2xl font-medium italic leading-snug text-foreground md:text-4xl">
+                    TaskFlow Pro transformed how our team manages projects. The automation features alone saved us countless hours, and the intuitive interface made adoption effortless.
+                </blockquote>
+                <div class="relative z-10 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    &mdash; Jennifer Martinez, VP of Engineering, TechFlow Inc.
+                </div>
+            </div>
+
+        <!-- Decisions Accordion -->
+        
+            <div class="mb-32 grid md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Project Decisions</h2>
+                    <p class="text-muted-foreground">Trade-offs, challenges, and insights from the development process.</p>
+                </div>
+                <div class="md:col-span-7 md:col-start-6">
+                    <div class="divide-y divide-border border-y border-border" id="decisions">
+                        
+                        <div class="accordion-item group">
+                            <button aria-expanded="true" aria-controls="d-0" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What was the core challenge?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-0" data-panel class="grid transition-all duration-300 ease-out grid-rows-[1fr] opacity-100">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        Design an intuitive project management solution that simplifies team workflows while providing powerful automation capabilities. The tool needed to handle complex project hierarchies and large teams efficiently. Key challenges included creating a user-friendly interface that didn't compromise on advanced features.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item group">
+                            <button aria-expanded="false" aria-controls="d-1" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">How did we approach the solution?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-1" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        Created an intuitive interface for project and task management with drag-and-drop functionality. Built a comprehensive workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added seamless integrations with popular tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item group">
+                            <button aria-expanded="false" aria-controls="d-2" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What were the key takeaways?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-2" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        Building enterprise software requires careful consideration of scalability and user adoption. The automation engine was the most complex component, but it delivered the highest value. Investing in comprehensive testing and documentation was crucial for enterprise deployment.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Outcomes Recap -->
+        <div class="mb-32">
+            <div class="flex justify-between items-end border-b border-border pb-4 mb-12">
+                <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent">Outcomes Recap</h2>
+                <span class="text-sm text-muted-foreground">After launch</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">+35%</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">productivity Increase</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">500+ users</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">user Capacity</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">99.9%</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">uptime</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">&lt; 200ms</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">response Time</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">10,000+ monthly</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">automation Tasks</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">95%</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">client Satisfaction</div>
+            </div>
+        
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="mb-32">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                
+                <!-- Content (Left side) -->
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Like this build? · Booking Q3 2026</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                </div>
+
+                <!-- Action Buttons (Right side) -->
+                <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
+                    <a href="../index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    </a>
+                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    </a>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CaseNext -->
+        <div class="w-full mt-24 mb-32 md:mb-40">
+            
+        <a href="../projects/ghermar-sons.html" class="block group rounded-[2rem] overflow-hidden relative px-10 py-6 md:px-16 md:py-10 lg:px-20 lg:py-14 transition-all hover:scale-[1.01] duration-500 ease-out-expo border border-border shadow-sm hover:shadow-xl hover:border-accent/30 bg-card">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[1.5s] ease-out group-hover:scale-105" style="background-image: url('../public/images/Ghermar & Sons.webp');"></div>
+            
+            <!-- Glassmorphic Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/80 to-slate-50/10 dark:from-slate-950/95 dark:via-slate-950/80 dark:to-slate-950/10 backdrop-blur-[2px] transition-all duration-700 group-hover:backdrop-blur-0"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 max-w-2xl transform transition-transform duration-500 group-hover:translate-x-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">Ghermar &amp; Sons</h2>
+                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">A high-performance Landing Page for an Import-Export Company focused on conversion.</p>
+            </div>
+            
+            <!-- Floating Arrow Icon -->
+            <div class="absolute right-8 bottom-6 md:right-16 md:bottom-10 lg:bottom-14 w-14 h-14 rounded-full bg-accent flex items-center justify-center text-accent-foreground transform translate-x-4 opacity-0 transition-all duration-500 ease-out-expo group-hover:translate-x-0 group-hover:opacity-100 shadow-xl shadow-accent/20">
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </div>
+        </a>
+        </div>
+    </section>
 </main>
 
+    <!-- Case Study Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../public/js/case-study.js"></script>
+    
 
         <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
         <div class="container mx-auto max-w-[1400px]">

@@ -6,8 +6,10 @@ module.exports = {
         "./content/**/*.html",
         "./src/**/*.{ts,tsx,html,js}",
         "./scripts/**/*.js",
-        "./script.js"
+        "./script.js",
+        "./templates/**/*.html"
     ],
+    safelist: ['is-in'],
     darkMode: 'class',
     theme: {
         container: {

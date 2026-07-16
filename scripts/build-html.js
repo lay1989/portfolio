@@ -147,144 +147,149 @@ function renderResponsivePicture(imgPath, alt, className, sizes, eager, pageBase
 function renderCaseStudy(project, basePath) {
     let html = caseStudyTemplate;
 
+    // Next Project calculation
+    const currentIdx = projects.findIndex(p => p.id === project.id);
+    const nextProject = projects[(currentIdx + 1) % projects.length];
+
     // Simple replacements
     html = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
     html = html.replace(/\{\{PROJECT_TITLE\}\}/g, escHtml(project.title));
     html = html.replace(/\{\{PROJECT_CATEGORY\}\}/g, escHtml(project.category));
+    html = html.replace(/\{\{PROJECT_CLIENT_TYPE\}\}/g, escHtml(project.clientType || 'Client'));
     html = html.replace(/\{\{PROJECT_YEAR\}\}/g, escHtml(project.year));
-    html = html.replace(/\{\{PROJECT_OVERVIEW\}\}/g, escHtml(project.overview || project.shortDesc));
     html = html.replace(/\{\{PROJECT_ROLE\}\}/g, escHtml(project.role));
     html = html.replace(/\{\{PROJECT_TIMELINE\}\}/g, escHtml(project.timeline));
-    html = html.replace(/\{\{PROJECT_TOOLS\}\}/g, escHtml(project.tools));
-    html = html.replace(/\{\{PROJECT_CHALLENGE\}\}/g, escHtml(project.challenge));
-    html = html.replace(/\{\{PROJECT_SOLUTION\}\}/g, escHtml(project.solution));
-    html = html.replace(/\{\{PROJECT_RESULTS\}\}/g, escHtml(project.results));
+    html = html.replace(/\{\{PROJECT_NEXT_URL\}\}/g, `${basePath}projects/${nextProject.slug}.html`);
+    html = html.replace(/\{\{PROJECT_NEXT_TITLE\}\}/g, escHtml(nextProject.title));
+    
+    // Title Words for GSAP
+    const titleWords = project.title.split(' ').map(word => 
+        `<span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">${escHtml(word)}</span></span>`
+    ).join('');
+    html = html.replace(/\{\{PROJECT_TITLE_WORDS\}\}/g, titleWords);
 
-    // Hero image
-    const heroImg = project.heroImg ? renderResponsivePicture(
-        project.heroImg,
-        `${project.title} - Project Case Study Hero Showcase`,
-        'w-full h-auto object-cover',
-        '(max-width: 768px) 90vw, 896px',
-        true,
-        basePath
-    ) : '';
-    html = html.replace('{{PROJECT_HERO_IMAGE}}', heroImg);
+    // Tagline Snippet
+    html = html.replace(/\{\{PROJECT_CHALLENGE_SNIPPET\}\}/g, escHtml(project.challenge || project.shortDesc));
+    
+    // Overview Drop Cap
+    const overview = project.overview || project.shortDesc;
+    html = html.replace(/\{\{PROJECT_OVERVIEW_DROP_CAP\}\}/g, `<p class="drop-cap">${escHtml(overview)}</p>`);
 
-    // Content image in solution section
-    const contentImg = project.contentImg ? `
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        ${renderResponsivePicture(project.contentImg, `${project.title} - Custom Solution Interface Showcase`, 'w-full h-auto object-cover', '(max-width: 768px) 90vw, 896px', false, basePath)}
-                    </div>` : '';
-    html = html.replace('{{PROJECT_CONTENT_IMAGE}}', contentImg);
+    // Tech Chips
+    const techArr = project.tools ? project.tools.split(',').map(t => t.trim()) : [];
+    const chipsHtml = techArr.map(t => `<span class="rounded-full border border-border px-2.5 py-0.5 text-xs">${escHtml(t)}</span>`).join('');
+    html = html.replace(/\{\{PROJECT_TECH_CHIPS\}\}/g, chipsHtml);
 
-    // Process section
-    if (project.process && project.process.length) {
-        const processHtml = `
+    // Links Section
+    let linksHtml = '';
+    const hasLive = project.liveUrl && project.liveUrl !== '#';
+    if (hasLive || project.githubUrl) {
+        linksHtml += `<div class="mt-6 border-t border-border/50 pt-5 space-y-3">`;
+        if (hasLive) {
+            linksHtml += `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm font-bold text-accent hover:text-foreground transition-colors"><i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i> View Live Project</a>`;
+        }
+        if (project.githubUrl) {
+            linksHtml += `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors"><i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i> GitHub Repository</a>`;
+        }
+        linksHtml += `</div>`;
+    }
+    html = html.replace(/\{\{PROJECT_LINKS_SECTION\}\}/g, linksHtml);
+
+    // Metrics Rail & Recap
+    let metricsRail = '';
+    let metricsRecap = '';
+    if (project.metrics) {
+        const entries = Object.entries(project.metrics);
+        metricsRail = entries.map(([key, value]) => `
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">${escHtml(String(value))}</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+            </div>
+        `).join('');
+
+        metricsRecap = entries.map(([key, value]) => `
             <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="workflow" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Development Process
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    ${project.process.map((step, i) => `
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">${i + 1}</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">${escHtml(step)}</p>
-                        </div>
-                    </div>`).join('')}
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">${escHtml(String(value))}</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+            </div>
+        `).join('');
+    }
+    html = html.replace(/\{\{PROJECT_METRICS_RAIL\}\}/g, metricsRail);
+    html = html.replace(/\{\{PROJECT_METRICS_RECAP\}\}/g, metricsRecap);
+
+    // Process Section
+    if (project.process && project.process.length) {
+        const processHtml = project.process.map((step, i) => {
+            // Split step into title and body if it has a colon
+            let title = `Phase ${i+1}`;
+            let body = step;
+            if (step.includes(':')) {
+                const parts = step.split(':');
+                title = parts[0].trim();
+                body = parts.slice(1).join(':').trim();
+            }
+            return `
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">0${i + 1}</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">${escHtml(title)}</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">${escHtml(body)}</div>
                 </div>
-            </div>`;
+            </li>`;
+        }).join('');
         html = html.replace('{{PROJECT_PROCESS_SECTION}}', processHtml);
     } else {
         html = html.replace('{{PROJECT_PROCESS_SECTION}}', '');
     }
 
-    // Technologies section
-    if (project.technologies) {
-        const techHtml = `
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="code" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Technologies Used
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${Object.entries(project.technologies).map(([category, techs]) => `
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">${category.replace(/([A-Z])/g, ' $1').trim()}</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${techs.map(t => `<span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">${escHtml(t)}</span>`).join('')}
-                        </div>
-                    </div>`).join('')}
-                </div>
-            </div>`;
-        html = html.replace('{{PROJECT_TECHNOLOGIES_SECTION}}', techHtml);
-    } else {
-        html = html.replace('{{PROJECT_TECHNOLOGIES_SECTION}}', '');
-    }
+    // Gallery Section
+    if (project.screenshots && project.screenshots.length > 1) {
+        // Drop the first one since it's the hero cover
+        const galleryImgs = project.screenshots.slice(1);
+        if (galleryImgs.length > 0) {
+            const galleryHtml = galleryImgs.map((img, idx) => {
+                const isWide = (idx % 3 === 0 && idx !== 0); // make every 3rd wide
+                const isLeft = (idx % 2 === 0);
+                
+                let containerClasses = 'rounded-2xl overflow-hidden bg-card border border-border shadow-lg';
+                let figureClasses = 'mb-16';
+                let sizes = '(max-width: 768px) 90vw, 85vw';
 
-    // Key features section
-    if (project.keyFeatures && project.keyFeatures.length) {
-        const featHtml = `
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="star" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Key Features
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    ${project.keyFeatures.map(f => `
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">${escHtml(f)}</p>
-                    </div>`).join('')}
-                </div>
-            </div>`;
-        html = html.replace('{{PROJECT_FEATURES_SECTION}}', featHtml);
-    } else {
-        html = html.replace('{{PROJECT_FEATURES_SECTION}}', '');
-    }
+                if (isWide) {
+                    figureClasses += ' -mx-6 md:-mx-10 w-[calc(100%+3rem)] md:w-[calc(100%+5rem)]';
+                    sizes = '100vw';
+                } else if (isLeft) {
+                    figureClasses += ' md:max-w-[85%]';
+                } else {
+                    figureClasses += ' md:ml-auto md:max-w-[85%]';
+                }
 
-    // Metrics
-    if (project.metrics) {
-        const metricsHtml = `
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${Object.entries(project.metrics).map(([key, value]) => `
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">${escHtml(String(value))}</div>
-                            <div class="text-sm text-muted-foreground capitalize">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
-                        </div>`).join('')}
-                    </div>`;
-        html = html.replace('{{PROJECT_METRICS}}', metricsHtml);
-    } else {
-        html = html.replace('{{PROJECT_METRICS}}', '');
-    }
-
-    // Testimonial section
-    if (project.testimonial) {
-        const t = project.testimonial;
-        const avatarHtml = t.avatar
-            ? `<img src="${t.avatar}" alt="${escHtml(t.author)}" class="w-12 h-12 rounded-full">`
-            : '<div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-6 h-6 text-accent" aria-hidden="true"></i></div>';
-        const testHtml = `
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="quote" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Client Feedback
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <blockquote class="text-lg text-muted-foreground leading-relaxed mb-6 italic">
-                        &ldquo;${escHtml(t.quote)}&rdquo;
-                    </blockquote>
-                    <div class="flex items-center gap-4">
-                        ${avatarHtml}
-                        <div>
-                            <div class="font-bold">${escHtml(t.author)}</div>
-                            <div class="text-sm text-muted-foreground">${escHtml(t.position)}</div>
-                        </div>
+                return `
+                <figure class="${figureClasses}">
+                    <div class="${containerClasses}">
+                        ${renderResponsivePicture(img, `${project.title} Interface ${idx + 1}`, 'w-full h-auto object-cover', sizes, false, basePath)}
                     </div>
+                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 0${idx+1}</figcaption>
+                </figure>`;
+            }).join('');
+            html = html.replace('{{PROJECT_GALLERY_SECTION}}', galleryHtml);
+        } else {
+            html = html.replace('{{PROJECT_GALLERY_SECTION}}', '');
+        }
+    } else {
+        html = html.replace('{{PROJECT_GALLERY_SECTION}}', '');
+    }
+
+    // Testimonial
+    if (project.testimonial && project.testimonial.quote) {
+        const testHtml = `
+            <div class="relative mb-32 rounded-3xl bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 border border-border px-8 py-14 md:px-16 md:py-20 transition-all hover:border-accent/20">
+                <span class="absolute -top-6 left-8 md:-top-10 md:left-10 font-serif text-[8rem] md:text-[10rem] italic leading-none text-accent select-none">&ldquo;</span>
+                <blockquote class="relative z-10 mb-8 font-serif text-2xl font-medium italic leading-snug text-foreground md:text-4xl">
+                    ${escHtml(project.testimonial.quote)}
+                </blockquote>
+                <div class="relative z-10 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    &mdash; ${escHtml(project.testimonial.author)}, ${escHtml(project.testimonial.position)}
                 </div>
             </div>`;
         html = html.replace('{{PROJECT_TESTIMONIAL_SECTION}}', testHtml);
@@ -292,88 +297,98 @@ function renderCaseStudy(project, basePath) {
         html = html.replace('{{PROJECT_TESTIMONIAL_SECTION}}', '');
     }
 
-    // Lessons learned section
-    if (project.lessonsLearned) {
-        const lessonsHtml = `
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="book-open" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Lessons Learned
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        ${escHtml(project.lessonsLearned)}
-                    </p>
+    // Decisions Q&A
+    const qaItems = [];
+    if (project.challenge) qaItems.push({ q: 'What was the core challenge?', a: project.challenge });
+    if (project.solution) qaItems.push({ q: 'How did we approach the solution?', a: project.solution });
+    if (project.lessonsLearned) qaItems.push({ q: 'What were the key takeaways?', a: project.lessonsLearned });
+
+    if (qaItems.length > 0) {
+        const decisionsHtml = `
+            <div class="mb-32 grid md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Project Decisions</h2>
+                    <p class="text-muted-foreground">Trade-offs, challenges, and insights from the development process.</p>
+                </div>
+                <div class="md:col-span-7 md:col-start-6">
+                    <div class="divide-y divide-border border-y border-border" id="decisions">
+                        ${qaItems.map((item, idx) => `
+                        <div class="accordion-item group">
+                            <button aria-expanded="${idx === 0 ? 'true' : 'false'}" aria-controls="d-${idx}" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">${escHtml(item.q)}</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-${idx}" data-panel class="grid transition-all duration-300 ease-out ${idx === 0 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        ${escHtml(item.a)}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>`).join('')}
+                    </div>
                 </div>
             </div>`;
-        html = html.replace('{{PROJECT_LESSONS_SECTION}}', lessonsHtml);
+        html = html.replace('{{PROJECT_DECISIONS_SECTION}}', decisionsHtml);
     } else {
-        html = html.replace('{{PROJECT_LESSONS_SECTION}}', '');
+        html = html.replace('{{PROJECT_DECISIONS_SECTION}}', '');
     }
 
-    // Screenshots gallery
-    if (project.screenshots && project.screenshots.length > 1) {
-        const galleryHtml = `
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="image" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Project Gallery
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    ${project.screenshots.slice(1).map((img, idx) => `
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        ${renderResponsivePicture(img, `${project.title} Screenshot ${idx + 1} - Interface Detail`, 'w-full h-auto object-cover hover:scale-105 transition-transform duration-300 ease-out-expo', '(max-width: 768px) 90vw, 45vw', false, basePath)}
-                    </div>`).join('')}
+    // Hero Cover Image
+    const heroImg = project.heroImg ? renderResponsivePicture(
+        project.heroImg,
+        `${project.title} - Project Case Study Hero Showcase`,
+        'absolute inset-0 w-full h-full object-cover case-hero-cover-img',
+        '(max-width: 1600px) 100vw, 1600px',
+        true,
+        basePath
+    ) : '';
+    html = html.replace('{{PROJECT_HERO_IMAGE_COVER}}', heroImg);
+
+    // CaseNext Card
+    const nextCardHtml = `
+        <a href="${basePath}projects/${nextProject.slug}.html" class="block group rounded-[2rem] overflow-hidden relative px-10 py-6 md:px-16 md:py-10 lg:px-20 lg:py-14 transition-all hover:scale-[1.01] duration-500 ease-out-expo border border-border shadow-sm hover:shadow-xl hover:border-accent/30 bg-card">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[1.5s] ease-out group-hover:scale-105" style="background-image: url('${basePath}${nextProject.heroImg.replace('./', '')}');"></div>
+            
+            <!-- Glassmorphic Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/80 to-slate-50/10 dark:from-slate-950/95 dark:via-slate-950/80 dark:to-slate-950/10 backdrop-blur-[2px] transition-all duration-700 group-hover:backdrop-blur-0"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 max-w-2xl transform transition-transform duration-500 group-hover:translate-x-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
                 </div>
-            </div>`;
-        html = html.replace('{{PROJECT_GALLERY_SECTION}}', galleryHtml);
-    } else {
-        html = html.replace('{{PROJECT_GALLERY_SECTION}}', '');
-    }
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">${escHtml(nextProject.title)}</h2>
+                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">${escHtml(nextProject.shortDesc)}</p>
+            </div>
+            
+            <!-- Floating Arrow Icon -->
+            <div class="absolute right-8 bottom-6 md:right-16 md:bottom-10 lg:bottom-14 w-14 h-14 rounded-full bg-accent flex items-center justify-center text-accent-foreground transform translate-x-4 opacity-0 transition-all duration-500 ease-out-expo group-hover:translate-x-0 group-hover:opacity-100 shadow-xl shadow-accent/20">
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </div>
+        </a>`;
+    html = html.replace('{{PROJECT_NEXT_CARD}}', nextCardHtml);
 
-    // Live URL text and buttons
-    const hasLive = project.liveUrl && project.liveUrl !== '#';
-    html = html.replace('{{PROJECT_LIVE_TEXT}}', hasLive ? 'Check out the live website or demo.' : 'Live preview coming soon.');
-
-    let actionBtns = '';
-    if (hasLive) {
-        actionBtns += `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
-                    <i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i> View Live
-                </a>`;
-    } else {
-        actionBtns += `<button disabled class="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-medium cursor-not-allowed opacity-50">
-                    <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i> Coming Soon
-                </button>`;
-    }
-    if (project.githubUrl) {
-        actionBtns += `\n                <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
-                    <i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i> View Code
-                </a>`;
-    }
-    html = html.replace('{{PROJECT_ACTION_BUTTONS}}', actionBtns);
-
-    // Next project link
-    const currentIdx = projects.findIndex(p => p.id === project.id);
-    const nextProject = projects[currentIdx + 1];
-    if (nextProject) {
-        html = html.replace('{{PROJECT_NEXT_LINK}}', `
-        <div class="mt-12 text-center">
-            <p class="text-muted-foreground mb-2">Up Next</p>
-            <a href="${basePath}projects/${nextProject.slug}.html" class="text-2xl md:text-4xl font-display font-bold hover:text-accent transition-colors duration-300">
-                ${escHtml(nextProject.title)} &rarr;
-            </a>
-        </div>`);
-    } else {
-        html = html.replace('{{PROJECT_NEXT_LINK}}', `
-        <div class="mt-12 text-center">
-            <p class="text-muted-foreground mb-2">Back to Portfolio</p>
-            <a href="${basePath}projects.html" class="text-2xl md:text-4xl font-display font-bold hover:text-accent transition-colors duration-300">
-                View All Projects &rarr;
-            </a>
-        </div>`);
-    }
-
-    return html;
+    // Inject Scripts into the final HTML
+    // Add GSAP, ScrollTrigger, and custom case-study.js before closing tag if we have lucide script there, or just append
+    // I see in base.html there is a </body>. So let's insert before </body>
+    const scriptInjections = `
+    <!-- Case Study Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="${basePath}public/js/case-study.js"></script>
+    `;
+    
+    // The base.html has </body> at the end
+    // But this render function only modifies the inner body, wait...
+    // Actually, `caseStudyTemplate` is just the main block, it is injected into `baseTemplate` later.
+    // Let's check `build-html.js` around line 431... Oh, `html = html.replace('</body>', ...)` might not work here.
+    return html + scriptInjections;
 }
 
 // ──────────────────────────────────────────

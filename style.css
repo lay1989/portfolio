@@ -146,6 +146,14 @@
         font-variant-numeric: tabular-nums;
     }
 
+    [data-counter]        { opacity: 0; transform: translateY(.75rem); transition: all .7s ease; }
+    [data-counter].is-in  { opacity: 1; transform: none; }
+
+    .reveal-word { display: inline-block; overflow: hidden; }
+    .reveal-word > span { display: inline-block; transform: translateY(110%); }
+    @media (prefers-reduced-motion: reduce) {
+        .reveal-word > span { transform: none; }
+    }
 }
 
 /* Marquee keyframe */

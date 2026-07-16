@@ -159,379 +159,352 @@
 <!-- This template is used by build-html.js to generate individual project pages -->
 <!-- Placeholders: {{PROJECT_*}} are replaced with data from projects.json -->
 
-<main class="pt-32 pb-24 px-6">
-    <div class="container mx-auto max-w-4xl">
-        <!-- Back to Projects -->
-        <a href="../projects.html" class="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8">
-            <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i>
-            Back to Projects
-        </a>
+<main class="relative bg-background text-foreground pb-0">
 
-        <!-- Project Header -->
-        <div class="mb-12">
-            <div class="flex items-center gap-4 mb-6">
-                <span class="text-accent text-sm font-medium uppercase tracking-wider">Web Design, Development &amp; SEO</span>
-                <span class="text-muted-foreground">•</span>
-                <span class="text-muted-foreground text-sm">2025</span>
+    <!-- CaseHero -->
+    <section id="hero" class="relative">
+        <div class="mx-auto max-w-[1400px] px-6 pt-40 md:px-10 md:pt-56">
+            <a href="../projects.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All work
+            </a>
+            
+            <div data-eyebrow class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <span>Construction &amp; Infrastructure</span>
+                <span class="h-px w-8 bg-border"></span>
+                <span>2025</span>
+                <span class="h-px w-8 bg-border"></span>
+                <span>Full Stack Developer &amp; SEO Specialist</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-balance">SwiftBuild Infratech</h1>
-            <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-                SwiftBuild Infratech needed a comprehensive website to establish their presence in the international construction market. The project involved creating a professional portfolio that showcases their innovative construction techniques, completed projects, and expertise in modern infrastructure development.
+            
+            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[0.95] tracking-tight md:text-8xl">
+                <span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">SwiftBuild</span></span><span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">Infratech</span></span>
+            </h1>
+            
+            <div data-underline class="mt-2 h-[3px] w-24 bg-accent md:w-40 scale-x-0 origin-left"></div>
+            
+            <p data-tagline class="mt-8 max-w-2xl text-xl leading-snug text-muted-foreground md:text-3xl">
+                The client was losing international bids because their legacy site looked outdated. They needed a portfolio that matched the scale of their infrastructure projects while ranking for highly competitive international search terms.
             </p>
         </div>
-
-        <!-- Project Hero Image -->
-        <div class="rounded-xl overflow-hidden border border-border shadow-2xl mb-16">
-            <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/SwiftBuild-small.webp 600w, ../public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <source type="image/webp" srcset="../public/images/SwiftBuild-small.webp 600w, ../public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <img src="../public/images/SwiftBuild.webp" alt="SwiftBuild Infratech - Project Case Study Hero Showcase" class="w-full h-auto object-cover">
-            </picture>
-        </div>
-
-        <!-- Project Details Grid -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="user-circle" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Role</h3>
-                    <p class="text-foreground font-medium">Full Stack Developer &amp; SEO Specialist</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="clock" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Timeline</h3>
-                    <p class="text-foreground font-medium">6 Weeks</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4 p-6 bg-card border border-border rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-primary/5 text-primary dark:bg-accent/10 dark:text-accent flex items-center justify-center shrink-0">
-                    <i data-lucide="wrench" class="w-6 h-6" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h3 class="text-sm uppercase tracking-wider font-bold mb-1 text-accent">Tools</h3>
-                    <p class="text-foreground font-medium">HTML, Tailwind CSS, JavaScript, GSAP Animations</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project Sections -->
-        <div class="space-y-20">
-            <!-- Challenge Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="target" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    Problem
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        The client was losing international bids because their legacy site looked outdated. They needed a portfolio that matched the scale of their infrastructure projects while ranking for highly competitive international search terms.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Solution Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="lightbulb" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    Approach &amp; Solution
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                        We designed a timeless professional website focusing on brand positioning. Implemented GSAP animations for smooth interactions and engaging project showcases. Created comprehensive SEO optimization including meta tags, structured data, and content strategy. Built responsive layouts that work perfectly across all devices and implemented performance optimizations for fast loading.
-                    </p>
-                    
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/SwiftBuild 2-small.webp 600w, ../public/images/SwiftBuild 2.webp 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <source type="image/jpeg" srcset="../public/images/SwiftBuild 2-small.jpg 600w, ../public/images/SwiftBuild 2.jpg 1200w" sizes="(max-width: 768px) 90vw, 896px">
-                <img src="../public/images/SwiftBuild 2.jpg" alt="SwiftBuild Infratech - Custom Solution Interface Showcase" class="w-full h-auto object-cover" loading="lazy">
-            </picture>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Process Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="workflow" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Development Process
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">1</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Brand Analysis: Studied construction industry standards and competitor analysis</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">2</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Content Strategy: Developed SEO-focused content architecture</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">3</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Design System: Created scalable design system for consistent branding</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">4</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Development: Built with modern web technologies and animations</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">5</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">SEO Implementation: Applied technical SEO and content optimization</p>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                                <span class="text-accent font-bold text-sm">6</span>
-                            </div>
-                            <p class="text-muted-foreground leading-relaxed">Testing &amp; Launch: Comprehensive testing and performance monitoring</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technologies Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="code" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Technologies Used
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">frontend</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">HTML5</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">CSS3</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">JavaScript</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Tailwind CSS</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">animations</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">GSAP (GreenSock Animation Platform)</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">ScrollTrigger</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">CSS Animations</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">seo</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Schema.org Structured Data</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Meta Tags</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">XML Sitemap</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">robots.txt</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">tools</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Figma</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Adobe Creative Suite</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Google Analytics</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">SEMrush</span>
-                        </div>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6">
-                        <h3 class="text-lg md:text-xl font-bold mb-4 capitalize text-accent">hosting</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Netlify</span><span class="px-3 py-1 bg-secondary/20 text-secondary-foreground rounded-full text-sm">Cloudflare CDN</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Features Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="star" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Key Features
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Interactive project portfolio with filtering</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">GSAP-powered animations and transitions</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Multi-language support structure</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Advanced SEO optimization</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Contact forms with lead capture</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Performance monitoring integration</p>
-                    </div>
-                    <div class="bg-card border border-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                        <p class="text-muted-foreground leading-relaxed">Mobile-first responsive design</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="trending-up" class="w-8 h-8 text-primary dark:text-accent" aria-hidden="true"></i>
-                    <span id="results" class="scroll-mt-32">Results &amp; Impact</span>
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                        Achieved a 25% increase in international inquiries and improved search rankings for key terms. The website achieved 98% on mobile performance tests and reduced bounce rate by 35%. Client reported significant improvement in lead quality and conversion rates.
-                    </p>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">5 wk</div>
-                            <div class="text-sm text-muted-foreground capitalize">End to end</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">+25%</div>
-                            <div class="text-sm text-muted-foreground capitalize">International inquiries</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-accent mb-2">Top 10</div>
-                            <div class="text-sm text-muted-foreground capitalize">in search rankings</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="quote" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Client Feedback
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <blockquote class="text-lg text-muted-foreground leading-relaxed mb-6 italic">
-                        &ldquo;We were practically invisible outside our local market. The new architecture and SEO strategy got us ranking in three new countries within a quarter.&rdquo;
-                    </blockquote>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-6 h-6 text-accent" aria-hidden="true"></i></div>
-                        <div>
-                            <div class="font-bold">Arun Sharma</div>
-                            <div class="text-sm text-muted-foreground">Managing Director, SwiftBuild Infratech</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Lessons Learned Section -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="book-open" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Lessons Learned
-                </h2>
-                <div class="bg-card border border-border rounded-2xl p-8 md:p-12">
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        International SEO requires different strategies than local SEO. Understanding cultural nuances and implementing hreflang tags was crucial. The investment in professional animations paid off significantly in user engagement.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Screenshots Gallery -->
-            
-            <div>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 flex items-center gap-4">
-                    <i data-lucide="image" class="w-8 h-8 text-accent" aria-hidden="true"></i>
-                    Project Gallery
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    
-                    <div class="rounded-xl overflow-hidden border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/SwiftBuild 2-small.webp 600w, ../public/images/SwiftBuild 2.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/jpeg" srcset="../public/images/SwiftBuild 2-small.jpg 600w, ../public/images/SwiftBuild 2.jpg 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="../public/images/SwiftBuild 2.jpg" alt="SwiftBuild Infratech Screenshot 1 - Interface Detail" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300 ease-out-expo" loading="lazy">
-            </picture>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project Links -->
-        <div class="mt-20 pt-12 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div>
-                <h3 class="text-xl md:text-2xl font-display font-bold mb-2">View Live Project</h3>
-                <p class="text-muted-foreground">Check out the live website or demo.</p>
-            </div>
-            <div class="flex gap-4">
-                <a href="https://swiftbuild-infratech.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
-                    <i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i> View Live
-                </a>
-            </div>
-        </div>
-
-        <!-- Stronger CTA -->
-        <div class="mt-24 p-12 bg-accent/5 border border-accent/20 rounded-3xl text-center">
-            <h3 class="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">Ready for a similar result?</h3>
-            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Let\u2019s discuss how we can achieve your business goals with a custom web solution.</p>
-            <a href="../index.html#contact" class="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo magnetic-btn">Start a Project</a>
-        </div>
-
-        <!-- Next Project Loop -->
         
-        <div class="mt-12 text-center">
-            <p class="text-muted-foreground mb-2">Up Next</p>
-            <a href="../projects/kamaldeep-enterprise.html" class="text-2xl md:text-4xl font-display font-bold hover:text-accent transition-colors duration-300">
-                Kamaldeep Enterprise &rarr;
-            </a>
-        </div>
-
-        <!-- Social Sharing -->
-        <div class="mt-12 pt-8 border-t border-border">
-            <h3 class="text-base md:text-lg font-bold mb-4">Share this project</h3>
-            <div class="flex gap-4">
-                <button onclick="shareOnTwitter()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="twitter" class="w-4 h-4" aria-hidden="true"></i>
-                    Twitter
-                </button>
-                <button onclick="shareOnLinkedIn()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
-                    LinkedIn
-                </button>
-                <button onclick="copyProjectLink()" class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors duration-300 ease-out-expo">
-                    <i data-lucide="link" class="w-4 h-4" aria-hidden="true"></i>
-                    Copy Link
-                </button>
+        <!-- CaseHero Cover -->
+        <div class="mt-16 overflow-hidden">
+            <div class="mx-auto max-w-[1600px] px-6 md:px-10">
+                <div data-cover class="relative aspect-[16/9] overflow-hidden rounded-3xl bg-card">
+                    <picture class="block h-full w-full">
+                <source type="image/webp" srcset="../public/images/SwiftBuild-small.webp 600w, ../public/images/SwiftBuild.webp 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
+                <source type="image/webp" srcset="../public/images/SwiftBuild-small.webp 600w, ../public/images/SwiftBuild.webp 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
+                <img src="../public/images/SwiftBuild.webp" alt="SwiftBuild Infratech - Project Case Study Hero Showcase" class="absolute inset-0 w-full h-full object-cover case-hero-cover-img">
+            </picture>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CaseBody -->
+    <section class="mx-auto mt-24 max-w-[1400px] px-6 md:mt-40 md:px-10">
+        <div class="grid gap-12 md:grid-cols-12 md:gap-16 mb-32">
+            
+            <!-- Sticky Meta Rail -->
+            <aside class="md:col-span-4 relative">
+                <div class="md:sticky md:top-32 space-y-6">
+                    <!-- At a glance -->
+                    <div class="rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-5">At a glance</div>
+                        <dl class="space-y-4 text-sm">
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Client</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">Construction &amp; Infrastructure</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Role</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">Full Stack Developer &amp; SEO Specialist</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Timeline</dt>
+                                <dd class="text-right text-foreground max-w-[60%]">6 Weeks</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Year</dt>
+                                <dd class="text-right text-foreground">2025</dd>
+                            </div>
+                        </dl>
+                        
+                        <div class="mt-6">
+                            <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Stack</div>
+                            <div class="mt-2 flex flex-wrap gap-1.5">
+                                <span class="rounded-full border border-border px-2.5 py-0.5 text-xs">HTML</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">Tailwind CSS</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">JavaScript</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs">GSAP Animations</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 border-t border-border/50 pt-5 space-y-3"><a href="https://swiftbuild-infratech.netlify.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm font-bold text-accent hover:text-foreground transition-colors"><i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i> View Live Project</a></div>
+                    </div>
+
+                    <!-- Outcomes At a glance -->
+                    <div class="mt-6 rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-6">Outcomes</div>
+                        <div class="space-y-5">
+                            
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">5 wk</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">End to end</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">+25%</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">International inquiries</div>
+            </div>
+        
+            <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
+                <div class="font-serif text-3xl font-medium tracking-tight text-foreground">Top 10</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">in search rankings</div>
+            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Story Column -->
+            <div class="md:col-span-8">
+                <!-- Brief -->
+                <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">The Brief</div>
+                <div class="mt-4 [&_p]:mb-6 [&_p]:text-xl [&_p]:leading-[1.55] [&_p]:text-foreground md:[&_p]:text-2xl mb-20 prose-reveal">
+                    <p class="drop-cap">SwiftBuild Infratech needed a comprehensive website to establish their presence in the international construction market. The project involved creating a professional portfolio that showcases their innovative construction techniques, completed projects, and expertise in modern infrastructure development.</p>
+                </div>
+
+                <!-- Approach -->
+                <div class="mb-24">
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Approach</h2>
+                    <ul class="space-y-0">
+                        
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Brand Analysis</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Studied construction industry standards and competitor analysis</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Content Strategy</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Developed SEO-focused content architecture</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Design System</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Created scalable design system for consistent branding</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Development</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Built with modern web technologies and animations</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">SEO Implementation</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Applied technical SEO and content optimization</div>
+                </div>
+            </li>
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">06</div>
+                <div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Testing &amp; Launch</h3>
+                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Comprehensive testing and performance monitoring</div>
+                </div>
+            </li>
+                    </ul>
+                </div>
+
+                <!-- Editorial Gallery -->
+                <div class="mb-24">
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Gallery</h2>
+                    <div class="space-y-12">
+                        
+                <figure class="mb-16 md:max-w-[85%]">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                        <picture class="block w-full h-auto">
+                <source type="image/webp" srcset="../public/images/SwiftBuild 2-small.webp 600w, ../public/images/SwiftBuild 2.webp 1200w" sizes="(max-width: 768px) 90vw, 85vw">
+                <source type="image/jpeg" srcset="../public/images/SwiftBuild 2-small.jpg 600w, ../public/images/SwiftBuild 2.jpg 1200w" sizes="(max-width: 768px) 90vw, 85vw">
+                <img src="../public/images/SwiftBuild 2.jpg" alt="SwiftBuild Infratech Interface 1" class="w-full h-auto object-cover" loading="lazy">
+            </picture>
+                    </div>
+                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 01</figcaption>
+                </figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Quote (Optional) -->
+        
+            <div class="relative mb-32 rounded-3xl bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 border border-border px-8 py-14 md:px-16 md:py-20 transition-all hover:border-accent/20">
+                <span class="absolute -top-6 left-8 md:-top-10 md:left-10 font-serif text-[8rem] md:text-[10rem] italic leading-none text-accent select-none">&ldquo;</span>
+                <blockquote class="relative z-10 mb-8 font-serif text-2xl font-medium italic leading-snug text-foreground md:text-4xl">
+                    We were practically invisible outside our local market. The new architecture and SEO strategy got us ranking in three new countries within a quarter.
+                </blockquote>
+                <div class="relative z-10 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    &mdash; Arun Sharma, Managing Director, SwiftBuild Infratech
+                </div>
+            </div>
+
+        <!-- Decisions Accordion -->
+        
+            <div class="mb-32 grid md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Project Decisions</h2>
+                    <p class="text-muted-foreground">Trade-offs, challenges, and insights from the development process.</p>
+                </div>
+                <div class="md:col-span-7 md:col-start-6">
+                    <div class="divide-y divide-border border-y border-border" id="decisions">
+                        
+                        <div class="accordion-item group">
+                            <button aria-expanded="true" aria-controls="d-0" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What was the core challenge?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-0" data-panel class="grid transition-all duration-300 ease-out grid-rows-[1fr] opacity-100">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        The client was losing international bids because their legacy site looked outdated. They needed a portfolio that matched the scale of their infrastructure projects while ranking for highly competitive international search terms.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item group">
+                            <button aria-expanded="false" aria-controls="d-1" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">How did we approach the solution?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-1" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        We designed a timeless professional website focusing on brand positioning. Implemented GSAP animations for smooth interactions and engaging project showcases. Created comprehensive SEO optimization including meta tags, structured data, and content strategy. Built responsive layouts that work perfectly across all devices and implemented performance optimizations for fast loading.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item group">
+                            <button aria-expanded="false" aria-controls="d-2" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
+                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What were the key takeaways?</span>
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
+                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
+                                </span>
+                            </button>
+                            <div id="d-2" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
+                                        International SEO requires different strategies than local SEO. Understanding cultural nuances and implementing hreflang tags was crucial. The investment in professional animations paid off significantly in user engagement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Outcomes Recap -->
+        <div class="mb-32">
+            <div class="flex justify-between items-end border-b border-border pb-4 mb-12">
+                <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent">Outcomes Recap</h2>
+                <span class="text-sm text-muted-foreground">After launch</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">5 wk</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">End to end</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">+25%</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">International inquiries</div>
+            </div>
+        
+            <div>
+                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">Top 10</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">in search rankings</div>
+            </div>
+        
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="mb-32">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                
+                <!-- Content (Left side) -->
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Like this build? · Booking Q3 2026</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                </div>
+
+                <!-- Action Buttons (Right side) -->
+                <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
+                    <a href="../index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    </a>
+                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    </a>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CaseNext -->
+        <div class="w-full mt-24 mb-32 md:mb-40">
+            
+        <a href="../projects/kamaldeep-enterprise.html" class="block group rounded-[2rem] overflow-hidden relative px-10 py-6 md:px-16 md:py-10 lg:px-20 lg:py-14 transition-all hover:scale-[1.01] duration-500 ease-out-expo border border-border shadow-sm hover:shadow-xl hover:border-accent/30 bg-card">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[1.5s] ease-out group-hover:scale-105" style="background-image: url('../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png');"></div>
+            
+            <!-- Glassmorphic Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/80 to-slate-50/10 dark:from-slate-950/95 dark:via-slate-950/80 dark:to-slate-950/10 backdrop-blur-[2px] transition-all duration-700 group-hover:backdrop-blur-0"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 max-w-2xl transform transition-transform duration-500 group-hover:translate-x-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">Kamaldeep Enterprise</h2>
+                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">Custom-made CMS for Fabric Wholesaler to manage catalogs for their clients.</p>
+            </div>
+            
+            <!-- Floating Arrow Icon -->
+            <div class="absolute right-8 bottom-6 md:right-16 md:bottom-10 lg:bottom-14 w-14 h-14 rounded-full bg-accent flex items-center justify-center text-accent-foreground transform translate-x-4 opacity-0 transition-all duration-500 ease-out-expo group-hover:translate-x-0 group-hover:opacity-100 shadow-xl shadow-accent/20">
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </div>
+        </a>
+        </div>
+    </section>
 </main>
 
+    <!-- Case Study Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../public/js/case-study.js"></script>
+    
 
         <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
         <div class="container mx-auto max-w-[1400px]">
