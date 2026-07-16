@@ -229,11 +229,11 @@ function renderCaseStudy(project, basePath) {
                 body = parts.slice(1).join(':').trim();
             }
             return `
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">0${i + 1}</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">${escHtml(title)}</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">${escHtml(body)}</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">${escHtml(title)}</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">${escHtml(body)}</div>
                 </div>
             </li>`;
         }).join('');

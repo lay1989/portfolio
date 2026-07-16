@@ -183,7 +183,7 @@
             <div data-underline class="mt-2 h-[3px] w-24 bg-accent md:w-40 scale-x-0 origin-left"></div>
             
             <p data-tagline class="mt-8 max-w-2xl text-xl leading-snug text-muted-foreground md:text-3xl">
-                Create a personal trading system that can analyze cryptocurrency markets, execute automated trades, and provide detailed performance analytics. The main challenges included implementing reliable trading algorithms, handling real-time market data, and creating an intuitive dashboard for monitoring trades and performance.
+                Manual cryptocurrency trading is hindered by emotion, latency, and information overload. The goal was to engineer an automated, emotionless system capable of parsing real-time WebSocket data, managing risk dynamically, and executing split-second trades 24/7.
             </p>
         </div>
         
@@ -269,7 +269,7 @@
                 <!-- Brief -->
                 <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">The Brief</div>
                 <div class="mt-4 [&_p]:mb-6 [&_p]:text-xl [&_p]:leading-[1.55] [&_p]:text-foreground md:[&_p]:text-2xl mb-20 prose-reveal">
-                    <p class="drop-cap">A personal cryptocurrency trading bot I developed to automate trading strategies and analyze market data. The system includes real-time data visualization, automated trading signals, and comprehensive performance reporting. Built as a learning project to explore algorithmic trading and data visualization techniques.</p>
+                    <p class="drop-cap">Navigating volatile cryptocurrency markets requires systematic precision. This proprietary trading ecosystem combines a Python-powered algorithmic backend with an interactive D3.js analytics dashboard. It eliminates emotional trading by executing data-driven strategies in real-time, providing total transparency into portfolio performance.</p>
                 </div>
 
                 <!-- Approach -->
@@ -277,46 +277,39 @@
                     <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Approach</h2>
                     <ul class="space-y-0">
                         
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Market Research</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Studied cryptocurrency trading patterns and algorithms</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Quantitative Research</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Backtested historical cryptocurrency datasets to identify high-probability algorithmic trading patterns.</div>
                 </div>
             </li>
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Strategy Development</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Designed and tested various trading strategies</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">High-Performance Backend</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Architected a robust Python/Flask infrastructure leveraging Celery and Redis for zero-latency data ingestion.</div>
                 </div>
             </li>
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">System Architecture</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Built scalable backend with real-time capabilities</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Algorithmic Execution</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Programmed custom risk-management protocols, dynamic position sizing, and automated stop-loss mechanisms.</div>
                 </div>
             </li>
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Dashboard Creation</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Developed interactive analytics interface</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Data Visualization</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Engineered an interactive D3.js dashboard to translate complex, real-time market data into actionable visual insights.</div>
                 </div>
             </li>
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
+            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Risk Management</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Implemented stop-loss and position sizing algorithms</div>
-                </div>
-            </li>
-            <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-6">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">06</div>
-                <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium">Testing &amp; Optimization</h3>
-                    <div data-reveal class="mt-2 text-muted-foreground md:text-lg leading-relaxed">Backtested strategies and optimized performance</div>
+                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Security &amp; Integration</h3>
+                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Implemented strict API security protocols and JWT authentication for secure multi-exchange connectivity.</div>
                 </div>
             </li>
                     </ul>
@@ -357,7 +350,7 @@
                             <div id="d-0" data-panel class="grid transition-all duration-300 ease-out grid-rows-[1fr] opacity-100">
                                 <div class="overflow-hidden">
                                     <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
-                                        Create a personal trading system that can analyze cryptocurrency markets, execute automated trades, and provide detailed performance analytics. The main challenges included implementing reliable trading algorithms, handling real-time market data, and creating an intuitive dashboard for monitoring trades and performance.
+                                        Manual cryptocurrency trading is hindered by emotion, latency, and information overload. The goal was to engineer an automated, emotionless system capable of parsing real-time WebSocket data, managing risk dynamically, and executing split-second trades 24/7.
                                     </p>
                                 </div>
                             </div>
@@ -469,7 +462,7 @@
                     <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
                 </div>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">Aroma Cafe</h2>
-                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">A beautiful Cafe website with online reservations, menu showcase, and location finder.</p>
+                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">Conversion-focused cafe website featuring live API-driven reservations, interactive menus, and location services to drive local foot traffic and bookings.</p>
             </div>
             
             <!-- Floating Arrow Icon -->
