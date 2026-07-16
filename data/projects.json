@@ -48,9 +48,9 @@
       ],
       "results": "The client immediately approved the design with minimal revisions. The site successfully establishes trust, educates visitors on retreading processes, and was fully designed, built, and ready for deployment within a highly accelerated 10-day timeline.",
       "metrics": {
-        "Lighthouse (Mobile)": "95",
-        "Delivery Time": "10 Days",
-        "Target Region": "Pune & Raigad"
+        "Pages Built": "5",
+        "Turnaround": "10 Days",
+        "Mobile Friendly": "100%"
       },
       "screenshots": [
         "./public/images/Capital Tyres - hero.webp",
