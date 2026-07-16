@@ -282,6 +282,38 @@
     "ogUrl": "https://layshahdev.com/projects.html",
     "content": "content/projects.html"
   },
+  "projects/capital-tyres.html": {
+    "type": "project",
+    "projectSlug": "capital-tyres",
+    "title": "Capital Tyres - Case Study | Lay Shah",
+    "description": "High-converting local business website for a Pune tyre retreading company.",
+    "canonical": "https://layshahdev.com/projects/capital-tyres.html",
+    "ogType": "article",
+    "ogTitle": "Capital Tyres - Case Study | Lay Shah",
+    "ogDescription": "High-converting local business website for a Pune tyre retreading company.",
+    "ogUrl": "https://layshahdev.com/projects/capital-tyres.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Capital Tyres - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-07-16",
+      "dateModified": "2026-07-16"
+    }
+  },
   "projects/ghermar-sons.html": {
     "type": "project",
     "projectSlug": "ghermar-sons",
