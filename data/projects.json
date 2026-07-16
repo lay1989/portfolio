@@ -65,7 +65,8 @@
       },
       "screenshots": [
         "./public/images/Ghermar & Sons.webp",
-        "./public/images/Ghermar & Sons 2.png"
+        "./public/images/Ghermar & Sons 2.png",
+        "./public/images/Ghermar & Sons - services.webp"
       ],
       "testimonial": {
         "quote": "Lay stripped away all the bloat and delivered a site that loads instantly. Our inbound B2B inquiries noticeably increased within a month of launch.",
@@ -148,7 +149,8 @@
       },
       "screenshots": [
         "./public/images/SwiftBuild.webp",
-        "./public/images/SwiftBuild 2.jpg"
+        "./public/images/SwiftBuild 2.jpg",
+        "./public/images/SwiftBuild 3.webp"
       ],
       "testimonial": {
         "quote": "We were practically invisible outside our local market. The new architecture and SEO strategy got us ranking in three new countries within a quarter.",
