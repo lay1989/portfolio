@@ -24,15 +24,31 @@
     {{WORK_REEL}}
     {{WORK_STACK}}
 
-    <!-- CTA -->
-    <div class="max-w-[1400px] mx-auto px-6 md:px-10 mt-24 mb-24 text-center reveal">
-        <div class="p-12 bg-card border border-border rounded-[2rem]">
-            <h3 class="font-serif font-medium text-3xl md:text-4xl mb-4 text-foreground">Have a project in mind?</h3>
-            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Let&rsquo;s discuss how we can build something exceptional together.</p>
-            <a href="./index.html#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-accent hover:text-white transition-colors duration-300">
-                Start a Project
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
+    <!-- Contact CTA -->
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 mt-24 mb-24 reveal">
+        <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+            
+            <!-- Content (Left side) -->
+            <div class="flex-grow max-w-2xl">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <span class="text-accent text-xs font-mono uppercase tracking-widest">Like this work? · Booking Q3 2026</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
+                <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+            </div>
+
+            <!-- Action Buttons (Right side) -->
+            <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
+                <a href="{{BASE_PATH}}index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                    Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                </a>
+                <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                    <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                </a>
+                <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+            </div>
+
         </div>
     </div>
 </main>
