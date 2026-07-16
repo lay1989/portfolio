@@ -243,9 +243,9 @@ function renderCaseStudy(project, basePath) {
     }
 
     // Gallery Section
-    if (project.screenshots && project.screenshots.length > 1) {
-        // Drop the first one since it's the hero cover
-        const galleryImgs = project.screenshots.slice(1);
+    if (project.screenshots && project.screenshots.length > 0) {
+        // Use all images for the gallery, including the hero cover
+        const galleryImgs = project.screenshots;
         if (galleryImgs.length > 0) {
             const galleryHtml = galleryImgs.map((img, idx) => {
                 const isWide = (idx % 3 === 0 && idx !== 0); // make every 3rd wide
