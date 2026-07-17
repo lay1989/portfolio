@@ -1,20 +1,19 @@
 {
   "index.html": {
     "title": "Lay Shah | Freelance Web Developer & Web Designer",
-    "description": "Freelance Web Developer & Web Designer based in Ahmedabad. I build custom, responsive websites optimized for speed and local SEO. View my portfolio.",
+    "description": "Lay Shah — Freelance web developer & designer based in Ahmedabad, India. I build custom, high-performance websites and web apps for founders. Fast, SEO-ready, no templates.",
     "canonical": "https://layshahdev.com/",
     "ogType": "website",
-    "ogTitle": "Lay Shah | Web Designer & Frontend Developer",
-    "ogDescription": "Custom websites for small businesses. Responsive, SEO-optimized, and built for fast page speed.",
+    "ogTitle": "Lay Shah | Freelance Web Developer & Designer",
+    "ogDescription": "I design and build custom websites and web apps — hand-coded, SEO-optimized, and built to perform. Based in Ahmedabad, India. Available for freelance projects.",
     "ogUrl": "https://layshahdev.com",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Lay Shah | Web Developer",
+      "@type": "Person",
+      "name": "Lay Shah",
       "url": "https://layshahdev.com",
-      "logo": "https://layshahdev.com/logo.png",
-      "description": "Freelance web developer designing and building custom websites for small businesses.",
+      "description": "Freelance full-stack web developer and designer based in Ahmedabad, India. I build custom, high-performance websites and web applications for founders and growing businesses.",
       "sameAs": [
         "https://github.com/lay1989"
       ],
@@ -24,7 +23,8 @@
           "email": "layshah1989@gmail.com",
           "contactType": "customer service"
         }
-      ]
+      ],
+      "jobTitle": "Freelance Web Developer & Designer"
     },
     "content": "content/index.html"
   },
@@ -58,12 +58,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-01-15",
       "dateModified": "2026-01-15",
@@ -95,12 +91,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-12-20",
       "dateModified": "2025-12-20",
@@ -132,12 +124,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-02-07",
       "dateModified": "2026-02-07",
@@ -173,12 +161,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-02-07",
       "dateModified": "2026-02-07",
@@ -214,12 +198,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-02-07",
       "dateModified": "2026-02-07",
@@ -251,12 +231,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-02-07",
       "dateModified": "2026-02-07",
@@ -303,12 +279,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-07-17",
       "dateModified": "2026-07-17"
@@ -335,12 +307,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-07-17",
       "dateModified": "2026-07-17"
@@ -350,11 +318,11 @@
     "type": "project",
     "projectSlug": "capital-tyres",
     "title": "Capital Tyres Case Study | Local Business Web Design | Lay Shah",
-    "description": "Local business web design case study for Capital Tyres. See how we improved local SEO and generated B2B leads.",
+    "description": "Local business web design case study for Capital Tyres. See how I improved local SEO and generated B2B leads.",
     "canonical": "https://layshahdev.com/projects/capital-tyres.html",
     "ogType": "article",
     "ogTitle": "Capital Tyres Case Study | Local Business Web Design | Lay Shah",
-    "ogDescription": "Local business web design case study for Capital Tyres. See how we improved local SEO and generated B2B leads.",
+    "ogDescription": "Local business web design case study for Capital Tyres. See how I improved local SEO and generated B2B leads.",
     "ogUrl": "https://layshahdev.com/projects/capital-tyres.html",
     "ogImage": "https://layshahdev.com/og-image.jpg",
     "structuredData": {
@@ -367,12 +335,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2026-07-16",
       "dateModified": "2026-07-16"
@@ -399,12 +363,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -431,12 +391,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -463,12 +419,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -495,12 +447,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -527,12 +475,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -559,12 +503,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -591,12 +531,8 @@
         "url": "https://layshahdev.com"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Lay Shah Web Development",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://layshahdev.com/logo.png"
-        }
+        "@type": "Person",
+        "name": "Lay Shah"
       },
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
@@ -613,11 +549,11 @@
   },
   "503.html": {
     "title": "Service Unavailable | Lay Shah",
-    "description": "Our site is currently undergoing maintenance. Please check back later.",
+    "description": "The site is currently undergoing maintenance. Please check back soon.",
     "canonical": "https://layshahdev.com/503.html",
     "ogType": "website",
     "ogTitle": "Service Unavailable",
-    "ogDescription": "Our site is currently undergoing maintenance. Please check back later.",
+    "ogDescription": "The site is currently undergoing maintenance. Please check back soon.",
     "content": "content/503.html"
   }
 }
