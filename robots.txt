@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Block build artifacts and dev files
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /src/
+Disallow: /templates/
+Disallow: /content/
+Disallow: /data/
+Disallow: /bundle.js
+Disallow: /tailwind.css
+Disallow: /convert.js
+Disallow: /temp*.js
+Disallow: /test.js
+Disallow: /verify*.js
+Disallow: /.git/
+Disallow: /.agents/
+Disallow: /.vscode/
+Disallow: /GSC/
+Disallow: /docs/
+
 Sitemap: https://layshahdev.com/sitemap.xml
