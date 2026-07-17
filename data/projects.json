@@ -1,6 +1,64 @@
 {
   "projects": [
     {
+      "id": 9,
+      "slug": "intent-studio",
+      "title": "Intent Studio",
+      "category": "Retail Design Studio",
+      "year": "2026",
+      "shortDesc": "Immersive, high-performance website for a retail design studio. Engineered with React and GSAP to deliver a premium, conversion-focused brand experience.",
+      "heroImg": "./public/images/Intent-studio - hero.webp",
+      "role": "Lead Designer & Frontend Developer",
+      "timeline": "4 Weeks",
+      "tools": "React, Tailwind CSS, TypeScript, GSAP",
+      "budget": "Undisclosed",
+      "clientType": "Design Studio (B2B)",
+      "liveUrl": "https://intent-studio.netlify.app",
+      "githubUrl": null,
+      "overview": "Intent Studio is a premier retail design studio that crafts intuitive brand experiences. They approached us with a clear vision: their website shouldn't just explain what they do—it needed to create an immediate, unforgettable impression. We engineered a digital presence that perfectly mirrors their retail philosophy, prioritizing experiential design over dense blocks of text.",
+      "challenge": "The primary challenge was positioning rather than explanation. We needed to communicate the studio's exceptional design mindset from the very first interaction, guiding visitors naturally through carefully considered layouts without requiring them to 'learn' how to navigate the site.",
+      "solution": "Delivered a modern, immersive web application built on React and powered by GSAP for fluid, subtle motion. Every interaction, transition, and visual cue was meticulously developed to reinforce the quality and creativity of Intent Studio's work, allowing the brand experience to speak for itself.",
+      "process": [
+        "Experiential UX Strategy: Architected intuitive navigation flows that eliminated cognitive load, letting the visual design take center stage.",
+        "Motion Design Integration: Leveraged GSAP to implement subtle, high-performance animations that guide user attention and build premium brand perception.",
+        "Frontend Engineering: Developed a robust, type-safe architecture using React and TypeScript, ensuring flawless performance across all devices.",
+        "Visual Hierarchy Optimization: Crafted distinct, typography-driven layouts using Tailwind CSS to replace traditional text-heavy explanations.",
+        "Performance Tuning: Optimized assets and component rendering to maintain sub-second load times despite the media-rich experience."
+      ],
+      "technologies": {
+        "frontend": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GSAP"
+        ],
+        "performance": [
+          "Code Splitting",
+          "Asset Optimization",
+          "Lazy Loading"
+        ]
+      },
+      "keyFeatures": [
+        "Experiential, motion-rich interface",
+        "GSAP-powered fluid transitions",
+        "Type-safe React architecture",
+        "Typography-driven layout system",
+        "Optimized media delivery"
+      ],
+      "results": "The final product is a stunning digital experience that fundamentally elevates Intent Studio's market positioning. By placing the user experience first, the site creates a memorable first impression that effortlessly communicates the studio's core value proposition to prospective high-tier clients.",
+      "metrics": {
+        "Load Time": "Sub-second",
+        "Animations": "GSAP Powered",
+        "Mobile Responsive": "100%"
+      },
+      "screenshots": [
+        "./public/images/Intent-studio - hero.webp",
+        "./public/images/Intent-studio 1.webp",
+        "./public/images/Intent-studio 2.webp",
+        "./public/images/Intent-studio 3.webp"
+      ]
+    },
+    {
       "id": 8,
       "slug": "capital-tyres",
       "title": "Capital Tyres",

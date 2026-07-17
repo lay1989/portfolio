@@ -282,6 +282,38 @@
     "ogUrl": "https://layshahdev.com/projects.html",
     "content": "content/projects.html"
   },
+  "projects/intent-studio.html": {
+    "type": "project",
+    "projectSlug": "intent-studio",
+    "title": "Intent Studio - Case Study | Lay Shah",
+    "description": "Immersive, high-performance website for a retail design studio.",
+    "canonical": "https://layshahdev.com/projects/intent-studio.html",
+    "ogType": "article",
+    "ogTitle": "Intent Studio - Case Study | Lay Shah",
+    "ogDescription": "Immersive, high-performance website for a retail design studio.",
+    "ogUrl": "https://layshahdev.com/projects/intent-studio.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Intent Studio - Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-17"
+    }
+  },
   "projects/capital-tyres.html": {
     "type": "project",
     "projectSlug": "capital-tyres",
