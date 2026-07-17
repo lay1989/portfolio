@@ -57,7 +57,12 @@
         "./public/images/ASH clipping 4.webp",
         "./public/images/ASH clipping 5.webp",
         "./public/images/ASH clipping 6.webp"
-      ]
+      ],
+      "testimonial": {
+        "quote": "Lay transformed our vision into a sleek, high-converting platform that loads instantly and clearly communicates our edge in the creator economy. Inquiries and campaign activations increased rapidly after launch.",
+        "author": "ASH Clipping Team",
+        "title": "Founders"
+      }
     },
     {
       "id": 9,
@@ -115,7 +120,12 @@
         "./public/images/Intent-studio 1.webp",
         "./public/images/Intent-studio 2.webp",
         "./public/images/Intent-studio 3.webp"
-      ]
+      ],
+      "testimonial": {
+        "quote": "We needed a digital experience that matched our premium retail design philosophy. Lay delivered a motion-rich, flawless website that immediately elevates our brand and captures the exact feeling we want our clients to have.",
+        "author": "Creative Director",
+        "title": "Intent Studio"
+      }
     },
     {
       "id": 8,
@@ -171,11 +181,16 @@
       },
       "screenshots": [
         "./public/images/Capital Tyres - hero.webp",
-        "./public/images/Capital Tyres 3.webp",
+        "./public/images/Capital Tyres 1.webp",
         "./public/images/Capital Tyres 2.webp",
-        "./public/images/Capital Tyres 4.webp"
+        "./public/images/Capital Tyres 3.webp",
+        "./public/images/Capital Tyres - Services.webp"
       ],
-      "testimonial": null,
+      "testimonial": {
+        "quote": "Lay built a high-performance website that perfectly positions our commercial tyre retreading business. The site looks incredibly premium, and it immediately started driving qualified leads from major fleet operators across Pune.",
+        "author": "Vinish",
+        "title": "Owner, Capital Tyres"
+      },
       "lessonsLearned": "Local businesses with long-standing reputations benefit massively from digital platforms that simply get out of the way and let their authority speak. Speed, clarity, and social proof are the ultimate conversion drivers in local B2B markets.",
       "contentImg": "./public/images/Capital Tyres 3.webp",
       "websiteUrl": "#"
