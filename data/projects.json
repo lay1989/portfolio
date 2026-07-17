@@ -5,7 +5,7 @@
       "slug": "ash-clipping",
       "title": "ASH Clipping",
       "category": "Full Stack Web Application",
-      "year": "2025",
+      "year": "2026",
       "shortDesc": "Custom SaaS platform connecting brands with creators for short-form content distribution. Built with React and FastAPI to process millions of views.",
       "heroImg": "./public/images/ASH clipping - hero.webp",
       "role": "Lead Full-Stack Architect & Developer",
@@ -13,7 +13,7 @@
       "tools": "React, FastAPI, PostgreSQL, Redis",
       "budget": "Undisclosed",
       "clientType": "Creator Economy Startup",
-      "liveUrl": "#",
+      "liveUrl": "https://ashclipping.com",
       "githubUrl": null,
       "overview": "ASH Clipping is a platform connecting brands with vetted creators to scale organic short-form content distribution across TikTok, Instagram Reels, and YouTube Shorts. Brands upload campaign briefs, activate creators, and achieve native reach with transparent pay-per-view pricing and unified analytics. I designed and developed the complete web platform to establish ASH Clipping as a reliable creator network, delivering a fast, conversion-focused digital experience that drives brand sign-ups and creator engagement.",
       "challenge": "The short-form content market is highly competitive, and many platforms struggle with slow performance, unclear value propositions, and weak SEO. ASH needed a high-converting site that instantly communicates reliability and results. The core technical challenge was building a highly scalable, real-time data ingestion engine capable of tracking millions of social media views and executing automated financial ledgers without causing memory leaks on a lean server environment.",
@@ -48,7 +48,7 @@
       "metrics": {
         "Data Processed": "100M+ Views",
         "Payouts Secured": "$32k+",
-        "Infrastructure": "Highly Optimized"
+        "Active Users": "10K+"
       },
       "screenshots": [
         "./public/images/ASH clipping - hero.webp",
