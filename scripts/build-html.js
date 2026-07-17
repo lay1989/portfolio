@@ -552,29 +552,26 @@ function renderProjectsListing() {
 // Helper: render projects on the homepage
 // ──────────────────────────────────────────
 function renderHomepageProjects() {
-    // Use the exact order provided by projects.json
-    const sorted = [...projects];
+    // Use the exact order provided by projects.json and only take the first 3
+    const sorted = [...projects].slice(0, 3);
 
     return sorted.map((p, index) => {
         const isEven = index % 2 === 0;
         const imgOrder = isEven ? 'order-2 @2xl:order-1' : 'order-2 @2xl:order-2';
         const textOrder = isEven ? 'order-1 @2xl:order-2' : 'order-1 @2xl:order-1';
         
-        // Hide projects after the first 3
-        const hiddenClass = index >= 3 ? ' hidden' : '';
-
         const picture = renderResponsivePicture(
             p.heroImg,
             `${p.title} - ${p.category}`,
             'w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out',
             '(max-width: 768px) 90vw, 45vw',
-            index < 3, // eager load first 3
+            true, // eager load first 3
             './'
         );
 
         return `
                     <!-- Project ${index + 1} -->
-                    <div class="project-item group block @container${hiddenClass}" data-project="${p.id}">
+                    <div class="project-item group block @container" data-project="${p.id}">
                         <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
                             <div class="${imgOrder}">
                                 <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
