@@ -282,6 +282,38 @@
     "ogUrl": "https://layshahdev.com/projects.html",
     "content": "content/projects.html"
   },
+  "projects/ash-clipping.html": {
+    "type": "project",
+    "projectSlug": "ash-clipping",
+    "title": "Ash Clipping Case Study | Custom SaaS Backend Architecture | Lay Shah",
+    "description": "Discover how I architected a scalable, high-performance SaaS platform using FastAPI, React, and PostgreSQL to process over 100 million views for the Ash Clipping creator network.",
+    "canonical": "https://layshahdev.com/projects/ash-clipping.html",
+    "ogType": "article",
+    "ogTitle": "Ash Clipping Case Study | Custom SaaS Backend Architecture | Lay Shah",
+    "ogDescription": "Discover how I architected a scalable, high-performance SaaS platform using FastAPI, React, and PostgreSQL to process over 100 million views for the Ash Clipping creator network.",
+    "ogUrl": "https://layshahdev.com/projects/ash-clipping.html",
+    "ogImage": "https://layshahdev.com/og-image.jpg",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ash Clipping Case Study",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lay Shah Web Development",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://layshahdev.com/logo.png"
+        }
+      },
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-17"
+    }
+  },
   "projects/intent-studio.html": {
     "type": "project",
     "projectSlug": "intent-studio",

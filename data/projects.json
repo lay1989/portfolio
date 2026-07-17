@@ -1,6 +1,65 @@
 {
   "projects": [
     {
+      "id": 10,
+      "slug": "ash-clipping",
+      "title": "ASH Clipping",
+      "category": "Full Stack Web Application",
+      "year": "2025",
+      "shortDesc": "Custom SaaS platform connecting brands with creators for short-form content distribution. Built with React and FastAPI to process millions of views.",
+      "heroImg": "./public/images/ASH clipping - hero.webp",
+      "role": "Lead Full-Stack Architect & Developer",
+      "timeline": "15 Weeks",
+      "tools": "React, FastAPI, PostgreSQL, Redis",
+      "budget": "Undisclosed",
+      "clientType": "Creator Economy Startup",
+      "liveUrl": "#",
+      "githubUrl": null,
+      "overview": "ASH Clipping is a platform connecting brands with vetted creators to scale organic short-form content distribution across TikTok, Instagram Reels, and YouTube Shorts. Brands upload campaign briefs, activate creators, and achieve native reach with transparent pay-per-view pricing and unified analytics. I designed and developed the complete web platform to establish ASH Clipping as a reliable creator network, delivering a fast, conversion-focused digital experience that drives brand sign-ups and creator engagement.",
+      "challenge": "The short-form content market is highly competitive, and many platforms struggle with slow performance, unclear value propositions, and weak SEO. ASH needed a high-converting site that instantly communicates reliability and results. The core technical challenge was building a highly scalable, real-time data ingestion engine capable of tracking millions of social media views and executing automated financial ledgers without causing memory leaks on a lean server environment.",
+      "solution": "I engineered an enterprise-grade backend using Python and FastAPI, combined with an intuitive React frontend. The system features a dual-scraper data ingestion pipeline for absolute reliability, a time-series financial ledger to preserve server memory, and an immutable payout vault to securely handle creator payments. The resulting platform processes massive data volumes efficiently while maintaining fast load times.",
+      "process": [
+        "Enterprise-Grade Backend Architecture: Engineered a resilient dual-pipeline system with FastAPI and PostgreSQL to ensure absolute data reliability during third-party API outages.",
+        "Time-Series Data Ingestion: Implemented a scheduled Redis Queue background worker for daily roll-ups to update the master row, preserving server memory while maintaining absolute financial accuracy.",
+        "Intelligent Campaign State Machines: Designed a conditional campaign lifecycle loop with automated expiration cron jobs to allow administrators to verify content quality safely.",
+        "Immutable Crypto Payout Vaults: Integrated a strict crypto payment architecture using strict database ENUMs to permanently secure the historical financial ledger.",
+        "Pre-Database Security & Validation: Implemented token-bucket rate limiting and payload size validation within FastAPI middleware to protect Redis Queue workers from memory exhaustion."
+      ],
+      "technologies": {
+        "frontend": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS"
+        ],
+        "backend": [
+          "FastAPI (Python)",
+          "PostgreSQL",
+          "Redis Queue"
+        ]
+      },
+      "keyFeatures": [
+        "Real-time social media data ingestion",
+        "Time-series financial ledger",
+        "Automated campaign review states",
+        "Immutable crypto payout tracking",
+        "Dual-scraper fallback pipeline"
+      ],
+      "results": "The robust architecture successfully powers a platform that has delivered over 100 million organic views across multiple brand campaigns. By treating the campaign logic as a rigorous state machine and the data ingestion as a time-series log, Ash Clipping now operates a scalable financial ledger that has seamlessly processed over $32,000 in creator payouts.",
+      "metrics": {
+        "Data Processed": "100M+ Views",
+        "Payouts Secured": "$32k+",
+        "Infrastructure": "Highly Optimized"
+      },
+      "screenshots": [
+        "./public/images/ASH clipping - hero.webp",
+        "./public/images/ASH clipping 2.webp",
+        "./public/images/ASH clipping 3.webp",
+        "./public/images/ASH clipping 4.webp",
+        "./public/images/ASH clipping 5.webp",
+        "./public/images/ASH clipping 6.webp"
+      ]
+    },
+    {
       "id": 9,
       "slug": "intent-studio",
       "title": "Intent Studio",
