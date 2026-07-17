@@ -601,5 +601,23 @@
       "datePublished": "2025-02-07",
       "dateModified": "2025-02-07"
     }
+  },
+  "404.html": {
+    "title": "Page Not Found | Lay Shah",
+    "description": "The page you are looking for does not exist.",
+    "canonical": "https://layshahdev.com/404.html",
+    "ogType": "website",
+    "ogTitle": "Page Not Found",
+    "ogDescription": "The page you are looking for does not exist.",
+    "content": "content/404.html"
+  },
+  "503.html": {
+    "title": "Service Unavailable | Lay Shah",
+    "description": "Our site is currently undergoing maintenance. Please check back later.",
+    "canonical": "https://layshahdev.com/503.html",
+    "ogType": "website",
+    "ogTitle": "Service Unavailable",
+    "ogDescription": "Our site is currently undergoing maintenance. Please check back later.",
+    "content": "content/503.html"
   }
 }
