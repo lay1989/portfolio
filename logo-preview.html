@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Variations — Lay Shah Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        .section { padding: 4rem 2rem; text-align: center; }
+        .section h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem; margin-bottom: 0.5rem; letter-spacing: -0.025em; }
+        .section p { color: #64748b; font-size: 0.875rem; margin-bottom: 2rem; }
+        
+        .light-bg { background: #f8fafc; color: #0f172a; }
+        .dark-bg { background: #020617; color: #f8fafc; }
+        .dark-bg p { color: #94a3b8; }
+        
+        .logo-row { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .logo-card { 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            padding: 2rem 3rem; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 1rem; 
+            background: white; 
+        }
+        .dark-bg .logo-card { border-color: #1e293b; background: #0f172a; }
+        .logo-card span { font-size: 0.75rem; color: #64748b; font-family: 'Space Grotesk'; letter-spacing: 0.1em; text-transform: uppercase; }
+        .dark-bg .logo-card span { color: #94a3b8; }
+        
+        .divider { height: 1px; background: #e2e8f0; max-width: 800px; margin: 0 auto; }
+        .dark-bg .divider { background: #1e293b; }
+        
+        .size-demo { display: flex; align-items: center; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+        .size-demo div { text-align: center; }
+        .size-demo span { display: block; font-size: 0.625rem; color: #94a3b8; margin-top: 0.5rem; font-family: monospace; }
+
+        .badge { display: inline-block; background: #059669; color: white; font-size: 0.625rem; padding: 0.15rem 0.5rem; border-radius: 999px; margin-left: 0.5rem; vertical-align: middle; font-weight: 600; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHT MODE SHOWCASE -->
+    <div class="section light-bg">
+        <h2>Logo Variations — Light Mode</h2>
+        <p>All colors sourced from <code>style.css</code> :root variables. Font: Space Grotesk 700.</p>
+        
+        <div class="logo-row">
+            <!-- Variation A -->
+            <div class="logo-card">
+                <span>A · Minimal Monogram</span>
+                <img src="public/images/logo-a-monogram.svg" alt="Variation A" height="40">
+            </div>
+            
+            <!-- Variation B -->
+            <div class="logo-card">
+                <span>B · Geometric Icon <span class="badge">FAVICON</span></span>
+                <div class="size-demo">
+                    <div>
+                        <img src="public/images/logo-b-icon.svg" alt="Variation B 32px" width="32" height="32">
+                        <span>32×32</span>
+                    </div>
+                    <div>
+                        <img src="public/images/logo-b-icon.svg" alt="Variation B 16px" width="16" height="16">
+                        <span>16×16</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Variation C -->
+            <div class="logo-card">
+                <span>C · Icon + Wordmark Lockup</span>
+                <img src="public/images/logo-c-lockup.svg" alt="Variation C" height="40">
+            </div>
+        </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <!-- DARK MODE SHOWCASE -->
+    <div class="section dark-bg">
+        <h2>Logo Variations — Dark Mode</h2>
+        <p>Dark palette: bg <code>#020617</code>, fg <code>#f8fafc</code>, accent <code>#10B981</code></p>
+        
+        <div class="logo-row">
+            <div class="logo-card">
+                <span>A · Minimal Monogram</span>
+                <img src="public/images/logo-a-monogram-dark.svg" alt="Variation A Dark" height="40">
+            </div>
+            
+            <div class="logo-card">
+                <span>B · Geometric Icon <span class="badge">FAVICON</span></span>
+                <div class="size-demo">
+                    <div>
+                        <img src="public/images/logo-b-icon-dark.svg" alt="Variation B Dark 32px" width="32" height="32">
+                        <span>32×32</span>
+                    </div>
+                    <div>
+                        <img src="public/images/logo-b-icon-dark.svg" alt="Variation B Dark 16px" width="16" height="16">
+                        <span>16×16</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="logo-card">
+                <span>C · Icon + Wordmark Lockup</span>
+                <img src="public/images/logo-c-lockup-dark.svg" alt="Variation C Dark" height="40">
+            </div>
+        </div>
+    </div>
+
+    <div class="section light-bg">
+        <h2>Design System Reference</h2>
+        <p>Exact values extracted from the codebase</p>
+        <table style="margin: 0 auto; border-collapse: collapse; font-size: 0.875rem; text-align: left;">
+            <thead>
+                <tr>
+                    <th style="padding: 0.5rem 1rem; border-bottom: 2px solid #e2e8f0;">Token</th>
+                    <th style="padding: 0.5rem 1rem; border-bottom: 2px solid #e2e8f0;">Light</th>
+                    <th style="padding: 0.5rem 1rem; border-bottom: 2px solid #e2e8f0;">Dark</th>
+                    <th style="padding: 0.5rem 1rem; border-bottom: 2px solid #e2e8f0;">Swatch</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="padding: 0.5rem 1rem;">--foreground</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#0f172a</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#f8fafc</td><td style="padding: 0.5rem 1rem;"><span style="display:inline-block;width:20px;height:20px;background:#0f172a;border-radius:4px;vertical-align:middle;border:1px solid #e2e8f0;"></span></td></tr>
+                <tr><td style="padding: 0.5rem 1rem;">--background</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#f8fafc</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#020617</td><td style="padding: 0.5rem 1rem;"><span style="display:inline-block;width:20px;height:20px;background:#f8fafc;border-radius:4px;vertical-align:middle;border:1px solid #e2e8f0;"></span></td></tr>
+                <tr><td style="padding: 0.5rem 1rem;">--accent (light)</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#059669</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#10B981</td><td style="padding: 0.5rem 1rem;"><span style="display:inline-block;width:20px;height:20px;background:#059669;border-radius:4px;vertical-align:middle;"></span> <span style="display:inline-block;width:20px;height:20px;background:#10B981;border-radius:4px;vertical-align:middle;margin-left:4px;"></span></td></tr>
+                <tr><td style="padding: 0.5rem 1rem;">--muted-foreground</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#64748b</td><td style="padding: 0.5rem 1rem; font-family: monospace;">#94a3b8</td><td style="padding: 0.5rem 1rem;"><span style="display:inline-block;width:20px;height:20px;background:#64748b;border-radius:4px;vertical-align:middle;"></span></td></tr>
+                <tr><td style="padding: 0.5rem 1rem;">font-display</td><td colspan="2" style="padding: 0.5rem 1rem;">Space Grotesk 700</td><td style="padding: 0.5rem 1rem; font-family: 'Space Grotesk'; font-weight: 700;">Aa</td></tr>
+                <tr><td style="padding: 0.5rem 1rem;">font-serif</td><td colspan="2" style="padding: 0.5rem 1rem;">DM Serif Display</td><td style="padding: 0.5rem 1rem; font-family: serif; font-style: italic;">Aa</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
