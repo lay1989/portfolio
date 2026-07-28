@@ -17,9 +17,9 @@ function getMeta(file) {
 
 const files = [];
 
-// Root-level HTML files
+// Root-level HTML files (excluding error pages)
 fs.readdirSync(rootDir).forEach(f => {
-    if (f.endsWith('.html')) files.push(f);
+    if (f.endsWith('.html') && f !== '404.html' && f !== '503.html') files.push(f);
 });
 
 // Project pages

@@ -30,27 +30,53 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
+    [
     {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Technical SEO Best Practices for Web Developers",
-    "description": "Learn essential technical SEO best practices for web developers to improve search engine crawlability, indexing, and organic traffic.",
-    "author": {
-        "@type": "Person",
-        "name": "Lay Shah",
-        "url": "https://layshahdev.com"
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Technical SEO Best Practices for Web Developers",
+        "description": "Learn essential technical SEO best practices for web developers to improve search engine crawlability, indexing, and organic traffic.",
+        "author": {
+            "@type": "Person",
+            "name": "Lay Shah",
+            "url": "https://layshahdev.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Lay Shah"
+        },
+        "datePublished": "2026-02-07",
+        "dateModified": "2026-02-07",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://layshahdev.com/blog-seo-developers.html"
+        }
     },
-    "publisher": {
-        "@type": "Person",
-        "name": "Lay Shah"
-    },
-    "datePublished": "2026-02-07",
-    "dateModified": "2026-02-07",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://layshahdev.com/blog-seo-developers.html"
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://layshahdev.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://layshahdev.com/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Technical SEO Best Practices for Developers",
+                "item": "https://layshahdev.com/blog-seo-developers.html"
+            }
+        ]
     }
-}
+]
     </script>
 
     <!-- Favicon -->
@@ -209,9 +235,15 @@
         </script>
     
         <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
-            <a href="./blog.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All posts
-            </a>
+            <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest flex justify-center">
+                <ol class="flex items-center gap-2">
+                    <li><a href="./index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li><a href="./blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li class="text-foreground" aria-current="page">Technical SEO Best Practices for Developers</li>
+                </ol>
+            </nav>
             
             <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
                 <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">SEO &amp;amp; Performance</span>

@@ -592,6 +592,54 @@ function renderHomepageProjects() {
 }
 
 // ──────────────────────────────────────────
+// Helper: render blog posts on the homepage
+// ──────────────────────────────────────────
+function renderHomepagePosts(basePath = './') {
+    // Take the 3 most recent posts
+    const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+
+    return sorted.map((p, index) => {
+        const dateObj = new Date(p.date);
+        const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        
+        return `
+                    <!-- Post ${index + 1} -->
+                    <a href="${basePath}${p.slug}.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
+                        <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">${escHtml(p.category)}</span>
+                        <h3 class="font-serif text-2xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">${escHtml(p.title)}</h3>
+                        <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-6">${escHtml(p.dek)}</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-muted-foreground font-mono">${formattedDate}</span>
+                            <span class="inline-flex items-center gap-1.5 text-accent font-medium">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                        </div>
+                    </a>`;
+    }).join('\n');
+}
+
+// ──────────────────────────────────────────
+// Helper: generate footer content
+// ──────────────────────────────────────────
+function buildFooterRecentPosts(basePath) {
+    const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+    return sorted.map(p => `
+        <a href="${basePath}${p.slug}.html" class="group flex flex-col hover:text-accent transition-colors">
+            <span class="text-foreground group-hover:text-accent transition-colors">${escHtml(p.title)}</span>
+            <span class="text-xs text-muted-foreground opacity-70">${escHtml(p.category)}</span>
+        </a>
+    `).join('');
+}
+
+function buildFooterFeaturedProjects(basePath) {
+    const sorted = [...projects].slice(0, 3);
+    return sorted.map(p => `
+        <a href="${basePath}projects/${p.slug}.html" class="group flex flex-col hover:text-accent transition-colors">
+            <span class="text-foreground group-hover:text-accent transition-colors">${escHtml(p.title)}</span>
+            <span class="text-xs text-muted-foreground opacity-70">${escHtml(p.category)}</span>
+        </a>
+    `).join('');
+}
+
+// ──────────────────────────────────────────
 // Helper: render blog post page content
 // ──────────────────────────────────────────
 function renderBlogPost(post, basePath) {
@@ -602,9 +650,15 @@ function renderBlogPost(post, basePath) {
     // Header
     const headerHtml = `
         <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
-            <a href="${basePath}blog.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All posts
-            </a>
+            <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest flex justify-center">
+                <ol class="flex items-center gap-2">
+                    <li><a href="${basePath}index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li><a href="${basePath}blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li class="text-foreground" aria-current="page">${escHtml(post.title)}</li>
+                </ol>
+            </nav>
             
             <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
                 <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">${escHtml(post.category)}</span>
@@ -789,7 +843,10 @@ function buildPage(outputFile, pageConfig, bodyContent) {
 
     // Replace header/footer (also replace BASE_PATH in them)
     html = html.replace('{{NAV_CONTENT}}', headerHtml.replace(/\{\{BASE_PATH\}\}/g, basePath));
-    html = html.replace('{{FOOTER_CONTENT}}', footerHtml.replace(/\{\{BASE_PATH\}\}/g, basePath));
+    let renderedFooter = footerHtml.replace(/\{\{BASE_PATH\}\}/g, basePath);
+    renderedFooter = renderedFooter.replace('{{FOOTER_RECENT_POSTS}}', buildFooterRecentPosts(basePath));
+    renderedFooter = renderedFooter.replace('{{FOOTER_FEATURED_PROJECTS}}', buildFooterFeaturedProjects(basePath));
+    html = html.replace('{{FOOTER_CONTENT}}', renderedFooter);
 
     // Replace head metadata
     html = html.replace('{{PAGE_TITLE}}', escHtml(pageConfig.title));
@@ -831,6 +888,29 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
             return;
         }
         const basePath = getBasePath(outputFile);
+        
+        // Inject Breadcrumb JSON-LD
+        let currentSd = config.structuredData;
+        let breadcrumbSd = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://layshahdev.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://layshahdev.com/projects.html" },
+                { "@type": "ListItem", "position": 3, "name": project.title, "item": `https://layshahdev.com/projects/${project.slug}.html` }
+            ]
+        };
+        
+        if (currentSd) {
+            if (Array.isArray(currentSd)) {
+                config.structuredData = [...currentSd, breadcrumbSd];
+            } else {
+                config.structuredData = [currentSd, breadcrumbSd];
+            }
+        } else {
+            config.structuredData = breadcrumbSd;
+        }
+        
         const body = renderCaseStudy(project, basePath);
         buildPage(outputFile, config, body);
     } else if (config.type === 'post') {
@@ -840,6 +920,29 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
             return;
         }
         const basePath = getBasePath(outputFile);
+        
+        // Inject Breadcrumb JSON-LD
+        let currentSd = config.structuredData;
+        let breadcrumbSd = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://layshahdev.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://layshahdev.com/blog.html" },
+                { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://layshahdev.com/${post.slug}.html` }
+            ]
+        };
+        
+        if (currentSd) {
+            if (Array.isArray(currentSd)) {
+                config.structuredData = [...currentSd, breadcrumbSd];
+            } else {
+                config.structuredData = [currentSd, breadcrumbSd];
+            }
+        } else {
+            config.structuredData = breadcrumbSd;
+        }
+        
         const body = renderBlogPost(post, basePath);
         buildPage(outputFile, config, body);
     } else if (outputFile === 'projects.html') {
@@ -860,6 +963,7 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
         let content = fs.readFileSync(contentPath, 'utf-8');
         if (outputFile === 'index.html') {
             content = content.replace('{{HOMEPAGE_PROJECTS}}', renderHomepageProjects());
+            content = content.replace('{{HOMEPAGE_BLOG_POSTS}}', renderHomepagePosts());
         }
         buildPage(outputFile, config, content);
     }

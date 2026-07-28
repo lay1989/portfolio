@@ -7,9 +7,15 @@
     <!-- CaseHero -->
     <section id="hero" class="relative">
         <div class="mx-auto max-w-[1400px] px-6 pt-40 md:px-10 md:pt-56">
-            <a href="{{BASE_PATH}}projects.html" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> All work
-            </a>
+            <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest">
+                <ol class="flex items-center gap-2">
+                    <li><a href="{{BASE_PATH}}index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li><a href="{{BASE_PATH}}projects.html" class="hover:text-accent transition-colors">Work</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li class="text-foreground" aria-current="page">{{PROJECT_TITLE}}</li>
+                </ol>
+            </nav>
             
             <div data-eyebrow class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 <span>{{PROJECT_CLIENT_TYPE}}</span>

@@ -464,6 +464,32 @@
 
 
         <!-- ======================================== -->
+        <!-- LATEST POSTS SECTION                     -->
+        <!-- ======================================== -->
+        <section id="latest-posts" class="py-24 md:py-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="grid md:grid-cols-12 gap-8 items-start md:items-end mb-16 md:mb-24">
+                    <div class="md:col-span-8">
+                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(LATEST POSTS)</span>
+                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
+                            Field <span class="italic font-serif font-normal text-accent">Notes.</span>
+                        </h2>
+                    </div>
+                    <div class="md:col-span-4 flex md:justify-end items-end">
+                        <a href="blog.html" class="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 reveal">
+                            All posts
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="homepage-blog-posts">
+                    {{HOMEPAGE_BLOG_POSTS}}
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
         <!-- CONTACT SECTION                          -->
         <!-- ======================================== -->
         <section id="contact" class="py-24 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
