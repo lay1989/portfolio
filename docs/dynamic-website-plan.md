@@ -7,6 +7,7 @@ Updated: 2026-10-24.
 
 - Preserve the existing visual identity, Tailwind styling, and vanilla browser JavaScript.
 - Use a Python backend; Flask is the recommended framework, subject to final architecture review.
+- Use **SQLite on the portfolio VM**, confirmed by the owner on 2026-10-24, with SQLAlchemy models and Alembic migrations.
 - Move from Netlify to a **separate Oracle Cloud Always Free VM**. The existing VM for the other project is outside this migration's scope.
 - Provide one private owner account, with no public registration.
 - Provide a visual editor with structured content sections.
@@ -22,7 +23,7 @@ Use Flask with server-rendered Jinja templates, SQLAlchemy for data access, and 
 
 Run the app behind Gunicorn and Nginx on a supported Linux image. Nginx serves public assets and uploaded image variants; the application handles pages, authentication, and content management. Use a dedicated service account and systemd services. Production must not use Flask's development server.
 
-For a single owner and one small VM, **SQLite on a persistent local filesystem is the provisional recommendation**: low operational overhead and a good fit for content that is read often and edited occasionally. Keep transactions short, enable appropriate locking/timeout settings, and use consistent database backups. SQLAlchemy and migrations preserve a path to PostgreSQL, but a database move will still require an explicit migration and verification. Choose PostgreSQL from the outset if the available VM and expected concurrent writes justify its additional administration.
+The owner selected **SQLite on a persistent local filesystem** for the single-owner portfolio. Keep transactions short, enable appropriate locking/timeout settings, and use consistent database backups. SQLAlchemy and migrations preserve a path to PostgreSQL, but any future database move will require an explicit migration and verification. PostgreSQL is not part of the initial deployment.
 
 Keep uploaded images outside release directories and outside Git. Begin with persistent VM storage and encrypted backups copied off the VM. Use Oracle Object Storage for backups within verified tenancy allowances. A storage adapter should permit moving public media to object storage later without changing content records.
 
@@ -34,7 +35,7 @@ Build CSS and browser JavaScript when application code changes. Generate image v
 | --- | --- | --- |
 | Framework | Flask with tailored owner dashboard | Django if the speed of obtaining a built-in administration system outweighs a smaller custom application |
 | Rendering | Server-rendered HTML with progressive enhancement | A separate browser application and API only if a later interaction genuinely needs that separation |
-| Database | SQLite for one owner on one modest VM, pending resource check | PostgreSQL for more concurrent writing or operational requirements |
+| Database | Confirmed: SQLite on the portfolio VM | Reassess PostgreSQL only if future concurrency or operational needs change |
 | Media | Persistent local media with off-VM backups | Object storage for public media when independent storage/CDN delivery becomes useful |
 | Editor | Structured visual blocks with approved layouts | Markdown with preview if the owner later prefers writing source text |
 | Public URLs | Confirmed: preserve existing URLs during the first migration | Any later URL redesign requires its own permanent redirect map and migration review |
@@ -151,13 +152,32 @@ Each milestone should be a reviewable change. Plan and build locally before chan
 
 ## Oracle constraints to verify before provisioning
 
+### Existing deployment evidence
+
+At the owner's request, the local Kamaldeep Enterprise deployment guide was inspected read-only. Its recorded setup is dated 24 October 2026 and identifies:
+
+| Item | Recorded existing VM configuration |
+| --- | --- |
+| Region | India West (Mumbai), `ap-mumbai-1` |
+| Shape | `VM.Standard.E2.1.Micro`, AMD/x86 |
+| Memory | 1 GB |
+| Operating system | Canonical Ubuntu 24.04 |
+| Boot volume | Default shown as approximately 46.6 GB |
+| Additional attached block volumes | None recorded |
+
+These are documentation findings, not a live account inventory. No SSH session was opened and no files or resources in the other project were changed. The guide does not establish the tenancy's remaining free allowance or whether other instances/unattached volumes exist.
+
+### Portfolio VM candidates
+
+Prefer a separate Always Free-eligible A1 instance with **1 OCPU and 2 GB RAM**, if the account has allowance and regional capacity. This gives more headroom for bounded image processing than a micro instance. A separate `VM.Standard.E2.1.Micro` with 1 GB RAM is a fallback consistent with the other project's setup; image dimensions, upload sizes, processing concurrency, and worker count must then be conservatively limited. Use the default approximately 50 GB boot volume if it fits the verified free storage allowance. These are proposed configurations, not provisioned or guaranteed-free resources.
+
 The owner's Oracle account already hosts another project. Check **remaining tenancy-wide** Always Free CPU, RAM, boot/block storage, backup, and object-storage allowances before choosing a separate VM. A new project does not create a new free allowance. Confirm home-region eligibility and shape availability in the actual account. If the remaining allowance cannot support a separate VM, return to the owner with alternatives rather than creating a billable resource or changing the other project's allocation.
 
 Oracle documents possible capacity shortages and reclamation of idle Always Free instances. Plan reliable backups and recovery; do not simulate activity to evade resource policies. “Always Free” is a resource offer with conditions, not a guarantee of uninterrupted hosting.
 
 ## Open decisions for the next discussion
 
-1. Confirm remaining Oracle VM quota; this determines whether the provisional SQLite setup is appropriate and which VM shape fits.
+1. Confirm remaining Oracle VM quota and regional capacity; SQLite is decided, but the separate portfolio VM shape still needs account-level verification.
 2. Choose draft-preview-publish behavior for global settings, and decide whether scheduled publishing belongs in the first usable release or the following milestone.
 3. Choose the owner login/recovery and second-factor setup, notification email provider, and backup destination after confirming the available accounts.
 4. Confirm any editorial blocks beyond the proposed set, including tables, downloadable files, video, and embeds. Those need explicit validation and rendering behavior rather than arbitrary pasted code.
