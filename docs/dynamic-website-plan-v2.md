@@ -9,6 +9,7 @@ The first development milestone is a shared design system, followed by the Flask
 
 - Preserve the existing visual identity, Tailwind styling, and vanilla browser JavaScript.
 - Centralize all reusable visual values in **one author-edited file, `design/system.json`**. Shared components, page templates, editor previews, and motion consume that source. This is a proposed file, not an implemented feature yet.
+- Confirmed by the owner: design settings are edited through the shared file only initially, using the normal asset build and code release process. Dashboard theme editing is outside the initial scope.
 - Use a Python backend; Flask is the recommended framework, subject to final architecture review.
 - Use **SQLite on the portfolio VM**, confirmed by the owner on 2026-10-24, with SQLAlchemy models and Alembic migrations.
 - Move from Netlify to a **separate Oracle Cloud Always Free VM**. The existing VM for the other project is outside this migration's scope.
@@ -42,7 +43,7 @@ For example, change `color.heading.accent` from the green palette reference to a
 
 Use semantic roles so the scope is predictable. `color.text.body`, `color.heading.default`, `color.heading.accent`, and `color.action.primary` have separate jobs. A shared `color.brand` alias can deliberately connect roles when a brand-wide color change is wanted. One change propagates everywhere that uses the chosen role; it does not flatten the hierarchy by making every kind of text identical. Theme-specific values and interactive states live in the same file.
 
-The initial recommendation is file-based design editing through the normal code release process. Content, ordering, SEO, and image placements are edited through the dashboard and publish immediately. Dashboard editing of design values is an open preference, asked separately; it must preserve one authoritative design source if added, with validation, preview, publishing, and rollback. Do not introduce competing database and file overrides.
+The owner confirmed file-based design editing through the normal code release process. Content, ordering, SEO, and image placements are edited through the dashboard and take effect when explicitly saved or published, without rebuilding the application. Dashboard editing of design values is outside the initial scope. Any later addition must preserve one authoritative design source, with validation, preview, publishing, and rollback. Do not introduce competing database and file overrides.
 
 ### Values that belong in the central file
 
@@ -325,10 +326,9 @@ Oracle documents possible capacity shortages and reclamation of idle Always Free
 ## Open decisions for the next discussion
 
 1. Confirm remaining Oracle VM quota and regional capacity; SQLite is decided, but the separate portfolio VM shape still needs account-level verification.
-2. Design editing: the current recommendation is the shared design file initially. The owner has been asked whether dashboard-based theme editing is also wanted; that choice affects the design publishing workflow.
-3. Use draft-preview-publish for global content as recommended. Decide whether scheduled publishing belongs in the first usable release or a later milestone; immediate manual publication is the initial recommendation.
-4. Choose the owner login/recovery and second-factor setup, notification email provider, and backup destination after confirming the available accounts. Recommended baseline: strong password, authenticator second factor, and offline recovery codes.
-5. Confirm any editorial blocks beyond the proposed set, including tables, downloadable files, video, and embeds. Those need explicit validation and rendering behavior rather than arbitrary pasted code. Start with the listed text/image/gallery/code blocks and add richer media deliberately.
+2. Use draft-preview-publish for global content as recommended. Decide whether scheduled publishing belongs in the first usable release or a later milestone; immediate manual publication is the initial recommendation.
+3. Choose the owner login/recovery and second-factor setup, notification email provider, and backup destination after confirming the available accounts. Recommended baseline: strong password, authenticator second factor, and offline recovery codes.
+4. Confirm any editorial blocks beyond the proposed set, including tables, downloadable files, video, and embeds. Those need explicit validation and rendering behavior rather than arbitrary pasted code. Start with the listed text/image/gallery/code blocks and add richer media deliberately.
 
 ## Primary references
 
