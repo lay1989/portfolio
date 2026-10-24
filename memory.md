@@ -9,7 +9,9 @@ This repository is the personal portfolio and professional website of **Lay Shah
 - **Analytics & Form Handling**: Static HTML structure configured with Netlify-compatible form hooks (`data-netlify="true"`).
 
 # Active Context
-The October 24 reliability and persuasion pass is complete locally. All 21 pages build and pass automated output checks; five contact/analytics tests pass. The site retains vanilla JS/Tailwind, with explicit deployment files in `dist/`. Browser checks covered desktop, 390px mobile, 820px tablet, both themes, mobile menu/Escape, blog filtering/search, and native case-study disclosures. No deployment or real inquiry was sent. Netlify form detection, notification setup, and actual mailbox delivery still need verification on the deployed host.
+The October 24 reliability and persuasion pass is committed locally as e7929a0. All 21 pages build and pass automated output checks; five contact/analytics tests pass. GitHub rejected the push because the saved Git credential lacks workflow scope. The owner chose to include the workflow and reconnect; GitHub CLI device authorization is pending owner action. Do not report a successful push until the remote commit is verified.
+
+The next task is planning a dynamic Python website, not implementing the backend yet. The owner confirmed a separate Oracle Cloud Always Free VM (the existing VM belongs to Commerce Deep Enterprise and must remain untouched), one private owner account, a structured visual editor, and a backend-managed Tools catalog linking to separately hosted tools. The draft plan is `docs/dynamic-website-plan.md`; remaining Oracle quotas and URL strategy still need confirmation. No production infrastructure or DNS changes have been made.
 
 # Completed Milestones
 - **Template-Based Componentization**: Unified all 16 pages under a single master template shell (`templates/base.html`) and separate navigation/footer components.
