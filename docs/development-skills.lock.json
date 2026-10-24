@@ -1,0 +1,276 @@
+{
+  "recorded_on": "2026-10-24",
+  "scope": "Local Codex development guidance; not website runtime dependencies.",
+  "skills": [
+    {
+      "name": "flask",
+      "repo": "microsoft/debugpy",
+      "ref": "671f6c7d1b228b8001f659bf61e39b7668587302",
+      "path": ".claude/skills/flask",
+      "source_url": "https://github.com/microsoft/debugpy/tree/671f6c7d1b228b8001f659bf61e39b7668587302/.claude/skills/flask",
+      "installed_path": "/Users/layshah/.codex/skills/flask",
+      "skill_sha256": "9efc59cbdba248647655cce4f33b1f47f4f762a99a4aac541dde95d0db0efba2",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9efc59cbdba248647655cce4f33b1f47f4f762a99a4aac541dde95d0db0efba2"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "83c3ed394e600067c17b7d1c09bd3ea20f0703b8c0716e6a9f414b99fcbdf810"
+        }
+      ]
+    },
+    {
+      "name": "jinja2",
+      "repo": "microsoft/debugpy",
+      "ref": "671f6c7d1b228b8001f659bf61e39b7668587302",
+      "path": ".claude/skills/jinja2",
+      "source_url": "https://github.com/microsoft/debugpy/tree/671f6c7d1b228b8001f659bf61e39b7668587302/.claude/skills/jinja2",
+      "installed_path": "/Users/layshah/.codex/skills/jinja2",
+      "skill_sha256": "4ae3f21a7b3706b6f30261045b9863d30df7a570ad61596ba792291c18b6beae",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4ae3f21a7b3706b6f30261045b9863d30df7a570ad61596ba792291c18b6beae"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "83c3ed394e600067c17b7d1c09bd3ea20f0703b8c0716e6a9f414b99fcbdf810"
+        }
+      ]
+    },
+    {
+      "name": "pytest",
+      "repo": "microsoft/debugpy",
+      "ref": "671f6c7d1b228b8001f659bf61e39b7668587302",
+      "path": ".claude/skills/pytest",
+      "source_url": "https://github.com/microsoft/debugpy/tree/671f6c7d1b228b8001f659bf61e39b7668587302/.claude/skills/pytest",
+      "installed_path": "/Users/layshah/.codex/skills/pytest",
+      "skill_sha256": "2946c883b59d94a99b6de88728a60b99be172abb057b57b6967bfc2ba19e30d2",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2946c883b59d94a99b6de88728a60b99be172abb057b57b6967bfc2ba19e30d2"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "83c3ed394e600067c17b7d1c09bd3ea20f0703b8c0716e6a9f414b99fcbdf810"
+        }
+      ]
+    },
+    {
+      "name": "seo",
+      "repo": "addyosmani/web-quality-skills",
+      "ref": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "path": "skills/seo",
+      "source_url": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/seo",
+      "installed_path": "/Users/layshah/.codex/skills/seo",
+      "skill_sha256": "57cd16566c2c706186b643644dec2884da89c42f296843364c65a40a4d566ae6",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "57cd16566c2c706186b643644dec2884da89c42f296843364c65a40a4d566ae6"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "c122223ac43e86421958e18623979942c21b642951e2e3736dcb63eff13587c3"
+        },
+        {
+          "path": "references/STRUCTURED-DATA.md",
+          "sha256": "3e03876f41d223c89dfdbc0a0fe3668454e5d8819aad5379f4541fbf0bd67e17"
+        }
+      ]
+    },
+    {
+      "name": "accessibility",
+      "repo": "addyosmani/web-quality-skills",
+      "ref": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "path": "skills/accessibility",
+      "source_url": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/accessibility",
+      "installed_path": "/Users/layshah/.codex/skills/accessibility",
+      "skill_sha256": "267fb2a0707d6142f2871f22688203a42ba21291a2aa200fb740936e41362b5d",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "267fb2a0707d6142f2871f22688203a42ba21291a2aa200fb740936e41362b5d"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "c122223ac43e86421958e18623979942c21b642951e2e3736dcb63eff13587c3"
+        },
+        {
+          "path": "references/A11Y-PATTERNS.md",
+          "sha256": "f10e238dd4dd3c4f51134c2056bc02d3dd4f8fb6ccc9145c2c1ba7aab4d58140"
+        },
+        {
+          "path": "references/WCAG.md",
+          "sha256": "16683e025e3833d931c9d880645d98a448827f97e10189b6c8f12c832e7a2361"
+        }
+      ]
+    },
+    {
+      "name": "performance",
+      "repo": "addyosmani/web-quality-skills",
+      "ref": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "path": "skills/performance",
+      "source_url": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/performance",
+      "installed_path": "/Users/layshah/.codex/skills/performance",
+      "skill_sha256": "b0c220185d88c61f7770eb127d8facf86c86d2dd1fd82b86e15a4965a0137265",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b0c220185d88c61f7770eb127d8facf86c86d2dd1fd82b86e15a4965a0137265"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "c122223ac43e86421958e18623979942c21b642951e2e3736dcb63eff13587c3"
+        },
+        {
+          "path": "references/MEASUREMENT.md",
+          "sha256": "128f6f20c6c8fb55fcccd8b259cf680811022cf262dc55b03e9d623bcb555a99"
+        },
+        {
+          "path": "references/RUM.md",
+          "sha256": "a2bdf660ecb23098afbadfb83254d39cef10c0da82938225f61271bad3f81b19"
+        }
+      ]
+    },
+    {
+      "name": "gsap-core",
+      "repo": "greensock/gsap-skills",
+      "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "path": "skills/gsap-core",
+      "source_url": "https://github.com/greensock/gsap-skills/tree/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-core",
+      "installed_path": "/Users/layshah/.codex/skills/gsap-core",
+      "skill_sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90"
+        }
+      ]
+    },
+    {
+      "name": "gsap-scrolltrigger",
+      "repo": "greensock/gsap-skills",
+      "ref": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "path": "skills/gsap-scrolltrigger",
+      "source_url": "https://github.com/greensock/gsap-skills/tree/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-scrolltrigger",
+      "installed_path": "/Users/layshah/.codex/skills/gsap-scrolltrigger",
+      "skill_sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90"
+        }
+      ]
+    },
+    {
+      "name": "design-system-patterns",
+      "repo": "wshobson/agents",
+      "ref": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "path": "plugins/ui-design/skills/design-system-patterns",
+      "source_url": "https://github.com/wshobson/agents/tree/0874a27b17a22e2b7c2e2bcd725768e0803cad06/plugins/ui-design/skills/design-system-patterns",
+      "installed_path": "/Users/layshah/.codex/skills/design-system-patterns",
+      "skill_sha256": "618355f0e6c6ba8ca5d231035c9da18302fe6894aedce565743e9181b6c928ee",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "618355f0e6c6ba8ca5d231035c9da18302fe6894aedce565743e9181b6c928ee"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746"
+        },
+        {
+          "path": "references/component-architecture.md",
+          "sha256": "84dc16ed581c1ad72e34b93ba84bcfa9223d30f9c42eb7e36654bbbe8daefc61"
+        },
+        {
+          "path": "references/design-tokens.md",
+          "sha256": "44bd27e26f072a3facd6cd841140d403805106c9c5d5e39fc33bf6ffccf8af64"
+        },
+        {
+          "path": "references/details.md",
+          "sha256": "1f1792e8b20c24c2be2acd46e7da85928578d108006594f3ae35d93f9108ff6d"
+        },
+        {
+          "path": "references/theming-architecture.md",
+          "sha256": "24c9efec7c809a4d6797e6a11bc66ce08c5d708211caac14266ce5754c83cc75"
+        }
+      ]
+    },
+    {
+      "name": "security-best-practices",
+      "repo": "openai/skills",
+      "ref": "49f948faa9258a0c61caceaf225e179651397431",
+      "path": "skills/.curated/security-best-practices",
+      "source_url": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-best-practices",
+      "installed_path": "/Users/layshah/.codex/skills/security-best-practices",
+      "skill_sha256": "7b3dae1ffc5434d890f3c65c8f552af52d0307fab3b35dec13013c9ca3844c4f",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "4dd13869245e356246a5b770723247bbb80a8f07a181d1d3d873a1734297cdb9"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7b3dae1ffc5434d890f3c65c8f552af52d0307fab3b35dec13013c9ca3844c4f"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "6e9c6f2edce448eb2b589f81ad6e3f722665021785513bcbfd0bf7b86b529171"
+        },
+        {
+          "path": "references/golang-general-backend-security.md",
+          "sha256": "a73c47c34497b120672d48411fe51dc90d426a571801a0b3f649e2ce4ec658b4"
+        },
+        {
+          "path": "references/javascript-express-web-server-security.md",
+          "sha256": "427835cbb5be7ba96172ea6ca9af80ddd4419c833e9ebf870996740c80d8406c"
+        },
+        {
+          "path": "references/javascript-general-web-frontend-security.md",
+          "sha256": "3a7bc7b3f6e7ff043db9dbaa8933894d7a19d987d0607e4ddae5d70184a63d63"
+        },
+        {
+          "path": "references/javascript-jquery-web-frontend-security.md",
+          "sha256": "bcbad2fa6c2a02709e47e889e70102c76886bf36bc798624d27db570eccf40da"
+        },
+        {
+          "path": "references/javascript-typescript-nextjs-web-server-security.md",
+          "sha256": "71c773f7a97ce60c853adfa100b3d88b3b7bc4c6b8acaef1432ffabd923ee182"
+        },
+        {
+          "path": "references/javascript-typescript-react-web-frontend-security.md",
+          "sha256": "d3030c0f24bddb56b9bbb91bbec1ee49eb7778bce4d3e0297b2641b2fc6b0d9c"
+        },
+        {
+          "path": "references/javascript-typescript-vue-web-frontend-security.md",
+          "sha256": "77c6a747f9f17e3df03aad0fcb20d99ac7898001b81aef8b80908e45ac14a688"
+        },
+        {
+          "path": "references/python-django-web-server-security.md",
+          "sha256": "4fb69b5d45f10e588d1a8c35cdc5f59e18910f6b46a93e2d342d90f286f8dfd2"
+        },
+        {
+          "path": "references/python-fastapi-web-server-security.md",
+          "sha256": "7383c7f4fc271190b05e562ada7e825982a2c76b6c79a9f95a1da7687b65a616"
+        },
+        {
+          "path": "references/python-flask-web-server-security.md",
+          "sha256": "9606d69190c04c167fdeac57e61297547a57b0542fd89dede36f355970446929"
+        }
+      ]
+    }
+  ]
+}

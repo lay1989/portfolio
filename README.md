@@ -52,6 +52,8 @@ The local checks verify request behavior and error recovery, not delivery by an 
 
 Plain HTML, Tailwind CSS v3, and modular vanilla JavaScript, with Node.js for static generation. Pages remain readable without animation scripts; reduced-motion preferences disable scripted motion and CSS animation. Lucide is served from the pinned local dependency, and shared GSAP dependencies load once per page.
 
+The planned Flask migration is documented in [dynamic website plan v2](docs/dynamic-website-plan-v2.md), including one shared design source, reusable components, the owner dashboard, media editing, SEO, and staged migration. [Development skills](docs/development-skills.md) records the researched guidance installed for that work. These are planning documents; the current application remains static.
+
 ## License
 
 All rights reserved. © 2026 Lay Shah.

@@ -1,5 +1,7 @@
 # Dynamic portfolio: implementation plan
 
+Superseded by [implementation plan v2](dynamic-website-plan-v2.md), which adds the shared design system, revised milestones, and researched development skills. Retained as the earlier planning record.
+
 Status: planning draft, not an implementation instruction or a deployment approval.
 Updated: 2026-10-24.
 
