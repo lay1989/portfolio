@@ -271,6 +271,145 @@
           "sha256": "9606d69190c04c167fdeac57e61297547a57b0542fd89dede36f355970446929"
         }
       ]
+    },
+    {
+      "name": "frontend-design",
+      "repo": "anthropics/skills",
+      "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "path": "skills/frontend-design",
+      "source_url": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design",
+      "installed_path": "/Users/layshah/.codex/skills/frontend-design",
+      "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+        }
+      ]
+    },
+    {
+      "name": "copywriting",
+      "repo": "coreyhaines31/marketingskills",
+      "ref": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+      "path": "skills/copywriting",
+      "source_url": "https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/copywriting",
+      "installed_path": "/Users/layshah/.codex/skills/copywriting",
+      "skill_sha256": "13c580c2432a4499e9dfdcf5d553df7aa6589e90cf5bd869fb4fbde5caf9f567",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "13c580c2432a4499e9dfdcf5d553df7aa6589e90cf5bd869fb4fbde5caf9f567"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+        },
+        {
+          "path": "evals/evals.json",
+          "sha256": "ccec86052a0edd8646d0e50e63c08e0e971f443d8f6e9178843a1629f79efdb0"
+        },
+        {
+          "path": "references/ai-tells.md",
+          "sha256": "b98c3a19b3a75c714d69e80a0076e4c07244b0e833c2ce81ff2631224fb7f7b2"
+        },
+        {
+          "path": "references/copy-frameworks.md",
+          "sha256": "352122944bf9e891ceb0e003adce41591d111e9d97057700626249919dfe430d"
+        },
+        {
+          "path": "references/natural-transitions.md",
+          "sha256": "9bd61b0de5be2c4de4ce130c68236b4f290b12737823827a458bb2b4c8584683"
+        }
+      ]
+    },
+    {
+      "name": "copy-editing",
+      "repo": "coreyhaines31/marketingskills",
+      "ref": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+      "path": "skills/copy-editing",
+      "source_url": "https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/copy-editing",
+      "installed_path": "/Users/layshah/.codex/skills/copy-editing",
+      "skill_sha256": "2a072606d9d5662509ea6ef62c65719487dcb68876acab9286bde4d1af5c030f",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2a072606d9d5662509ea6ef62c65719487dcb68876acab9286bde4d1af5c030f"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+        },
+        {
+          "path": "evals/evals.json",
+          "sha256": "cc18c9f51094058759267d465cfcc50da65f248f66b923326781aa642d622ca7"
+        },
+        {
+          "path": "references/checklist.md",
+          "sha256": "4cf94c922286223681fc53721fcc65ae7299f1e36e797e7397d369d674580c60"
+        },
+        {
+          "path": "references/content-refresh.md",
+          "sha256": "ba73cdf278fe6b552eee27eb1452494f11f9d17ef67d720657e0982f76fb961b"
+        },
+        {
+          "path": "references/plain-english-alternatives.md",
+          "sha256": "df4f820d4c63ae8a517c64a243c101658352cd07d002355bf3c97de0a00f3775"
+        }
+      ]
+    },
+    {
+      "name": "content-strategy",
+      "repo": "coreyhaines31/marketingskills",
+      "ref": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+      "path": "skills/content-strategy",
+      "source_url": "https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/content-strategy",
+      "installed_path": "/Users/layshah/.codex/skills/content-strategy",
+      "skill_sha256": "5097ae8c11c27e2846be307b30f09ac17333fd1ffab1bae19728c81444767001",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5097ae8c11c27e2846be307b30f09ac17333fd1ffab1bae19728c81444767001"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+        },
+        {
+          "path": "evals/evals.json",
+          "sha256": "10167e7125ee77cbabe4f03953750dd99ea147f7461027fdbb0cf8e089e5506d"
+        },
+        {
+          "path": "references/content-distribution.md",
+          "sha256": "1861a1aab0627ab29c279000879a9889242da1ba85e677acdc759c66a6241778"
+        },
+        {
+          "path": "references/headless-cms.md",
+          "sha256": "efc796ae9596d1efcb876683db2d9b7c10c83e76e1cb69e527097907d5b4fc3f"
+        }
+      ]
+    },
+    {
+      "name": "emil-design-eng",
+      "repo": "emilkowalski/skills",
+      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "path": "skills/emil-design-eng",
+      "source_url": "https://github.com/emilkowalski/skills/tree/2d228630ba1446365f614a108cb8252f1feda202/skills/emil-design-eng",
+      "installed_path": "/Users/layshah/.codex/skills/emil-design-eng",
+      "skill_sha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939"
+        },
+        {
+          "path": "UPSTREAM-LICENSE",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b"
+        }
+      ]
     }
   ]
 }

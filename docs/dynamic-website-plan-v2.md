@@ -8,6 +8,7 @@ The first development milestone is a shared design system, followed by the Flask
 ## Decisions already made
 
 - Preserve the existing visual identity, Tailwind styling, and vanilla browser JavaScript.
+- Confirmed creative direction: **editorial portfolio with one signature interaction**. Keep the surrounding layout quiet and readable; prototype one purposeful interactive explanation before integrating it.
 - Centralize all reusable visual values in **one author-edited file, `design/system.json`**. Shared components, page templates, editor previews, and motion consume that source. This is a proposed file, not an implemented feature yet.
 - Confirmed by the owner: design settings are edited through the shared file only initially, using the normal asset build and code release process. Dashboard theme editing is outside the initial scope.
 - Use a Python backend; Flask is the recommended framework, subject to final architecture review.
@@ -127,6 +128,18 @@ The milestone is complete when:
 6. Representative pages work in both themes, at narrow/middle/wide widths, at text zoom, with a keyboard, with reduced motion, and with scripts disabled. Longer headings and missing optional fields do not break layouts.
 
 This directly implements the requested one-place editing while keeping component markup, styling recipes, animation behavior, and content separate and reusable.
+
+## Art direction, content craft, and the signature interaction
+
+The design system keeps implementation consistent; a creative brief determines why the portfolio looks and reads the way it does. Preserve the current editorial identity and document its audience, visual references, composition principles, tone, and one memorable interaction. The brief references `design/system.json` for actual values rather than duplicating a second palette, typography scale, or timing configuration.
+
+Use frontend-design for art direction, design-system-patterns for reusable structure, and emil-design-eng for interaction judgment. These complement each other. Do not let multiple opinionated design skills independently restyle the same page. Taste Skill and Impeccable were researched as alternatives; their fit and integration tradeoffs are documented in [the creative-skills research](creative-skills-research.md).
+
+Anatomy is already installed and can produce the signature component as framework-free SVG/JavaScript. The recommended concept to prototype is a small **publishing workbench** demonstrating draft → preview → publish. It is a proposal, not an approved final object: compare its usefulness with a project-inspection desk before choosing the shipped treatment. Use illustrative demo data, never public access to real owner actions. Ordinary HTML explains the idea and presents the inquiry CTA even without the effect.
+
+Keep the initial prototype SVG-first, keyboard/touch usable, compatible with both themes and reduced motion, and idle when offscreen. Its tokens and motion settings come from the shared file. Prototype in isolation during Step 1, then integrate after the CMS/content architecture is stable. Add no dependency until the prototype proves it needs one; Anime.js was researched as an alternative, while CSS/GSAP remains the current implementation. No custom scroll hijacking or mandatory animated navigation is needed to demonstrate the concept.
+
+For content, use content-strategy to choose topics grounded in actual projects and client questions, copywriting for new drafts, and copy-editing for existing text. Pair technical SEO with useful original explanations, accurate authorship, internal links, and evidence. No invented clients, results, credentials, or guarantees. General examples, simulated review scores, and conversion statistics in skills are not evidence about this business. A content review should check the argument, factual support, voice, next step, and metadata before publication.
 
 ### Architecture alternatives
 
@@ -255,11 +268,11 @@ Provide health checks, process restart behavior, bounded logs, migration failure
 | Step | Deliverable | Gate before proceeding |
 | --- | --- | --- |
 | 0. Baseline and revised plan | Existing improvements are already pushed; record the design contract, skill inventory, confirmed choices, and open decisions | Current GitHub baseline verified; v2 becomes the active plan |
-| 1. Design foundation | Central token file/schema/compiler; existing colors/type/spacing/motion migrated; shared component recipes; reference page; design checks | Demonstrate one-file color/type/motion changes across the static pages; validate both themes and responsive states; preserve current visual identity |
+| 1. Design foundation | Central token file/schema/compiler; existing colors/type/spacing/motion migrated; shared component recipes; reference page; design checks; creative brief and isolated signature prototype | Demonstrate one-file color/type/motion changes across static pages; validate both themes/responsive states; preserve editorial identity; review the prototype separately from the backend |
 | 2. Flask foundation | Factory/Blueprint structure, Jinja shell/macros, settings, SQLite/migrations, owner login, and existing design/asset pipeline | Clean-checkout setup works; authentication/CSRF and migrations tested; public and preview rendering consume the same design source |
 | 3. Import and public rendering | Import all 10 projects, 6 posts, media, metadata, and global content into the new data model | All 21 existing routes retain content and metadata; importer is repeatable without duplicates; later deployment cannot overwrite live edits |
 | 4. Media and first complete editing flow | Media library, per-placement crops, visual blocks, project drafts/previews/publishing/order, and revisions | Owner creates a project with uploads, adjusts mobile/desktop crops, previews, publishes, edits a private draft, reorders, and restores a revision; data survives restart |
-| 5. Complete the CMS | Blog, Tools, homepage/global editors, independent featuring, and inquiry handling | Owner completes normal tasks without code; orders persist; public visitors see only published revisions; inquiry is retained despite notification failure |
+| 5. Complete the CMS | Blog, Tools, homepage/global editors, independent featuring, inquiry handling, and integration of the selected signature component | Owner completes normal tasks without code; orders persist; only published revisions are public; inquiry survives notification failure; signature preserves access and mobile performance |
 | 6. SEO, performance, and recovery | Complete metadata/structured data/redirects/sitemap checks, cache invalidation, backups, restore rehearsal; scheduled publishing if selected | Functional/security/SEO checks pass; realistic browser measurements recorded; no private content leaks; restore demonstrated |
 | 7. Oracle staging and migration | Separate eligible VM, production services, TLS, deployment procedure, email delivery, and final import | Verify unused free quota first; protected staging works without indexing; real inquiry delivery/data persistence tested; owner reviews the full site |
 | 8. Cutover and verification | Final content freeze/import, domain switch, route checks, analytics checks, monitoring, and rollback window | Verify live pages/forms/media/redirects/admin; retain the known-good Netlify release until migration is confirmed |
@@ -270,7 +283,7 @@ Design consistency, security, accessibility, and SEO are requirements of every m
 
 ## Development guidance and dependencies
 
-Ten development skills were researched and installed for this plan. See [the skill inventory](development-skills.md) for the complete list, sources, pinned revisions, installation records, and coverage. They cover design systems, Flask, Jinja, Python testing, SEO, accessibility, performance, GSAP core/scroll motion, and secure implementation. They guide development; they do not run inside the website or add production server load. Newly installed skills become available on the next conversation turn.
+Fifteen development skills were researched and installed across these planning sessions, with Anatomy already available separately. See [the skill inventory](development-skills.md) for sources, pinned revisions, installation records, and coverage. They cover art direction, writing/content strategy, design engineering, design systems, Flask, Jinja, testing, SEO, accessibility, performance, GSAP, and secure implementation. They guide development; they do not run inside the website or add production server load. The five new creative/content skills become available next turn. [Creative-skills research](creative-skills-research.md) records the popular alternatives and the reasoning behind the selection.
 
 Use official documentation for SQLAlchemy/Alembic/SQLite, image processing, and Oracle operations rather than adding a loosely maintained skill for every dependency. Existing browser tools handle interactive QA. A dedicated extra skill is justified when it adds a useful workflow, not simply because a topic has a name.
 

@@ -1,6 +1,6 @@
 # Development skills for the dynamic portfolio
 
-Updated: 2026-10-24. All ten skills below were installed locally and verified against the pinned upstream `SKILL.md` files. They become available on the next conversation turn. This inventory accompanies [implementation plan v2](dynamic-website-plan-v2.md).
+Updated: 2026-10-24. All fifteen skills below were installed locally and verified against the pinned upstream `SKILL.md` files. The original ten are available now; the five creative/content additions become available next turn. Anatomy was already installed separately. This inventory accompanies [implementation plan v2](dynamic-website-plan-v2.md) and the [creative-skills research](creative-skills-research.md).
 
 ## Installed guidance
 
@@ -16,8 +16,15 @@ Updated: 2026-10-24. All ten skills below were installed locally and verified ag
 | `gsap-scrolltrigger` | **Scroll effects.** Trigger setup, layout refresh, batching, cleanup, controlled scroll behavior. | [greensock/gsap-skills](https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-scrolltrigger/SKILL.md) |
 | `design-system-patterns` | **One-source visual system.** Token hierarchy, themes, reusable variants/components, design documentation. | [wshobson/agents](https://github.com/wshobson/agents/blob/0874a27b17a22e2b7c2e2bcd725768e0803cad06/plugins/ui-design/skills/design-system-patterns/SKILL.md) |
 | `security-best-practices` | **Secure owner CMS.** Flask and browser guidance for auth, CSRF, safe rendering, uploads, headers, and secrets. | [openai/skills](https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-best-practices/SKILL.md) |
+| `frontend-design` | **Art direction.** Subject-specific composition, typography, visual identity, restraint, and critique. | [anthropics/skills](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design/SKILL.md) |
+| `emil-design-eng` | **Design engineering.** Interaction feedback, motion purpose/timing, interruption, and component details. | [emilkowalski/skills](https://github.com/emilkowalski/skills/blob/2d228630ba1446365f614a108cb8252f1feda202/skills/emil-design-eng/SKILL.md) |
+| `copywriting` | **New copy.** Clear service/project/Tool descriptions, supported claims, and useful next steps. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/blob/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/copywriting/SKILL.md) |
+| `copy-editing` | **Existing copy.** Clarity, voice, evidence, specificity, and editing within the requested scope. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/blob/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/copy-editing/SKILL.md) |
+| `content-strategy` | **Editorial planning.** Audience questions, search intent, original material, and useful topic connections. | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/blob/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b/skills/content-strategy/SKILL.md) |
 
 GSAP skills come from the library maintainer. Flask/Jinja/pytest guidance is hosted in Microsoft’s debugpy repository; it is not published by the Flask or pytest maintainers. The SEO/accessibility/performance collection is an independent project by Addy Osmani, not an official Google skills package. The design-system collection is community-maintained; security guidance comes from OpenAI’s curated skills repository.
+
+The new art-direction skill is published by Anthropic; design-engineering guidance comes from Emil Kowalski; writing/strategy guidance comes from Corey Haines's collection. The latter two are author-led projects with public history. See the research for contribution evidence and project-specific tradeoffs. Their repository popularity does not establish industry-wide production use.
 
 ## Why this selection
 
@@ -28,11 +35,13 @@ Existing browser interaction tools cover rendered-page QA. Official project docu
 ## How to use them without importing conflicting assumptions
 
 - The owner’s decisions and project scope take priority. Use Flask/Jinja/vanilla patterns even when a general design or performance skill shows a React example. Do not install every extension/plugin mentioned in an example.
-- Apply only the skills relevant to the current milestone; do not load all ten for every small change.
+- Apply only the skills relevant to the current milestone; do not load all fifteen for every small change.
 - Verify claims against maintained primary documentation. Skill examples are suggestions, not specifications. For example, distinct pagination pages need appropriate canonical URLs; do not copy a blanket page-one canonical example. WCAG large-text thresholds are defined in points (or their CSS-pixel equivalents), so do not copy an incorrect px threshold from a cheat sheet.
 - Preserve project-specific measurements and budgets. A Lighthouse score does not establish real-user performance, WCAG conformance, indexing, or search rankings.
 - Use available browser tooling and targeted CLI measurements when suggested integrations are absent. A skill naming a DevTools tool does not make that tool available.
 - Use the Flask and general JavaScript security references for this project. Security headers, caching, uploads, and recovery need application-specific decisions rather than copying sample settings wholesale.
+- Preserve the confirmed editorial style with one signature interaction. New design guidance does not reopen the chosen brand or create another source for visual values. Anatomy remains available for that interaction; Anime.js was researched but no new animation engine was installed.
+- Treat generic conversion statistics, sample claims, motion thresholds, and acceleration statements as material to verify. Use supplied evidence for published claims and actual browser measurements for performance. Content strategy does not authorize changing the agreed URLs or replacing Flask with a hosted CMS.
 
 ## Coverage beyond the skills
 

@@ -54,6 +54,8 @@ Plain HTML, Tailwind CSS v3, and modular vanilla JavaScript, with Node.js for st
 
 The planned Flask migration is documented in [dynamic website plan v2](docs/dynamic-website-plan-v2.md), including one shared design source, reusable components, the owner dashboard, media editing, SEO, and staged migration. [Development skills](docs/development-skills.md) records the researched guidance installed for that work. These are planning documents; the current application remains static.
 
+[Creative-skills research](docs/creative-skills-research.md) compares design taste, writing, motion, and SEO guidance, with a proposal for one signature Anatomy interaction within the editorial design.
+
 ## License
 
 All rights reserved. © 2026 Lay Shah.
