@@ -13,7 +13,8 @@ Updated: 2026-10-24.
 - Add a section whose public navigation label is exactly **Tools**. It is a managed catalog linking to tools hosted elsewhere; executing those tools within the portfolio is outside the initial scope.
 - Projects, blog posts, and Tools must all support adding, editing, publishing, and persistent manual ordering.
 - Publishing content should update the live site without changing source files, committing to Git, or rebuilding the application.
-- Include the current GitHub automated-checks workflow. The initial GitHub push is waiting for the owner to complete GitHub device authorization with workflow access.
+- Preserve the current public page addresses, including existing `.html` routes, during the initial migration.
+- Include the current GitHub automated-checks workflow. The owner completed GitHub authorization with workflow access on 2026-10-24. The workflow itself has read-only repository permissions.
 
 ## Recommended architecture
 
@@ -36,7 +37,7 @@ Build CSS and browser JavaScript when application code changes. Generate image v
 | Database | SQLite for one owner on one modest VM, pending resource check | PostgreSQL for more concurrent writing or operational requirements |
 | Media | Persistent local media with off-VM backups | Object storage for public media when independent storage/CDN delivery becomes useful |
 | Editor | Structured visual blocks with approved layouts | Markdown with preview if the owner later prefers writing source text |
-| Public URLs | Preserve existing URLs during the first migration | Introduce clean paths with a tested permanent redirect map if chosen before implementation |
+| Public URLs | Confirmed: preserve existing URLs during the first migration | Any later URL redesign requires its own permanent redirect map and migration review |
 
 ## What the owner dashboard will manage
 
@@ -156,11 +157,10 @@ Oracle documents possible capacity shortages and reclamation of idle Always Free
 
 ## Open decisions for the next discussion
 
-1. Keep existing `.html` routes for the initial migration (recommended), or introduce clean routes now with permanent redirects?
-2. Confirm remaining Oracle VM quota; this determines whether the provisional SQLite setup is appropriate and which VM shape fits.
-3. Choose draft-preview-publish behavior for global settings, and decide whether scheduled publishing belongs in the first usable release or the following milestone.
-4. Choose the owner login/recovery and second-factor setup, notification email provider, and backup destination after confirming the available accounts.
-5. Confirm any editorial blocks beyond the proposed set, including tables, downloadable files, video, and embeds. Those need explicit validation and rendering behavior rather than arbitrary pasted code.
+1. Confirm remaining Oracle VM quota; this determines whether the provisional SQLite setup is appropriate and which VM shape fits.
+2. Choose draft-preview-publish behavior for global settings, and decide whether scheduled publishing belongs in the first usable release or the following milestone.
+3. Choose the owner login/recovery and second-factor setup, notification email provider, and backup destination after confirming the available accounts.
+4. Confirm any editorial blocks beyond the proposed set, including tables, downloadable files, video, and embeds. Those need explicit validation and rendering behavior rather than arbitrary pasted code.
 
 ## Primary references
 
