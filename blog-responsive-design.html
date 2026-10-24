@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-<head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Web Design Best Practices for Mobile Optimization | Lay Shah</title>
-    <meta name="description" content="Learn the essential responsive web design best practices to ensure a fast, mobile-friendly user experience across all devices.">
+    <title>Designing a website that works on smaller screens | Lay Shah</title>
+    <meta name="description" content="Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.">
     <meta name="author" content="Lay Shah">
 
     <link rel="canonical" href="https://layshahdev.com/blog-responsive-design.html">
 
     <!-- Social / OpenGraph -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Responsive Web Design Best Practices for Mobile Optimization | Lay Shah">
-    <meta property="og:description" content="Learn the essential responsive web design best practices to ensure a fast, mobile-friendly user experience across all devices.">
+    <meta property="og:title" content="Designing a website that works on smaller screens | Lay Shah">
+    <meta property="og:description" content="Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.">
     <meta property="og:url" content="https://layshahdev.com/blog-responsive-design.html">
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta property="og:image" content="https://layshahdev.com/public/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     
 
@@ -33,8 +31,8 @@
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Responsive Web Design Best Practices for Mobile Optimization",
-        "description": "Learn the essential responsive web design best practices to ensure a fast, mobile-friendly user experience across all devices.",
+        "headline": "Designing a website that works on smaller screens",
+        "description": "Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.",
         "author": {
             "@type": "Person",
             "name": "Lay Shah",
@@ -45,7 +43,7 @@
             "name": "Lay Shah"
         },
         "datePublished": "2026-02-07",
-        "dateModified": "2026-02-07",
+        "dateModified": "2026-10-24",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://layshahdev.com/blog-responsive-design.html"
@@ -70,7 +68,7 @@
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Mastering Responsive Web Design Best Practices for 2026",
+                "name": "Designing a website that works on smaller screens",
                 "item": "https://layshahdev.com/blog-responsive-design.html"
             }
         ]
@@ -83,33 +81,21 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
-            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
-        }
-    </script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
-            document.write('<script src="./public/js/lucide.min.js"><\/script>');
-        }
-    </script>
+    <!-- Pinned local icons avoid blocking third-party fallbacks. -->
+    <script src="./public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./tailwind.css">
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
     <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -120,19 +106,21 @@
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
     <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
         </svg>
         <span>LAY SHAH</span>
     </a>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
         <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
         <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
         <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -151,13 +139,13 @@
             </div>
         </button>
 
-        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
             Let's Talk
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 md:hidden">
+    <div class="flex items-center gap-4 lg:hidden">
         <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
             <div class="relative w-5 h-5 overflow-hidden">
                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
@@ -179,7 +167,7 @@
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
     <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
     <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
     <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -191,48 +179,16 @@
 
     </nav>
 
-    
-        <div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width: 0%;"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-        <script>
-            // Reading Progress
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById('reading-progress').style.width = scrolled + '%';
-            });
-            
-            // ProseReveal GSAP
-            document.addEventListener('DOMContentLoaded', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
-                    
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    
-                    if (!prefersReducedMotion) {
-                        const proseChildren = document.querySelectorAll('.prose-reveal > *');
-                        proseChildren.forEach((el) => {
-                            gsap.fromTo(el, 
-                                { y: 16, opacity: 0 },
-                                { 
-                                    y: 0, 
-                                    opacity: 1, 
-                                    duration: 0.6, 
-                                    ease: "power2.out",
-                                    scrollTrigger: {
-                                        trigger: el,
-                                        start: "top 85%",
-                                    }
-                                }
-                            );
-                        });
-                    }
-                }
-            });
-        </script>
-    
+    <noscript>
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+            <a href="./index.html">Home</a>
+            <a href="./projects.html">Work</a>
+            <a href="./blog.html">Blog</a>
+            <a href="./index.html#contact">Contact</a>
+        </nav>
+    </noscript>
+
+    <main id="main-content" tabindex="-1"><div id="reading-progress" aria-hidden="true" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width:0%"></div>
         <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
             <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest flex justify-center">
                 <ol class="flex items-center gap-2">
@@ -240,21 +196,21 @@
                     <li><span class="text-border">/</span></li>
                     <li><a href="./blog.html" class="hover:text-accent transition-colors">Blog</a></li>
                     <li><span class="text-border">/</span></li>
-                    <li class="text-foreground" aria-current="page">Mastering Responsive Web Design Best Practices for 2026</li>
+                    <li class="text-foreground" aria-current="page">Designing a website that works on smaller screens</li>
                 </ol>
             </nav>
             
             <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
-                <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">Web Design</span>
-                <span class="text-foreground/30">&middot;</span>
+                <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">Design</span>
+                <span class="text-foreground/30">·</span>
                 <span>Feb 7, 2026</span>
-                <span class="text-foreground/30">&middot;</span>
+                <span class="text-foreground/30">·</span>
                 <span>5 min read</span>
             </div>
             
-            <h1 class="font-serif font-medium text-4xl md:text-6xl leading-[1.05] tracking-tight mt-8 text-foreground">Mastering Responsive Web Design Best Practices for 2026</h1>
+            <h1 class="font-serif font-medium text-4xl md:text-6xl leading-[1.05] tracking-tight mt-8 text-foreground">Designing a website that works on smaller screens</h1>
             
-            <p class="text-xl md:text-2xl leading-snug text-muted-foreground mt-6">Over 60% of your traffic comes from mobile devices. Learn the responsive web design best practices that guarantee a flawless user experience on any screen.</p>
+            <p class="text-xl md:text-2xl leading-snug text-muted-foreground mt-6">Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.</p>
             
             <div class="mt-10 flex items-center justify-center gap-3">
                 <div class="w-9 h-9 rounded-full bg-foreground text-background flex items-center justify-center font-serif text-sm">LS</div>
@@ -267,7 +223,7 @@
     
             <div class="max-w-[1100px] mx-auto px-6 mb-16">
                 <div class="rounded-2xl bg-card overflow-hidden border border-border shadow-lg">
-                    <img src="./assets/blog/cover-responsive.png" alt="Cover image for Mastering Responsive Web Design Best Practices for 2026" loading="eager" class="w-full h-auto object-cover aspect-video md:aspect-[21/9]">
+                    <img src="./assets/blog/cover-responsive.png" alt="Cover image for Designing a website that works on smaller screens" loading="eager" class="w-full h-auto object-cover aspect-video md:aspect-[21/9]" width="1024" height="1024" decoding="async">
                 </div>
             </div>
         
@@ -283,7 +239,7 @@
 <p>Achieving a seamless multi-device experience requires rigorous technical execution. Here are the core strategies to ensure pixel-perfect rendering across all viewports:</p>
 <p><strong>1. Fluid Typography and Spacing:</strong> Static pixel values are dead. I utilize modern CSS functions like `clamp()` to create typography and spacing that scales mathematically in relation to the viewport, ensuring your brand looks perfectly proportioned on any screen size.</p>
 <p><strong>2. Touch-Target Optimization:</strong> All interactive elements must adhere to strict accessibility standards, requiring a minimum of 44x44 CSS pixels of hit area to prevent frustrating misclicks that kill mobile conversions.</p>
-<p><strong>3. Contextual Asset Loading:</strong> Utilizing the `<picture>` element allows me to serve mathematically optimized, appropriately sized images based on the user's exact screen dimensions and connection speed.</p>
+<p><strong>3. Contextual Asset Loading:</strong> Utilizing the `<picture>` element allows me to serve mathematically optimized, appropriately sized images based on the user's exact screen dimensions and connection speed.</picture></p>
 
 <h2>The SEO Connection</h2>
 <p>Google exclusively uses the mobile version of your site for indexing and ranking. If your mobile experience is an afterthought, your search visibility will plummet. Executing strict responsive web design best practices ensures your business delivers a premium, frictionless experience at every single touchpoint.</p>
@@ -291,7 +247,7 @@
     
         <div aria-hidden="true" class="max-w-[680px] mx-auto flex items-center gap-6 my-16 px-6">
             <div class="h-px flex-1 bg-foreground/10"></div>
-            <div class="font-serif text-2xl text-accent">&sect;</div>
+            <div class="font-serif text-2xl text-accent">§</div>
             <div class="h-px flex-1 bg-foreground/10"></div>
         </div>
     
@@ -306,7 +262,7 @@
                     </div>
                 </div>
                 <div class="flex-shrink-0">
-                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    <a href="mailto:layshah1989@gmail.com" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
@@ -318,21 +274,21 @@
                 <div class="flex-grow max-w-2xl">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Enjoyed this? · Booking Q3 2026</span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
                     </div>
                     <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Have a website you want to actually ship?</h2>
-                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Tell me what needs to improve, who it’s for, and when you’d like to launch. We’ll work out the right scope together.</p>
                 </div>
 
                 <!-- Action Buttons (Right side) -->
                 <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    <a href="mailto:layshah1989@gmail.com" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
                     </a>
-                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a 30-min call
                     </a>
-                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within one business day.</span>
                 </div>
 
             </div>
@@ -346,22 +302,22 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     
                         <a href="./blog-custom-websites.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Development</span>
-                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">The Custom Website Development Process: A Blueprint for Growth</h3>
-                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">Why templates fail growing businesses, and how a custom website development process transforms your online presence into a conversion engine.</p>
+                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Design</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">From website brief to launch</h3>
+                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">What to decide before a custom website build: goals, content, structure, design, and the steps that turn a brief into a working site.</p>
                             <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
                         </a>
                     
                         <a href="./blog-freelance-developer.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Freelancing</span>
-                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">Why Hire a Freelance Web Developer Over a Bloated Agency?</h3>
-                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">Agencies promise the world but deliver massive overhead. Discover the strategic advantages when you hire a freelance web developer for your business.</p>
+                            <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Field Notes</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">Working with a freelance web developer</h3>
+                            <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">How direct collaboration works, what to ask before hiring, and when a freelance developer is a good fit for your project.</p>
                             <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
                         </a>
                     
                 </div>
             </div>
-        
+        </main>
 
         <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
         <div class="container mx-auto max-w-[1400px]">
@@ -370,8 +326,8 @@
                 <div class="md:col-span-12 lg:col-span-6">
                     <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
                         </svg>
                         <span>LAY SHAH</span>
                     </a>
@@ -402,18 +358,19 @@
             
             <!-- Bottom Section -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>&copy; 2026 Lay Shah. All rights reserved.</p>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
+                <p>© 2026 Lay Shah. All rights reserved.</p>
+                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
                 </button>
             </div>
         </div>
     </footer>
 
     
-    <script src="./bundle.js" defer></script>
-
-</body>
-</html>
+    <script src="./bundle.js" defer=""></script>
 
 
+
+
+
+</body></html>

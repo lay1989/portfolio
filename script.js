@@ -1,15 +1,15 @@
 import { throttle } from './src/utils.js';
 import { initTheme } from './src/theme.js';
+import { initContactTracking } from './src/analytics.js';
 import { rewriteLinks, highlightActivePage, initNav } from './src/nav.js';
 import { initScrollReveal, initReadingProgressBar, initMagneticButtons, initServicesAnimations, initProcessAnimations, initReviewBubbleAnimations } from './src/animations.js';
 import { initContactForm, initLoadMoreProjects, initBlogFilter } from './src/components.js';
-import { initLenisScroll, initSplitTextReveal, initHeroAnimation, initMarquee, initCounters, initProjectParallax, initWorkReel } from './src/gsap-animations.js';
+import { initLenisScroll, initSplitTextReveal, initHeroAnimation, initMarquee, initCounters, initProjectParallax } from './src/gsap-animations.js';
 
 // Determine if current page is the homepage
 const isHomePage = window.location.pathname === '/' ||
                    window.location.pathname.endsWith('/index.html') ||
-                   window.location.pathname === '' ||
-                   !window.location.pathname.includes('.html');
+                   window.location.pathname === '';
 
 /**
  * Coordinates application initialization on DOMContentLoaded.
@@ -59,8 +59,6 @@ function initializeApp() {
     // 5.5. Hero entry animation sequence
     initHeroAnimation();
     
-    // 5.6. Work Reel animation (only active on /work or projects list)
-    initWorkReel();
 
     // 5.6. Marquee strip initialization
     initMarquee();
@@ -76,6 +74,7 @@ function initializeApp() {
 
     // 6. Contact form AJAX submission
     initContactForm();
+    initContactTracking();
 
     // 7. Initialize magnetic buttons for premium cursor interaction
     initMagneticButtons();

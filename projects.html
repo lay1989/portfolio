@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-<head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <script src="./src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +14,7 @@
     <meta property="og:title" content="Web Development Portfolio &amp; Case Studies | Lay Shah">
     <meta property="og:description" content="Explore my web development portfolio featuring high-performance custom websites, web applications, and technical SEO case studies.">
     <meta property="og:url" content="https://layshahdev.com/projects.html">
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta property="og:image" content="https://layshahdev.com/public/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     
 
@@ -35,33 +33,21 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
-            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
-        }
-    </script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
-            document.write('<script src="./public/js/lucide.min.js"><\/script>');
-        }
-    </script>
+    <!-- Pinned local icons avoid blocking third-party fallbacks. -->
+    <script src="./public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./tailwind.css">
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
     <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -72,19 +58,21 @@
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
     <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
         </svg>
         <span>LAY SHAH</span>
     </a>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
         <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
         <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
         <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -103,13 +91,13 @@
             </div>
         </button>
 
-        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
             Let's Talk
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 md:hidden">
+    <div class="flex items-center gap-4 lg:hidden">
         <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
             <div class="relative w-5 h-5 overflow-hidden">
                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
@@ -131,7 +119,7 @@
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
     <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
     <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
     <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -143,16 +131,25 @@
 
     </nav>
 
+    <noscript>
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+            <a href="./index.html">Home</a>
+            <a href="./projects.html">Work</a>
+            <a href="./blog.html">Blog</a>
+            <a href="./index.html#contact">Contact</a>
+        </nav>
+    </noscript>
+
     <!-- Projects Listing Page — Body Content -->
 <!-- Generated work reel and stack are filled by build-html.js from projects.json -->
 
-<main class="w-full">
+<main class="w-full" id="main-content" tabindex="-1">
     <!-- Work Hero -->
     <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-40 md:pt-56 border-b border-border pb-16">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div class="md:col-span-3 font-mono text-muted-foreground text-sm uppercase tracking-widest">
-                The Reel &mdash; 007<br>
-                <span class="inline-block mt-4">Scroll &rarr;</span>
+                10 projects<br>
+                <span class="inline-block mt-4">Explore the work ↓</span>
             </div>
             <div class="md:col-span-9">
                 <h1 class="font-serif font-medium text-5xl md:text-7xl leading-[0.95] text-foreground mb-8">
@@ -160,814 +157,38 @@
                     <span class="italic text-accent">from the archive.</span>
                 </h1>
                 <p class="font-sans text-lg text-muted-foreground max-w-xl leading-relaxed">
-                    A collection of websites and web applications built for founders and small teams. Focus on performance, design, and conversion.
+                    Business websites, catalog systems, and web applications. Explore the brief, what I built, and the decisions behind each project. Personal concepts are labeled alongside client work.
                 </p>
             </div>
         </div>
     </div>
 
     
-    <div class="hidden md:block work-reel-container" aria-label="Work reel">
-        <div class="h-screen overflow-hidden relative" id="work-reel-pin">
-            <!-- Track -->
-            <div class="flex h-full items-center work-reel-track w-max pt-16 pb-12">
-                <!-- Intro Spacer -->
-                <div class="flex h-full w-[40vw] shrink-0 items-end px-10 pb-4">
-                    <div>
-                        <div class="font-mono text-xs uppercase tracking-widest text-muted-foreground">Begin the reel</div>
-                        <div class="mt-2 font-serif text-3xl italic text-muted-foreground">Scroll &rarr;</div>
-                    </div>
-                </div>
-                
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="0" data-title="ASH Clipping">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: ASH Clipping" href="./projects/ash-clipping.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/ASH clipping - hero-small.webp 600w, ./public/images/ASH clipping - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/ASH clipping - hero-small.webp 600w, ./public/images/ASH clipping - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/ASH clipping - hero.webp" alt="ASH Clipping" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">01 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2026</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Lead Full-Stack Architect &amp; Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">ASH Clipping</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Custom SaaS platform connecting brands with creators for short-form content distribution. Built with React and FastAPI to process millions of views.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">100M+ Views</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Data  processed</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">$32k+</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Payouts  secured</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">10K+</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Active  users</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">React</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">TypeScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">FastAPI (Python)</span>
-    
-                        </div>
-                        
-                        <a href="./projects/ash-clipping.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="1" data-title="Intent Studio">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Intent Studio" href="./projects/intent-studio.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Intent-studio - hero-small.webp 600w, ./public/images/Intent-studio - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/Intent-studio - hero-small.webp 600w, ./public/images/Intent-studio - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/Intent-studio - hero.webp" alt="Intent Studio" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">02 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2026</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Lead Designer &amp; Frontend Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Intent Studio</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Immersive, high-performance website for a retail design studio. Engineered with React and GSAP to deliver a premium, conversion-focused brand experience.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">Increased</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">User  engagement</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">Premium</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Brand  experience</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">Improved</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Lead  quality</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">React</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">TypeScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">GSAP</span>
-    
-                        </div>
-                        
-                        <a href="./projects/intent-studio.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="2" data-title="Capital Tyres">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Capital Tyres" href="./projects/capital-tyres.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Capital Tyres - hero-small.webp 600w, ./public/images/Capital Tyres - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/Capital Tyres - hero-small.webp 600w, ./public/images/Capital Tyres - hero.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/Capital Tyres - hero.webp" alt="Capital Tyres" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">03 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2026</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Lead Designer &amp; Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Capital Tyres</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">High-converting local business website for a Pune tyre retreading company. Designed to build trust with fleet owners and dominate local search rankings.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">5</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Pages  built</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">10 Days</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Turnaround</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">100%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Mobile  friendly</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">HTML5</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">CSS3</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">JavaScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/capital-tyres.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="3" data-title="Ghermar &amp; Sons">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Ghermar &amp; Sons" href="./projects/ghermar-sons.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/Ghermar & Sons.webp" alt="Ghermar &amp; Sons" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">04 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2025</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Lead Designer &amp; Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Ghermar &amp; Sons</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">High-converting B2B landing page for an international import-export company. Optimized for speed, trust signals, and lead generation in the global supply chain.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">98</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Lighthouse (mobile)</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">3 wk</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Design + build</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">+50%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">User engagement</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">HTML5</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">CSS3</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">JavaScript (ES6+)</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/ghermar-sons.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="4" data-title="SwiftBuild Infratech">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: SwiftBuild Infratech" href="./projects/swiftbuild-infratech.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/SwiftBuild.webp" alt="SwiftBuild Infratech" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">05 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2025</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Full Stack Developer &amp; SEO Specialist</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">SwiftBuild Infratech</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Premium construction portfolio website engineered with GSAP animations and advanced SEO. Built to dominate international search rankings for infrastructure.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">5 wk</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">End to end</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">+25%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">International inquiries</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">Top 10</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">In search rankings</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">HTML5</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">CSS3</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">JavaScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/swiftbuild-infratech.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="5" data-title="Kamaldeep Enterprise">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Kamaldeep Enterprise" href="./projects/kamaldeep-enterprise.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/png" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">06 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2025</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Full Stack Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Kamaldeep Enterprise</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Custom Python/Flask CMS built for a premium fabric wholesaler. Digitizes complex catalog workflows, reduces update times by 80%, and drives B2B sales.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">500+</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">S k us migrated</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">-80%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Update time</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">+65%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">User satisfaction</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Python</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Flask</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">PostgreSQL</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">SQLAlchemy</span>
-    
-                        </div>
-                        
-                        <a href="./projects/kamaldeep-enterprise.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="6" data-title="Crypto Trading Analytics">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Crypto Trading Analytics" href="./projects/crypto-trading-analytics.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/png" srcset="./public/images/saas_dashboard_minimal_interface-small.png 600w, ./public/images/saas_dashboard_minimal_interface.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Trading Analytics" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">07 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2024</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Full Stack Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Crypto Trading Analytics</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Algorithmic cryptocurrency trading bot and data visualization dashboard. Automates complex trading strategies while providing real-time market insights.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">99.5%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Uptime</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">500+</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Trades executed</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">10K+ daily</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Data points</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Python</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Flask</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">PostgreSQL</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Redis</span>
-    
-                        </div>
-                        
-                        <a href="./projects/crypto-trading-analytics.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="7" data-title="Aroma Cafe">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Aroma Cafe" href="./projects/aroma-cafe.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/Aroma Cafe.webp" alt="Aroma Cafe" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">08 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2024</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">UI/UX Designer &amp; Frontend Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Aroma Cafe</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">A fully functional, API-driven cafe concept website built to showcase advanced UI/UX architecture and seamless third-party service integration.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">98/100</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Lighthouse  score</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">Passed</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Core  web  vitals</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">3</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">A p i  integrations</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">HTML5</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">CSS3</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">JavaScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/aroma-cafe.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="8" data-title="Stark EV">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: Stark EV" href="./projects/stark-ev.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/Stark EV.webp" alt="Stark EV" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">09 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2025</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">UI/UX Designer &amp; Frontend Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">Stark EV</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Futuristic EV showcase featuring complex micro-interactions, 3D elements, and highly optimized React architecture. Pushing the boundaries of modern UI/UX.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">3D</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Live configurator</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">60fps</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">On mid-tier laptops</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">React</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Next.js</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">TypeScript</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/stark-ev.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="9" data-title="TaskFlow Pro">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: TaskFlow Pro" href="./projects/taskflow-pro.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <source type="image/png" srcset="./public/images/modern_e-commerce_interface_mockup-small.png 600w, ./public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 90vw, 45vw">
-                <img src="./public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
-            </picture>
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">10 / 10</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">2023</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">Product Manager &amp; Developer</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">TaskFlow Pro</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">Enterprise-grade SaaS project management platform. Features an advanced Vue.js automation engine and scalable Kubernetes infrastructure to boost team ROI.</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">+35%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Productivity increase</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">500+ users</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">User capacity</dd>
-        </div>
-    
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">99.9%</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">Uptime</dd>
-        </div>
-    
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Vue.js</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Vuex</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Vue Router</span>
-    
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">Tailwind CSS</span>
-    
-                        </div>
-                        
-                        <a href="./projects/taskflow-pro.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    
-                <!-- End Spacer -->
-                <div class="w-[10vw] flex-shrink-0 h-full"></div>
-            </div>
-            
-            <!-- Bottom Overlay Bar -->
-            <div class="absolute inset-x-0 bottom-0 z-20 border-t border-foreground/10 flex items-center justify-between px-6 md:px-10 py-2.5 h-12">
-                <div class="font-mono text-muted-foreground text-sm tracking-widest reel-counter w-24">01 / 10</div>
-                <div class="flex-1 mx-8 relative h-full flex items-center">
-                    <div class="absolute left-0 w-full h-px bg-foreground/10"></div>
-                    <div class="absolute left-0 h-[2px] bg-foreground reel-progress transition-all duration-100" style="width: 0%"></div>
-                </div>
-                <div class="font-serif text-foreground text-lg reel-active-title w-64 text-right truncate">
-                    ASH Clipping <span class="font-mono text-sm text-muted-foreground ml-3 tracking-widest">&mdash; 2026</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="md:hidden mt-20 max-w-[1400px] px-6 mx-auto">
-        <ul class="space-y-20">
+    <div class="mt-20 max-w-[1400px] px-6 md:px-10 mx-auto">
+        <ul class="grid md:grid-cols-2 gap-x-12 gap-y-20">
             
         <li>
             <a href="./projects/ash-clipping.html" class="block group" aria-label="Open case study: ASH Clipping">
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">01 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/ASH clipping - hero-small.webp 600w, ./public/images/ASH clipping - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/ASH clipping - hero-small.webp 600w, ./public/images/ASH clipping - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/ASH clipping - hero.webp" alt="ASH Clipping" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
-            </picture>
+        <source type="image/webp" srcset="./public/images/ASH%20clipping%20-%20hero-small.webp 600w, ./public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Creator Economy Startup</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Full-Stack Architect &amp; Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">ASH Clipping</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Custom SaaS platform connecting brands with creators for short-form content distribution. Built with React and FastAPI to process millions of views.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A campaign platform for brands and creators, bringing content review, social view tracking, and creator payout records into one place.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Tailwind CSS</span>
@@ -980,24 +201,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">02 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Intent-studio - hero-small.webp 600w, ./public/images/Intent-studio - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/Intent-studio - hero-small.webp 600w, ./public/images/Intent-studio - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/Intent-studio - hero.webp" alt="Intent Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
-            </picture>
+        <source type="image/webp" srcset="./public/images/Intent-studio%20-%20hero-small.webp 600w, ./public/images/Intent-studio%20-%20hero.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/Intent-studio%20-%20hero.webp" width="1366" height="768" alt="Intent Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Design Studio (B2B)</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Frontend Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Intent Studio</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Immersive, high-performance website for a retail design studio. Engineered with React and GSAP to deliver a premium, conversion-focused brand experience.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Tailwind CSS</span>
@@ -1010,24 +230,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">03 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Capital Tyres - hero-small.webp 600w, ./public/images/Capital Tyres - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/Capital Tyres - hero-small.webp 600w, ./public/images/Capital Tyres - hero.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/Capital Tyres - hero.webp" alt="Capital Tyres" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/Capital%20Tyres%20-%20hero-small.webp 600w, ./public/images/Capital%20Tyres%20-%20hero.webp 1348w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/Capital%20Tyres%20-%20hero.webp" width="1348" height="766" alt="Capital Tyres" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Tyre Retreading (B2B &amp; B2C)</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Capital Tyres</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">High-converting local business website for a Pune tyre retreading company. Designed to build trust with fleet owners and dominate local search rankings.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A five-page website for a Pune tyre-retreading business, explaining the services and helping fleet owners take the next step.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
@@ -1040,24 +259,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">04 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/Ghermar & Sons-small.webp 600w, ./public/images/Ghermar & Sons.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/Ghermar & Sons.webp" alt="Ghermar &amp; Sons" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/Ghermar%20&amp;%20Sons-small.webp 600w, ./public/images/Ghermar%20&amp;%20Sons.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/Ghermar%20&amp;%20Sons.webp" width="1366" height="768" alt="Ghermar &amp; Sons" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Import-Export Business</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Ghermar &amp; Sons</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">High-converting B2B landing page for an international import-export company. Optimized for speed, trust signals, and lead generation in the global supply chain.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A focused website for an import-export business, bringing services, company credentials, and contact details into a clear path for buyers.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript (ES6+)</span>
@@ -1070,24 +288,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">05 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/SwiftBuild.webp" alt="SwiftBuild Infratech" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/SwiftBuild.webp" width="1366" height="768" alt="SwiftBuild Infratech" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Construction &amp; Infrastructure</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer &amp; SEO Specialist</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">SwiftBuild Infratech</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Premium construction portfolio website engineered with GSAP animations and advanced SEO. Built to dominate international search rankings for infrastructure.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A construction company website with a filterable project portfolio, service information, and inquiry forms for prospective clients.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
@@ -1100,24 +317,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">06 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/png" srcset="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler-small.webp 600w, ./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.png" width="1366" height="768" alt="Kamaldeep Enterprise" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Fabric Wholesale Business</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Kamaldeep Enterprise</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Custom Python/Flask CMS built for a premium fabric wholesaler. Digitizes complex catalog workflows, reduces update times by 80%, and drives B2B sales.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A custom catalog system for a fabric wholesaler, with bulk product uploads, image processing, and PDF catalog management.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Python</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Flask</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">PostgreSQL</span>
@@ -1130,24 +346,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">07 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/png" srcset="./public/images/saas_dashboard_minimal_interface-small.png 600w, ./public/images/saas_dashboard_minimal_interface.png 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/saas_dashboard_minimal_interface.png" alt="Crypto Trading Analytics" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1408w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/saas_dashboard_minimal_interface.png" width="1408" height="768" alt="Crypto Trading Analytics" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024 · Personal Project</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Crypto Trading Analytics</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Algorithmic cryptocurrency trading bot and data visualization dashboard. Automates complex trading strategies while providing real-time market insights.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A personal engineering project exploring automated trading workflows, market-data feeds, and an interactive analytics dashboard.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Python</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Flask</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">PostgreSQL</span>
@@ -1160,24 +375,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">08 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/Aroma Cafe-small.webp 600w, ./public/images/Aroma Cafe.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/Aroma Cafe.webp" alt="Aroma Cafe" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/Aroma%20Cafe-small.webp 600w, ./public/images/Aroma%20Cafe.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/Aroma%20Cafe.webp" width="1366" height="768" alt="Aroma Cafe" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024 · Personal Portfolio Concept</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">UI/UX Designer &amp; Frontend Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Aroma Cafe</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A fully functional, API-driven cafe concept website built to showcase advanced UI/UX architecture and seamless third-party service integration.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A cafe website concept with a filterable menu, reservation flow, and location information. Built as a personal portfolio project.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
@@ -1190,24 +404,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">09 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/webp" srcset="./public/images/Stark EV-small.webp 600w, ./public/images/Stark EV.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/Stark EV.webp" alt="Stark EV" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/Stark%20EV-small.webp 600w, ./public/images/Stark%20EV.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/Stark%20EV.webp" width="1366" height="768" alt="Stark EV" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Personal Project</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">UI/UX Designer &amp; Frontend Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Stark EV</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Futuristic EV showcase featuring complex micro-interactions, 3D elements, and highly optimized React architecture. Pushing the boundaries of modern UI/UX.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A personal EV showroom concept exploring an interactive vehicle configurator, motion, and 3D presentation.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Next.js</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span>
@@ -1220,24 +433,23 @@
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">10 / 10</div>
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <source type="image/png" srcset="./public/images/modern_e-commerce_interface_mockup-small.png 600w, ./public/images/modern_e-commerce_interface_mockup.png 1200w" sizes="(max-width: 768px) 100vw, 100vw">
-                <img src="./public/images/modern_e-commerce_interface_mockup.png" alt="TaskFlow Pro" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
-            </picture>
+        <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1408w" sizes="(max-width: 768px) 90vw, 45vw">
+        <img src="./public/images/modern_e-commerce_interface_mockup.png" width="1408" height="768" alt="TaskFlow Pro" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
+    </picture>
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2023</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2023 · Enterprise Software</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Product Manager &amp; Developer</span>
                 </div>
                 
                 <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">TaskFlow Pro</h2>
                 
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">Enterprise-grade SaaS project management platform. Features an advanced Vue.js automation engine and scalable Kubernetes infrastructure to boost team ROI.</p>
+                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A project-management platform bringing workflow automation, collaboration tools, and custom dashboards into one workspace.</p>
                 
                 <div class="flex flex-wrap gap-2">
                     <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vue.js</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vuex</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vue Router</span>
@@ -1257,21 +469,21 @@
             <div class="flex-grow max-w-2xl">
                 <div class="flex items-center gap-2 mb-6">
                     <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                    <span class="text-accent text-xs font-mono uppercase tracking-widest">Like this work? · Booking Q3 2026</span>
+                    <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
                 </div>
                 <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
-                <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
             </div>
 
             <!-- Action Buttons (Right side) -->
             <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                <a href="{{BASE_PATH}}index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                    Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                <a href="./index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                    Discuss your project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
                 </a>
                 <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                    <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a 30-min call
                 </a>
-                <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within one business day.</span>
             </div>
 
         </div>
@@ -1286,8 +498,8 @@
                 <div class="md:col-span-12 lg:col-span-6">
                     <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
                         </svg>
                         <span>LAY SHAH</span>
                     </a>
@@ -1318,18 +530,19 @@
             
             <!-- Bottom Section -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>&copy; 2026 Lay Shah. All rights reserved.</p>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
+                <p>© 2026 Lay Shah. All rights reserved.</p>
+                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
                 </button>
             </div>
         </div>
     </footer>
 
     
-    <script src="./bundle.js" defer></script>
-
-</body>
-</html>
+    <script src="./bundle.js" defer=""></script>
 
 
+
+
+
+</body></html>

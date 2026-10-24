@@ -6,15 +6,20 @@
   "scripts": {
     "build:css": "tailwindcss -i ./style.css -o ./tailwind.css --minify",
     "build:js": "esbuild script.js --bundle --outfile=bundle.js --format=iife --minify",
-    "build:html": "node scripts/build-html.js && node scripts/sitemap.js",
-    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:html": "node scripts/build-assets.js && node scripts/build-html.js && node scripts/sitemap.js",
+    "build": "npm run build:html && npm run build:css && npm run build:js && npm run check && node scripts/build-output.js",
+    "check": "node scripts/check-site.js",
+    "test": "node --test tests/*.test.js",
     "watch:css": "tailwindcss -i ./style.css -o ./tailwind.css --watch",
     "build:images": "node scripts/generate-responsive-images.js",
     "postinstall": "node scripts/copy-lucide.js",
-    "dev": "npm run watch:css"
+    "dev": "node scripts/dev.js"
   },
   "keywords": [],
   "author": "Lay Shah",
+  "engines": {
+    "node": ">=22"
+  },
   "license": "ISC",
   "dependencies": {
     "lucide": "^0.395.0"
@@ -26,7 +31,7 @@
     "cheerio": "^1.2.0",
     "esbuild": "^0.28.1",
     "postcss": "^8.4.38",
-    "sharp": "^0.33.4",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.4"
   }
 }

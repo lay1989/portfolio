@@ -34,20 +34,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
-            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
-        }
-    </script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
-            document.write('<script src="{{BASE_PATH}}public/js/lucide.min.js"><\/script>');
-        }
-    </script>
+    <!-- Pinned local icons avoid blocking third-party fallbacks. -->
+    <script src="{{BASE_PATH}}public/js/lucide.min.js" defer></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{BASE_PATH}}tailwind.css">
@@ -68,10 +56,21 @@
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         {{NAV_CONTENT}}
     </nav>
+
+    <noscript>
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+            <a href="{{BASE_PATH}}index.html">Home</a>
+            <a href="{{BASE_PATH}}projects.html">Work</a>
+            <a href="{{BASE_PATH}}blog.html">Blog</a>
+            <a href="{{BASE_PATH}}index.html#contact">Contact</a>
+        </nav>
+    </noscript>
 
     {{BODY_CONTENT}}
 
@@ -106,7 +105,7 @@
                 <div class="md:col-span-6 lg:col-span-3">
                     <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
                     <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
+                        <li><a href="mailto:{{CONTACT_EMAIL}}" class="hover:text-accent transition-colors">{{CONTACT_EMAIL}}</a></li>
                         <li class="text-muted-foreground">Ahmedabad, India</li>
                     </ul>
                 </div>
@@ -115,7 +114,7 @@
             <!-- Bottom Section -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
                 <p>&copy; 2026 Lay Shah. All rights reserved.</p>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
                     Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
                 </button>
             </div>

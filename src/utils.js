@@ -39,3 +39,8 @@ export function debounce(func, delay) {
         }, delay);
     };
 }
+
+/** Whether the visitor has requested less animation. */
+export function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}

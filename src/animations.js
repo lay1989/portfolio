@@ -1,3 +1,5 @@
+import { prefersReducedMotion } from './utils.js';
+
 let revealElements = null;
 let revealObserver = null;
 
@@ -6,12 +8,14 @@ let revealObserver = null;
  * Caches the reveal elements list in module scope and utilizes modern for...of loops.
  */
 export function initScrollReveal() {
+    if (prefersReducedMotion()) return;
     revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0) {
         revealObserver = new IntersectionObserver((entries) => {
             for (const entry of entries) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    entry.target.animate?.([{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'ease-out' });
                     revealObserver.unobserve(entry.target);
                 }
             }
@@ -30,6 +34,7 @@ export function initScrollReveal() {
  * Adds a magnetic hover effect to primary buttons for a premium interaction.
  */
 export function initMagneticButtons() {
+    if (prefersReducedMotion()) return;
     const buttons = document.querySelectorAll('.magnetic-btn');
     buttons.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
@@ -94,6 +99,7 @@ export function initReadingProgressBar(throttle) {
  * @returns {void}
  */
 export function initServicesAnimations() {
+    if (prefersReducedMotion()) return;
     const list = document.getElementById('services-list');
     const rows = document.querySelectorAll('.service-row');
     
@@ -154,6 +160,7 @@ export function initProcessAnimations() {
  * Left bubbles slide in from the left, right bubbles from the right, with progressive stagger.
  */
 export function initReviewBubbleAnimations() {
+    if (prefersReducedMotion()) return;
     const leftBubbles = document.querySelectorAll('.review-bubble-left');
     const rightBubbles = document.querySelectorAll('.review-bubble-right');
     const allBubbles = document.querySelectorAll('.review-bubble-left, .review-bubble-right');
@@ -166,8 +173,8 @@ export function initReviewBubbleAnimations() {
                 const index = [...allBubbles].indexOf(entry.target);
                 const delay = index * 150;
                 setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, delay);
+                    entry.target.animate?.([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 450, easing: 'ease-out' });
+                }, Math.min(delay, 300));
                 observer.unobserve(entry.target);
             }
         }

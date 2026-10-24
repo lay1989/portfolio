@@ -1,7 +1,6 @@
 let backToTopBtn = null;
 let mobileMenuBtn = null;
 let mobileMenu = null;
-let hamburgerElement = null;
 let navbarWrapper = null;
 let throttledScrollHandler = null;
 
@@ -84,7 +83,6 @@ export function initNav(isHomePage, throttle) {
     backToTopBtn = document.getElementById('back-to-top-btn');
     mobileMenuBtn = document.getElementById('mobile-menu-btn');
     mobileMenu = document.getElementById('mobile-menu');
-    hamburgerElement = document.querySelector('.hamburger');
 
     // 1. Mobile Menu Logic
     if (mobileMenuBtn && mobileMenu) {
@@ -94,7 +92,7 @@ export function initNav(isHomePage, throttle) {
         mobileMenuBtn = newMobileMenuBtn;
 
         // Cache the hamburger element outside click handler closures to prevent redundant DOM queries
-        const cachedHamburger = hamburgerElement;
+        const cachedHamburger = mobileMenuBtn;
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
@@ -102,6 +100,15 @@ export function initNav(isHomePage, throttle) {
             mobileMenuBtn.setAttribute('aria-expanded', isOpen.toString());
             if (cachedHamburger) {
                 cachedHamburger.classList.toggle('active');
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.focus();
             }
         });
 
@@ -124,7 +131,7 @@ export function initNav(isHomePage, throttle) {
         backToTopBtn = newBackToTopBtn;
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
         });
     }
 

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) return;
+  if (reduce || !window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
   // Hero
@@ -24,29 +24,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-
-document.querySelectorAll('#decisions button[aria-controls]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const panel = document.getElementById(btn.getAttribute('aria-controls'));
-    const open = btn.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('#decisions button[aria-controls]').forEach((b) => {
-      if (b === btn) return;
-      b.setAttribute('aria-expanded', 'false');
-      const p = document.getElementById(b.getAttribute('aria-controls'));
-      p.classList.remove('grid-rows-[1fr]', 'opacity-100');
-      p.classList.add('grid-rows-[0fr]', 'opacity-0');
-    });
-    btn.setAttribute('aria-expanded', String(!open));
-    panel.classList.toggle('grid-rows-[1fr]', !open);
-    panel.classList.toggle('opacity-100', !open);
-    panel.classList.toggle('grid-rows-[0fr]', open);
-    panel.classList.toggle('opacity-0', open);
-  });
-});
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e) => e.isIntersecting && e.target.classList.add('is-in'));
-}, { threshold: .3 });
-document.querySelectorAll('[data-counter]').forEach((el) => io.observe(el));

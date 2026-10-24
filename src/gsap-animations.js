@@ -1,3 +1,5 @@
+import { prefersReducedMotion } from './utils.js';
+
 /**
  * @file gsap-animations.js
  * @description GSAP animation module for the portfolio redesign.
@@ -16,6 +18,7 @@
  * @returns {object|null} The Lenis instance or null
  */
 export function initLenisScroll() {
+    if (prefersReducedMotion()) return;
     if (typeof Lenis === 'undefined') return null;
 
     const lenis = new Lenis({
@@ -53,6 +56,7 @@ export function initLenisScroll() {
  * @returns {void}
  */
 export function initSplitTextReveal() {
+    if (prefersReducedMotion()) return;
     if (!window.gsap || !window.ScrollTrigger) return;
 
     gsap.registerPlugin(ScrollTrigger);
@@ -86,64 +90,15 @@ export function initSplitTextReveal() {
  * @returns {void}
  */
 export function initHeroAnimation() {
-    if (!window.gsap) return;
-
+    if (prefersReducedMotion()) return;
     const hero = document.getElementById('hero');
     if (!hero) return;
-
-    const label   = hero.querySelector('.hero-label');
-    const heading = hero.querySelector('.hero-h1');
-    const sub     = hero.querySelector('.hero-sub');
-    const stats   = hero.querySelector('.hero-stats');
-    const ctaBtns = hero.querySelectorAll('.hero-cta a, .hero-cta button');
-
-    const tl = gsap.timeline({ delay: 0.05 });
-
-    if (label) {
-        tl.from(label, {
-            y: 14,
-            opacity: 0,
-            duration: 0.55,
-            ease: 'power2.out',
-        });
-    }
-
-    if (heading) {
-        tl.from(heading, {
-            y: 40,
-            opacity: 0,
-            duration: 0.85,
-            ease: 'power3.out',
-        }, '-=0.25');
-    }
-
-    if (sub) {
-        tl.from(sub, {
-            y: 20,
-            opacity: 0,
-            duration: 0.65,
-            ease: 'power2.out',
-        }, '-=0.45');
-    }
-
-    if (stats) {
-        tl.from(stats, {
-            y: 16,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-        }, '-=0.4');
-    }
-
-    if (ctaBtns.length) {
-        tl.from(ctaBtns, {
-            y: 18,
-            opacity: 0,
-            duration: 0.55,
-            stagger: 0.12,
-            ease: 'power2.out',
-        }, '-=0.35');
-    }
+    hero.querySelectorAll('.hero-label, .hero-headline, .hero-sub, .hero-ctas').forEach((element, index) => {
+        element.animate?.(
+            [{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 550, delay: index * 70, easing: 'ease-out' }
+        );
+    });
 }
 
 /**
@@ -166,6 +121,7 @@ export function initMarquee() {
  * @returns {void}
  */
 export function initCounters() {
+    if (prefersReducedMotion()) return;
     if (!window.gsap || !window.ScrollTrigger) return;
 
     const counters = document.querySelectorAll('[data-count]');
@@ -198,6 +154,7 @@ export function initCounters() {
  * @returns {void}
  */
 export function initProjectParallax() {
+    if (prefersReducedMotion()) return;
     if (!window.gsap || !window.ScrollTrigger) return;
 
     const images = document.querySelectorAll('.project-thumb-parallax');
@@ -218,65 +175,5 @@ export function initProjectParallax() {
                 },
             }
         );
-    });
-}
-
-/**
- * Initializes the Work Reel horizontal scroll animation.
- * Pins the container and moves the track horizontally.
- */
-export function initWorkReel() {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    
-    const reelContainer = document.querySelector('.work-reel-container');
-    if (!reelContainer) return;
-
-    // Mobile bail out check
-    if (window.matchMedia("(max-width: 767px)").matches) return;
-
-    const track = reelContainer.querySelector('.work-reel-track');
-    const slides = reelContainer.querySelectorAll('.work-slide');
-    const progressBar = reelContainer.querySelector('.reel-progress');
-    const activeTitle = reelContainer.querySelector('.reel-active-title');
-    const counter = reelContainer.querySelector('.reel-counter');
-
-    if (!track || !slides.length) return;
-
-    const numSlides = slides.length;
-    
-    function getScrollAmount() {
-        return track.scrollWidth - window.innerWidth;
-    }
-
-    const tween = gsap.to(track, {
-        x: () => -getScrollAmount(),
-        ease: "none"
-    });
-
-    ScrollTrigger.create({
-        trigger: "#work-reel-pin",
-        start: "top top",
-        end: () => `+=${getScrollAmount()}`,
-        pin: true,
-        animation: tween,
-        scrub: 1,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-            const progress = self.progress;
-            
-            if (progressBar) {
-                progressBar.style.width = `${progress * 100}%`;
-            }
-            
-            const activeIndex = Math.round(progress * (numSlides - 1));
-            const activeSlide = slides[activeIndex];
-            if (activeSlide && activeTitle && counter) {
-                counter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(numSlides).padStart(2, '0')}`;
-                const titleStr = activeSlide.dataset.title;
-                const yearStr = activeSlide.querySelector('.project-year').textContent;
-                activeTitle.innerHTML = `${titleStr} <span class="font-mono text-sm text-muted-foreground ml-3 tracking-widest">&mdash; ${yearStr}</span>`;
-            }
-        }
     });
 }

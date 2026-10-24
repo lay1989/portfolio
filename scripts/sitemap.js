@@ -3,7 +3,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const baseUrl = 'https://layshahdev.com';
-const now = new Date().toISOString();
+
 
 // Priority / changefreq config per page type
 function getMeta(file) {
@@ -15,20 +15,7 @@ function getMeta(file) {
     return { loc: `${baseUrl}/${file}`, priority: '0.5', changefreq: 'monthly' };
 }
 
-const files = [];
-
-// Root-level HTML files (excluding error pages)
-fs.readdirSync(rootDir).forEach(f => {
-    if (f.endsWith('.html') && f !== '404.html' && f !== '503.html') files.push(f);
-});
-
-// Project pages
-const projectsDir = path.join(rootDir, 'projects');
-if (fs.existsSync(projectsDir)) {
-    fs.readdirSync(projectsDir).forEach(f => {
-        if (f.endsWith('.html')) files.push(`projects/${f}`);
-    });
-}
+const files = Object.keys(require('../pages.json')).filter(file => !['404.html', '503.html'].includes(file));
 
 // Sort: index first, then projects.html, blog.html, then project pages, then blog posts
 const order = ['index.html', 'projects.html', 'blog.html'];
@@ -54,7 +41,6 @@ files.forEach(file => {
     const { loc, priority, changefreq } = getMeta(file);
     sitemap += `  <url>
     <loc>${loc}</loc>
-    <lastmod>${now}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>

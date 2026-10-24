@@ -19,7 +19,7 @@ portfolio/
 │   ├── blog-*.html              # Individual blog post articles
 │   └── projects.html            # Standalone project listing portal
 ├── data/                        # Static JSON data files
-│   └── projects.json            # Contains array of all 7 project case studies
+│   └── projects.json            # Contains array of all 10 project case studies
 ├── templates/                   # Main page layouts
 │   ├── base.html                # Main boilerplate layout shell
 │   └── project-case-study.html  # Project case study body layout
@@ -38,7 +38,7 @@ portfolio/
 │   ├── theme.js                 # Theme toggle operations
 │   └── utils.js                 # Helper utilities (debounce/throttle)
 ├── projects/                    # Generated project pages (Build Output)
-│   └── *.html                   # 7 individual project case study HTMLs
+│   └── *.html                   # 10 individual project case study HTMLs
 ├── package.json                 # Dependency and task orchestration config
 ├── pages.json                   # SEO and layout configurations mapping
 ├── script.js                    # Javascript main entry point
@@ -81,7 +81,7 @@ graph TD
 ### 1. HTML Assembly (SSG)
 The assembler (`scripts/build-html.js`) reads page metadata from `pages.json` to configure titles, descriptions, canonical references, OpenGraph tags, and structured schemas.
 - **Root Pages**: Assembles pages like `index.html` by injecting the `content/index.html` body fragment, replacing placeholders like `{{NAV_CONTENT}}`, `{{FOOTER_CONTENT}}`, and `{{HOMEPAGE_PROJECTS}}`.
-- **Project Case Studies**: Reads the 7 project items inside `data/projects.json`. For each project, it maps properties into `templates/project-case-study.html` to generate fully statically-rendered HTML pages under the `projects/` subdirectory.
+- **Project Case Studies**: Reads the 10 project items inside `data/projects.json`. For each project, it maps properties into `templates/project-case-study.html` to generate fully statically-rendered HTML pages under the `projects/` subdirectory.
 
 ### 2. Stylesheet Generation
 The Tailwind compiler processes `style.css` (which contains default variable themes, animations, and Tailwind directives) and writes the minified CSS directly to `tailwind.css`.
@@ -101,3 +101,7 @@ URLs are structured to be clean, indexable, and free of dynamic queries.
 - **Blog Articles**: `/blog-slug.html`
 - **Project Case Studies**: `/projects/slug.html` (e.g. `/projects/ghermar-sons.html`)
 - **XML Sitemap**: `/sitemap.xml`
+
+## October 2026 reliability update
+
+The build prepares image metadata, assembles HTML, compiles CSS and JS, validates all 21 configured pages, and copies public deployment files into `dist/`. The root generated pages remain for compatibility. Contact details live in `data/site.json`; blog listings and article pages share `data/posts.json`. Project browsing uses a responsive grid with native page scrolling. Case-study questions use native details elements. Dependencies are installed per host and excluded from Git. See the README for the current workflow and Netlify Forms deployment checks.

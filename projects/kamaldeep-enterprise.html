@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-<head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <script src="../src/theme-init.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +14,7 @@
     <meta property="og:title" content="Kamaldeep Enterprise Case Study | Custom CMS Development | Lay Shah">
     <meta property="og:description" content="Custom CMS development case study for a wholesale business, featuring automated catalog generation and a structured PostgreSQL database.">
     <meta property="og:url" content="https://layshahdev.com/projects/kamaldeep-enterprise.html">
-    <meta property="og:image" content="https://layshahdev.com/og-image.jpg">
+    <meta property="og:image" content="https://layshahdev.com/public/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     
 
@@ -78,33 +76,21 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Primary Lucide CDN failed to load. Trying JSDelivr CDN...");
-            document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
-        }
-    </script>
-    <script>
-        if (!window.lucide) {
-            console.warn("Secondary Lucide CDN failed. Falling back to local script.");
-            document.write('<script src="../public/js/lucide.min.js"><\/script>');
-        }
-    </script>
+    <!-- Pinned local icons avoid blocking third-party fallbacks. -->
+    <script src="../public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../tailwind.css">
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
     <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -115,19 +101,21 @@
 </head>
 <body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
         <div class="container mx-auto px-6 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
         </svg>
         <span>LAY SHAH</span>
     </a>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8 nav-links-desktop">
+    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
         <a href="../index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
         <a href="../index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
         <a href="../index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -146,13 +134,13 @@
             </div>
         </button>
 
-        <a href="../index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-white transition-all duration-300 ease-out-expo">
+        <a href="../index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
             Let's Talk
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 md:hidden">
+    <div class="flex items-center gap-4 lg:hidden">
         <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
             <div class="relative w-5 h-5 overflow-hidden">
                 <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
@@ -174,7 +162,7 @@
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex md:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&.open]:opacity-100 [&.open]:translate-y-0 [&.open]:pointer-events-auto [&.open]:visible">
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
     <a href="../index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
     <a href="../index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
     <a href="../index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
@@ -186,11 +174,20 @@
 
     </nav>
 
+    <noscript>
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+            <a href="../index.html">Home</a>
+            <a href="../projects.html">Work</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </noscript>
+
     <!-- Project Case Study Template -->
 <!-- This template is used by build-html.js to generate individual project pages -->
 <!-- Placeholders: {{PROJECT_*}} are replaced with data from projects.json -->
 
-<main class="relative bg-background text-foreground pb-0">
+<main class="relative bg-background text-foreground pb-0" id="main-content" tabindex="-1">
 
     <!-- CaseHero -->
     <section id="hero" class="relative">
@@ -205,7 +202,7 @@
                 </ol>
             </nav>
             
-            <div data-eyebrow class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            <div data-eyebrow="" class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 <span>Fabric Wholesale Business</span>
                 <span class="h-px w-8 bg-border"></span>
                 <span>2025</span>
@@ -217,22 +214,21 @@
                 <span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">Kamaldeep</span></span><span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">Enterprise</span></span>
             </h1>
             
-            <div data-underline class="mt-2 h-[3px] w-24 bg-accent md:w-40 scale-x-0 origin-left"></div>
+            <div data-underline="" class="mt-2 h-[3px] w-24 bg-accent md:w-40 scale-x-0 origin-left"></div>
             
-            <p data-tagline class="mt-8 max-w-2xl text-xl leading-snug text-muted-foreground md:text-3xl">
-                Managing a massive, constantly evolving fabric catalog manually was bottlenecking B2B sales. The client urgently needed a reliable, easy-to-use system capable of bulk-processing media and instantly synchronizing inventory updates across their entire client network.
+            <p data-tagline="" class="mt-8 max-w-2xl text-xl leading-snug text-muted-foreground md:text-3xl">
+                A custom catalog system for a fabric wholesaler, with bulk product uploads, image processing, and PDF catalog management.
             </p>
         </div>
         
         <!-- CaseHero Cover -->
         <div class="mt-16 overflow-hidden">
             <div class="mx-auto max-w-[1600px] px-6 md:px-10">
-                <div data-cover class="relative aspect-[16/9] overflow-hidden rounded-3xl bg-card">
+                <div data-cover="" class="relative aspect-[16/9] overflow-hidden rounded-3xl bg-card">
                     <picture class="block h-full w-full">
-                <source type="image/webp" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
-                <source type="image/png" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 1600px) 100vw, 1600px">
-                <img src="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise - Project Case Study Hero Showcase" class="absolute inset-0 w-full h-full object-cover case-hero-cover-img">
-            </picture>
+        <source type="image/webp" srcset="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler-small.webp 600w, ../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp 1366w" sizes="(max-width: 1600px) 100vw, 1600px">
+        <img src="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.png" width="1366" height="768" alt="Kamaldeep Enterprise - Project Case Study Hero Showcase" class="absolute inset-0 w-full h-full object-cover case-hero-cover-img" decoding="async">
+    </picture>
                 </div>
             </div>
         </div>
@@ -305,7 +301,7 @@
             <div class="md:col-span-8">
                 <!-- Brief -->
                 <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">The Brief</div>
-                <div class="mt-4 [&_p]:mb-6 [&_p]:text-xl [&_p]:leading-[1.55] [&_p]:text-foreground md:[&_p]:text-2xl mb-20 prose-reveal">
+                <div class="mt-4 [&amp;_p]:mb-6 [&amp;_p]:text-xl [&amp;_p]:leading-[1.55] [&amp;_p]:text-foreground md:[&amp;_p]:text-2xl mb-20 prose-reveal">
                     <p class="drop-cap">Kamaldeep Enterprise relied on archaic, manual processes to manage thousands of fabric SKUs. This custom Content Management System completely digitized their wholesale operations. By automating PDF catalog generation, image processing, and inventory management, the platform transformed a logistical nightmare into a streamlined sales tool.</p>
                 </div>
 
@@ -315,38 +311,38 @@
                     <ul class="space-y-0">
                         
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
+                <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Workflow Optimization</h3>
-                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Audited existing manual catalog processes to design an efficient digital alternative for non-technical staff.</div>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Workflow Optimization</h3>
+                    <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Audited existing manual catalog processes to design an efficient digital alternative for non-technical staff.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
+                <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Database Architecture</h3>
-                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Engineered a structured PostgreSQL database capable of handling complex SKU hierarchies and metadata.</div>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Database Architecture</h3>
+                    <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Engineered a structured PostgreSQL database capable of handling complex SKU hierarchies and metadata.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
+                <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">Automated Processing</h3>
-                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Built custom Python pipelines using Pillow and PyPDF2 for instant bulk image optimization and catalog generation.</div>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Automated Processing</h3>
+                    <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Built custom Python pipelines using Pillow and PyPDF2 for instant bulk image optimization and catalog generation.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
+                <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">API Engineering</h3>
-                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Developed a secure REST/GraphQL API layer to ensure real-time inventory synchronization.</div>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">API Engineering</h3>
+                    <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Developed a secure REST/GraphQL API layer to ensure real-time inventory synchronization.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
-                <div data-reveal class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
+                <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
                 <div>
-                    <h3 data-reveal class="font-serif text-2xl md:text-3xl font-medium mb-3">UX Implementation</h3>
-                    <div data-reveal class="text-muted-foreground md:text-lg leading-relaxed">Deployed a responsive, intuitive Alpine.js/Tailwind dashboard focused entirely on speed and ease of use.</div>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">UX Implementation</h3>
+                    <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Deployed a responsive, intuitive Alpine.js/Tailwind dashboard focused entirely on speed and ease of use.</div>
                 </div>
             </li>
                     </ul>
@@ -359,21 +355,19 @@
                         
                 <figure class="mb-16 md:max-w-[85%]">
                     <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.webp 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp 1200w" sizes="(max-width: 768px) 90vw, 85vw">
-                <source type="image/png" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler-small.png 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png 1200w" sizes="(max-width: 768px) 90vw, 85vw">
-                <img src="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png" alt="Kamaldeep Enterprise Interface 1" class="w-full h-auto object-cover" loading="lazy">
-            </picture>
+                        <picture class="block w-full">
+        <source type="image/webp" srcset="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler-small.webp 600w, ../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp 1366w" sizes="(max-width: 768px) 90vw, 85vw">
+        <img src="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.png" width="1366" height="768" alt="Kamaldeep Enterprise Interface 1" class="w-full h-auto object-cover" decoding="async" loading="lazy">
+    </picture>
                     </div>
                     <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 01</figcaption>
                 </figure>
                 <figure class="mb-16 md:ml-auto md:max-w-[85%]">
                     <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
-                        <picture class="block w-full h-auto">
-                <source type="image/webp" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard-small.webp 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.webp 1200w" sizes="(max-width: 768px) 90vw, 85vw">
-                <source type="image/png" srcset="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard-small.png 600w, ../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png 1200w" sizes="(max-width: 768px) 90vw, 85vw">
-                <img src="../public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png" alt="Kamaldeep Enterprise Interface 2" class="w-full h-auto object-cover" loading="lazy">
-            </picture>
+                        <picture class="block w-full">
+        <source type="image/webp" srcset="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler%20Dashboard-small.webp 600w, ../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler%20Dashboard.webp 1366w" sizes="(max-width: 768px) 90vw, 85vw">
+        <img src="../public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler%20Dashboard.png" width="1366" height="768" alt="Kamaldeep Enterprise Interface 2" class="w-full h-auto object-cover" decoding="async" loading="lazy">
+    </picture>
                     </div>
                     <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 02</figcaption>
                 </figure>
@@ -386,12 +380,12 @@
         <!-- Quote (Optional) -->
         
             <div class="relative mb-32 rounded-3xl bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 border border-border px-8 py-14 md:px-16 md:py-20 transition-all hover:border-accent/20">
-                <span class="absolute -top-6 left-8 md:-top-10 md:left-10 font-serif text-[8rem] md:text-[10rem] italic leading-none text-accent select-none">&ldquo;</span>
+                <span class="absolute -top-6 left-8 md:-top-10 md:left-10 font-serif text-[8rem] md:text-[10rem] italic leading-none text-accent select-none">“</span>
                 <blockquote class="relative z-10 mb-8 font-serif text-2xl font-medium italic leading-snug text-foreground md:text-4xl">
                     The CMS has revolutionized how we manage our fabric catalog. What used to take hours now takes minutes. Our clients love the organized presentation and easy access to our products.
                 </blockquote>
                 <div class="relative z-10 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                    &mdash; Rajesh Kamaldeep, Owner, Kamaldeep Enterprise
+                    — Rajesh Kamaldeep, Owner, Kamaldeep Enterprise
                 </div>
             </div>
 
@@ -405,54 +399,27 @@
                 <div class="md:col-span-7 md:col-start-6">
                     <div class="divide-y divide-border border-y border-border" id="decisions">
                         
-                        <div class="accordion-item group">
-                            <button aria-expanded="true" aria-controls="d-0" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
-                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What was the core challenge?</span>
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
-                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
-                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
-                                </span>
-                            </button>
-                            <div id="d-0" data-panel class="grid transition-all duration-300 ease-out grid-rows-[1fr] opacity-100">
-                                <div class="overflow-hidden">
-                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
-                                        Managing a massive, constantly evolving fabric catalog manually was bottlenecking B2B sales. The client urgently needed a reliable, easy-to-use system capable of bulk-processing media and instantly synchronizing inventory updates across their entire client network.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item group">
-                            <button aria-expanded="false" aria-controls="d-1" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
-                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">How did we approach the solution?</span>
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
-                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
-                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
-                                </span>
-                            </button>
-                            <div id="d-1" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
-                                <div class="overflow-hidden">
-                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
-                                        Created a flexible content modeling system with support for custom fields. Implemented thumbnail generation automation for uploaded images. Built a GraphQL API for flexible content querying. Added an interactive dashboard, active-inactive tags, and bulk file upload support. Integrated PDF processing capabilities and created a responsive admin interface.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item group">
-                            <button aria-expanded="false" aria-controls="d-2" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
-                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">What were the key takeaways?</span>
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
-                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
-                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
-                                </span>
-                            </button>
-                            <div id="d-2" data-panel class="grid transition-all duration-300 ease-out grid-rows-[0fr] opacity-0">
-                                <div class="overflow-hidden">
-                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
-                                        Building for non-technical users requires extreme attention to UX. The bulk upload feature and automated thumbnail generation were game-changers. Investing time in user training and documentation was crucial for adoption.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <details class="group py-6" open="">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl md:text-2xl font-medium hover:text-accent">
+                                What was the core challenge?
+                                <span aria-hidden="true" class="text-accent transition-transform group-open:rotate-45">+</span>
+                            </summary>
+                            <p class="max-w-2xl pt-5 text-lg text-muted-foreground leading-relaxed">Managing a massive, constantly evolving fabric catalog manually was bottlenecking B2B sales. The client urgently needed a reliable, easy-to-use system capable of bulk-processing media and instantly synchronizing inventory updates across their entire client network.</p>
+                        </details>
+                        <details class="group py-6">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl md:text-2xl font-medium hover:text-accent">
+                                How did we approach the solution?
+                                <span aria-hidden="true" class="text-accent transition-transform group-open:rotate-45">+</span>
+                            </summary>
+                            <p class="max-w-2xl pt-5 text-lg text-muted-foreground leading-relaxed">Created a flexible content modeling system with support for custom fields. Implemented thumbnail generation automation for uploaded images. Built a GraphQL API for flexible content querying. Added an interactive dashboard, active-inactive tags, and bulk file upload support. Integrated PDF processing capabilities and created a responsive admin interface.</p>
+                        </details>
+                        <details class="group py-6">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl md:text-2xl font-medium hover:text-accent">
+                                What were the key takeaways?
+                                <span aria-hidden="true" class="text-accent transition-transform group-open:rotate-45">+</span>
+                            </summary>
+                            <p class="max-w-2xl pt-5 text-lg text-muted-foreground leading-relaxed">Building for non-technical users requires extreme attention to UX. The bulk upload feature and automated thumbnail generation were game-changers. Investing time in user training and documentation was crucial for adoption.</p>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -466,17 +433,17 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
             <div>
-                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">500+</div>
+                <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">500+</div>
                 <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">S K Us migrated</div>
             </div>
         
             <div>
-                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">-80%</div>
+                <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">-80%</div>
                 <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Update time</div>
             </div>
         
             <div>
-                <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">+65%</div>
+                <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">+65%</div>
                 <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">User satisfaction</div>
             </div>
         
@@ -491,21 +458,21 @@
                 <div class="flex-grow max-w-2xl">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Like this build? · Booking Q3 2026</span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
                     </div>
                     <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
-                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
                 </div>
 
                 <!-- Action Buttons (Right side) -->
                 <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
                     <a href="../index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                        Discuss your project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
                     </a>
                     <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                        <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a 30-min call
                     </a>
-                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within one business day.</span>
                 </div>
 
             </div>
@@ -528,7 +495,7 @@
                     <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
                 </div>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">Crypto Trading Analytics</h2>
-                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">Algorithmic cryptocurrency trading bot and data visualization dashboard. Automates complex trading strategies while providing real-time market insights.</p>
+                <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">A personal engineering project exploring automated trading workflows, market-data feeds, and an interactive analytics dashboard.</p>
             </div>
             
             <!-- Floating Arrow Icon -->
@@ -539,12 +506,7 @@
         </div>
     </section>
 </main>
-
-    <!-- Case Study Dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../public/js/case-study.js"></script>
-    
+<script src="../public/js/case-study.js" defer=""></script>
 
         <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
         <div class="container mx-auto max-w-[1400px]">
@@ -553,8 +515,8 @@
                 <div class="md:col-span-12 lg:col-span-6">
                     <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
+                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
                         </svg>
                         <span>LAY SHAH</span>
                     </a>
@@ -585,9 +547,9 @@
             
             <!-- Bottom Section -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>&copy; 2026 Lay Shah. All rights reserved.</p>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
+                <p>© 2026 Lay Shah. All rights reserved.</p>
+                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
                 </button>
             </div>
         </div>
@@ -610,9 +572,10 @@ function copyProjectLink() {
     });
 }
 </script>
-    <script src="../bundle.js" defer></script>
-
-</body>
-</html>
+    <script src="../bundle.js" defer=""></script>
 
 
+
+
+
+</body></html>

@@ -17,8 +17,8 @@
         --color-slate-900: #0f172a;
         --color-slate-950: #020617;
         
-        --color-trust-green: #059669; /* Emerald 600 - Deep, stable green */
-        --color-trust-green-light: #10B981; /* Emerald 500 */
+        --color-trust-green: #047857; /* Emerald 600 - Deep, stable green */
+        --color-trust-green-light: #34d399; /* Emerald 500 */
 
         /* Component-specific & Effect Tokens */
         --navbar-bg: rgba(248, 250, 252, 0.88);
@@ -44,6 +44,21 @@
         --theme-toggle-offset: 30px;
         --hover-lift-offset: -5px;
         --hamburger-translate: 8px;
+
+        /* RGB channels let Tailwind opacity modifiers work in both themes. */
+        --background-rgb: 248 250 252;
+        --foreground-rgb: 15 23 42;
+        --card-rgb: 255 255 255;
+        --card-foreground-rgb: 15 23 42;
+        --primary-rgb: 15 23 42;
+        --primary-foreground-rgb: 255 255 255;
+        --secondary-rgb: 241 245 249;
+        --secondary-foreground-rgb: 15 23 42;
+        --muted-rgb: 241 245 249;
+        --muted-foreground-rgb: 100 116 139;
+        --accent-rgb: 4 120 87;
+        --accent-foreground-rgb: 255 255 255;
+        --border-rgb: 226 232 240;
     }
 
     .dark {
@@ -63,8 +78,23 @@
         --muted: var(--color-slate-800);
         --muted-foreground: var(--color-slate-400);
         --accent: var(--color-trust-green-light);
-        --accent-foreground: var(--color-white);
+        --accent-foreground: var(--color-slate-950);
         --border: var(--color-slate-800);
+
+        /* RGB channels let Tailwind opacity modifiers work in both themes. */
+        --background-rgb: 2 6 23;
+        --foreground-rgb: 248 250 252;
+        --card-rgb: 15 23 42;
+        --card-foreground-rgb: 248 250 252;
+        --primary-rgb: 255 255 255;
+        --primary-foreground-rgb: 15 23 42;
+        --secondary-rgb: 30 41 59;
+        --secondary-foreground-rgb: 255 255 255;
+        --muted-rgb: 30 41 59;
+        --muted-foreground-rgb: 148 163 184;
+        --accent-rgb: 52 211 153;
+        --accent-foreground-rgb: 2 6 23;
+        --border-rgb: 30 41 59;
     }
 
     /* Smooth Scrolling (Lenis overrides this when active) */
@@ -97,8 +127,8 @@
 
     /* Reveal animation (fallback for non-GSAP elements) */
     .reveal {
-        opacity: 0;
-        transform: translateY(32px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
@@ -109,13 +139,13 @@
 
     /* iMessage-style review bubble directional animations */
     .review-bubble-left {
-        opacity: 0;
-        transform: translateX(-40px) translateY(16px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .review-bubble-right {
-        opacity: 0;
-        transform: translateX(40px) translateY(16px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .review-bubble-left.active,
@@ -146,11 +176,11 @@
         font-variant-numeric: tabular-nums;
     }
 
-    [data-counter]        { opacity: 0; transform: translateY(.75rem); transition: all .7s ease; }
+    [data-counter]        { opacity: 1; transform: none; }
     [data-counter].is-in  { opacity: 1; transform: none; }
 
     .reveal-word { display: inline-block; overflow: hidden; }
-    .reveal-word > span { display: inline-block; transform: translateY(110%); }
+    .reveal-word > span { display: inline-block; transform: none; }
     @media (prefers-reduced-motion: reduce) {
         .reveal-word > span { transform: none; }
     }
@@ -173,11 +203,6 @@
         transform: translateY(0);
     }
 }
-
-.hero-label    { animation: hero-fade-up 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both; }
-.hero-headline { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both; }
-.hero-sub      { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both; }
-.hero-ctas     { animation: hero-fade-up 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.55s both; }
 
 /* Ripple on theme toggle */
 @keyframes ripple {
@@ -377,3 +402,15 @@ html.lenis {
         border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
     }
 }
+
+/* Respect motion preferences for CSS interactions as well as scripted animations. */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }

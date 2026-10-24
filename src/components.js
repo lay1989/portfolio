@@ -3,70 +3,47 @@
  */
 
 import { submitContactForm } from './api.js';
+import { trackContactAction } from './analytics.js';
 
 /**
  * Attaches the AJAX submit handler to the contact form.
  * @returns {void}
  */
 export function initContactForm() {
-    /** @type {HTMLFormElement | null} */
-    const contactForm = document.querySelector("#contact-form");
-    if (contactForm) {
-        // Prevent duplicate listener in case script runs twice
-        const newForm = /** @type {HTMLFormElement} */ (contactForm.cloneNode(true));
-        if (contactForm.parentNode) {
-            contactForm.parentNode.replaceChild(newForm, contactForm);
+    const form = document.querySelector('#contact-form');
+    if (!form || form.dataset.initialized) return;
+    form.dataset.initialized = 'true';
+    const status = document.getElementById('contact-status');
+    const button = form.querySelector('[type="submit"]');
+    let sending = false;
+
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (sending || !form.reportValidity()) return;
+        sending = true;
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        form.setAttribute('aria-busy', 'true');
+        status.hidden = false;
+        status.textContent = 'Sending your project details…';
+        status.dataset.state = 'sending';
+        try {
+            const response = await submitContactForm(new FormData(form));
+            if (!response.ok) throw new Error('Submission failed');
+            status.textContent = "Thanks. Your message has been sent. I'll reply by email.";
+            status.dataset.state = 'success';
+            form.reset();
+            trackContactAction('generate_lead');
+        } catch {
+            status.textContent = "Your message could not be sent. Your details are still here. Please try again or use the email link below.";
+            status.dataset.state = 'error';
+        } finally {
+            sending = false;
+            button.disabled = false;
+            button.textContent = 'Send project details';
+            form.removeAttribute('aria-busy');
         }
-
-        newForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const formData = new FormData(newForm);
-            const statusEl = document.getElementById("contact-status");
-            const submitBtn = newForm.querySelector("#submit-btn");
-            const originalBtnText = submitBtn ? submitBtn.textContent : "";
-            
-            // Clear status first
-            if (statusEl) {
-                statusEl.className = "hidden text-sm font-medium rounded-lg p-4 mt-4";
-                statusEl.textContent = "";
-            }
-
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = "Sending...";
-            }
-
-            submitContactForm(formData)
-            .then((response) => {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }
-                if (response.ok) {
-                    if (statusEl) {
-                        statusEl.textContent = "Thank you! Your message has been sent successfully.";
-                        statusEl.className = "text-sm font-medium rounded-lg p-4 mt-4 bg-emerald-950/30 text-emerald-400 border border-emerald-900/50 dark:bg-emerald-100 dark:text-emerald-800 dark:border-emerald-200 block transition-all duration-300 ease-out-expo";
-                    }
-                    newForm.reset();
-                } else {
-                    if (statusEl) {
-                        statusEl.textContent = "Form submission failed. Please try again.";
-                        statusEl.className = "text-sm font-medium rounded-lg p-4 mt-4 bg-red-950/30 text-red-400 border border-red-900/50 dark:bg-red-100 dark:text-red-800 dark:border-red-200 block transition-all duration-300 ease-out-expo";
-                    }
-                }
-            })
-            .catch((error) => {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }
-                if (statusEl) {
-                    statusEl.textContent = error.message || error || "An error occurred. Please try again.";
-                    statusEl.className = "text-sm font-medium rounded-lg p-4 mt-4 bg-red-950/30 text-red-400 border border-red-900/50 dark:bg-red-100 dark:text-red-800 dark:border-red-200 block transition-all duration-300 ease-out-expo";
-                }
-            });
-        });
-    }
+    });
 }
 
 /**
@@ -178,10 +155,12 @@ export function initBlogFilter() {
         btn.addEventListener('click', (e) => {
             // Update active state
             filterBtns.forEach(b => {
+                b.setAttribute('aria-pressed', 'false');
                 b.classList.remove('bg-foreground', 'text-background', 'border-foreground');
                 b.classList.add('border-foreground/15', 'text-muted-foreground');
             });
             const target = e.currentTarget;
+            target.setAttribute('aria-pressed', 'true');
             target.classList.add('bg-foreground', 'text-background', 'border-foreground');
             target.classList.remove('border-foreground/15', 'text-muted-foreground');
 

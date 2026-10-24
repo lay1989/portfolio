@@ -16,6 +16,9 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
+const cheerio = require('cheerio');
+const site = require('../data/site.json');
+const imageManifest = JSON.parse(fs.readFileSync(path.join(root, '.cache/image-manifest.json'), 'utf8'));
 
 // Social sharing script for project pages
 const socialSharingScript = `
@@ -54,11 +57,7 @@ const posts = postsData.posts;
 // Helper: resolve base path for assets
 // ──────────────────────────────────────────
 function getBasePath(outputFile) {
-    // If the output file is in a subdirectory (e.g., projects/slug.html), use ../
-    if (outputFile.includes('/') || outputFile.includes('\\')) {
-        return '../';
-    }
-    return './';
+    return '../'.repeat(outputFile.replace(/\\/g, '/').split('/').length - 1) || './';
 }
 
 // ──────────────────────────────────────────
@@ -70,7 +69,7 @@ function buildOgMeta(page) {
     lines.push(`<meta property="og:title" content="${escHtml(page.ogTitle || page.title)}">`);
     lines.push(`<meta property="og:description" content="${escHtml(page.ogDescription || page.description)}">`);
     lines.push(`<meta property="og:url" content="${page.ogUrl || page.canonical}">`);
-    lines.push(`<meta property="og:image" content="${page.ogImage || 'https://layshahdev.com/og-image.jpg'}">`);
+    lines.push(`<meta property="og:image" content="${page.ogImage || `${site.url}/public/images/og-image.png`}">`);
     return lines.join('\n    ');
 }
 
@@ -117,28 +116,21 @@ function renderResponsivePicture(imgPath, alt, className, sizes, eager, pageBase
         resolvedPath = pageBasePath + imgPath;
     }
 
-    const basePath = resolvedPath.replace(/\.(webp|png|jpg|jpeg)$/i, '');
-    const ext = resolvedPath.match(/\.(webp|png|jpg|jpeg)$/i)?.[1] || 'png';
-
-    // Determine webp source
-    const webpSmall = `${basePath}-small.webp`;
-    const webpFull = basePath + '.webp';
-    const fallbackSmall = `${basePath}-small.${ext}`;
-    const fallbackFull = resolvedPath;
-
-    const loadAttr = eager ? '' : ' loading="lazy"';
-    const sizesAttr = sizes || '(max-width: 768px) 90vw, 896px';
-
-    let pictureClass = 'block';
-    if (className.includes('h-full')) pictureClass += ' h-full';
-    if (className.includes('w-full')) pictureClass += ' w-full';
-    if (className.includes('h-auto')) pictureClass += ' h-auto';
-
+    const asset = imgPath.replace(/^\.\//, '');
+    const full = imageManifest[asset];
+    if (!full) throw new Error(`Missing image metadata: ${asset}`);
+    const base = resolvedPath.replace(/\.(webp|png|jpg|jpeg)$/i, '');
+    const assetBase = asset.replace(/\.(webp|png|jpg|jpeg)$/i, '');
+    const webp = imageManifest[assetBase + '.webp'];
+    const small = imageManifest[assetBase + '-small.webp'];
+    const candidates = [];
+    if (small) candidates.push(`${encodeURI(base + '-small.webp')} ${small.width}w`);
+    if (webp && (!small || webp.width !== small.width)) candidates.push(`${encodeURI(base + '.webp')} ${webp.width}w`);
+    const pictureClass = ['block', className.includes('h-full') && 'h-full', className.includes('w-full') && 'w-full'].filter(Boolean).join(' ');
     return `<picture class="${pictureClass}">
-                <source type="image/webp" srcset="${webpSmall} 600w, ${webpFull} 1200w" sizes="${sizesAttr}">
-                <source type="image/${ext === 'jpg' ? 'jpeg' : ext}" srcset="${fallbackSmall} 600w, ${fallbackFull} 1200w" sizes="${sizesAttr}">
-                <img src="${fallbackFull}" alt="${escHtml(alt)}" class="${className || 'w-full h-auto object-cover'}"${loadAttr}>
-            </picture>`;
+        ${candidates.length ? `<source type="image/webp" srcset="${candidates.join(', ')}" sizes="${sizes || '(max-width: 768px) 90vw, 896px'}">` : ''}
+        <img src="${encodeURI(resolvedPath)}" width="${full.width}" height="${full.height}" alt="${escHtml(alt)}" class="${className || 'w-full h-auto object-cover'}" decoding="async"${eager ? '' : ' loading="lazy"'}>
+    </picture>`;
 }
 
 // ──────────────────────────────────────────
@@ -169,7 +161,7 @@ function renderCaseStudy(project, basePath) {
     html = html.replace(/\{\{PROJECT_TITLE_WORDS\}\}/g, titleWords);
 
     // Tagline Snippet
-    html = html.replace(/\{\{PROJECT_CHALLENGE_SNIPPET\}\}/g, escHtml(project.challenge || project.shortDesc));
+    html = html.replace(/\{\{PROJECT_CHALLENGE_SNIPPET\}\}/g, escHtml(project.shortDesc));
     
     // Overview Drop Cap
     const overview = project.overview || project.shortDesc;
@@ -313,22 +305,13 @@ function renderCaseStudy(project, basePath) {
                 <div class="md:col-span-7 md:col-start-6">
                     <div class="divide-y divide-border border-y border-border" id="decisions">
                         ${qaItems.map((item, idx) => `
-                        <div class="accordion-item group">
-                            <button aria-expanded="${idx === 0 ? 'true' : 'false'}" aria-controls="d-${idx}" class="group/btn flex w-full items-center justify-between py-6 text-left focus:outline-none">
-                                <span class="font-serif text-xl md:text-2xl font-medium transition-colors group-hover:text-accent">${escHtml(item.q)}</span>
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
-                                    <i data-lucide="plus" class="w-4 h-4 block group-aria-[expanded=true]/btn:hidden"></i>
-                                    <i data-lucide="minus" class="w-4 h-4 hidden group-aria-[expanded=true]/btn:block"></i>
-                                </span>
-                            </button>
-                            <div id="d-${idx}" data-panel class="grid transition-all duration-300 ease-out ${idx === 0 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}">
-                                <div class="overflow-hidden">
-                                    <p class="max-w-2xl pb-6 text-lg text-muted-foreground">
-                                        ${escHtml(item.a)}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>`).join('')}
+                        <details class="group py-6" ${idx === 0 ? 'open' : ''}>
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-xl md:text-2xl font-medium hover:text-accent">
+                                ${escHtml(item.q)}
+                                <span aria-hidden="true" class="text-accent transition-transform group-open:rotate-45">+</span>
+                            </summary>
+                            <p class="max-w-2xl pt-5 text-lg text-muted-foreground leading-relaxed">${escHtml(item.a)}</p>
+                        </details>`).join('')}
                     </div>
                 </div>
             </div>`;
@@ -374,20 +357,7 @@ function renderCaseStudy(project, basePath) {
         </a>`;
     html = html.replace('{{PROJECT_NEXT_CARD}}', nextCardHtml);
 
-    // Inject Scripts into the final HTML
-    // Add GSAP, ScrollTrigger, and custom case-study.js before closing tag if we have lucide script there, or just append
-    // I see in base.html there is a </body>. So let's insert before </body>
-    const scriptInjections = `
-    <!-- Case Study Dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="${basePath}public/js/case-study.js"></script>
-    `;
-    
-    // The base.html has </body> at the end
-    // But this render function only modifies the inner body, wait...
-    // Actually, `caseStudyTemplate` is just the main block, it is injected into `baseTemplate` later.
-    // Let's check `build-html.js` around line 431... Oh, `html = html.replace('</body>', ...)` might not work here.
+    const scriptInjections = `<script src="${basePath}public/js/case-study.js" defer></script>`;
     return html + scriptInjections;
 }
 
@@ -395,118 +365,8 @@ function renderCaseStudy(project, basePath) {
 // Helper: render projects listing page content
 // ──────────────────────────────────────────
 function renderProjectsListing() {
-    // Use the exact order provided by projects.json
     const sorted = [...projects];
-
-    // Helper: render stats grid (3 columns)
-    // Helper: render stats grid (3 columns)
-    function buildStatsGrid(metrics) {
-        if (!metrics) return '';
-        const entries = Object.entries(metrics).slice(0, 3);
-        return entries.map(([key, val]) => {
-            const formattedKey = key.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
-            const sentenceCaseKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
-            return `
-        <div>
-            <dt class="font-serif text-2xl font-medium tracking-tight lg:text-3xl text-foreground">${escHtml(String(val))}</dt>
-            <dd class="mt-1 text-xs text-muted-foreground">${escHtml(sentenceCaseKey)}</dd>
-        </div>
-    `;
-        }).join('');
-    }
-
-    // Helper: render stack tags
-    function buildStackChips(technologies) {
-        if (!technologies) return '';
-        const allTechs = Object.values(technologies).flat().slice(0, 4);
-        return allTechs.map(t => `
-        <span class="rounded-full border border-foreground/15 px-3.5 py-1.5 text-xs text-muted-foreground">${escHtml(t)}</span>
-    `).join('');
-    }
-
     const basePath = './';
-
-    // 1. Build Work Reel (Desktop)
-    let reelSlides = sorted.map((p, index) => `
-        <article class="flex h-full w-[88vw] shrink-0 items-center px-10 work-slide" data-index="${index}" data-title="${escHtml(p.title)}">
-            <div class="grid h-full max-h-[78vh] w-full grid-cols-12 gap-8 lg:gap-12">
-                
-                <!-- Left Column: Image -->
-                <a aria-label="Open case study: ${escHtml(p.title)}" href="${basePath}projects/${p.slug}.html" class="group relative col-span-7 h-full min-h-0 overflow-hidden rounded-2xl bg-card">
-                    ${renderResponsivePicture(p.heroImg, p.title, 'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]', '(max-width: 768px) 90vw, 45vw', index === 0, basePath)}
-                    
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                    
-                    <span class="absolute left-4 top-4 rounded-full border border-background/40 bg-foreground/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-background backdrop-blur">${String(index + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</span>
-                    
-                    <span class="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-background shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                    </span>
-                </a>
-                
-                <!-- Right Column: Meta -->
-                <div class="col-span-5 flex h-full flex-col justify-between py-4 lg:py-6 min-h-0">
-                    <div>
-                        <div class="flex items-center gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                            <span class="font-mono project-year">${p.year}</span>
-                            <span class="h-px w-12 bg-muted-foreground/30"></span>
-                            <span class="font-mono truncate">${escHtml(p.role)}</span>
-                        </div>
-                        <h2 class="mt-4 font-serif text-4xl font-medium leading-[1.05] tracking-tight lg:text-[3.25rem] text-foreground">${escHtml(p.title)}</h2>
-                        <p class="mt-3 max-w-md text-base text-muted-foreground">${escHtml(p.shortDesc)}</p>
-                    </div>
-                    
-                    <div class="mt-4 flex flex-col gap-6">
-                        <dl class="grid grid-cols-3 gap-4 border-t border-foreground/10 pt-6">
-                            ${buildStatsGrid(p.metrics)}
-                        </dl>
-                        
-                        <div class="flex flex-wrap items-center gap-2.5">
-                            ${buildStackChips(p.technologies)}
-                        </div>
-                        
-                        <a href="${basePath}projects/${p.slug}.html" class="group inline-flex items-center gap-2 text-sm font-medium text-foreground w-max pt-1">
-                            <span class="border-b border-accent pb-0.5 transition-colors group-hover:text-accent">Read the case study</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    `).join('\n');
-
-    const workReelHtml = `
-    <div class="hidden md:block work-reel-container" aria-label="Work reel">
-        <div class="h-screen overflow-hidden relative" id="work-reel-pin">
-            <!-- Track -->
-            <div class="flex h-full items-center work-reel-track w-max pt-16 pb-12">
-                <!-- Intro Spacer -->
-                <div class="flex h-full w-[40vw] shrink-0 items-end px-10 pb-4">
-                    <div>
-                        <div class="font-mono text-xs uppercase tracking-widest text-muted-foreground">Begin the reel</div>
-                        <div class="mt-2 font-serif text-3xl italic text-muted-foreground">Scroll &rarr;</div>
-                    </div>
-                </div>
-                ${reelSlides}
-                <!-- End Spacer -->
-                <div class="w-[10vw] flex-shrink-0 h-full"></div>
-            </div>
-            
-            <!-- Bottom Overlay Bar -->
-            <div class="absolute inset-x-0 bottom-0 z-20 border-t border-foreground/10 flex items-center justify-between px-6 md:px-10 py-2.5 h-12">
-                <div class="font-mono text-muted-foreground text-sm tracking-widest reel-counter w-24">01 / ${String(sorted.length).padStart(2, '0')}</div>
-                <div class="flex-1 mx-8 relative h-full flex items-center">
-                    <div class="absolute left-0 w-full h-px bg-foreground/10"></div>
-                    <div class="absolute left-0 h-[2px] bg-foreground reel-progress transition-all duration-100" style="width: 0%"></div>
-                </div>
-                <div class="font-serif text-foreground text-lg reel-active-title w-64 text-right truncate">
-                    ${escHtml(sorted[0].title)} <span class="font-mono text-sm text-muted-foreground ml-3 tracking-widest">&mdash; ${sorted[0].year}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
 
     // 2. Build Work Stack (Mobile)
     let stackItems = sorted.map((p, i) => `
@@ -514,14 +374,14 @@ function renderProjectsListing() {
             <a href="${basePath}projects/${p.slug}.html" class="block group" aria-label="Open case study: ${escHtml(p.title)}">
                 <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
                     <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">${String(i + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</div>
-                    ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out', '(max-width: 768px) 100vw, 100vw', i < 2, basePath)}
+                    ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out', '(max-width: 768px) 90vw, 45vw', i < 2, basePath)}
                     <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">${p.year}</span>
+                    <span class="font-mono text-xs text-muted-foreground tracking-widest">${p.year} · ${escHtml(p.clientType)}</span>
                     <span class="w-1 h-1 rounded-full bg-border"></span>
                     <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">${escHtml(p.role)}</span>
                 </div>
@@ -538,14 +398,14 @@ function renderProjectsListing() {
     `).join('');
 
     const workStackHtml = `
-    <div class="md:hidden mt-20 max-w-[1400px] px-6 mx-auto">
-        <ul class="space-y-20">
+    <div class="mt-20 max-w-[1400px] px-6 md:px-10 mx-auto">
+        <ul class="grid md:grid-cols-2 gap-x-12 gap-y-20">
             ${stackItems}
         </ul>
     </div>
     `;
 
-    return { workReelHtml, workStackHtml };
+    return { workStackHtml };
 }
 
 // ──────────────────────────────────────────
@@ -565,7 +425,7 @@ function renderHomepageProjects() {
             `${p.title} - ${p.category}`,
             'w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out',
             '(max-width: 768px) 90vw, 45vw',
-            true, // eager load first 3
+            false, // project images are below the homepage hero
             './'
         );
 
@@ -581,7 +441,9 @@ function renderHomepageProjects() {
                             <div class="${textOrder}">
                                 <span class="text-accent text-sm font-medium mb-4 block">${escHtml(p.category)} - ${escHtml(p.year)}</span>
                                 <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">${escHtml(p.title)}</h3>
-                                <p class="text-muted-foreground text-lg mb-8 leading-relaxed">${escHtml(p.shortDesc)}</p>
+                                <p class="text-muted-foreground text-lg mb-6 leading-relaxed">${escHtml(p.shortDesc)}</p>
+                                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">What shipped · ${escHtml(p.timeline)}</p>
+                                <ul class="mb-8 space-y-2 text-sm text-foreground">${p.keyFeatures.slice(0, 3).map(feature => `<li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>${escHtml(feature)}</li>`).join('')}</ul>
                                 <a href="projects/${p.slug}.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
                                     View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                                 </a>
@@ -589,6 +451,24 @@ function renderHomepageProjects() {
                         </div>
                     </div>`;
     }).join('\n');
+}
+
+/** Render the index from the same post records as article pages. */
+function renderBlogIndex(content) {
+    const featured = posts.find(post => post.slug === 'blog-responsive-design') || posts[0];
+    const formatDate = date => new Date(date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    const featuredHtml = `<a href="./${featured.slug}.html" class="mt-16 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center group" data-featured="true">
+        <div class="lg:col-span-7 overflow-hidden rounded-2xl bg-card aspect-video border border-foreground/10"><img src="./${featured.cover}" alt="Illustration for ${escHtml(featured.title)}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+        <div class="lg:col-span-5"><p class="font-mono text-xs uppercase tracking-widest text-accent mb-5">Featured · ${formatDate(featured.date)}</p><h2 class="font-serif text-4xl lg:text-5xl leading-tight mb-6">${escHtml(featured.title)}</h2><p class="text-lg text-muted-foreground leading-relaxed mb-6">${escHtml(featured.dek)}</p><span class="font-medium text-accent">Read the article ↗</span></div>
+    </a>`;
+    const rows = [...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post, index) => `<a href="./${post.slug}.html" class="group block py-10 post-row" data-category="${escHtml(post.category)}">
+        <div class="grid md:grid-cols-12 gap-6 items-start">
+            <span aria-hidden="true" class="hidden md:block md:col-span-1 font-mono text-xs text-muted-foreground">${String(index + 1).padStart(2, '0')}</span>
+            <div class="md:col-span-8"><p class="font-mono text-xs uppercase tracking-widest text-accent mb-4">${escHtml(post.category)}</p><h3 class="font-serif text-3xl md:text-4xl text-foreground group-hover:text-accent post-title">${escHtml(post.title)}</h3><p class="mt-4 text-muted-foreground leading-relaxed post-dek">${escHtml(post.dek)}</p></div>
+            <div class="md:col-span-3 md:text-right text-sm text-muted-foreground"><time datetime="${post.date}">${formatDate(post.date)}</time><span class="block mt-2">${post.readMinutes || 5} min read</span></div>
+        </div>
+    </a>`).join('');
+    return content.replace('{{BLOG_FEATURED}}', () => featuredHtml).replace('{{BLOG_POST_ROWS}}', () => rows);
 }
 
 // ──────────────────────────────────────────
@@ -723,7 +603,7 @@ function renderBlogPost(post, basePath) {
                     </div>
                 </div>
                 <div class="flex-shrink-0">
-                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
@@ -738,21 +618,21 @@ function renderBlogPost(post, basePath) {
                 <div class="flex-grow max-w-2xl">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Enjoyed this? · Booking Q3 2026</span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">{{AVAILABILITY}}</span>
                     </div>
                     <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Have a website you want to actually ship?</h2>
-                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">I take on one project at a time. Tell me what you're working on — I reply within a day.</p>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Tell me what needs to improve, who it’s for, and when you’d like to launch. We’ll work out the right scope together.</p>
                 </div>
 
                 <!-- Action Buttons (Right side) -->
                 <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                    <a href="mailto:hello@layshahdev.com" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                        Start a project <i data-lucide="arrow-up-right" class="w-4.5 h-4.5"></i>
+                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
                     </a>
-                    <a href="https://cal.com/layshah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                        <i data-lucide="calendar" class="w-4.5 h-4.5"></i> Book a 20-min call
+                    <a href="{{BOOKING_URL}}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
+                        <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a {{CALL_MINUTES}}-min call
                     </a>
-                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within a day.</span>
+                    <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">{{REPLY_NOTE}}</span>
                 </div>
 
             </div>
@@ -784,48 +664,7 @@ function renderBlogPost(post, basePath) {
     }
 
     // Reading Progress & Scripts
-    const pageScripts = `
-        <div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width: 0%;"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-        <script>
-            // Reading Progress
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById('reading-progress').style.width = scrolled + '%';
-            });
-            
-            // ProseReveal GSAP
-            document.addEventListener('DOMContentLoaded', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
-                    
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    
-                    if (!prefersReducedMotion) {
-                        const proseChildren = document.querySelectorAll('.prose-reveal > *');
-                        proseChildren.forEach((el) => {
-                            gsap.fromTo(el, 
-                                { y: 16, opacity: 0 },
-                                { 
-                                    y: 0, 
-                                    opacity: 1, 
-                                    duration: 0.6, 
-                                    ease: "power2.out",
-                                    scrollTrigger: {
-                                        trigger: el,
-                                        start: "top 85%",
-                                    }
-                                }
-                            );
-                        });
-                    }
-                }
-            });
-        </script>
-    `;
+    const pageScripts = '<div id="reading-progress" aria-hidden="true" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width:0%"></div>';
 
     return pageScripts + headerHtml + coverHtml + bodyHtml + endRuleHtml + authorCardHtml + contactCtaHtml + keepReadingHtml;
 }
@@ -859,11 +698,35 @@ function buildPage(outputFile, pageConfig, bodyContent) {
     html = html.replace('{{STRUCTURED_DATA}}', buildStructuredData(pageConfig));
 
     // Replace body content
-    html = html.replace('{{BODY_CONTENT}}', bodyContent);
+    html = html.replace('{{BODY_CONTENT}}', () => /<main[\s>]/i.test(bodyContent) ? bodyContent : `<main>${bodyContent}</main>`);
 
     // Page-specific scripts (extracted from content if present)
     const pageScripts = pageConfig.type === 'project' ? socialSharingScript : '';
     html = html.replace('{{PAGE_SCRIPTS}}', pageScripts);
+
+    const values = {
+        BASE_PATH: basePath,
+        CONTACT_EMAIL: site.email,
+        BOOKING_URL: site.bookingUrl,
+        CALL_MINUTES: String(site.callMinutes),
+        AVAILABILITY: site.availability,
+        REPLY_NOTE: site.replyNote,
+        PROJECT_COUNT: String(projects.length),
+    };
+    html = html.replace(/\{\{([A-Z_]+)\}\}/g, (token, key) => values[key] === undefined ? token : escHtml(values[key]));
+    const $ = cheerio.load(html);
+    $('main').attr('id', 'main-content').attr('tabindex', '-1');
+    if (['404.html', '503.html'].includes(outputFile)) $('meta[name="robots"]').attr('content', 'noindex, follow');
+    $('img').each((_, img) => {
+        const src = $(img).attr('src');
+        if (!src || /^(https?:|data:)/.test(src)) return;
+        const asset = path.posix.normalize(path.posix.join(path.posix.dirname(outputFile), src));
+        const dimensions = imageManifest[asset];
+        if (dimensions) $(img).attr('width', dimensions.width).attr('height', dimensions.height);
+        $(img).attr('decoding', 'async');
+    });
+    html = $.html();
+    if (/\{\{[A-Z_]+\}\}/.test(html.replace(/<!--[\s\S]*?-->/g, ''))) throw new Error(`Unresolved placeholder in ${outputFile}`);
 
     // Ensure projects/ directory exists
     const outPath = path.join(root, outputFile);
@@ -884,8 +747,7 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
         // Build individual project page from projects.json
         const project = projects.find(p => p.slug === config.projectSlug);
         if (!project) {
-            console.warn(`  SKIP ${outputFile} (project slug "${config.projectSlug}" not found)`);
-            return;
+            throw new Error(`Missing project for ${outputFile}: ${config.projectSlug}`);
         }
         const basePath = getBasePath(outputFile);
         
@@ -916,8 +778,7 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
     } else if (config.type === 'post') {
         const post = posts.find(p => p.slug === config.postSlug);
         if (!post) {
-            console.warn(`  SKIP ${outputFile} (post slug "${config.postSlug}" not found)`);
-            return;
+            throw new Error(`Missing post for ${outputFile}: ${config.postSlug}`);
         }
         const basePath = getBasePath(outputFile);
         
@@ -949,18 +810,18 @@ Object.entries(pagesJson).forEach(([outputFile, config]) => {
         // Build projects listing page
         const contentPath = path.join(root, config.content);
         let content = fs.readFileSync(contentPath, 'utf-8');
-        const { workReelHtml, workStackHtml } = renderProjectsListing();
-        content = content.replace('{{WORK_REEL}}', workReelHtml);
+        const { workStackHtml } = renderProjectsListing();
+        content = content.replace('{{WORK_REEL}}', '');
         content = content.replace('{{WORK_STACK}}', workStackHtml);
         buildPage(outputFile, config, content);
     } else {
         // Build standard page from content fragment
         const contentPath = path.join(root, config.content);
         if (!fs.existsSync(contentPath)) {
-            console.warn(`  SKIP ${outputFile} (content file not found: ${config.content})`);
-            return;
+            throw new Error(`Missing content for ${outputFile}: ${config.content}`);
         }
         let content = fs.readFileSync(contentPath, 'utf-8');
+        if (outputFile === 'blog.html') content = renderBlogIndex(content);
         if (outputFile === 'index.html') {
             content = content.replace('{{HOMEPAGE_PROJECTS}}', renderHomepageProjects());
             content = content.replace('{{HOMEPAGE_BLOG_POSTS}}', renderHomepagePosts());
