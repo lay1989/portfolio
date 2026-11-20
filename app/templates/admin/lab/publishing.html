@@ -1,0 +1,36 @@
+{% extends 'admin/base.html' %}
+{% block title %}Publishing workbench{% endblock %}
+{% block styles %}<link rel="stylesheet" href="/public/css/publishing-workbench.css">{% endblock %}
+{% block content %}
+<div class="ui-stack"><a href="{{ url_for('admin.dashboard') }}" class="text-accent underline">Back to website manager</a><h1 class="site-heading type-title">Edit. Preview. Publish.</h1><p class="ui-muted max-w-2xl">Change a sample project, check its preview, then release it. A small workbench for a website you can look after yourself.</p><p class="text-sm ui-muted">Private prototype · Illustrative content only</p></div>
+<div class="publishing-workbench" data-workbench data-theme="{{ example_theme }}">
+    <div class="workbench-layout">
+        <div class="ui-stack">
+            <figure class="workbench-figure">
+                <div class="workbench-frame ui-row justify-between"><span>Fig. 01</span><span>A publishing workbench</span></div>
+                {% include 'publishing-machine.html' %}
+                <figcaption class="workbench-frame ui-stack"><p>Edit the draft. Inspect a preview. Release it when you’re ready.</p><output data-workbench-status aria-live="polite" aria-atomic="true">Change the sample title or layout to begin.</output></figcaption>
+            </figure>
+            <section class="workbench-public" aria-labelledby="workbench-public-title">
+                <div class="ui-row justify-between"><h2 id="workbench-public-title" tabindex="-1" class="font-display">Public example</h2><span class="text-sm ui-muted" data-release-count>0 releases</span></div>
+                <article class="workbench-example" data-public-page data-layout="image-first"><div class="workbench-image" aria-hidden="true"><span></span></div><div><p class="text-sm ui-muted mb-2">Sample project</p><h3 class="font-serif text-3xl" data-public-title>A quieter workday.</h3><p class="ui-muted mt-3">A sample page for trying the publishing process.</p></div></article>
+            </section>
+        </div>
+        <section class="workbench-controls ui-stack" aria-labelledby="workbench-controls-title">
+            <h2 id="workbench-controls-title" class="site-heading font-serif text-3xl">Try a small change.</h2>
+            <p class="ui-muted">Your edits stay in the draft until you preview and publish them.</p>
+            <div data-workbench-controls hidden class="ui-stack">
+                <div class="ui-field"><label for="workbench-title">Sample title</label><input id="workbench-title" class="ui-input" data-draft-title value="A quieter workday." maxlength="64" aria-describedby="workbench-title-help"><span class="text-sm ui-muted" id="workbench-title-help">Up to 64 characters. A title is required.</span></div>
+                <div class="ui-field"><label for="workbench-layout">Sample layout</label><select id="workbench-layout" class="ui-input" data-draft-layout><option value="image-first">Image first</option><option value="text-first">Text first</option></select></div>
+                <div class="ui-row"><button type="button" class="ui-button" data-action="preview">Preview draft</button><button type="button" class="ui-button" data-action="publish" disabled>Publish example</button></div>
+                <p class="text-sm ui-muted" data-action-status aria-hidden="true">Change the sample title or layout to begin.</p><p data-result-link hidden><a class="text-accent underline" href="#workbench-public-title">View the public example</a></p>
+                <section class="workbench-preview ui-stack" aria-labelledby="workbench-preview-heading"><div class="ui-row justify-between"><h3 id="workbench-preview-heading" class="font-display">Private preview</h3><span class="text-sm ui-muted" data-preview-state>No preview yet</span></div><div data-preview-empty class="ui-muted">Preview the draft to inspect it here. The public example will stay as it is.</div><article class="workbench-example" data-preview-page data-layout="image-first" hidden><div class="workbench-image" aria-hidden="true"><span></span></div><div><p class="text-sm ui-muted mb-2">Sample project</p><h4 class="font-serif text-2xl" data-preview-title></h4></div></article></section>
+                <p><button type="button" class="text-accent underline" data-action="reset">Reset example</button></p>
+            </div>
+            <noscript><p class="ui-muted">Edits stay in a draft. Preview lets you inspect them. Publish updates the public version. The diagram shows the complete process.</p></noscript>
+        </section>
+    </div>
+</div>
+<p class="ui-muted text-sm">This example resets when you reload. Your portfolio content is untouched.</p>
+{% endblock %}
+{% block scripts %}<script src="/public/js/publishing-workbench.js" defer></script>{% endblock %}

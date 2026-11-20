@@ -1,0 +1,463 @@
+{
+  "round": 4,
+  "stage": "development",
+  "reviewedOn": "2026-10-29",
+  "title": "Curiosity comes first.",
+  "summary": "A personal identity for Lay Shah: inventive and discerning, with one unexpected detail that makes a clear impression.",
+  "brief": {
+    "name": "Lay Shah",
+    "foundation": "Curiosity → understanding → clear communication.",
+    "audience": "Founders, businesses, and small teams choosing a developer for websites, applications, and practical tools.",
+    "feeling": "Understood and confident.",
+    "personality": "Inventive and discerning.",
+    "direction": "Restraint with an unexpected, memorable character.",
+    "latitude": "Fresh lettering, symbols, and colors are open for exploration. Website typography, colors, and layout are reviewed separately.",
+    "ownerWords": "At the top, I think it should be curiosity, without which nothing is possible.",
+    "interpretation": "Explore deeply enough to understand the real need, then explain the choices and value clearly. This is a working creative brief, not a new public tagline."
+  },
+  "muse": {
+    "id": "mubi",
+    "name": "MUBI",
+    "url": "https://mubi.com/en/in",
+    "width": 120,
+    "height": 50,
+    "alt": "Source capture of MUBI’s white wordmark and seven-dot arrangement from its own homepage.",
+    "cue": "Plain, compact lettering sits beside a small, uneven arrangement of equal-sized dots. The unusual silhouette adds a moment of discovery while the name stays easy to read.",
+    "carry": "A clear name, an economical shape vocabulary, and one deliberate surprise.",
+    "boundary": "The dot arrangement, letter shapes, and cinema identity belong to MUBI. Lay’s sketches will explore original forms and ideas.",
+    "confirmed": "Selected by you: “I would love to go with option C, unexpected character.”"
+  },
+  "references": [
+    {
+      "id": "josh-comeau",
+      "name": "Josh W. Comeau",
+      "kind": "Modified name treatment",
+      "url": "https://www.joshwcomeau.com/",
+      "width": 210,
+      "height": 90,
+      "alt": "Source capture of Josh W. Comeau’s colored name, with a tilted W and small caret between the words.",
+      "observation": "A tilted W and a small caret interrupt an otherwise readable name. The surrounding website adds a much more playful illustrated world.",
+      "lesson": "A small, specific change can give lettering a recognizable voice.",
+      "caution": "The whimsical treatment suits his teaching personality. Lay’s clients still need a composed, confident first impression."
+    },
+    {
+      "id": "rauno-freiberg",
+      "name": "Rauno Freiberg",
+      "kind": "Name-led identity",
+      "url": "https://rauno.me/",
+      "width": 490,
+      "height": 95,
+      "alt": "Source capture of Rauno Freiberg’s large black name beside the edge of a yellow circle.",
+      "observation": "The name leads in large, plain lettering. A yellow circle and unusual page composition carry the visual character.",
+      "lesson": "Personality can come from one deliberate interruption around clear typography.",
+      "caution": "This is a name treatment in a larger composition, rather than a standalone graphic symbol. Lay’s finished mark must also hold its own outside the website."
+    },
+    {
+      "id": "paco-coursey",
+      "name": "Paco Coursey",
+      "kind": "Name-led identity",
+      "url": "https://paco.me/",
+      "width": 260,
+      "height": 75,
+      "alt": "Source capture of Paco Coursey’s small, unadorned name on a dark background.",
+      "observation": "A small, unadorned name introduces a restrained, writing-led page. There is no separate graphic logo in this captured heading.",
+      "lesson": "Restraint gives the work and language room to establish credibility.",
+      "caution": "Plain name typography alone offers little visual recognition when removed from its page. Lay needs a more memorable identifying feature."
+    },
+    {
+      "id": "brittany-chiang",
+      "name": "Brittany Chiang",
+      "kind": "Name-led identity",
+      "url": "https://brittanychiang.com/",
+      "width": 405,
+      "height": 115,
+      "alt": "Source capture of Brittany Chiang’s large pale name and Frontend Engineer label on navy.",
+      "observation": "A large, bold name and a clear role establish an immediate hierarchy against a navy background.",
+      "lesson": "The person’s name can be the clearest anchor in a professional portfolio.",
+      "caution": "Dark backgrounds and neutral sans-serif names recur in this comparison set. Repeating that combination alone would give Lay little distinction."
+    },
+    {
+      "id": "tobias-van-schneider",
+      "name": "Tobias van Schneider / HOVS",
+      "kind": "Product-builder studio wordmark",
+      "url": "https://vanschneider.com/",
+      "width": 265,
+      "height": 110,
+      "alt": "Source capture of the HOVS serif wordmark in a red tab at the top of Tobias van Schneider’s site.",
+      "observation": "The HOVS wordmark pairs high-contrast serif lettering with an assertive red tab. Tobias’s own products and studio work share the surrounding identity.",
+      "lesson": "A consistent point of view can connect a personal practice and several products.",
+      "caution": "HOVS is a studio identity. Lay Shah remains the primary name here; a new studio name or elaborate badge is outside the brief."
+    },
+    {
+      "id": "bruno-simon",
+      "name": "Bruno Simon",
+      "kind": "Published browser symbol",
+      "url": "https://bruno-simon.com/",
+      "assetUrl": "https://bruno-simon.com/favicons/favicon-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alt": "Source capture of Bruno Simon’s published square browser icon with a dark diamond and white center.",
+      "observation": "The published browser icon is a simple diamond. The portfolio itself builds recognition through a distinctive interactive driving world.",
+      "lesson": "A logo is one part of a personal identity; demonstrated craft can carry much of its character.",
+      "caution": "An isolated geometric diamond would not give Lay the same distinctive experience. The new mark needs an identifying feature of its own."
+    }
+  ],
+  "findings": [
+    "Names do much of the identifying work in this set. Josh modifies his lettering; Rauno, Paco, and Brittany largely use their names as typography within a broader composition.",
+    "Dark backgrounds and neutral sans-serif lettering recur. They can be well executed, but using them alone would give Lay little visual distinction.",
+    "The memorable differences come from particular choices: Josh’s displaced letter, Rauno’s spatial interruption, HOVS’s typographic contrast, and Bruno’s authored experience.",
+    "The opportunity for Lay is a composed identity with an identifying detail that survives outside a website. The client should be able to notice that detail before reading its explanation."
+  ],
+  "criteria": [
+    {
+      "title": "Personal relevance",
+      "description": "Trace the idea to Lay’s curiosity, understanding, or communication. It should feel plausible for this person and this audience."
+    },
+    {
+      "title": "Recognizable character",
+      "description": "Point to one feature that can be remembered after a brief glance. Keep the name clear and the surprise intentional."
+    },
+    {
+      "title": "Legibility",
+      "description": "Read the name at header size and inspect the compact symbol at actual 16, 24, and 32 pixels. Test pure black and white before color."
+    },
+    {
+      "title": "Distinction",
+      "description": "Compare the visible work against these six identities, MUBI, and the rejected rounds. Record similarities and weaknesses without awarding intent as evidence."
+    }
+  ],
+  "rejected": [
+    "Join",
+    "Span",
+    "Relay",
+    "Signature",
+    "Whole",
+    "Clear",
+    "Open letter",
+    "Two voices",
+    "Unrehearsed",
+    "Margin note",
+    "Turned page",
+    "Follow-up",
+    "Listening form",
+    "Attentive hare",
+    "The aside",
+    "Unfold",
+    "Inside out",
+    "Working note"
+  ],
+  "avoid": [
+    "Reworking the existing LS mark or any of the six rejected concepts.",
+    "Copying MUBI’s dots or substituting a familiar tech symbol for a personal idea.",
+    "Default curiosity icons such as a magnifying glass, question mark, or eye without a specific original idea.",
+    "Using a fashionable font, color effect, or animation as the only source of distinction."
+  ],
+  "nextStage": "Review the reconstructed lettering, symbol proportions and A/B color treatment. After approval, finish the master files and usage guide before applying the identity locally.",
+  "glyphs": {},
+  "concepts": [
+    {
+      "number": 1,
+      "id": "looped-name",
+      "name": "Looped name",
+      "kind": "lettering",
+      "idea": "A compact lowercase name with a rounded y terminal and a broad descending curve. The y gives your name a detail to recognize.",
+      "risk": "The y and the second line sit close together; the join needs refinement at header size.",
+      "alt": "Stacked lowercase lay shah, heavy strokes, curled y and circular terminal.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Looped name"
+    },
+    {
+      "number": 2,
+      "id": "forward-name",
+      "name": "Forward name",
+      "kind": "lettering",
+      "idea": "The L and S stretch across the two-line name, giving the letters a shared forward movement.",
+      "risk": "The speed and sharp terminals could suggest sport or automotive work more than thoughtful consulting.",
+      "alt": "Slanted Lay Shah, long angular L and sweeping S, stacked on two lines.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Forward name"
+    },
+    {
+      "number": 3,
+      "id": "continuous-name",
+      "name": "Continuous name",
+      "kind": "lettering",
+      "idea": "A single-line name with soft joins around ay and a shaped S. It gives the full name priority.",
+      "risk": "This is the closest to ordinary typography; the small joins may not make it memorable enough.",
+      "alt": "Single-line Lay Shah with rounded sans letterforms and closely connected ay.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Continuous name"
+    },
+    {
+      "number": 4,
+      "id": "interlocking-name",
+      "name": "Interlocking name",
+      "kind": "lettering",
+      "idea": "The curved y and tall S hold the two lines together. Repeated narrow counters make the name feel composed.",
+      "risk": "The fine strokes need size testing, and the style may feel closer to fashion or publishing.",
+      "alt": "Stacked lay Shah in contrasting thick and thin strokes, with curved y and a terminals.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Interlocking name"
+    },
+    {
+      "number": 5,
+      "id": "ribbon-y",
+      "name": "Ribbon y",
+      "kind": "symbol",
+      "idea": "The y from Lay becomes a small, animated-looking mark. Its branching shape offers a possible connection to asking why.",
+      "risk": "The separate circle can read as a person or a bird. The why connection is a word association, not something the shape proves.",
+      "alt": "A broad black y with a curved tail and separate round upper-right terminal.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Ribbon y"
+    },
+    {
+      "number": 6,
+      "id": "split-counter",
+      "name": "Split counter",
+      "kind": "symbol",
+      "idea": "Two solid pieces frame an interrupted inner shape. This tests whether an abstract initials direction has any appeal.",
+      "risk": "The initials are not clear enough. It risks being another arbitrary geometric mark, so I would not lead with it.",
+      "alt": "A left semicircular form and a lower curved block separated by white space.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Split counter"
+    },
+    {
+      "number": 7,
+      "id": "open-a",
+      "name": "Open a",
+      "kind": "symbol",
+      "idea": "An open, a-like form uses the letter repeated twice in Lay Shah. Two curved parts face the same central space.",
+      "risk": "It can read as a seed or flame before a letter. The connection to your name needs to be visible, not merely explained.",
+      "alt": "Two tapered curved forms make a loose lowercase a silhouette with an open central counter.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Open a"
+    },
+    {
+      "number": 8,
+      "id": "loop-y",
+      "name": "Loop y",
+      "kind": "symbol",
+      "idea": "A compact y folds its descender into a loop. It is a direct fragment of your first name.",
+      "risk": "On its own it may read as a generic script y. The curve needs a more individual construction.",
+      "alt": "A black y with two broad branches and a looped descending stroke.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Loop y"
+    },
+    {
+      "number": 9,
+      "id": "ribbon-lockup",
+      "name": "Ribbon + name",
+      "kind": "combined",
+      "idea": "Pairs 05 with the lettering from 01 to test a related symbol and name.",
+      "risk": "Both y forms compete for attention; the name alone may be stronger.",
+      "alt": "Ribbon y to the left of the two-line looped lowercase lay shah.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Ribbon + name"
+    },
+    {
+      "number": 10,
+      "id": "counter-lockup",
+      "name": "Counter + name",
+      "kind": "combined",
+      "idea": "Pairs 06 with the contrasting strokes of 04 to test a more formal identity.",
+      "risk": "The symbol and lettering use different shape languages. The pairing is less convincing than the name alone.",
+      "alt": "Split counterform at left beside the tall, high-contrast stacked lay Shah.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Counter + name"
+    },
+    {
+      "number": 11,
+      "id": "open-lockup",
+      "name": "Open a + name",
+      "kind": "combined",
+      "idea": "Pairs 07 with a horizontal name, aiming for a compact, readable arrangement.",
+      "risk": "The generated symbol has an extra seam and the name is crowded; both need redrawing if this direction appeals.",
+      "alt": "An open a-like symbol left of closely spaced single-line Lay Shah, with a small seam in the symbol.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Open a + name"
+    },
+    {
+      "number": 12,
+      "id": "loop-lockup",
+      "name": "Loop y + name",
+      "kind": "combined",
+      "idea": "Pairs 08 with the slanted name from 02. This tests how much energy the identity should have.",
+      "risk": "The repeated y and sweeping capitals make this busy. It may communicate speed more than curiosity.",
+      "alt": "Looped y next to angled, two-line Lay Shah with extended L and S strokes.",
+      "construction": "Raster concept study; no production geometry authored or approved.",
+      "caption": "Loop y + name"
+    }
+  ],
+  "stageOneApproval": "2026-10-28: Yes—start the 12 black-and-white sketches",
+  "sketchGroups": [
+    {
+      "id": "lettering",
+      "title": "01–04 / The name",
+      "description": "Four different structures for Lay Shah. Compare their character and readability."
+    },
+    {
+      "id": "symbol",
+      "title": "05–08 / Letters as symbols",
+      "description": "A narrower exploration from your name. Each has limitations; none is presented as a finished solution."
+    },
+    {
+      "id": "combined",
+      "title": "09–12 / Pairing tests",
+      "description": "These reuse the symbols above to test their relationship with lettering. They are four combinations, not four additional symbol ideas."
+    }
+  ],
+  "wordMap": [
+    {
+      "root": "Curiosity",
+      "associations": [
+        "openings",
+        "a second look",
+        "turning a page",
+        "examining an inside"
+      ]
+    },
+    {
+      "root": "Understanding",
+      "associations": [
+        "listening",
+        "making a note",
+        "considering another angle"
+      ]
+    },
+    {
+      "root": "Communication",
+      "associations": [
+        "different voices",
+        "a pause",
+        "taking turns",
+        "sharing a finding"
+      ]
+    }
+  ],
+  "recommendation": {
+    "numbers": [
+      1,
+      4
+    ],
+    "reason": "Start by comparing 01 and 04: the first feels more approachable, the second more formal. In this sheet I think the name carries more character than the separate symbols. Neither is selected. If neither feels like you, describe the feature that feels wrong rather than choosing a pair."
+  },
+  "medium": "raster-study",
+  "rejectionFeedback": "The owner rejected the entire previous twelve: lettering felt like font changes, symbols lacked personal relevance, and combinations felt generic.",
+  "reviewNote": "A fresh black-and-white study of your name and its letter shapes. The previous twelve have been withdrawn. These are AI-assisted image studies for visual feedback; a chosen direction still needs original vector drawing, spacing and small-size testing.",
+  "artwork": {
+    "source": "identity-studies/round-4/comparison.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "6cbafff2eb56044ae58d656991da605c5d070459388881f78660dfc8d1aaafe2",
+    "tool": "Built-in image_gen, generation followed by one edit",
+    "prompts": "identity-studies/round-4/prompts.md",
+    "alt": "Twelve black-and-white Lay Shah studies arranged in three rows. First row: four name treatments with looped, slanted, continuous and high-contrast lettering. Second row: a ribbon y, split counterform, open a-like form and looped y. Third row pairs those symbols with the name. Numbered descriptions follow."
+  },
+  "referenceCapturedOn": "2026-10-28",
+  "selection": {
+    "numbers": [
+      5,
+      9
+    ],
+    "confirmation": "okay go ahead",
+    "scope": "Develop 09 as the full identity and 05 as its compact symbol. One family, not two competing identities. Final treatment and integration remain unapproved."
+  },
+  "development": {
+    "title": "The ribbon y, developed.",
+    "summary": "Your selected 05 / 09 family, rebuilt as editable curves. The symbol keeps its detached dot and sweeping tail; the name gets clearer spacing and a quieter y.",
+    "symbol": [
+      "M28 44 H62 C85 44 95 65 104 82 L140 146 C125 150 109 144 99 129 L55 67 C46 53 39 47 28 44 Z",
+      "M209 101 C187 132 175 158 155 188 C133 223 94 234 38 211 C83 226 118 196 140 165 C162 132 183 112 209 101 Z",
+      "M216 63 A28 28 0 1 1 160 63 A28 28 0 1 1 216 63 Z"
+    ],
+    "letters": {
+      "l": "M0 0 H22 V125 C22 139 28 146 38 150 C13 153 0 140 0 122 Z",
+      "a": "M8 29 C26 8 68 8 83 27 C93 39 92 55 92 70 V112 H72 V101 C61 113 46 118 30 115 C10 112 0 100 0 85 C0 63 18 52 48 52 H71 V46 C71 29 61 21 46 21 C32 21 21 28 14 39 Z M71 65 H50 C29 65 22 72 22 84 C22 97 32 102 43 102 C57 102 71 92 71 79 Z",
+      "y": "M0 0 H24 C33 0 37 8 42 20 L66 66 L90 7 C93 0 101 -3 108 2 L72 85 C60 113 40 131 9 131 C-3 131 -13 127 -20 121 C6 128 26 115 44 90 L5 15 C2 7 0 2 0 0 Z",
+      "s": "M70 20 L63 36 C56 24 43 18 32 20 C18 23 18 34 28 42 L55 60 C78 74 80 93 64 107 C45 122 14 119 0 104 L8 87 C15 102 31 110 45 103 C57 96 52 85 41 78 L16 62 C-4 49 -6 28 12 16 C30 3 56 7 70 20 Z",
+      "h": "M0 0 H22 V64 C32 50 45 46 59 46 C82 46 95 62 95 89 V150 H73 V90 C73 69 65 61 53 61 C35 61 22 79 22 97 V150 H0 Z"
+    },
+    "wordmark": {
+      "width": 385,
+      "height": 334,
+      "placements": [
+        {
+          "letter": "l",
+          "x": 43,
+          "y": 0
+        },
+        {
+          "letter": "a",
+          "x": 86,
+          "y": 38
+        },
+        {
+          "letter": "y",
+          "x": 187,
+          "y": 53
+        },
+        {
+          "letter": "s",
+          "x": 0,
+          "y": 200
+        },
+        {
+          "letter": "h",
+          "x": 81,
+          "y": 164
+        },
+        {
+          "letter": "a",
+          "x": 187,
+          "y": 200
+        },
+        {
+          "letter": "h",
+          "x": 290,
+          "y": 164
+        }
+      ]
+    },
+    "treatments": [
+      {
+        "id": "green",
+        "name": "A / Evergreen",
+        "ink": "identity-green",
+        "paper": "identity-cream",
+        "note": "A deeper green on warm paper. Closest to the existing website, with a softer background."
+      },
+      {
+        "id": "blue",
+        "name": "B / Cobalt",
+        "ink": "identity-blue",
+        "paper": "identity-cool",
+        "note": "A brighter blue on a cool white. More assertive; this would be a separate palette decision."
+      }
+    ],
+    "critiques": [
+      "The curved y is recognizable, but the detached dot can still suggest a person or a bird.",
+      "The name is reconstructed from the selected sketch, not traced or set in a replacement font. Its letter shapes need your review.",
+      "The horizontal application uses the same stacked name beside a smaller symbol. A true single-line name would need separate drawing."
+    ],
+    "recommendation": "I recommend A / Evergreen for continuity with the site. Keep the name prominent and use the symbol alone in compact spaces. Color and this reconstructed lettering are proposals for your review.",
+    "status": "Development preview only. No final kit or public branding update.",
+    "symbolCanvas": [
+      256,
+      256
+    ],
+    "lockup": {
+      "width": 720,
+      "height": 380,
+      "symbol": {
+        "x": 20,
+        "y": 52,
+        "scale": 0.92
+      },
+      "wordmark": {
+        "x": 285,
+        "y": 20,
+        "scale": 0.94
+      }
+    }
+  }
+}

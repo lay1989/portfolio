@@ -1,0 +1,17 @@
+{% from 'components/ui.html' import media_image, media_gallery with context %}
+{% macro render_blocks(blocks, private=false) -%}
+<div class="content-blocks">
+{% for block in blocks %}
+    {% if block.type == 'rich_text' %}<div class="content-rich">{{ block.html|safe_content }}</div>
+    {% elif block.type == 'heading' %}{% if block.level == 'h3' %}<h3 class="site-heading">{{ block.text }}</h3>{% else %}<h2 class="site-heading">{{ block.text }}</h2>{% endif %}
+    {% elif block.type == 'list' %}{% if block.style == 'ordered' %}<ol>{% for item in block['items'] %}<li>{{ item }}</li>{% endfor %}</ol>{% else %}<ul>{% for item in block['items'] %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
+    {% elif block.type == 'quote' %}<figure class="content-quote"><blockquote>{{ block.text }}</blockquote>{% if block.attribution %}<figcaption>{{ block.attribution }}</figcaption>{% endif %}</figure>
+    {% elif block.type == 'code' %}<figure class="content-code">{% if block.language %}<figcaption>{{ block.language }}</figcaption>{% endif %}<pre><code>{{ block.text }}</code></pre></figure>
+    {% elif block.type == 'link' %}<p><a href="{{ block.url }}" class="content-link">{{ block.text }}</a></p>
+    {% elif block.type == 'image' %}{{ media_image(block.media,private=private) }}
+    {% elif block.type == 'gallery' %}{{ media_gallery(block.images,block.layout,private) }}
+    {% elif block.type == 'divider' %}<hr>
+    {% endif %}
+{% endfor %}
+</div>
+{%- endmacro %}

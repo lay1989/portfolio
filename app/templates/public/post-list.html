@@ -1,0 +1,3 @@
+{% from 'components/ui.html' import journal_article with context %}
+{% for entry in posts %}{{ journal_article(entry,lead=loop.first and pagination.page == 1) }}{% else %}<p class="ui-muted py-12">No articles to show yet.</p>{% endfor %}
+{% include 'components/pagination.html' %}

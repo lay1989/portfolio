@@ -7,7 +7,9 @@ module.exports = {
         "./src/**/*.{ts,tsx,html,js}",
         "./scripts/**/*.js",
         "./script.js",
-        "./templates/**/*.html"
+        "./templates/**/*.html",
+        "./app/templates/**/*.html",
+        "./.cache/flask-templates/**/*.html"
     ],
     safelist: ['is-in'],
     darkMode: 'class',
@@ -54,9 +56,9 @@ module.exports = {
                 'paper-2': 'rgb(var(--paper-2-rgb) / <alpha-value>)',
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                display: ['Space Grotesk', 'sans-serif'],
-                serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                sans: ['"Bricolage Grotesque"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                display: ['"Bricolage Grotesque"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                serif: ['Petrona', 'Georgia', 'serif'],
             },
             keyframes: {
                 fadeUp: {

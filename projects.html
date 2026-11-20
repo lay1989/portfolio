@@ -29,23 +29,22 @@
     
 
     <!-- Favicon -->
+    <!-- IDENTITY_ICONS_START -->
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="./public/identity/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/identity/apple-touch-icon.png">
+    <!-- IDENTITY_ICONS_END -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..700&amp;family=Petrona:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
 
     <!-- Pinned local icons avoid blocking third-party fallbacks. -->
     <script src="./public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./tailwind.css">
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
-    <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
@@ -56,483 +55,399 @@
       gtag('config', 'G-043HH9GSZB');
     </script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+<body class="bg-background text-foreground antialiased overflow-x-hidden">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+    <a href="#main-content" class="ui-skip-link sr-only focus:not-sr-only">Skip to content</a>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-    <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-        </svg>
-        <span>LAY SHAH</span>
-    </a>
+    <nav aria-label="Main navigation" id="navbar" class="site-nav" data-scrolled="false">
+        <div class="site-nav__bar">
+    <a href="./index.html" class="logo-link identity-header"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="./public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="./public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
 
     <!-- Desktop Menu -->
-    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
-        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-        <a href="./projects.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-        
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__links nav-links-desktop">
+        <a href="./index.html#about" class="site-nav__link">About</a>
+        <a href="./index.html#services" class="site-nav__link">Services</a>
+        <a href="./index.html#principles" class="site-nav__link">Process</a>
+        <a href="./projects.html" class="site-nav__link">Work</a>
+        <a href="./index.html#reviews" class="site-nav__link">Reviews</a>
+        <a href="./blog.html" class="site-nav__link">Blog</a>
+        <a href="./tools.html" class="site-nav__link">Tools</a>
+
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
 
-        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
-            Let's Talk
+        <a href="./index.html#contact" class="line-button line-button--small site-nav__cta">
+            <span data-branding="contactLabel">Let's Talk</span>
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 lg:hidden">
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__compact">
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
-        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
-            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
-            </div>
+        <button id="mobile-menu-btn" class="site-nav__icon site-nav__menu-button" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="site-nav__menu-icon" aria-hidden="true"><span></span><span></span></span>
         </button>
     </div>
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
-    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-    <a href="./projects.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+<div id="mobile-menu" class="site-menu">
+    <a href="./index.html#about" class="site-menu__link">About</a>
+    <a href="./index.html#services" class="site-menu__link">Services</a>
+    <a href="./index.html#principles" class="site-menu__link">Process</a>
+    <a href="./projects.html" class="site-menu__link">Work</a>
+    <a href="./index.html#reviews" class="site-menu__link">Reviews</a>
+    <a href="./blog.html" class="site-menu__link">Blog</a>
+    <a href="./tools.html" class="site-menu__link">Tools</a>
+    <a href="./index.html#contact" class="site-menu__link site-menu__contact"><span data-branding="mobileContactLabel">Contact</span></a>
 </div>
 
     </nav>
 
     <noscript>
-        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm underline">
             <a href="./index.html">Home</a>
             <a href="./projects.html">Work</a>
             <a href="./blog.html">Blog</a>
+            <a href="./tools.html">Tools</a>
             <a href="./index.html#contact">Contact</a>
         </nav>
     </noscript>
 
-    <!-- Projects Listing Page — Body Content -->
-<!-- Generated work reel and stack are filled by build-html.js from projects.json -->
+    <main class="w-full" data-thread-page="" data-thread-stops=".work-slide__glyph" data-thread-lane="gutter" data-thread-block=".work-slide" id="main-content" tabindex="-1">
+    <header class="page-hero" data-enter="">
+        <div class="page-hero__body">
+            <h1 data-work-heading="" class="site-heading">
+                Selected work<br>
+                <span>from the archive.</span>
+            </h1>
+            <p>
+                Business websites, catalog systems, and web applications. Explore the brief, what I built, and the decisions behind each project. Personal concepts are labeled alongside client work.
+            </p>
+            <p class="page-hero__meta"><span>10 projects</span><a class="line-link" href="#work">Go to the first project</a></p>
+        </div>
+        <div class="page-hero__art" data-draw=""><svg class="drawing drawing--stack drawing--scene" viewBox="0 0 320 220" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M88 24 H296 V140 H88 Z M88 40 H296"></path><path class="ln" pathLength="1" style="--i:1" d="M56 52 H264 V168 H56 Z M56 68 H264"></path><path class="fl" style="--i:2" d="M24 80 H232 V196 H24 Z"></path><path class="ln" pathLength="1" style="--i:3" d="M24 80 H232 V196 H24 Z M24 96 H232"></path><path class="ln" pathLength="1" style="--i:4" d="M40 116 H128 M40 132 H160"></path><path class="lnA" pathLength="1" style="--i:5" d="M40 156 H96 V176 H40 Z"></path></svg><span class="thread-start thread-start--art" data-thread-start=""></span></div>
+    </header>
 
-<main class="w-full" id="main-content" tabindex="-1">
-    <!-- Work Hero -->
-    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-40 md:pt-56 border-b border-border pb-16">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div class="md:col-span-3 font-mono text-muted-foreground text-sm uppercase tracking-widest">
-                10 projects<br>
-                <span class="inline-block mt-4">Explore the work ↓</span>
+    <section class="work-reel" id="work" data-work-reel="" aria-label="Project case studies"><div class="work-reel__viewport"><div class="work-reel__track" data-work-track=""><article class="work-slide" data-work-slide="" data-title="ASH Clipping">
+        <a class="work-slide__image" href="./projects/ash-clipping.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/ASH%20clipping%20-%20hero-small.webp 600w, ./public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping" class="w-full h-auto" decoding="async">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">01 / 10</span>
             </div>
-            <div class="md:col-span-9">
-                <h1 class="font-serif font-medium text-5xl md:text-7xl leading-[0.95] text-foreground mb-8">
-                    Selected Work<br>
-                    <span class="italic text-accent">from the archive.</span>
-                </h1>
-                <p class="font-sans text-lg text-muted-foreground max-w-xl leading-relaxed">
-                    Business websites, catalog systems, and web applications. Explore the brief, what I built, and the decisions behind each project. Personal concepts are labeled alongside client work.
-                </p>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M20 6 H44 a3 3 0 0 1 3 3 V55 a3 3 0 0 1 -3 3 H20 a3 3 0 0 1 -3 -3 V9 a3 3 0 0 1 3 -3 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M28 12 H36"></path><path class="flA" style="--i:2" d="M27 24 L41 32 L27 40 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M8 24 a4 4 0 0 0 0 16 M56 24 a4 4 0 0 1 0 16"></path></svg></span>
+                <p class="meta mb-4"><span>2026</span><span>Creator Economy Startup</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/ash-clipping.html">ASH Clipping</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A campaign platform for brands and creators, bringing content review, social view tracking, and creator payout records into one place.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Lead Full-Stack Architect &amp; Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>15 Weeks</dd></div>
+                </dl>
+                <a href="./projects/ash-clipping.html" class="line-button work-slide__cta" aria-label="Read the ASH Clipping case study">Read the case study</a>
             </div>
         </div>
-    </div>
-
-    
-    <div class="mt-20 max-w-[1400px] px-6 md:px-10 mx-auto">
-        <ul class="grid md:grid-cols-2 gap-x-12 gap-y-20">
-            
-        <li>
-            <a href="./projects/ash-clipping.html" class="block group" aria-label="Open case study: ASH Clipping">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">01 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/ASH%20clipping%20-%20hero-small.webp 600w, ./public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async">
+    </article><article class="work-slide" data-work-slide="" data-title="Intent Studio">
+        <a class="work-slide__image" href="./projects/intent-studio.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Intent-studio%20-%20hero-small.webp 600w, ./public/images/Intent-studio%20-%20hero.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/Intent-studio%20-%20hero.webp" width="1366" height="768" alt="Intent Studio" class="w-full h-auto" decoding="async" loading="lazy">
     </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Creator Economy Startup</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Full-Stack Architect &amp; Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">ASH Clipping</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A campaign platform for brands and creators, bringing content review, social view tracking, and creator payout records into one place.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Tailwind CSS</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/intent-studio.html" class="block group" aria-label="Open case study: Intent Studio">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">02 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/Intent-studio%20-%20hero-small.webp 600w, ./public/images/Intent-studio%20-%20hero.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Intent-studio%20-%20hero.webp" width="1366" height="768" alt="Intent Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Design Studio (B2B)</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Frontend Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Intent Studio</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Tailwind CSS</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/capital-tyres.html" class="block group" aria-label="Open case study: Capital Tyres">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">03 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/Capital%20Tyres%20-%20hero-small.webp 600w, ./public/images/Capital%20Tyres%20-%20hero.webp 1348w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Capital%20Tyres%20-%20hero.webp" width="1348" height="766" alt="Capital Tyres" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2026 · Tyre Retreading (B2B &amp; B2C)</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Capital Tyres</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A five-page website for a Pune tyre-retreading business, explaining the services and helping fleet owners take the next step.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/ghermar-sons.html" class="block group" aria-label="Open case study: Ghermar &amp; Sons">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">04 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/Ghermar%20&amp;%20Sons-small.webp 600w, ./public/images/Ghermar%20&amp;%20Sons.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Ghermar%20&amp;%20Sons.webp" width="1366" height="768" alt="Ghermar &amp; Sons" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Import-Export Business</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Lead Designer &amp; Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Ghermar &amp; Sons</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A focused website for an import-export business, bringing services, company credentials, and contact details into a clear path for buyers.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript (ES6+)</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/swiftbuild-infratech.html" class="block group" aria-label="Open case study: SwiftBuild Infratech">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">05 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/SwiftBuild.webp" width="1366" height="768" alt="SwiftBuild Infratech" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Construction &amp; Infrastructure</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer &amp; SEO Specialist</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">SwiftBuild Infratech</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A construction company website with a filterable project portfolio, service information, and inquiry forms for prospective clients.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/kamaldeep-enterprise.html" class="block group" aria-label="Open case study: Kamaldeep Enterprise">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">06 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler-small.webp 600w, ./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.png" width="1366" height="768" alt="Kamaldeep Enterprise" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Fabric Wholesale Business</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Kamaldeep Enterprise</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A custom catalog system for a fabric wholesaler, with bulk product uploads, image processing, and PDF catalog management.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Python</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Flask</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">PostgreSQL</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/crypto-trading-analytics.html" class="block group" aria-label="Open case study: Crypto Trading Analytics">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">07 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1408w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/saas_dashboard_minimal_interface.png" width="1408" height="768" alt="Crypto Trading Analytics" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024 · Personal Project</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Full Stack Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Crypto Trading Analytics</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A personal engineering project exploring automated trading workflows, market-data feeds, and an interactive analytics dashboard.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Python</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Flask</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">PostgreSQL</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/aroma-cafe.html" class="block group" aria-label="Open case study: Aroma Cafe">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">08 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/Aroma%20Cafe-small.webp 600w, ./public/images/Aroma%20Cafe.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Aroma%20Cafe.webp" width="1366" height="768" alt="Aroma Cafe" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2024 · Personal Portfolio Concept</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">UI/UX Designer &amp; Frontend Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Aroma Cafe</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A cafe website concept with a filterable menu, reservation flow, and location information. Built as a personal portfolio project.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">HTML5</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">CSS3</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">JavaScript</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/stark-ev.html" class="block group" aria-label="Open case study: Stark EV">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">09 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/Stark%20EV-small.webp 600w, ./public/images/Stark%20EV.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Stark%20EV.webp" width="1366" height="768" alt="Stark EV" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2025 · Personal Project</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">UI/UX Designer &amp; Frontend Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">Stark EV</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A personal EV showroom concept exploring an interactive vehicle configurator, motion, and 3D presentation.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">React</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Next.js</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">TypeScript</span>
-                </div>
-            </a>
-        </li>
-    
-        <li>
-            <a href="./projects/taskflow-pro.html" class="block group" aria-label="Open case study: TaskFlow Pro">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">10 / 10</div>
-                    <picture class="block h-full w-full">
-        <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1408w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/modern_e-commerce_interface_mockup.png" width="1408" height="768" alt="TaskFlow Pro" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">2023 · Enterprise Software</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">Product Manager &amp; Developer</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">TaskFlow Pro</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">A project-management platform bringing workflow automation, collaboration tools, and custom dashboards into one workspace.</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vue.js</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vuex</span><span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">Vue Router</span>
-                </div>
-            </a>
-        </li>
-    
-        </ul>
-    </div>
-    
-
-    <!-- Contact CTA -->
-    <div class="max-w-[1400px] mx-auto px-6 md:px-10 mt-24 mb-24 reveal">
-        <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
-            
-            <!-- Content (Left side) -->
-            <div class="flex-grow max-w-2xl">
-                <div class="flex items-center gap-2 mb-6">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                    <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
-                </div>
-                <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
-                <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">02 / 10</span>
             </div>
-
-            <!-- Action Buttons (Right side) -->
-            <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                <a href="./index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                    Discuss your project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
-                </a>
-                <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                    <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a 30-min call
-                </a>
-                <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">Usually reply within one business day.</span>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--hanger" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M32 20 V16 a5 5 0 1 1 5 -5"></path><path class="ln" pathLength="1" style="--i:1" d="M32 20 L6 40 H58 Z"></path><path class="fl" style="--i:2" d="M14 40 H50 L48 58 H16 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M14 40 H50 L48 58 H16 Z"></path></svg></span>
+                <p class="meta mb-4"><span>2026</span><span>Design Studio (B2B)</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/intent-studio.html">Intent Studio</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
             </div>
-
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Lead Designer &amp; Frontend Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>4 Weeks</dd></div>
+                </dl>
+                <a href="./projects/intent-studio.html" class="line-button work-slide__cta" aria-label="Read the Intent Studio case study">Read the case study</a>
+            </div>
         </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Capital Tyres">
+        <a class="work-slide__image" href="./projects/capital-tyres.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Capital%20Tyres%20-%20hero-small.webp 600w, ./public/images/Capital%20Tyres%20-%20hero.webp 1348w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/Capital%20Tyres%20-%20hero.webp" width="1348" height="766" alt="Capital Tyres" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">03 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--tyre" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 32 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"></path><path class="ln" pathLength="1" style="--i:1" d="M20 32 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0"></path><path class="ln" pathLength="1" style="--i:2" d="M51.0 32.0 L56.0 32.0 M48.5 41.5 L52.8 44.0 M41.5 48.5 L44.0 52.8 M32.0 51.0 L32.0 56.0 M22.5 48.5 L20.0 52.8 M15.5 41.5 L11.2 44.0 M13.0 32.0 L8.0 32.0 M15.5 22.5 L11.2 20.0 M22.5 15.5 L20.0 11.2 M32.0 13.0 L32.0 8.0 M41.5 15.5 L44.0 11.2 M48.5 22.5 L52.8 20.0"></path><path class="flA" style="--i:3" d="M28 32 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0"></path></svg></span>
+                <p class="meta mb-4"><span>2026</span><span>Tyre Retreading (B2B &amp; B2C)</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/capital-tyres.html">Capital Tyres</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A five-page website for a Pune tyre-retreading business, explaining the services and helping fleet owners take the next step.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Lead Designer &amp; Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>10 Days</dd></div>
+                </dl>
+                <a href="./projects/capital-tyres.html" class="line-button work-slide__cta" aria-label="Read the Capital Tyres case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Ghermar &amp; Sons">
+        <a class="work-slide__image" href="./projects/ghermar-sons.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Ghermar%20&amp;%20Sons-small.webp 600w, ./public/images/Ghermar%20&amp;%20Sons.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/Ghermar%20&amp;%20Sons.webp" width="1366" height="768" alt="Ghermar &amp; Sons" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">04 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--crate" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M10 24 L32 34 V58 L10 48 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M10 24 L32 14 L54 24 V48 L32 58 L10 48 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M10 24 L32 34 L54 24 M32 34 V58"></path><path class="lnA" pathLength="1" style="--i:3" d="M38 40 L48 35 M38 46 L44 43"></path><path class="lnA" pathLength="1" style="--i:4" d="M21 19 L43 29"></path></svg></span>
+                <p class="meta mb-4"><span>2025</span><span>Import-Export Business</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/ghermar-sons.html">Ghermar &amp; Sons</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A focused website for an import-export business, bringing services, company credentials, and contact details into a clear path for buyers.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Lead Designer &amp; Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>4 Weeks</dd></div>
+                </dl>
+                <a href="./projects/ghermar-sons.html" class="line-button work-slide__cta" aria-label="Read the Ghermar &amp; Sons case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="SwiftBuild Infratech">
+        <a class="work-slide__image" href="./projects/swiftbuild-infratech.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/SwiftBuild-small.webp 600w, ./public/images/SwiftBuild.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/SwiftBuild.webp" width="1366" height="768" alt="SwiftBuild Infratech" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">05 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--crane" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M16 58 V12 M22 58 V12"></path><path class="ln" pathLength="1" style="--i:1" d="M16 52 L22 46 L16 40 L22 34 L16 28 L22 22 L16 16"></path><path class="ln" pathLength="1" style="--i:2" d="M8 14 H58"></path><path class="ln" pathLength="1" style="--i:3" d="M19 6 L19 12 M19 6 L42 14"></path><path class="lnA" pathLength="1" style="--i:4" d="M50 14 V34"></path><path class="fl" style="--i:5" d="M43 38 H57 V50 H43 Z"></path><path class="ln" pathLength="1" style="--i:6" d="M43 38 H57 V50 H43 Z M50 34 V38"></path><path class="ln" pathLength="1" style="--i:7" d="M8 58 H40"></path></svg></span>
+                <p class="meta mb-4"><span>2025</span><span>Construction &amp; Infrastructure</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/swiftbuild-infratech.html">SwiftBuild Infratech</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A construction company website with a filterable project portfolio, service information, and inquiry forms for prospective clients.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Full Stack Developer &amp; SEO Specialist</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>6 Weeks</dd></div>
+                </dl>
+                <a href="./projects/swiftbuild-infratech.html" class="line-button work-slide__cta" aria-label="Read the SwiftBuild Infratech case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Kamaldeep Enterprise">
+        <a class="work-slide__image" href="./projects/kamaldeep-enterprise.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler-small.webp 600w, ./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/KAMALDEEP%20ENTERPRISE%20-%20Premium%20Fabric%20Wholesaler.webp" width="1366" height="768" alt="Kamaldeep Enterprise" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">06 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--fabric" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M14 20 a7 12 0 0 0 0 24 a7 12 0 0 0 0 -24 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M14 20 H48 a7 12 0 0 1 0 24 H14"></path><path class="ln" pathLength="1" style="--i:2" d="M14 20 a7 12 0 0 0 0 24 a7 12 0 0 0 0 -24 Z"></path><path class="ln" pathLength="1" style="--i:3" d="M14 29 a2.5 3 0 1 0 0.1 0"></path><path class="lnA" pathLength="1" style="--i:4" d="M48 44 C52 50 44 54 48 60"></path></svg></span>
+                <p class="meta mb-4"><span>2025</span><span>Fabric Wholesale Business</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/kamaldeep-enterprise.html">Kamaldeep Enterprise</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A custom catalog system for a fabric wholesaler, with bulk product uploads, image processing, and PDF catalog management.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Full Stack Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>10 Weeks</dd></div>
+                </dl>
+                <a href="./projects/kamaldeep-enterprise.html" class="line-button work-slide__cta" aria-label="Read the Kamaldeep Enterprise case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Crypto Trading Analytics">
+        <a class="work-slide__image" href="./projects/crypto-trading-analytics.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/saas_dashboard_minimal_interface-small.webp 600w, ./public/images/saas_dashboard_minimal_interface.webp 1408w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/saas_dashboard_minimal_interface.webp" width="1408" height="768" alt="Crypto Trading Analytics" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">07 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--candles" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 8 V56 H58"></path><path class="ln" pathLength="1" style="--i:1" d="M20 16 V48 M34 10 V40 M48 22 V52"></path><path class="fl" style="--i:2" d="M17 22 H23 V40 H17 Z M45 30 H51 V46 H45 Z"></path><path class="ln" pathLength="1" style="--i:3" d="M17 22 H23 V40 H17 Z M45 30 H51 V46 H45 Z"></path><path class="flA" style="--i:4" d="M31 14 H37 V30 H31 Z"></path></svg></span>
+                <p class="meta mb-4"><span>2024</span><span>Personal Project</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/crypto-trading-analytics.html">Crypto Trading Analytics</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A personal engineering project exploring automated trading workflows, market-data feeds, and an interactive analytics dashboard.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Full Stack Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>Ongoing</dd></div>
+                </dl>
+                <a href="./projects/crypto-trading-analytics.html" class="line-button work-slide__cta" aria-label="Read the Crypto Trading Analytics case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Aroma Cafe">
+        <a class="work-slide__image" href="./projects/aroma-cafe.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Aroma%20Cafe-small.webp 600w, ./public/images/Aroma%20Cafe.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/Aroma%20Cafe.webp" width="1366" height="768" alt="Aroma Cafe" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">08 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--cup" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M15 30 H43 L42 38 H16 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M13 22 H45 L41 50 Q29 55 17 50 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M45 28 c10 0 10 16 -2 16"></path><path class="ln" pathLength="1" style="--i:3" d="M9 57 Q29 61 49 57"></path><path class="lnA" pathLength="1" style="--i:4" d="M24 16 c-4 -5 4 -8 0 -13 M34 16 c-4 -5 4 -8 0 -13"></path></svg></span>
+                <p class="meta mb-4"><span>2024</span><span>Personal Portfolio Concept</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/aroma-cafe.html">Aroma Cafe</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A cafe website concept with a filterable menu, reservation flow, and location information. Built as a personal portfolio project.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>UI/UX Designer &amp; Frontend Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>8 Weeks</dd></div>
+                </dl>
+                <a href="./projects/aroma-cafe.html" class="line-button work-slide__cta" aria-label="Read the Aroma Cafe case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="Stark EV">
+        <a class="work-slide__image" href="./projects/stark-ev.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Stark%20EV-small.webp 600w, ./public/images/Stark%20EV.webp 1366w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/Stark%20EV.webp" width="1366" height="768" alt="Stark EV" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">09 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--plug" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M36 6 L20 34 H31 L27 58 L45 27 H34 L40 6 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M36 6 L20 34 H31 L27 58 L45 27 H34 L40 6 Z"></path><path class="lnA" pathLength="1" style="--i:2" d="M10 50 C14 44 14 38 10 32 M54 32 C50 26 50 20 54 14"></path></svg></span>
+                <p class="meta mb-4"><span>2025</span><span>Personal Project</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/stark-ev.html">Stark EV</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A personal EV showroom concept exploring an interactive vehicle configurator, motion, and 3D presentation.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>UI/UX Designer &amp; Frontend Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>14 Weeks</dd></div>
+                </dl>
+                <a href="./projects/stark-ev.html" class="line-button work-slide__cta" aria-label="Read the Stark EV case study">Read the case study</a>
+            </div>
+        </div>
+    </article><article class="work-slide" data-work-slide="" data-title="TaskFlow Pro">
+        <a class="work-slide__image" href="./projects/taskflow-pro.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                <picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/modern_e-commerce_interface_mockup-small.webp 600w, ./public/images/modern_e-commerce_interface_mockup.webp 1408w" sizes="(max-width: 768px) 100vw, 56vw">
+        <img src="./public/images/modern_e-commerce_interface_mockup.webp" width="1408" height="768" alt="TaskFlow Pro" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture>
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">10 / 10</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw="">
+                <span class="work-slide__glyph" aria-hidden="true"><svg class="drawing drawing--checklist" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M14 10 H50 V58 H14 Z"></path><path class="fl" style="--i:1" d="M25 6 H39 V14 H25 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M25 6 H39 V14 H25 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M20 24 L23 27 L28 21 M20 36 L23 39 L28 33"></path><path class="ln" pathLength="1" style="--i:4" d="M20 46 H27 V53 H20 Z"></path><path class="ln" pathLength="1" style="--i:5" d="M33 24 H44 M33 36 H44 M33 49 H44"></path></svg></span>
+                <p class="meta mb-4"><span>2023</span><span>Enterprise Software</span></p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/taskflow-pro.html">TaskFlow Pro</a></h2>
+                <p class="text-muted-foreground leading-relaxed">A project-management platform bringing workflow automation, collaboration tools, and custom dashboards into one workspace.</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>Product Manager &amp; Developer</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>16 Weeks</dd></div>
+                </dl>
+                <a href="./projects/taskflow-pro.html" class="line-button work-slide__cta" aria-label="Read the TaskFlow Pro case study">Read the case study</a>
+            </div>
+        </div>
+    </article></div>
+        <div class="work-reel__bar" data-work-bar="" hidden="">
+            <span class="font-mono text-sm" data-work-count="">01 / 10</span>
+            <span class="work-reel__progress" aria-hidden="true"><span data-work-progress=""></span></span>
+            <span class="work-reel__hint text-sm ui-muted">Scroll to explore</span>
+            <button class="work-reel__button" data-work-prev="" aria-label="Previous project">←</button>
+            <button class="work-reel__button" data-work-next="" aria-label="Next project">→</button>
+            <a class="content-link" href="#after-work">Skip reel</a>
+        </div></div></section><div id="after-work" tabindex="-1"></div>
+
+    <div class="page-shell">
+        <aside class="site-cta" aria-label="Start a project">
+            <div class="site-cta__art" data-draw=""><svg class="drawing drawing--plane drawing--scene" viewBox="0 0 240 160" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M110 100 L220 20 L130 112 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M20 80 L220 20 L150 140 L110 100 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M220 20 L110 100 L104 130 L130 112"></path><path class="lnA" pathLength="1" style="--i:3" d="M8 150 C40 150 60 128 92 120"></path></svg><span class="thread-end" data-thread-end=""></span></div>
+            <div class="site-cta__copy">
+                <h2 class="site-heading">Let’s build the next one together.</h2>
+                <p>Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
+            </div>
+            <div class="site-cta__actions">
+                <a href="./index.html#contact" class="line-button line-button--light">Discuss your project</a>
+                <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="line-button line-button--ghost"><i data-lucide="calendar" class="w-icon-sm h-icon-sm" aria-hidden="true"></i> Book a 30-min call</a>
+                <p class="site-cta__note">Let's talk about your next project Usually reply within one business day.</p>
+            </div>
+        </aside>
     </div>
 </main>
 
 
-        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
-        <div class="container mx-auto max-w-[1400px]">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
-                <!-- Left Column -->
-                <div class="md:col-span-12 lg:col-span-6">
-                    <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                        </svg>
-                        <span>LAY SHAH</span>
-                    </a>
-                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+    <footer class="site-footer">
+        <div class="site-footer__shell">
+            <div class="site-footer__top">
+                <div class="site-footer__intro">
+                    <a href="./index.html" class="logo-link identity-footer"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="./public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="./public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
+                    <p data-branding="footerDescription" class="site-footer__description">
                         Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
                     </p>
                 </div>
-                
-                <!-- Middle Column -->
-                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="./index.html" class="hover:text-accent transition-colors">Home</a></li>
-                        <li><a href="./projects.html" class="hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="./blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="exploreLabel">Explore</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./projects.html">Work</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./tools.html">Tools</a></li>
                     </ul>
                 </div>
-                
-                <!-- Right Column -->
-                <div class="md:col-span-6 lg:col-span-3">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
-                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="footerContactLabel">Contact</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="mailto:layshah1989@gmail.com">layshah1989@gmail.com</a></li>
+                        <li data-branding="location">Ahmedabad, India</li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Bottom Section -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>© 2026 Lay Shah. All rights reserved.</p>
-                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
+            <div class="site-footer__base">
+                <p>© 2026 <span data-branding="copyrightName">Lay Shah</span>. All rights reserved.</p>
+                <button id="back-to-top-btn" class="site-footer__top-link" aria-label="Back to top of page">
+                    <span data-branding="backToTop">Back to top</span> <span aria-hidden="true">↑</span>
                 </button>
             </div>
         </div>
@@ -540,8 +455,6 @@
 
     
     <script src="./bundle.js" defer=""></script>
-
-
 
 
 

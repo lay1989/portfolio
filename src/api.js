@@ -12,7 +12,7 @@ export async function submitContactForm(formData) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-        return await fetch('./', {
+        return await fetch(formData.has('csrf_token') ? '/contact' : './', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString(),

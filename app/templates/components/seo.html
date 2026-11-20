@@ -1,0 +1,21 @@
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<meta name="author" content="{{ branding.ownerName }}">
+<link rel="canonical" href="{{ page.get('canonical', site.url + request.path) }}">
+<meta name="robots" content="{{ 'noindex, nofollow' if is_preview or not production or not config.SEARCH_INDEXING_ENABLED else 'noindex, follow' if page.get('noindex') else 'index, follow' }}">
+<meta property="og:type" content="{{ page.get('ogType','website') }}">
+<meta property="og:site_name" content="{{ branding.ownerName }}">
+<meta property="og:title" content="{{ page.get('ogTitle',page.title) }}">
+<meta property="og:description" content="{{ page.get('ogDescription',page.description) }}">
+<meta property="og:url" content="{{ page.get('canonical', site.url + request.path) }}">
+{% set social=social_metadata(page) %}
+<meta property="og:image" content="{{ social.url }}">
+{% if social.width %}<meta property="og:image:width" content="{{ social.width }}"><meta property="og:image:height" content="{{ social.height }}">{% endif %}
+<meta property="og:image:alt" content="{{ social.alt }}">
+<meta property="og:image:type" content="{{ social.type }}">
+<meta name="twitter:title" content="{{ page.get('ogTitle',page.title) }}">
+<meta name="twitter:description" content="{{ page.get('ogDescription',page.description) }}">
+<meta name="twitter:image" content="{{ social.url }}">
+<meta name="twitter:image:alt" content="{{ social.alt }}">
+<meta name="twitter:card" content="summary_large_image">
+{% if page.get('structuredData') %}<script type="application/ld+json">{{ page.structuredData|tojson }}</script>{% endif %}

@@ -1,0 +1,41 @@
+{% extends 'admin/base.html' %}
+{% from 'admin/page-fields.html' import page_field %}
+{% from 'admin/home-rows.html' import home_rows_editor with context %}
+{% from 'admin/media-placement.html' import placement with context %}
+{% from 'admin/workspace-ui.html' import collection_tabs, save_controls %}
+{% block title %}{{ label }}{% endblock %}
+{% block content %}
+{% set collection_page=managed_page.key in ('projects','blog','tools') %}
+<a href="{{ url_for('admin.dashboard') if collection_page else url_for('publishing.homepage') }}" class="text-accent underline">{{ 'Back to website manager' if collection_page else 'Back to homepage controls' }}</a>
+{% if collection_page %}{{ collection_tabs({'projects':'project','blog':'post','tools':'tool'}[managed_page.key],'page') }}{% endif %}
+<div><p class="ui-muted mb-4">{{ 'Unpublished changes' if managed_page.draft != managed_page.published else 'Published content' }}</p><h1 class="site-heading type-title">{{ label }}.</h1></div>
+<p class="ui-muted max-w-reading">{% if managed_page.key in ('projects','blog','tools') %}Edit this collection’s introduction and search appearance. Page addresses stay the same. Titles and descriptions also supply its sharing preview. {% else %}{{ 'Edit your copy and arrange services, process steps, and reviews. Fonts, colors, spacing, and motion follow the shared design file. Review quotations against the original feedback before publishing.' if managed_page.key == 'homepage' else 'Manage the shared brand label, navigation, and footer. Choose your brand images below. Fonts, colors, sizes, and motion stay in the shared design file.' if managed_page.key == 'branding' else 'These details are shared by the homepage, collection pages, booking links, and footer. Changing the contact email does not set up email delivery.' }}{% endif %} Save a draft, review the preview, then publish when ready.</p>
+<div class="ui-row"><a class="text-accent underline" href="{{ url_for('page_admin.history',key=managed_page.key) }}">Revision history</a>{% if managed_page.key == 'homepage' %}<a class="text-accent underline" href="{{ url_for('page_admin.edit',key='contact') }}">Shared contact details</a>{% endif %}</div>
+<form method="post" class="ui-stack" data-page-editor data-unsaved="{{ 'true' if unsaved else 'false' }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ managed_page.version }}">
+{{ save_controls(unsaved,identity='page-save-controls') }}
+{% for group_name,group_fields in field_groups.items() %}
+{% set section_kind={'Services':'services','How I work':'process','Reviews':'reviews'}.get(group_name) %}
+<details class="ui-panel" {% if group_name in ('Opening','Introduction','Shared contact details','Identity') or section_kind == open_kind and open_kind %}open{% endif %}><summary class="site-heading text-2xl font-serif cursor-pointer">{{ group_name }}</summary><div class="ui-stack mt-8">
+{% for field in group_fields %}
+{{ page_field(field.key,field.label,data.get(field.key,field.default),field.type,field.limit,field.multiline|default(false),field.hint|default('')) }}
+{% endfor %}
+{% if group_name == 'Search appearance' %}<p class="ui-muted text-sm">Search titles and descriptions are suggestions. Search engines may shorten them or choose different text from the page.</p>{% endif %}
+{% if managed_page.key == 'homepage' and section_kind %}{{ home_rows_editor(section_kind,home_rows[section_kind]) }}{% endif %}
+</div></details>
+{% endfor %}
+{% if managed_page.key == 'branding' %}
+<details class="ui-panel" open><summary class="site-heading text-2xl font-serif cursor-pointer">Brand images</summary><div class="ui-stack mt-8"><input type="hidden" name="brand_media_present" value="1"><p class="ui-muted">Select an image or upload one here. Choose “Choose an image” to return to the built-in default. Draft images stay private until you publish.</p>
+{% for slot,label,hint in [('logo','Brand symbol','Overrides the built-in Evergreen lockup with your symbol and brand label in the website and admin. The whole image fits inside the existing symbol space. A transparent symbol that works on both light and dark backgrounds is a good fit.'),('icon','Favicon and touch icon','Used for browser tabs and saved bookmarks. Choose a source at least {iconSize} pixels on each side. A square crop and PNG sizes are prepared automatically.'),('sharing','Default sharing image','Used when a page has no specific sharing or cover image. A landscape crop is prepared as a PNG. A source of at least {sharingSize} pixels is recommended. Add a description for people who cannot see it.')] %}
+<details class="border-t border-border pt-6"><summary class="site-heading text-xl cursor-pointer">{{ label }}</summary><div class="ui-stack mt-6"><p class="ui-muted">{{ hint.replace('{iconSize}',(media_ratios.brandWidths.icon|max)|string).replace('{sharingSize}',(media_ratios.brandWidths.sharing|max)|string ~ ' × ' ~ ((media_ratios.brandWidths.sharing|max) * media_ratios.ratios.social[1] / media_ratios.ratios.social[0])|round|int|string) }}</p>{{ placement(brand_media[slot],'brand.' ~ slot,mode=slot) }}</div></details>
+{% endfor %}
+<p data-media-status role="status" aria-live="polite" class="ui-muted text-sm"></p></div></details>
+<details class="ui-panel" open><summary class="site-heading text-2xl font-serif cursor-pointer">Navigation</summary><div class="ui-stack mt-8"><p class="ui-muted">Choose a different position for each visible link. Hidden links keep their page addresses. Empty Services, Process, and Reviews sections also hide their navigation links. Work, Blog, and Tools appear in the footer in this order too. The Tools label stays “Tools”.</p>
+{% for link in navigation_spec %}<fieldset class="ui-stack border-t border-border pt-6"><legend class="site-heading text-xl">{{ link.label }}</legend><div class="grid md:grid-cols-2 gap-6">{% if link.id == 'tools' %}<input type="hidden" name="nav.tools.label" value="Tools"><p>Tools</p>{% else %}{{ page_field('nav.' ~ link.id ~ '.label','Link label',data.get('nav.' ~ link.id ~ '.label',link.label),limit=40) }}{% endif %}<label class="ui-field">Position<select class="ui-input" name="nav.{{ link.id }}.position">{% for position in range(navigation_spec|length + 1) %}<option value="{{ position }}" {% if data.get('nav.' ~ link.id ~ '.position',loop.index|string) == position|string %}selected{% endif %}>{{ position if position else 'Hidden' }}</option>{% endfor %}</select></label></div><p class="ui-muted text-sm">{{ link.href }}</p></fieldset>{% endfor %}
+</div></details>
+{% endif %}
+<a class="text-accent underline" href="#page-save-controls">Return to save and publish</a>
+<p class="ui-muted">There is no automatic save. Previewing does not save or publish. Homepage selections have their own controls.</p><p data-section-status role="status" aria-live="polite" class="sr-only"></p>
+</form>
+{% endblock %}
+{% block scripts %}<script src="/public/js/admin-editor.js" defer></script>{% endblock %}

@@ -1,0 +1,103 @@
+{
+  "tools": [
+    {
+      "slug": "excalidraw",
+      "title": "Excalidraw",
+      "category": "Design & Wireframing",
+      "summary": "A virtual whiteboard for sketching hand-drawn diagrams, user flows, and low-fidelity web wireframes with zero setup friction and full offline capability.",
+      "launchUrl": "https://excalidraw.com",
+      "githubUrl": "https://github.com/excalidraw/excalidraw",
+      "docsUrl": "https://docs.excalidraw.com",
+      "license": "MIT",
+      "pricing": "Free & Open Source",
+      "selfHostable": true,
+      "date": "2026-11-08",
+      "cover": "public/images/cover-excalidraw.jpg",
+      "tags": ["Wireframing", "Whiteboard", "Architecture", "MIT License"],
+      "cleanUrl": "excalidraw.com",
+      "reviewMeta": "Curated external tool · Created by Excalidraw Team · Documentation reviewed November 2026",
+      "overview": "Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel. It strips away the overwhelming UI complexity of heavy design software, focusing purely on rapid ideation, system architectures, and client wireframes without forcing you into high-fidelity perfection prematurely.",
+      "whereItFits": "Excalidraw is ideal during the project discovery and scoping phase. When discussing customer workflows, database entity relationships, or site information architecture with founders, high-fidelity mockups can distract from fundamental UX flow. Excalidraw's playful, sketchy style signals that ideas are still in draft, encouraging honest feedback and rapid iterations.",
+      "selfHostedVsCloud": "The web app at excalidraw.com is completely free, runs client-side in the browser, and stores drawings in local storage or encrypted shareable links. For enterprise or privacy-sensitive projects requiring full data sovereignty, Excalidraw is open-sourced under the MIT license and can be deployed in a Docker container or embedded directly into React web applications via the `@excalidraw/excalidraw` npm package.",
+      "quickStart": "npm install @excalidraw/excalidraw\n\nimport { Excalidraw } from \"@excalidraw/excalidraw\";\n\nfunction App() {\n  return (\n    <div style={{ height: \"600px\", width: \"100%\" }}>\n      <Excalidraw />\n    </div>\n  );\n}",
+      "quickStartLang": "javascript",
+      "whatToCheck": "While Excalidraw excels at low-fidelity ideation, it is not a vector illustration tool (like Illustrator) nor a full design-system component library (like Figma). If your project requires pixel-perfect auto-layout grids or token-driven components, use Excalidraw for the wireframe blueprint and graduate to Figma for the final production UI.",
+      "pros": [
+        "Instant zero-friction startup in browser with full offline PWA support",
+        "End-to-end encrypted sharing links for seamless client collaboration",
+        "Export to SVG, PNG, or clipboard with transparent backgrounds",
+        "Lightweight React component available for direct in-app embedding"
+      ],
+      "cons": [
+        "No nested symbol or master component systems for massive UI kits",
+        "Free cloud sharing URLs expire if not saved to local storage or library"
+      ]
+    },
+    {
+      "slug": "umami",
+      "title": "Umami Analytics",
+      "category": "Analytics",
+      "summary": "Privacy-focused, lightweight open-source web analytics with hosted cloud and self-hosted options. No cookie banners required.",
+      "launchUrl": "https://umami.is",
+      "githubUrl": "https://github.com/umami-software/umami",
+      "docsUrl": "https://docs.umami.is/docs",
+      "license": "MIT",
+      "pricing": "Free Cloud Tier / Self-Hostable",
+      "selfHostable": true,
+      "date": "2026-11-06",
+      "cover": "public/images/cover-umami.jpg",
+      "tags": ["Analytics", "Privacy", "Self-Hosted", "MIT License"],
+      "cleanUrl": "umami.is",
+      "reviewMeta": "Curated external tool · Created by Umami Software · Documentation reviewed November 2026",
+      "overview": "Umami is a privacy-focused open source alternative to Google Analytics. It provides clean, essential traffic insights—page views, bounce rates, referrers, devices, and countries—all packed into a fast, single-page dashboard without bloated metrics or invasive ad-tech profiling.",
+      "whereItFits": "If you are launching a modern marketing site, portfolio, or SaaS landing page, Google Analytics often requires complex GDPR cookie banners, slowed page load times, and massive script downloads. Umami’s tracking script is under 3KB, runs asynchronously, and complies with GDPR, CCPA, and PECR out of the box without requiring cookie consent banners.",
+      "selfHostedVsCloud": "Umami Cloud offers a generous free tier for up to 100,000 monthly events across websites with 6 months data retention. Alternatively, you can self-host Umami on your own VPS or serverless platform using Docker and PostgreSQL. Self-hosting guarantees 100% ownership and zero third-party data transmission.",
+      "quickStart": "<!-- Add Umami tracking snippet before closing </head> -->\n<script\n  defer\n  src=\"https://cloud.umami.is/script.js\"\n  data-website-id=\"your-website-uuid\"\n></script>\n\n<!-- Custom event tracking example -->\n<button\n  data-umami-event=\"Inquiry Submit\"\n  data-umami-event-plan=\"Custom Web Build\"\n>\n  Send Inquiry\n</button>",
+      "quickStartLang": "html",
+      "whatToCheck": "Umami focuses strictly on quantitative website traffic and custom event goals. It does not provide session replay videos (like PostHog or FullStory) or complex multi-touch attribution modeling. For 95% of small business and freelance websites, this focused simplicity is an advantage.",
+      "pros": [
+        "Ultra-lightweight (<3KB) tracking script that will not affect PageSpeed scores",
+        "GDPR & CCPA compliant without annoying cookie banner popups",
+        "Clean, responsive single-page dashboard with shareable public URLs",
+        "Permissive MIT open-source license with one-click Docker deployment"
+      ],
+      "cons": [
+        "Lacks automated funnel analysis or session replay recordings",
+        "Self-hosting requires maintaining a PostgreSQL instance and running updates"
+      ]
+    },
+    {
+      "slug": "responsively-app",
+      "title": "Responsively App",
+      "category": "Developer Utilities",
+      "summary": "A modified browser environment for responsive web development, mirroring scroll and click interactions across multiple device viewports simultaneously.",
+      "launchUrl": "https://responsively.app",
+      "githubUrl": "https://github.com/responsively-org/responsively-app",
+      "docsUrl": "https://responsively.app/docs",
+      "license": "AGPL-3.0",
+      "pricing": "Free & Open Source",
+      "selfHostable": false,
+      "date": "2026-11-04",
+      "cover": "public/images/cover-responsively.png",
+      "tags": ["DevTools", "Responsive Design", "Testing", "Desktop App"],
+      "cleanUrl": "responsively.app",
+      "reviewMeta": "Curated external tool · Created by Responsively Org · Documentation reviewed November 2026",
+      "overview": "Responsively App is an open-source electron browser tailored specifically for frontend web developers and designers. Instead of resizing your browser back and forth or switching between Chrome DevTools device presets, Responsively displays your website side-by-side across mobile, tablet, and desktop viewports simultaneously.",
+      "whereItFits": "During the frontend styling and QA testing phase, testing breakpoint glitches, navigation toggles, and typography scaling across multiple screen widths can be tedious. Responsively mirrors user interactions (clicks, scrolls, form inputs) across all configured devices in real-time, cutting responsive audit time in half.",
+      "selfHostedVsCloud": "Responsively App is a standalone desktop application available on macOS (Apple Silicon & Intel), Windows, and Linux. It supports live hot-reloading servers (Vite, Next.js, Webpack) and integrates with browser extensions to send open tabs directly into Responsively with a single shortcut.",
+      "quickStart": "# Install via Homebrew on macOS\nbrew install --cask responsively\n\n# Or install via npm for local quick-launch\nnpx responsively-app",
+      "quickStartLang": "bash",
+      "whatToCheck": "Responsively uses Chromium under the hood. While it faithfully emulates viewport dimensions and touch event simulation, it is still Chromium—not WebKit (Safari iOS) or Gecko (Firefox). Always do final cross-engine testing on genuine Safari and mobile devices before client delivery.",
+      "pros": [
+        "Simultaneous side-by-side device viewports with synchronized scrolling",
+        "Full-page multi-device screenshot capture with one click",
+        "Dedicated inspect element tool that targets individual device viewports",
+        "Extensive preset library (iPhones, iPads, Androids, MacBooks, 4K Displays)"
+      ],
+      "cons": [
+        "Electron desktop app with noticeable RAM footprint during heavy multi-view usage",
+        "Chromium-only rendering engine (does not run native iOS WebKit)"
+      ]
+    }
+  ]
+}

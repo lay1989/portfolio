@@ -1,0 +1,20 @@
+{% from 'components/ui.html' import collection_image with context %}
+{# Up to three projects, in the order chosen in the website manager; the first leads. #}
+{% for entry in projects %}
+{% set data=entry.published %}
+<article class="work-card{{ ' work-card--lead' if loop.first else '' }}" data-project="{{ entry.id }}"{% if loop.first %} data-featured-project="{{ entry.id }}"{% endif %} data-draw>
+    {% set picture=collection_image(data,'project',eager=false) %}
+    {% if picture|trim %}<a class="home-work-image" href="{{ entry.path }}" aria-label="View {{ data.title }} case study">{{ picture }}</a>{% endif %}
+    <div class="work-card__copy">
+        <span class="work-card__glyph" aria-hidden="true">{% include 'drawings/' ~ project_glyph(entry.slug) ~ '.svg' %}</span>
+        <p class="meta work-card__meta"><span>{{ data.category }}</span>{% if data.get('year') %}<span>{{ data.year }}</span>{% endif %}</p>
+        <h3 class="work-card__title"><a href="{{ entry.path }}">{{ data.title }}</a></h3>
+        <p class="work-card__summary">{{ data.summary }}</p>
+        {% if data.get('role') or data.get('timeline') %}<dl class="work-card__facts">
+            {% if data.get('role') %}<div><dt>My role</dt><dd>{{ data.role }}</dd></div>{% endif %}
+            {% if data.get('timeline') %}<div><dt>Timeline</dt><dd>{{ data.timeline }}</dd></div>{% endif %}
+        </dl>{% endif %}
+        <a class="home-work-case line-link" href="{{ entry.path }}" aria-label="Read the {{ data.title }} case study">Read the case study</a>
+    </div>
+</article>
+{% endfor %}

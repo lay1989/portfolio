@@ -1,0 +1,524 @@
+<!DOCTYPE html><html lang="en" class="light"><head>
+    <script src="../src/theme-init.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umami Analytics Evaluation &amp; Setup | Lay Shah</title>
+    <meta name="description" content="Privacy-focused, lightweight open-source web analytics evaluated for small businesses, client websites, and cookie-banner-free tracking.">
+    <meta name="author" content="Lay Shah">
+
+    <link rel="canonical" href="https://layshahdev.com/tools/umami.html">
+
+    <!-- Social / OpenGraph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Umami Analytics Evaluation &amp; Setup | Lay Shah">
+    <meta property="og:description" content="Privacy-focused, lightweight open-source web analytics evaluated for small businesses, client websites, and cookie-banner-free tracking.">
+    <meta property="og:url" content="https://layshahdev.com/tools/umami.html">
+    <meta property="og:image" content="https://layshahdev.com/public/images/cover-umami.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+    
+
+    
+
+    <!-- Robots control -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    [
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Umami Analytics Evaluation & Setup",
+        "author": {
+            "@type": "Person",
+            "name": "Lay Shah",
+            "url": "https://layshahdev.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Lay Shah"
+        },
+        "datePublished": "2026-11-06",
+        "dateModified": "2026-11-06"
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://layshahdev.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tools",
+                "item": "https://layshahdev.com/tools.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Umami Analytics",
+                "item": "https://layshahdev.com/tools/umami.html"
+            }
+        ]
+    }
+]
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+
+    <!-- Pinned local icons avoid blocking third-party fallbacks. -->
+    <script src="../public/js/lucide.min.js" defer=""></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../tailwind.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-043HH9GSZB');
+    </script>
+</head>
+<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+        </svg>
+        <span>LAY SHAH</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
+        <a href="../index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+        <a href="../index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+        <a href="../index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+        <a href="../projects.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+        <a href="../index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+        <a href="../blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+        <a href="../tools.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Tools</a>
+        
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
+            </div>
+        </button>
+
+        <a href="../index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
+            Let's Talk
+        </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="flex items-center gap-4 lg:hidden">
+        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
+                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                </div>
+                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
+                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
+                </div>
+            </div>
+        </button>
+        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
+                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
+            </div>
+        </button>
+    </div>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
+    <a href="../index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
+    <a href="../index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
+    <a href="../index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
+    <a href="../projects.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
+    <a href="../index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
+    <a href="../blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
+    <a href="../tools.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Tools</a>
+    <a href="../index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+</div>
+
+    </nav>
+
+    <noscript>
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+            <a href="../index.html">Home</a>
+            <a href="../projects.html">Work</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </noscript>
+
+    <!-- Tool Evaluation Template -->
+<!-- This template is used by build-html.js to generate individual tool evaluation pages -->
+
+<main class="relative bg-background text-foreground pb-0" id="main-content" tabindex="-1">
+
+    <!-- Tool Hero -->
+    <section id="hero" class="relative">
+        <div class="mx-auto max-w-[1400px] px-6 pt-40 md:px-10 md:pt-56">
+            <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest">
+                <ol class="flex items-center gap-2">
+                    <li><a href="../index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li><a href="../tools.html" class="hover:text-accent transition-colors">Tools</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li class="text-foreground" aria-current="page">Umami Analytics</li>
+                </ol>
+            </nav>
+            
+            <div class="mt-8 flex flex-wrap items-center gap-2.5 font-mono text-xs tracking-wider">
+                <span class="px-3 py-1 rounded-full bg-accent/10 text-accent font-medium uppercase">Analytics</span>
+                <span class="px-3 py-1 rounded-full border border-border text-muted-foreground">MIT</span>
+                <span class="px-3 py-1 rounded-full border border-border text-muted-foreground">Free Cloud Tier / Self-Hostable</span>
+                <span class="px-3 py-1 rounded-full border border-border text-muted-foreground">Self-Hostable</span>
+            </div>
+            
+            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-tight md:text-7xl">
+                Umami Analytics
+            </h1>
+            
+            <div class="mt-4 h-[3px] w-24 bg-accent md:w-36"></div>
+            
+            <p class="mt-6 max-w-3xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
+                Privacy-focused, lightweight open-source web analytics with hosted cloud and self-hosted options. No cookie banners required.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="https://umami.is" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground text-sm font-medium hover:scale-[1.02] shadow-sm shadow-accent/20 transition-all">
+                    <span>Open tool</span>
+                    <i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/umami-software/umami" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-border bg-card/60 hover:bg-card text-foreground text-sm font-medium hover:border-foreground/40 transition-all"><i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i><span>GitHub Repo</span></a>
+                <a href="https://docs.umami.is/docs" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-border bg-card/60 hover:bg-card text-foreground text-sm font-medium hover:border-foreground/40 transition-all"><i data-lucide="book-open" class="w-4 h-4" aria-hidden="true"></i><span>Docs</span></a>
+            </div>
+        </div>
+        
+        <!-- Tool Hero Browser Mockup -->
+        <div class="mt-16 overflow-hidden">
+            <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+                <div class="browser-mockup">
+                    <div class="browser-mockup-header">
+                        <div class="browser-mockup-dots">
+                            <span class="browser-mockup-dot red"></span>
+                            <span class="browser-mockup-dot yellow"></span>
+                            <span class="browser-mockup-dot green"></span>
+                        </div>
+                        <div class="browser-mockup-url">https://umami.is</div>
+                    </div>
+                    <div class="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-card">
+                        <img src="../public/images/cover-umami.jpg" alt="Screenshot and interface preview of Umami Analytics" class="w-full h-full object-cover" loading="eager" width="1024" height="1024" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Body -->
+    <section class="mx-auto mt-20 max-w-[1400px] px-6 md:mt-32 md:px-10">
+        <div class="grid gap-12 md:grid-cols-12 md:gap-16 mb-28">
+            
+            <!-- Sticky Meta Rail -->
+            <aside class="md:col-span-4 relative">
+                <div class="md:sticky md:top-32 space-y-6">
+                    <!-- Quick Specs Card -->
+                    <div class="rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-5">Tool Specifications</div>
+                        <dl class="space-y-4 text-sm">
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Category</dt>
+                                <dd class="text-right text-foreground font-medium">Analytics</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">License</dt>
+                                <dd class="text-right text-foreground font-mono text-xs">MIT</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Pricing</dt>
+                                <dd class="text-right text-foreground">Free Cloud Tier / Self-Hostable</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Deployment</dt>
+                                <dd class="text-right text-foreground">Cloud &amp; Self-Hosted</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Reviewed</dt>
+                                <dd class="text-right text-foreground font-mono text-xs">2026-11-06</dd>
+                            </div>
+                        </dl>
+                        
+                        <div class="mt-6">
+                            <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Tags</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground font-mono">Analytics</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground font-mono">Privacy</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground font-mono">Self-Hosted</span><span class="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground font-mono">MIT License</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Outline -->
+                    <div class="hidden lg:block rounded-2xl border border-border/80 bg-card/60 backdrop-blur-md p-5">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+                            <i data-lucide="compass" class="w-3.5 h-3.5 text-accent"></i> On This Page
+                        </div>
+                        <nav class="space-y-1 text-sm font-medium">
+                            <a href="#overview" class="toc-link">Overview &amp; Architecture</a>
+                            <a href="#where-it-fits" class="toc-link">Where It Fits &amp; Use Cases</a>
+                            <a href="#deployment" class="toc-link">Hosting &amp; Deployment</a>
+                            <a href="#quick-start" class="toc-link">Quick Integration</a>
+                            <a href="#evaluation" class="toc-link">Pros &amp; Limitations</a>
+                            <a href="#checklist" class="toc-link">Checklist Before Choosing</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Review Column -->
+            <div class="md:col-span-8">
+                <!-- Overview -->
+                <div id="overview" class="scroll-mt-36 mb-16">
+                    <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">Overview &amp; Architecture</div>
+                    <p class="drop-cap text-xl leading-relaxed text-foreground md:text-2xl mb-6 font-serif">
+                        Umami is a privacy-focused open source alternative to Google Analytics. It provides clean, essential traffic insights—page views, bounce rates, referrers, devices, and countries—all packed into a fast, single-page dashboard without bloated metrics or invasive ad-tech profiling.
+                    </p>
+                    <p class="text-xs font-mono text-muted-foreground">
+                        Curated external tool · Created by Umami Software · Documentation reviewed November 2026
+                    </p>
+                </div>
+
+                <!-- Where it fits -->
+                <div id="where-it-fits" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">Where It Fits</h2>
+                    <p class="text-muted-foreground text-lg leading-relaxed mb-6">
+                        If you are launching a modern marketing site, portfolio, or SaaS landing page, Google Analytics often requires complex GDPR cookie banners, slowed page load times, and massive script downloads. Umami’s tracking script is under 3KB, runs asynchronously, and complies with GDPR, CCPA, and PECR out of the box without requiring cookie consent banners.
+                    </p>
+                </div>
+
+                <!-- Hosting & Deployment -->
+                <div id="deployment" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">Hosting &amp; Deployment</h2>
+                    <div class="callout-box mb-6">
+                        <p class="text-foreground/90 text-base leading-relaxed">
+                            Umami Cloud offers a generous free tier for up to 100,000 monthly events across websites with 6 months data retention. Alternatively, you can self-host Umami on your own VPS or serverless platform using Docker and PostgreSQL. Self-hosting guarantees 100% ownership and zero third-party data transmission.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Developer Quick Start -->
+                <div id="quick-start" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="font-serif text-3xl font-medium text-foreground">Quick Start &amp; Integration</h2>
+                        <span class="font-mono text-xs uppercase px-2 py-0.5 rounded bg-muted text-muted-foreground">html</span>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <button class="copy-code-btn" type="button" aria-label="Copy code snippet">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 mr-1" aria-hidden="true"></i>
+                            <span>Copy</span>
+                        </button>
+                        <pre class="bg-card text-foreground font-mono text-sm p-5 rounded-xl border border-border overflow-x-auto"><code>&lt;!-- Add Umami tracking snippet before closing &lt;/head&gt; --&gt;
+&lt;script
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="your-website-uuid"
+&gt;&lt;/script&gt;
+
+&lt;!-- Custom event tracking example --&gt;
+&lt;button
+  data-umami-event="Inquiry Submit"
+  data-umami-event-plan="Custom Web Build"
+&gt;
+  Send Inquiry
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Pros & Limitations (Bento) -->
+                <div id="evaluation" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-6">Evaluation Verdict</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Pros Card -->
+                        <div class="bento-card p-6 border-l-4 !border-l-accent">
+                            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4 flex items-center gap-1.5">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i> Strengths
+                            </h3>
+                            <ul class="space-y-3 text-sm text-foreground/90">
+                                <li class="flex items-start gap-2.5"><span class="text-accent mt-0.5 shrink-0">✓</span><span>Ultra-lightweight (&lt;3KB) tracking script that will not affect PageSpeed scores</span></li><li class="flex items-start gap-2.5"><span class="text-accent mt-0.5 shrink-0">✓</span><span>GDPR &amp; CCPA compliant without annoying cookie banner popups</span></li><li class="flex items-start gap-2.5"><span class="text-accent mt-0.5 shrink-0">✓</span><span>Clean, responsive single-page dashboard with shareable public URLs</span></li><li class="flex items-start gap-2.5"><span class="text-accent mt-0.5 shrink-0">✓</span><span>Permissive MIT open-source license with one-click Docker deployment</span></li>
+                            </ul>
+                        </div>
+                        <!-- Cons Card -->
+                        <div class="bento-card p-6 border-l-4 !border-l-amber-500/70">
+                            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-amber-500 mb-4 flex items-center gap-1.5">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i> Considerations
+                            </h3>
+                            <ul class="space-y-3 text-sm text-foreground/90">
+                                <li class="flex items-start gap-2.5"><span class="text-amber-500 mt-0.5 shrink-0">!</span><span>Lacks automated funnel analysis or session replay recordings</span></li><li class="flex items-start gap-2.5"><span class="text-amber-500 mt-0.5 shrink-0">!</span><span>Self-hosting requires maintaining a PostgreSQL instance and running updates</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist Before Choosing -->
+                <div id="checklist" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">What To Check Before Choosing</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">
+                        Umami focuses strictly on quantitative website traffic and custom event goals. It does not provide session replay videos (like PostHog or FullStory) or complex multi-touch attribution modeling. For 95% of small business and freelance websites, this focused simplicity is an advantage.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Integration Consultation CTA -->
+        <div class="mb-24">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-medium leading-tight text-foreground mb-3">Need Umami Analytics configured for your product?</h2>
+                    <p class="text-muted-foreground text-sm md:text-base leading-relaxed">I evaluate, self-host, and integrate developer tools and APIs into production codebases for founders and small engineering teams.</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="../index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
+                        Discuss integration <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="w-full mt-16 mb-32 border-t border-border/50 pt-12">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="font-serif text-2xl font-medium text-foreground">Explore Other Curated Tools</h3>
+                <a href="../tools.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1">
+                    All tools <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+        <article class="bento-card p-6 flex flex-col justify-between group">
+            <div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono uppercase bg-accent/10 text-accent font-medium">Design &amp; Wireframing</span>
+                <h4 class="font-serif text-2xl font-medium text-foreground group-hover:text-accent transition-colors mt-3 mb-2">
+                    <a href="../tools/excalidraw.html">Excalidraw</a>
+                </h4>
+                <p class="text-sm text-muted-foreground line-clamp-2 leading-relaxed">A virtual whiteboard for sketching hand-drawn diagrams, user flows, and low-fidelity web wireframes with zero setup friction and full offline capability.</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-border/50 flex items-center justify-between">
+                <a href="../tools/excalidraw.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1">Read evaluation <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                <a href="https://excalidraw.com" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1">Visit site <i data-lucide="external-link" class="w-3 h-3"></i></a>
+            </div>
+        </article>
+    
+        <article class="bento-card p-6 flex flex-col justify-between group">
+            <div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono uppercase bg-accent/10 text-accent font-medium">Developer Utilities</span>
+                <h4 class="font-serif text-2xl font-medium text-foreground group-hover:text-accent transition-colors mt-3 mb-2">
+                    <a href="../tools/responsively-app.html">Responsively App</a>
+                </h4>
+                <p class="text-sm text-muted-foreground line-clamp-2 leading-relaxed">A modified browser environment for responsive web development, mirroring scroll and click interactions across multiple device viewports simultaneously.</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-border/50 flex items-center justify-between">
+                <a href="../tools/responsively-app.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1">Read evaluation <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                <a href="https://responsively.app" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1">Visit site <i data-lucide="external-link" class="w-3 h-3"></i></a>
+            </div>
+        </article>
+    
+            </div>
+        </div>
+
+    </section>
+</main>
+
+
+        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
+        <div class="container mx-auto max-w-[1400px]">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
+                <!-- Left Column -->
+                <div class="md:col-span-12 lg:col-span-6">
+                    <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
+                        </svg>
+                        <span>LAY SHAH</span>
+                    </a>
+                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+                        Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
+                    </p>
+                </div>
+                
+                <!-- Middle Column -->
+                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
+                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
+                    <ul class="flex flex-col gap-4 text-sm text-foreground">
+                        <li><a href="../index.html" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="../projects.html" class="hover:text-accent transition-colors">Work</a></li>
+                        <li><a href="../blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="md:col-span-6 lg:col-span-3">
+                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
+                    <ul class="flex flex-col gap-4 text-sm text-foreground">
+                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
+                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
+                <p>© 2026 Lay Shah. All rights reserved.</p>
+                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
+                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="../bundle.js" defer=""></script>
+
+
+
+
+
+</body></html>

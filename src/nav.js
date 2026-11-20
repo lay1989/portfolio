@@ -1,3 +1,6 @@
+import { motionAllowed } from './motion/index.js';
+import layoutBreakpoints from './admin-layout.generated.js';
+
 let backToTopBtn = null;
 let mobileMenuBtn = null;
 let mobileMenu = null;
@@ -5,8 +8,8 @@ let navbarWrapper = null;
 let throttledScrollHandler = null;
 
 /**
- * Rewrites links inside a container to enable SPA-like navigation in a static site.
- * Replaces legacy iteration with modern for...of loop.
+ * Shortens homepage section links without changing subpage routing.
+ * Build-time templates supply the correct paths for static and Flask pages.
  * @param {HTMLElement} container - The container element (navbar or footer).
  * @param {boolean} isHome - Whether the current page is the homepage.
  */
@@ -24,13 +27,6 @@ export function rewriteLinks(container, isHome) {
                 } else if (href === './index.html' || href === 'index.html' || href === '/index.html') {
                     link.setAttribute('href', '#');
                 }
-            } else {
-                // For subpages: convert absolute `/index.html` to `./index.html` to prevent hosting breakage
-                if (href.startsWith('/index.html')) {
-                    link.setAttribute('href', `.${href}`);
-                } else if (href.startsWith('/blog.html')) {
-                    link.setAttribute('href', `.${href}`);
-                }
             }
         }
     }
@@ -44,28 +40,18 @@ export function rewriteLinks(container, isHome) {
 export function highlightActivePage(navbar) {
     if (!navbar) return;
     const path = window.location.pathname;
-    const filename = path.substring(path.lastIndexOf('/') + 1);
-
-    const isBlog = filename === 'blog.html' || filename.startsWith('blog-');
-
-    const updateActiveStyles = (link) => {
+    for (const link of navbar.querySelectorAll('.nav-links-desktop a, #mobile-menu a')) {
         const href = link.getAttribute('href');
-        if (isBlog && href && href.includes('blog.html')) {
+        if (!href) continue;
+        const target = new URL(href, window.location.href);
+        const exact = target.pathname === path && !target.hash;
+        const collection = (target.pathname.endsWith('/blog.html') && path.split('/').pop().startsWith('blog-')) ||
+            (target.pathname.endsWith('/projects.html') && path.includes('/projects/'));
+        link.removeAttribute('aria-current');
+        if (exact || collection) {
+            link.setAttribute('aria-current', exact ? 'page' : 'location');
             link.classList.add('text-primary');
             link.classList.remove('text-muted-foreground');
-        }
-    };
-
-    const desktopLinks = navbar.querySelectorAll('.nav-links-desktop a');
-    for (const link of desktopLinks) {
-        updateActiveStyles(link);
-    }
-
-    const mobileMenuEl = document.getElementById('mobile-menu');
-    if (mobileMenuEl) {
-        const mobileLinks = mobileMenuEl.querySelectorAll('a');
-        for (const link of mobileLinks) {
-            updateActiveStyles(link);
         }
     }
 }
@@ -91,36 +77,46 @@ export function initNav(isHomePage, throttle) {
         mobileMenuBtn.parentNode.replaceChild(newMobileMenuBtn, mobileMenuBtn);
         mobileMenuBtn = newMobileMenuBtn;
 
-        // Cache the hamburger element outside click handler closures to prevent redundant DOM queries
-        const cachedHamburger = mobileMenuBtn;
-
+        // The menu covers the page on every public route.
+        const fullHeightMenu = Boolean(mobileMenu.classList.contains('site-menu'));
+        const outside = fullHeightMenu ? [...document.querySelectorAll('main,footer')].map(el => [el, el.inert]) : [];
+        let originalOverflow = '';
+        const setMenuState = open => {
+            mobileMenu.classList.toggle('open', open);
+            mobileMenuBtn.classList.toggle('active', open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+            if (fullHeightMenu) {
+                if (open) originalOverflow = document.body.style.overflow;
+                document.body.style.overflow = open ? 'hidden' : originalOverflow;
+                outside.forEach(([el, original]) => { el.inert = open || original; });
+            }
+        };
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            const isOpen = mobileMenu.classList.contains('open');
-            mobileMenuBtn.setAttribute('aria-expanded', isOpen.toString());
-            if (cachedHamburger) {
-                cachedHamburger.classList.toggle('active');
+            const open = !mobileMenu.classList.contains('open');
+            setMenuState(open);
+            if (open && fullHeightMenu) {
+                const focusFirst = () => { if (mobileMenu.classList.contains('open')) mobileMenu.querySelector('a')?.focus({ preventScroll: true }); };
+                requestAnimationFrame(focusFirst);
+                mobileMenu.addEventListener('transitionend', focusFirst, { once: true });
             }
         });
-
         document.addEventListener('keydown', event => {
-            if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
-                mobileMenu.classList.remove('open');
-                mobileMenuBtn.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (!mobileMenu.classList.contains('open')) return;
+            if (event.key === 'Escape') {
+                setMenuState(false);
                 mobileMenuBtn.focus();
+            } else if (event.key === 'Tab' && fullHeightMenu) {
+                const items = [mobileMenuBtn, ...mobileMenu.querySelectorAll('a')];
+                const first = items[0], last = items.at(-1);
+                if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+                else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
             }
         });
-
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target.closest('a')) {
-                mobileMenu.classList.remove('open');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                if (cachedHamburger) {
-                    cachedHamburger.classList.remove('active');
-                }
-            }
-        });
+        mobileMenu.addEventListener('click', event => { if (event.target.closest('a')) setMenuState(false); });
+        if (fullHeightMenu) {
+            const desktop = matchMedia(layoutBreakpoints.desktopQuery);
+            desktop.addEventListener('change', () => { if (desktop.matches && mobileMenu.classList.contains('open')) setMenuState(false); });
+        }
     }
 
     // 2. Back to Top Button Logic
@@ -131,7 +127,8 @@ export function initNav(isHomePage, throttle) {
         backToTopBtn = newBackToTopBtn;
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            document.getElementById('main-content')?.focus({ preventScroll: true });
+            window.scrollTo({ top: 0, behavior: motionAllowed() ? 'smooth' : 'auto' });
         });
     }
 
@@ -158,7 +155,7 @@ export function initNav(isHomePage, throttle) {
     }
 
     throttledScrollHandler = throttle(handleScroll, 100);
-    window.addEventListener('scroll', throttledScrollHandler);
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
 
     // Initial check
     handleScroll();

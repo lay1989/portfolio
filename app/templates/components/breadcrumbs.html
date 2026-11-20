@@ -1,0 +1,1 @@
+<nav aria-label="Breadcrumb" class="text-sm ui-muted mb-8"><ol class="ui-row">{% for item in breadcrumb_items %}<li>{% if not loop.first %}<span aria-hidden="true">/ </span>{% endif %}{% if loop.last %}<span aria-current="page">{{ item.name }}</span>{% else %}<a class="underline" href="{{ item.path }}">{{ item.name }}</a>{% endif %}</li>{% endfor %}</ol></nav>

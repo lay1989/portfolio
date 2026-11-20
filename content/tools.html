@@ -1,0 +1,163 @@
+    <main class="bg-background" id="main-content" tabindex="-1">
+        <div class="max-w-page mx-auto px-6 md:px-10 public-page-start pb-20">
+            <!-- Header Block -->
+            <header class="grid grid-cols-1 md:grid-cols-12 border-b border-foreground/10 pb-16" data-enter>
+                <p class="md:col-span-2 font-mono text-muted-foreground uppercase tracking-widest text-sm mb-4 md:mb-0">Curated Software</p>
+                <div class="md:col-span-10">
+                    <h1 class="font-serif text-5xl md:text-7xl font-medium text-foreground leading-tight">
+                        Tools for practical problems.<br>
+                        <span class="italic text-muted-foreground">Tested, evaluated, and cataloged.</span>
+                    </h1>
+                    <p class="mt-6 text-muted-foreground md:text-lg max-w-2xl leading-relaxed">
+                        A curated directory of open-source utilities, developer software, and business tools evaluated for real-world reliability, licensing, and simplicity.
+                    </p>
+                </div>
+            </header>
+
+            <!-- Filter & Search Bar -->
+            <div class="mt-16 flex flex-col md:flex-row md:items-center justify-between border-b border-foreground/10 pb-6 gap-6">
+                <div class="flex flex-wrap items-center gap-2" id="tool-category-filters" role="group" aria-label="Tool categories">
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground bg-foreground text-background transition-colors tool-filter-btn active" data-filter="All" aria-pressed="true">All Tools</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/20 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors tool-filter-btn" data-filter="Analytics" aria-pressed="false">Analytics</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/20 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors tool-filter-btn" data-filter="Design & Wireframing" aria-pressed="false">Design & Wireframing</button>
+                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/20 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors tool-filter-btn" data-filter="Developer Utilities" aria-pressed="false">Developer Utilities</button>
+                </div>
+                <div class="relative w-full md:w-72 shrink-0">
+                    <label class="sr-only" for="tool-search">Search tools</label>
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true"></i>
+                    <input type="search" id="tool-search" placeholder="Search tools or stacks…" aria-label="Search tools" class="w-full rounded-full border border-foreground/20 bg-background pl-9 pr-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all">
+                </div>
+            </div>
+
+            <!-- Bento Grid of Tools -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tools-grid">
+                
+                <!-- Tool 1: Excalidraw -->
+                <article class="bento-card flex flex-col justify-between tool-card group" data-category="Design & Wireframing" data-tags="wireframing, architecture, whiteboard, react, mit">
+                    <div>
+                        <!-- Cover Image Preview -->
+                        <a href="tools/excalidraw.html" class="block aspect-video overflow-hidden border-b border-border bg-card" tabindex="-1" aria-hidden="true">
+                            <img src="public/images/cover-excalidraw.jpg" alt="Excalidraw virtual whiteboard and wireframing tool" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.025]" loading="lazy">
+                        </a>
+                        <div class="p-6 md:p-7">
+                            <!-- Badges -->
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono uppercase tracking-wider bg-accent/10 text-accent font-medium">Design</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">MIT License</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">Self-Hostable</span>
+                            </div>
+                            <h2 class="font-serif text-2xl font-medium text-foreground group-hover:text-accent transition-colors mb-3">
+                                <a href="tools/excalidraw.html" class="tool-title">Excalidraw</a>
+                            </h2>
+                            <p class="text-sm md:text-base text-muted-foreground leading-relaxed tool-summary">
+                                A virtual whiteboard for sketching hand-drawn diagrams, user flows, and low-fidelity web wireframes with zero setup friction and offline capability.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-7 pt-0 flex items-center justify-between border-t border-border/50 gap-4 mt-4">
+                        <a href="tools/excalidraw.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1" aria-label="About Excalidraw evaluation">
+                            About this tool <i data-lucide="arrow-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://excalidraw.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-border bg-background hover:bg-card text-xs font-mono font-medium text-foreground hover:border-foreground/30 flex items-center gap-1.5 transition-all" aria-label="Open Excalidraw in new tab">
+                            Open tool <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tool 2: Umami Analytics -->
+                <article class="bento-card flex flex-col justify-between tool-card group" data-category="Analytics" data-tags="analytics, privacy, gdpr, self-host, mit">
+                    <div>
+                        <!-- Cover Image Preview -->
+                        <a href="tools/umami.html" class="block aspect-video overflow-hidden border-b border-border bg-card" tabindex="-1" aria-hidden="true">
+                            <img src="public/images/cover-umami.jpg" alt="Umami Analytics lightweight privacy-focused dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.025]" loading="lazy">
+                        </a>
+                        <div class="p-6 md:p-7">
+                            <!-- Badges -->
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono uppercase tracking-wider bg-accent/10 text-accent font-medium">Analytics</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">MIT License</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">Privacy-First</span>
+                            </div>
+                            <h2 class="font-serif text-2xl font-medium text-foreground group-hover:text-accent transition-colors mb-3">
+                                <a href="tools/umami.html" class="tool-title">Umami Analytics</a>
+                            </h2>
+                            <p class="text-sm md:text-base text-muted-foreground leading-relaxed tool-summary">
+                                Privacy-focused, lightweight open-source web analytics. Tracks clean traffic without cookie banners, GDPR overhead, or invasive tracking scripts.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-7 pt-0 flex items-center justify-between border-t border-border/50 gap-4 mt-4">
+                        <a href="tools/umami.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1" aria-label="About Umami Analytics evaluation">
+                            About this tool <i data-lucide="arrow-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://umami.is" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-border bg-background hover:bg-card text-xs font-mono font-medium text-foreground hover:border-foreground/30 flex items-center gap-1.5 transition-all" aria-label="Open Umami Analytics in new tab">
+                            Open tool <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tool 3: Responsively App -->
+                <article class="bento-card flex flex-col justify-between tool-card group" data-category="Developer Utilities" data-tags="responsive, devtools, testing, desktop">
+                    <div>
+                        <!-- Cover Image Preview -->
+                        <a href="tools/responsively-app.html" class="block aspect-video overflow-hidden border-b border-border bg-card" tabindex="-1" aria-hidden="true">
+                            <img src="public/images/cover-responsively.png" alt="Responsively App multi-device browser preview" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.025]" loading="lazy">
+                        </a>
+                        <div class="p-6 md:p-7">
+                            <!-- Badges -->
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono uppercase tracking-wider bg-accent/10 text-accent font-medium">Utilities</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">AGPL-3.0</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono border border-border text-muted-foreground">Desktop App</span>
+                            </div>
+                            <h2 class="font-serif text-2xl font-medium text-foreground group-hover:text-accent transition-colors mb-3">
+                                <a href="tools/responsively-app.html" class="tool-title">Responsively App</a>
+                            </h2>
+                            <p class="text-sm md:text-base text-muted-foreground leading-relaxed tool-summary">
+                                A modified browser environment for responsive web development, mirroring scroll and click interactions across multiple device viewports simultaneously.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-7 pt-0 flex items-center justify-between border-t border-border/50 gap-4 mt-4">
+                        <a href="tools/responsively-app.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1" aria-label="About Responsively App evaluation">
+                            About this tool <i data-lucide="arrow-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://responsively.app" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-border bg-background hover:bg-card text-xs font-mono font-medium text-foreground hover:border-foreground/30 flex items-center gap-1.5 transition-all" aria-label="Open Responsively App in new tab">
+                            Open tool <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="tools-empty-state" class="hidden py-24 text-center">
+                <i data-lucide="compass" class="w-10 h-10 text-muted-foreground mx-auto mb-4" aria-hidden="true"></i>
+                <h3 class="font-serif text-2xl text-foreground mb-2">No tools match your filter</h3>
+                <p class="text-muted-foreground text-sm max-w-sm mx-auto">Try clearing your search query or selecting a different category.</p>
+            </div>
+
+            <!-- Suggestion / Submission CTA -->
+            <div class="mt-32 mb-16">
+                <div class="p-8 md:p-12 rounded-3xl border border-border bg-card/60 backdrop-blur-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                    <div class="flex-grow max-w-2xl">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+                            <span class="text-accent text-xs font-mono uppercase tracking-widest">Workflow Consultation</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-serif font-medium leading-tight text-foreground mb-3">Need software configured for your team?</h2>
+                        <p class="text-muted-foreground text-sm md:text-base leading-relaxed">Whether integrating self-hosted analytics, automating form workflows, or deploying custom web architecture, I help founders implement the right stack.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="./index.html#contact" class="site-button">
+                            Discuss integration
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+        </div>
+    </main>

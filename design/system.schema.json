@@ -1,0 +1,431 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "palette",
+    "themes",
+    "fonts",
+    "fontWeights",
+    "fontSizes",
+    "type",
+    "spacing",
+    "layout",
+    "breakpoints",
+    "radii",
+    "motion",
+    "details",
+    "legacy",
+    "media"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "palette": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^#[0-9a-fA-F]{6}$"
+      }
+    },
+    "themes": {
+      "type": "object",
+      "required": [
+        "light",
+        "dark"
+      ],
+      "additionalProperties": true
+    },
+    "fonts": {
+      "type": "object",
+      "required": [
+        "sans",
+        "display",
+        "serif",
+        "mono"
+      ],
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "fontWeights": {
+      "type": "object",
+      "required": [
+        "light",
+        "normal",
+        "medium",
+        "semibold",
+        "bold"
+      ],
+      "additionalProperties": true
+    },
+    "fontSizes": {
+      "type": "object",
+      "required": [
+        "xs",
+        "sm",
+        "base",
+        "lg",
+        "xl",
+        "2xl",
+        "3xl",
+        "4xl",
+        "5xl",
+        "6xl",
+        "7xl",
+        "8xl",
+        "9xl",
+        "micro"
+      ],
+      "additionalProperties": true
+    },
+    "type": {
+      "type": "object",
+      "required": [
+        "hero",
+        "title",
+        "section",
+        "body"
+      ],
+      "additionalProperties": true
+    },
+    "spacing": {
+      "type": "object",
+      "required": [
+        "unitRem",
+        "steps"
+      ],
+      "additionalProperties": true
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "page",
+        "wide",
+        "reading",
+        "gutter",
+        "anchor",
+        "icon-sm",
+        "rule"
+      ],
+      "additionalProperties": true
+    },
+    "breakpoints": {
+      "type": "object",
+      "required": [
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl"
+      ],
+      "additionalProperties": true
+    },
+    "radii": {
+      "type": "object",
+      "required": [
+        "none",
+        "sm",
+        "DEFAULT",
+        "md",
+        "lg",
+        "xl",
+        "2xl",
+        "3xl",
+        "display",
+        "full"
+      ],
+      "additionalProperties": true
+    },
+    "motion": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "smoothScroll",
+        "durations",
+        "easing",
+        "stagger",
+        "offset",
+        "revealOffset",
+        "themeOffset",
+        "hoverLift",
+        "parallax",
+        "trigger"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "smoothScroll": {
+          "type": "boolean"
+        },
+        "durations": {
+          "type": "object",
+          "required": [
+            "fast",
+            "control",
+            "standard",
+            "reveal",
+            "section",
+            "counter",
+            "marquee"
+          ],
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60000
+          }
+        },
+        "easing": {
+          "type": "object",
+          "required": [
+            "css",
+            "gsap"
+          ],
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "stagger": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "offset": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "revealOffset": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "themeOffset": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "hoverLift": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "parallax": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 1000
+        },
+        "trigger": {
+          "type": "string",
+          "minLength": 1
+        },
+        "magneticFactor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "titleOffset": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "numberOffset": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "pressScale": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "rippleScale": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "details": {
+      "type": "object",
+      "required": [
+        "labelTracking",
+        "displayLeading",
+        "focusWidth",
+        "focusOffset",
+        "shadowHover",
+        "skipLinkLayer",
+        "figureStroke",
+        "figureShadowOpacity"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "skipLinkLayer": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "figureStroke": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?px$"
+        },
+        "figureShadowOpacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "legacy": {
+      "type": "object",
+      "required": [
+        "scroll-padding-top-1",
+        "width-2",
+        "border-radius-3",
+        "width-4",
+        "height-5",
+        "border-radius-6",
+        "font-size-7",
+        "line-height-8",
+        "padding-top-9",
+        "padding-right-10",
+        "margin-left-11",
+        "font-weight-12",
+        "margin-top-13",
+        "margin-bottom-14",
+        "font-size-15",
+        "line-height-16",
+        "font-size-17",
+        "margin-top-18",
+        "margin-bottom-19",
+        "font-size-20",
+        "line-height-21",
+        "letter-spacing-22",
+        "font-size-23",
+        "margin-top-24",
+        "margin-bottom-25",
+        "font-size-26",
+        "font-size-27",
+        "text-underline-offset-28",
+        "padding-left-29",
+        "margin-top-30",
+        "margin-bottom-31",
+        "margin-bottom-32",
+        "line-height-33",
+        "border-radius-34",
+        "padding-35",
+        "font-size-36",
+        "margin-top-37",
+        "margin-bottom-38",
+        "border-radius-39",
+        "padding-40",
+        "font-size-41",
+        "margin-top-42",
+        "margin-bottom-43",
+        "outline-offset-44"
+      ],
+      "additionalProperties": true
+    },
+    "media": {
+      "type": "object",
+      "required": [
+        "ratios",
+        "labels",
+        "brandWidths"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ratios": {
+          "type": "object",
+          "required": [
+            "original",
+            "landscape",
+            "square",
+            "portrait",
+            "wide",
+            "social"
+          ],
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                }
+              }
+            ]
+          }
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "brandWidths": {
+          "type": "object",
+          "required": [
+            "logo",
+            "icon",
+            "sharing"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "logo": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 5,
+              "uniqueItems": true,
+              "items": {
+                "type": "integer",
+                "minimum": 16,
+                "maximum": 2400
+              }
+            },
+            "icon": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 5,
+              "uniqueItems": true,
+              "items": {
+                "type": "integer",
+                "minimum": 16,
+                "maximum": 2400
+              }
+            },
+            "sharing": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 5,
+              "uniqueItems": true,
+              "items": {
+                "type": "integer",
+                "minimum": 16,
+                "maximum": 2400
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

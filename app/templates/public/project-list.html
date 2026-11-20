@@ -1,0 +1,19 @@
+{% from 'components/ui.html' import work_slide with context %}
+{% if projects %}
+<section class="work-reel" id="work" data-work-reel aria-label="Project case studies">
+    <div class="work-reel__viewport">
+        <div class="work-reel__track" data-work-track>
+            {% for entry in projects %}{{ work_slide(entry,pagination.first + loop.index0,pagination.total,eager=loop.first) }}{% endfor %}
+        </div>
+        <div class="work-reel__bar" data-work-bar hidden>
+            <span class="font-mono text-sm" data-work-count>{{ '%02d'|format(pagination.first) }} / {{ '%02d'|format(pagination.total) }}</span>
+            <span class="work-reel__progress" aria-hidden="true"><span data-work-progress></span></span>
+            <span class="work-reel__hint text-sm ui-muted">Scroll to explore</span>
+            <button class="work-reel__button" data-work-prev aria-label="Previous project">←</button>
+            <button class="work-reel__button" data-work-next aria-label="Next project">→</button>
+            <a class="content-link" href="#after-work">Skip reel</a>
+        </div>
+    </div>
+</section>
+{% else %}<p class="ui-shell ui-muted" id="work">No projects to show yet.</p>{% endif %}
+<div class="ui-shell" id="after-work" tabindex="-1">{% include 'components/pagination.html' %}</div>

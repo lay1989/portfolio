@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block title %}Page address{% endblock %}
+{% block content %}
+<a class="text-accent underline" href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}">Back to editor</a>
+<div><p class="ui-muted mb-4">{{ entry.draft.title }}</p><h1 class="site-heading type-title">Page address.</h1></div>
+<p class="ui-muted max-w-reading">Keep a published address when it still fits. If you change it, old links will redirect directly to the new address. Draft content stays private, and unpublished pages return “not found” at every address.</p>
+<form method="post" class="ui-panel ui-stack max-w-reading">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ entry.version }}">
+    <p>Current address <strong class="break-all">{{ entry.path }}</strong></p>
+    <label class="ui-field">URL name<input name="slug" class="ui-input" value="{{ name }}" maxlength="100" pattern="[a-z0-9]+(-[a-z0-9]+)*" required aria-describedby="address-help"></label>
+    <p class="ui-muted text-sm" id="address-help">{{ '/projects/' if entry.kind == 'project' else '/blog-' if entry.kind == 'post' else '/tools/' }}<em>your-url-name</em>.html<br>Use lowercase letters, numbers, and single hyphens. Names reserved by another page cannot be reused.</p>
+    <button type="submit" class="ui-button">Update address and preserve old links</button>
+</form>
+<section class="ui-stack max-w-reading"><h2 class="site-heading font-serif text-3xl">Preserved links</h2>{% for alias in aliases %}<p class="ui-panel break-all">{{ alias.path }} → {{ entry.path }}</p>{% else %}<p class="ui-muted">No previous addresses. Your original links still work.</p>{% endfor %}</section>
+{% endblock %}

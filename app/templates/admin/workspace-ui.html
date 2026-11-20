@@ -1,0 +1,22 @@
+{% macro collection_tabs(kind, current) -%}
+{% set page_key={'project':'projects','post':'blog','tool':'tools'}[kind] %}
+<nav class="admin-subnav" aria-label="Collection management">
+    <a href="{{ url_for('admin.manage_collection',kind=kind) }}"{% if current == 'entries' %} aria-current="page"{% endif %}>Entries</a>
+    <a href="{{ url_for('page_admin.edit',key=page_key) }}"{% if current == 'page' %} aria-current="page"{% endif %}>Page introduction &amp; SEO</a>
+</nav>
+{%- endmacro %}
+
+{% macro publication_status(entry) -%}
+<span class="admin-status" data-state="{{ 'draft' if entry.published is none else 'changed' if entry.draft != entry.published else 'published' }}">{{ 'Draft' if entry.published is none else 'Published · Unpublished changes' if entry.draft != entry.published else 'Published' }}</span>
+{%- endmacro %}
+
+{% macro save_controls(unsaved=false, entry=none, identity='editor-save-controls') -%}
+<div class="editor-savebar" id="{{ identity }}" role="region" aria-label="Save and publish">
+    <p role="status" aria-live="polite" data-save-state>{{ 'Unsaved changes. Save a draft or preview before publishing.' if unsaved else 'Editing your draft. Publish explicitly to update the website.' }}</p>
+    <div class="ui-row">
+        <button class="ui-button" data-variant="secondary" name="action" value="draft">Save draft</button>
+        <button class="ui-button" data-variant="secondary"{% if entry %} formaction="{{ url_for('admin.preview_changes',entry_id=entry.id) }}"{% endif %} formtarget="_blank" name="action" value="preview">Preview changes</button>
+        <button class="ui-button" name="action" value="publish">Publish</button>
+    </div>
+</div>
+{%- endmacro %}

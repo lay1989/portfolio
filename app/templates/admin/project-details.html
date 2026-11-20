@@ -1,0 +1,13 @@
+{% from 'admin/page-fields.html' import page_field %}
+{% macro figure_row(row,index) -%}
+<fieldset class="ui-panel ui-stack" data-repeat-row><legend class="site-heading text-xl" data-repeat-row-label>Figure {{ index }}</legend><input type="hidden" name="figure_id" value="{{ row.id }}">
+{% for key,label,limit in [('label','Label',100),('value','Value',180),('note','Context or source note',500)] %}{{ page_field('figure.' ~ row.id ~ '.' ~ key,label,row.get(key,''),limit=limit,multiline=key == 'note') }}{% endfor %}
+<div class="ui-row editor-section-actions">{% for action in ['up','down','remove'] %}<button type="submit" name="figure_action" value="{{ action }}:{{ row.id }}" data-repeat-action="{{ action }}" aria-label="{{ 'Remove' if action == 'remove' else 'Move' }} figure {{ index }}{{ ' ' ~ action if action != 'remove' else '' }}" formnovalidate>{{ 'Remove' if action == 'remove' else '↑' if action == 'up' else '↓' }}</button>{% endfor %}</div>
+</fieldset>
+{%- endmacro %}
+{% macro project_details() -%}
+<details class="ui-panel"><summary class="site-heading text-2xl font-serif cursor-pointer">Project figures and client feedback</summary><div class="ui-stack mt-8">
+<section class="ui-stack" data-repeat-group="figures" data-singular="Figure" data-max="12"><h2 class="site-heading text-xl">Project figures</h2><input type="hidden" name="figures_present" value="1"><p class="ui-muted">Use figures you can support. Add context, a measurement date, or a public source in the note; it appears with the figure. Add, reorder, or remove up to 12 figures.</p><div class="ui-stack" data-repeat-rows>{% for row in project_figures %}{{ figure_row(row,loop.index) }}{% endfor %}</div><p class="ui-muted" data-repeat-empty{% if project_figures %} hidden{% endif %}>No figures. This section stays hidden when empty.</p><button type="submit" class="ui-button" data-variant="secondary" name="figure_action" value="add" data-repeat-add formnovalidate>Add figure</button><template data-repeat-template>{{ figure_row(blank_figure(),'__index__') }}</template></section>
+<section class="ui-stack"><h2 class="site-heading text-xl">Client feedback</h2><input type="hidden" name="feedback_present" value="1"><p class="ui-muted">Use the client's original feedback with permission. Clear all three fields to remove it. A published quotation needs an author.</p>{{ page_field('feedback.quote','Client quotation',project_feedback.quote,limit=2400,multiline=true) }}{{ page_field('feedback.author','Client name',project_feedback.author,limit=180) }}{{ page_field('feedback.role','Client role or company',project_feedback.role,limit=240) }}</section>
+</div></details>
+{%- endmacro %}

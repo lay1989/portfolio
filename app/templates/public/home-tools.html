@@ -1,0 +1,34 @@
+{% from 'components/ui.html' import collection_image with context %}
+{% if tools %}
+<section id="tools" class="home-tools" aria-labelledby="home-tools-heading" data-lane="right">
+    <div class="home-shell">
+        <header class="home-section-head">
+            <h2 id="home-tools-heading" class="home-heading">Tools</h2>
+            <div class="home-section-intro">
+                <p class="home-tools-intro">{{ home_copy('tools.intro') }}</p>
+                <a class="home-tools-all line-link" href="/tools.html">{{ home_copy('tools.allTools') }}</a>
+            </div>
+        </header>
+        <div class="home-tools-list">
+        {% for entry in tools %}
+        {% set data=entry.published %}{% set links=data|tool_links %}
+        <article class="home-tool" data-tool="{{ entry.id }}">
+            <div class="home-tool-summary">
+                {% set picture=collection_image(data,'tool') %}
+                {% if picture|trim %}<a class="home-tool-image" href="{{ entry.path }}" aria-label="About {{ data.title }}">{{ picture }}</a>{% endif %}
+                <div class="home-tool-copy">
+                    {% if data.get('category') %}<p class="meta home-tool-category">{{ data.category }}</p>{% endif %}
+                    <h3><a href="{{ entry.path }}">{{ data.title }}</a></h3>
+                    <p class="home-tool-description">{{ data.summary }}</p>
+                </div>
+            </div>
+            <div class="home-tool-actions">
+                {% if links.launch_url %}<a class="home-outline-action home-tool-open line-button line-button--ghost line-button--small" href="{{ links.launch_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ home_copy('tools.open') }}: {{ data.title }} (opens in a new tab)">{{ home_copy('tools.open') }}</a>{% endif %}
+                <a class="home-tool-about line-link" href="{{ entry.path }}" aria-label="{{ home_copy('tools.about') }}: {{ data.title }}">{{ home_copy('tools.about') }}</a>
+            </div>
+        </article>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

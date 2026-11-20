@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+{% from 'admin/workspace-ui.html' import collection_tabs, publication_status %}
+{% block title %}Manage {{ {'project':'projects','post':'articles','tool':'Tools'}[kind] }}{% endblock %}
+{% block content %}
+<a class="text-accent underline" href="/admin/">Back to website manager</a>
+<div class="ui-row justify-between"><h1 class="site-heading type-title">{{ {'project':'Projects','post':'Blog','tool':'Tools'}[kind] }}</h1>{% if kind != 'tool' %}<a class="ui-button" href="{{ url_for('admin.new_entry',kind=kind) }}">{{ 'Add project' if kind == 'project' else 'Write an article' }}</a>{% else %}<form method="post" action="{{ url_for('admin.new_tool') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="ui-button">Add a Tool</button></form>{% endif %}</div>
+{{ collection_tabs(kind,'entries') }}
+<p class="ui-muted">Search your drafts and published work. Position refers to the full collection, including drafts. Moving an entry leaves its date and homepage placement unchanged.</p>
+{% include 'components/collection-controls.html' %}
+{% for entry in pagination.items %}<article class="ui-panel ui-stack"><div class="ui-row justify-between"><div><h2 class="site-heading text-xl mb-2"><a class="underline" href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}">{{ entry.draft.title }}</a></h2><p class="ui-muted text-sm">{{ publication_status(entry) }} · Position {{ entry_ranks[entry.id] }}</p></div><a class="text-accent underline" href="{{ url_for('admin.preview',entry_id=entry.id) }}" target="_blank" rel="noopener">Preview</a></div>
+<details class="admin-entry-order"><summary>Change position</summary><form method="post" action="{{ url_for('admin.place_entry',entry_id=entry.id) }}" class="ui-row"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ entry.version }}"><input type="hidden" name="snapshot" value="{{ order_snapshot }}"><label>Position in full collection <input class="ui-input" type="number" name="position" min="1" max="{{ total_entries }}" value="{{ entry_ranks[entry.id] }}" required aria-label="Position of {{ entry.draft.title }} in full collection"></label><button class="ui-button" data-variant="secondary">Move to position</button></form></details></article>{% else %}<p class="ui-muted">No entries match these filters.</p>{% endfor %}
+{% include 'components/pagination.html' %}
+{% endblock %}

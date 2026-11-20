@@ -1,0 +1,76 @@
+{% extends 'admin/base.html' %}
+{% from 'admin/workspace-ui.html' import publication_status %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<header class="admin-page-heading">
+    <div>
+        <h1 class="site-heading type-title">Website manager</h1>
+        <p class="ui-muted">Pick up an edit, add something new, or change what the website says.</p>
+    </div>
+    <div class="ui-row admin-quick-actions" aria-label="Create content">
+        <a class="ui-button" href="{{ url_for('admin.new_entry',kind='project') }}">Add project</a>
+        <a class="ui-button" data-variant="secondary" href="{{ url_for('admin.new_entry',kind='post') }}">Write an article</a>
+        <form action="{{ url_for('admin.new_tool') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="ui-button" data-variant="secondary">Add a Tool</button>
+        </form>
+    </div>
+</header>
+
+<section class="admin-block" aria-labelledby="workspace-content-title">
+    <h2 class="site-heading admin-block__title" id="workspace-content-title">Your content</h2>
+    <ul class="admin-collection-summary">
+        {% for group in totals %}
+        <li data-collection="{{ group.kind }}">
+            <a href="{{ url_for('admin.manage_collection',kind=group.kind) }}">
+                <span class="admin-collection-summary__name">{{ group.label }}</span>
+                <strong>{{ group.total }}</strong>
+                <span class="ui-muted">{{ group.published }} published · {{ group.drafts }} {{ 'draft' if group.drafts == 1 else 'drafts' }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="admin-block" aria-labelledby="recent-edits-title">
+    <div class="admin-block__heading">
+        <h2 class="site-heading admin-block__title" id="recent-edits-title">Recently edited</h2>
+        <p class="ui-muted">Your eight most recently updated entries. Collection order stays the same.</p>
+    </div>
+    <ol class="admin-recent-list">
+        {% for entry in recent %}
+        <li data-recent-entry="{{ entry.id }}">
+            <article class="admin-recent-entry">
+                <h3><a class="admin-entry-link" href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}">{{ entry.draft.title }}</a></h3>
+                <span class="site-tag">{{ {'project':'Project','post':'Article','tool':'Tool'}[entry.kind] }}</span>
+                {{ publication_status(entry) }}
+                <time class="ui-muted" datetime="{{ entry.updated_at.strftime('%Y-%m-%dT%H:%M:%SZ') }}">{{ entry.updated_at.strftime('%d %b %Y') }}</time>
+            </article>
+        </li>
+        {% else %}
+        <li class="admin-empty">Create your first project, article, or Tool using the buttons above.</li>
+        {% endfor %}
+    </ol>
+</section>
+
+<section class="admin-block" aria-labelledby="workspace-website-title">
+    <div class="admin-block__heading">
+        <h2 class="site-heading admin-block__title" id="workspace-website-title">What the website says</h2>
+        <p class="ui-muted">Text and settings shared across pages. Each keeps its own drafts and history.</p>
+    </div>
+    <ul class="admin-shortcuts">
+        <li><a href="{{ url_for('page_admin.edit',key='homepage') }}"><strong>Homepage text</strong><span class="ui-muted">Headline, sections, services, steps and reviews</span></a></li>
+        <li><a href="{{ url_for('publishing.homepage') }}"><strong>Homepage selections</strong><span class="ui-muted">Which projects, articles and Tools lead the page</span></a></li>
+        <li><a href="{{ url_for('page_admin.edit',key='branding') }}"><strong>Branding and navigation</strong><span class="ui-muted">Name, logo, footer and menu order</span></a></li>
+        <li><a href="{{ url_for('page_admin.edit',key='contact') }}"><strong>Contact details</strong><span class="ui-muted">Email, booking link, call length and reply note</span></a></li>
+    </ul>
+</section>
+
+<div id="inquiries" class="admin-inquiry-shortcut">
+    <div>
+        <h2 class="site-heading admin-block__title">Inquiries</h2>
+        <p class="ui-muted">{{ inquiry_count }} saved {{ 'message' if inquiry_count == 1 else 'messages' }}.</p>
+    </div>
+    <a class="ui-button" data-variant="secondary" href="{{ url_for('admin.inquiries') }}">View inquiries</a>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h1 class="site-heading type-title">The shared design system.</h1><p class="ui-muted">A reference for the styles used across your website. Change design/system.json and rebuild the assets to update these components and the public pages together.</p>
+<section class="ui-panel ui-stack"><h2 class="site-heading type-section">Heading <span class="text-accent">accent.</span></h2><p class="type-body">Body text follows its own shared size, line height, and font role.</p><p class="ui-muted">Secondary text stays readable in both themes.</p></section>
+<section class="ui-panel ui-row"><button class="ui-button">Primary action</button><button class="ui-button" data-variant="secondary">Secondary action</button><button class="ui-button" disabled>Disabled action</button></section>
+<section class="ui-panel"><label class="ui-field">Example field<input class="ui-input" placeholder="An informative placeholder"></label><p class="ui-notice" role="status">Status messages explain what changed.</p></section>
+<p><a href="/" class="text-accent underline">Review the public website</a>. Use its theme control to compare light and dark appearances.</p>
+{% endblock %}

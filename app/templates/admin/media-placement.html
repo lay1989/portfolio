@@ -1,0 +1,37 @@
+{% macro placement(p, prefix, mode='content') -%}
+{% set brand=mode != 'content' %}
+<div class="media-controls" data-placement{% if brand %} data-single-crop="true"{% endif %}>
+    {% set chosen = media_asset(p.asset_id) if p.asset_id else none %}
+    <label class="ui-field">Image<select class="ui-input" name="{{ prefix }}.asset_id" data-asset-select><option value="">Choose an image</option>{% for asset in media_assets %}{% set option=asset_option(asset) %}<option value="{{ asset.id }}" data-url="{{ option.url }}" data-width="{{ asset.width }}" data-height="{{ asset.height }}" data-alt="{{ asset.default_alt }}"{% if asset.id == p.asset_id %} selected{% endif %}>{{ asset.title }} ({{ asset.width }} × {{ asset.height }})</option>{% endfor %}</select></label>
+    <div class="media-preview" data-media-preview{% if not chosen %} hidden{% endif %}><img data-media-preview-image{% if chosen %} src="{{ asset_option(chosen).url }}"{% endif %} alt="" decoding="async" loading="lazy"></div>
+    <div class="ui-row mb-6" data-preview-buttons hidden role="group" aria-label="Crop preview"><button type="button" data-preview-mode="desktop" aria-pressed="true">Desktop crop</button><button type="button" data-preview-mode="mobile" aria-pressed="false">Phone crop</button></div>
+    <label class="ui-field media-upload-control" data-inline-upload hidden>Upload a new image<input class="ui-input" type="file" accept="image/jpeg,image/png,image/webp" data-upload-image data-max-bytes="{{ MEDIA_MAX_BYTES }}"><span class="ui-muted text-sm">JPEG, PNG, or WebP. Up to {{ MEDIA_MAX_MB }} MB and {{ MEDIA_MAX_MPIXELS }} megapixels.</span></label>
+    <p class="ui-muted text-sm mb-6"><a href="/admin/media" target="_blank" rel="noopener" class="underline">Browse the image library</a>. Uploads stay private until published.</p>
+    <div{% if brand and mode != 'sharing' %} hidden{% endif %}><label class="ui-field">Alt text<input class="ui-input" name="{{ prefix }}.alt" value="{{ p.alt }}" maxlength="500" data-image-alt><span class="ui-muted text-sm">Describe what matters in this particular use of the image.</span></label>
+    </div><div{% if brand %} hidden{% endif %}><label class="ui-row mb-6"><input type="checkbox" name="{{ prefix }}.decorative" value="1"{% if p.decorative %} checked{% endif %}> Decorative image (no description needed)</label>
+    <label class="ui-field">Caption<textarea class="ui-input" name="{{ prefix }}.caption" rows="2" maxlength="1000">{{ p.caption }}</textarea></label>
+    </div><details class="media-crop-settings"{% if mode == 'logo' %} hidden{% endif %}><summary>Crop, position, and size</summary>
+        <div class="ui-stack mt-6"><p class="ui-muted text-sm">{{ 'The format is fixed for this use. Move the focus toward the subject.' if brand else 'Choose a crop format, then move the focus toward the subject. Original proportions show the whole image. Phone settings are independent.' }}</p>
+        {% for device,label in [('','Desktop'),('mobile_','Phone')] %}
+        <fieldset class="ui-stack"{% if brand and device %} hidden{% endif %}><legend>{{ label }}</legend>
+            <label class="ui-field">{{ label }} crop<select class="ui-input" name="{{ prefix }}.{{ device }}ratio" data-crop-ratio="{{ 'mobile' if device else 'desktop' }}">{% if device %}<option value="same"{% if p.mobile_ratio == 'same' %} selected{% endif %}>Use desktop proportions</option>{% endif %}{% for key,value in media_ratios.ratios.items() if not brand or key == p.ratio %}<option value="{{ key }}" data-aspect="{{ (value[0] / value[1]) if value else '' }}"{% if p[device ~ 'ratio'] == key %} selected{% endif %}>{{ media_ratios.labels[key] }}</option>{% endfor %}</select></label>
+            {% for axis,label_axis in [('x','Horizontal focus'),('y','Vertical focus')] %}<label class="ui-field">{{ label }} {{ label_axis|lower }}<input type="range" name="{{ prefix }}.{{ device }}{{ axis }}" min="0" max="100" step="1" value="{{ p[device ~ axis] }}" data-focus="{{ device ~ axis }}"><output data-focus-output>{{ p[device ~ axis] }}%</output></label>{% endfor %}
+        </fieldset>
+        {% endfor %}
+        <div{% if brand %} hidden{% endif %}><label class="ui-field">Image width<select class="ui-input" name="{{ prefix }}.width"><option value="full"{% if p.width == 'full' %} selected{% endif %}>Full content width</option><option value="reading"{% if p.width == 'reading' %} selected{% endif %}>Reading width</option></select></label>
+        <label class="ui-field">Alignment<select class="ui-input" name="{{ prefix }}.align">{% for key,label in [('left','Left'),('center','Center'),('right','Right')] %}<option value="{{ key }}"{% if p.align == key %} selected{% endif %}>{{ label }}</option>{% endfor %}</select></label></div></div>
+    </details>
+</div>
+{%- endmacro %}
+
+{% macro gallery_item(p,prefix,identity) -%}
+<details class="media-gallery-item ui-panel" data-gallery-item data-image-id="{{ identity }}"><summary>{{ p.alt or 'Gallery image' }}</summary>
+    <input type="hidden" name="{{ prefix }}.image_id" value="{{ identity }}">
+    <div class="ui-row my-6"><button type="submit" name="media_action" value="up:{{ prefix }}:{{ identity }}" data-image-action="up" formnovalidate aria-label="Move gallery image up">↑ Move up</button><button type="submit" name="media_action" value="down:{{ prefix }}:{{ identity }}" data-image-action="down" formnovalidate aria-label="Move gallery image down">↓ Move down</button><button type="submit" name="media_action" value="remove:{{ prefix }}:{{ identity }}" data-image-action="remove" formnovalidate>Remove image</button></div>
+    {{ placement(p,prefix ~ '.' ~ identity) }}
+</details>
+{%- endmacro %}
+
+{% macro gallery(images,prefix) -%}
+<div data-gallery data-gallery-prefix="{{ prefix }}" class="ui-stack"><div data-gallery-items class="ui-stack">{% for p in images %}{{ gallery_item(p,prefix,p.id) }}{% endfor %}</div><button class="ui-button" data-variant="secondary" type="submit" name="media_action" value="add:{{ prefix }}" data-add-image formnovalidate>Add gallery image</button><template data-gallery-template>{{ gallery_item(blank_placement(),prefix,'__image_id__') }}</template></div>
+{%- endmacro %}

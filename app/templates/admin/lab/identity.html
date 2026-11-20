@@ -1,0 +1,34 @@
+{% extends 'admin/base.html' %}
+{% macro reference_image(item) -%}
+<img src="{{ url_for('admin.identity_asset',concept='reference',variant=item.id ~ '.png') }}" width="{{ item.width }}" height="{{ item.height }}" alt="{{ item.alt }}" decoding="async">
+{%- endmacro %}
+{% block title %}Identity review · Lay Shah{% endblock %}
+{% block styles %}<link rel="stylesheet" href="/public/css/identity-review.css">{% endblock %}
+{% block content %}
+{% if identity.stage == 'kit-review' %}
+{% include 'admin/lab/identity-kit.html' %}
+{% elif identity.stage == 'development' %}
+{% include 'admin/lab/identity-development.html' %}
+{% elif identity.stage == 'sketches' %}
+<div class="admin-page-heading identity-review-heading"><div><p class="ui-muted text-sm">Stage 2 / Twelve black-and-white sketches</p><h1 class="site-heading type-title">A fresh look at your name.</h1><p class="ui-muted identity-reading">{{ identity.reviewNote }}</p></div><a class="ui-button" data-variant="secondary" href="{{ url_for('admin.identity_asset',concept='sheet',variant='comparison.png') }}" target="_blank" rel="noopener">Open comparison sheet <span aria-hidden="true">↗</span></a></div>
+<nav class="admin-subnav" aria-label="Identity research"><a href="#identity-sketches">All twelve</a><a href="#identity-recommendation">Where to start</a><a href="#identity-brief">Approved brief</a><a href="#identity-muse">Your reference</a><a href="#identity-field">Six identities</a><a href="#identity-criteria">Review criteria</a></nav>
+<section id="identity-sketches" class="identity-section" tabindex="-1" aria-labelledby="identity-sketches-title">
+    <div class="identity-section-heading"><h2 id="identity-sketches-title" class="site-heading font-serif text-3xl">Look first. Read the idea second.</h2><p class="ui-muted identity-reading">Which feels like someone you would want to work with? Notice what you remember before reading the explanations. The same black ink and white paper keep the comparison focused on the forms.</p></div>
+    <a class="identity-sheet-link" href="{{ url_for('admin.identity_asset',concept='sheet',variant='comparison.png') }}" target="_blank" rel="noopener"><img class="identity-sheet" src="{{ url_for('admin.identity_asset',concept='sheet',variant='comparison.png') }}" width="{{ identity.artwork.width if identity.medium == 'raster-study' else sheet.identitySheetWidth }}" height="{{ identity.artwork.height if identity.medium == 'raster-study' else sheet.identitySheetHeight }}" alt="{{ identity.artwork.alt if identity.medium == 'raster-study' else 'Twelve numbered black-and-white identity sketches. Descriptions follow.' }}"><span class="content-link text-sm">Open full-size sheet <span aria-hidden="true">↗</span></span></a>
+    {% for group in identity.sketchGroups %}
+    <section class="identity-sketch-group" aria-labelledby="group-{{ group.id }}"><div><h3 id="group-{{ group.id }}" class="font-display text-2xl">{{ group.title }}</h3><p class="ui-muted">{{ group.description }}</p></div>
+        <div class="identity-sketch-grid">{% for item in identity.concepts if item.kind == group.id %}
+        <article class="identity-sketch" id="sketch-{{ item.number }}" aria-labelledby="sketch-title-{{ item.number }}">
+            {% if identity.medium != 'raster-study' %}<a class="identity-sketch-art" href="{{ url_for('admin.identity_asset',concept=item.id,variant='sketch.svg') }}" target="_blank" rel="noopener" aria-label="Open sketch {{ item.number }}: {{ item.name }}"><img src="{{ url_for('admin.identity_asset',concept=item.id,variant='sketch.svg') }}" width="600" height="240" alt="{{ item.alt }}" loading="lazy" decoding="async"></a>{% else %}<span class="sr-only">{{ item.alt }}</span>{% endif %}
+            <h4 class="font-display text-xl" id="sketch-title-{{ item.number }}">{{ '%02d' | format(item.number) }} / {{ item.name }}</h4><p>{{ item.idea }}</p><p class="text-sm ui-muted"><strong>Question to resolve:</strong> {{ item.risk }}</p>
+        </article>{% endfor %}</div>
+    </section>{% endfor %}
+</section>
+<section id="identity-recommendation" class="identity-section identity-reading" tabindex="-1" aria-labelledby="identity-recommendation-title"><h2 id="identity-recommendation-title" class="site-heading font-serif text-3xl">Worth comparing: {% for number in identity.recommendation.numbers %}{{ '%02d' | format(number) }}{{ ' and ' if not loop.last else '.' }}{% endfor %}</h2><p>{{ identity.recommendation.reason }}</p><p>Tell me what feels closer and what still feels wrong. Choosing two is optional at this review; a recommendation does not select them for you.</p><p class="text-sm ui-muted">These image studies are not finished logo files. Lettering, proportions and small-size variants still need manual construction after selection.</p></section>
+{% else %}
+<div class="admin-page-heading identity-review-heading"><div><p class="ui-muted text-sm">Stage 1 / Brand brief and reference board</p><h1 class="site-heading type-title">{{ identity.title }}</h1><p class="ui-muted identity-reading">{{ identity.summary }}</p></div></div>
+<nav class="admin-subnav" aria-label="Identity research"><a href="#identity-brief">The brief</a><a href="#identity-muse">Your reference</a><a href="#identity-field">Six identities</a><a href="#identity-criteria">Review criteria</a></nav>
+{% endif %}
+{% include 'admin/lab/identity-research.html' %}
+<section class="identity-section identity-reading" aria-labelledby="identity-next-title"><h2 class="site-heading font-serif text-3xl" id="identity-next-title">{{ 'Next: public polish.' if identity.stage == 'kit-review' else ('Next: finish the reviewed identity.' if identity.stage == 'development' else ('Next: develop your selected pair.' if identity.stage == 'sketches' else 'Next: explore before polishing.')) }}</h2><p>{{ identity.nextStage }}</p><details class="identity-exclusions"><summary>What we are leaving behind</summary><p class="ui-muted">Withdrawn concepts: {{ identity.rejected | join(', ') }}.</p><ul>{% for item in identity.avoid %}<li>{{ item }}</li>{% endfor %}</ul></details><p class="text-sm ui-muted">This private board is read-only. Evergreen is applied locally; deployment remains separate.</p></section>
+{% endblock %}

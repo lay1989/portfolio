@@ -1,0 +1,102 @@
+{% extends 'admin/base.html' %}
+{% from 'admin/workspace-ui.html' import publication_status %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<div class="admin-page-heading mb-8">
+    <div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-foreground">Your workspace.</h1>
+        <p class="text-muted-foreground mt-2 text-base">Pick up an edit, create something new, or manage your website publishing pipeline.</p>
+    </div>
+</div>
+
+<!-- Quick Action Buttons -->
+<div class="flex flex-wrap items-center gap-3.5 mb-10" aria-label="Create content">
+    <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-accent-foreground font-medium text-sm hover:scale-[1.02] shadow-sm shadow-accent/20 transition-all" href="{{ url_for('admin.new_entry',kind='project') }}">
+        <span aria-hidden="true">+</span> Add Project
+    </a>
+    <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card/60 hover:bg-card text-foreground font-medium text-sm hover:border-foreground/40 transition-all" href="{{ url_for('admin.new_entry',kind='post') }}">
+        <span aria-hidden="true">+</span> Write Article
+    </a>
+    <form action="{{ url_for('admin.new_tool') }}" method="post" class="inline">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card/60 hover:bg-card text-foreground font-medium text-sm hover:border-foreground/40 transition-all">
+            <span aria-hidden="true">+</span> Add Tool
+        </button>
+    </form>
+</div>
+
+<!-- KPI Cards Bento Grid -->
+<section class="mb-12" aria-labelledby="workspace-content-title">
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="font-serif text-2xl font-medium text-foreground" id="workspace-content-title">Your Content</h2>
+        <span class="text-xs font-mono text-muted-foreground uppercase tracking-wider">Live & Drafts</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {% for group in totals %}
+        <a href="{{ url_for('admin.manage_collection',kind=group.kind) }}" class="bento-card p-6 flex flex-col justify-between group hover:border-accent/40 transition-all">
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider text-muted-foreground">{{ group.label }}</span>
+                    <span class="w-2 h-2 rounded-full bg-accent"></span>
+                </div>
+                <div class="font-serif text-4xl font-medium text-foreground group-hover:text-accent transition-colors">
+                    {{ group.total }}
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-border/50 flex items-center justify-between text-xs text-muted-foreground">
+                <span>{{ group.published }} published · {{ group.drafts }} {{ 'draft' if group.drafts == 1 else 'drafts' }}</span>
+                <span class="font-medium text-accent group-hover:translate-x-1 transition-transform">Manage ↗</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Recently Edited Activity Stream -->
+<section class="mb-12" aria-labelledby="recent-edits-title">
+    <div class="mb-4">
+        <h2 class="font-serif text-2xl font-medium text-foreground" id="recent-edits-title">Recently Edited</h2>
+        <p class="text-sm text-muted-foreground">Your eight most recently updated entries across all collections.</p>
+    </div>
+    <div class="rounded-2xl border border-border bg-card/40 divide-y divide-border/60 overflow-hidden">
+        {% for entry in recent %}
+        <article class="p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-muted/30 transition-colors">
+            <div class="flex items-start gap-4">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono uppercase tracking-wider bg-muted text-muted-foreground shrink-0 mt-0.5">
+                    {{ {'project':'Project','post':'Article','tool':'Tool'}[entry.kind] }}
+                </span>
+                <div>
+                    <h3 class="font-medium text-foreground hover:text-accent transition-colors">
+                        <a href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}">{{ entry.draft.title }}</a>
+                    </h3>
+                    <div class="flex items-center gap-2 mt-1 text-xs text-muted-foreground font-mono">
+                        <time datetime="{{ entry.updated_at.strftime('%Y-%m-%dT%H:%M:%SZ') }}">{{ entry.updated_at.strftime('%d %b %Y') }}</time>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0 sm:self-center">
+                {{ publication_status(entry) }}
+                <a href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}" class="text-xs font-medium text-accent hover:underline flex items-center gap-1">Edit ↗</a>
+            </div>
+        </article>
+        {% else %}
+        <div class="p-8 text-center text-muted-foreground">Create your first project, article, or tool using the actions above.</div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Inquiries Section -->
+<div id="inquiries" class="bento-card p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+    <div>
+        <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
+            <span class="font-mono text-xs uppercase tracking-wider text-accent">Lead Inbox</span>
+        </div>
+        <h2 class="font-serif text-2xl font-medium text-foreground">Inquiries</h2>
+        <p class="text-sm text-muted-foreground mt-1">{{ inquiry_count }} saved {{ 'message' if inquiry_count == 1 else 'messages' }} received from the contact form.</p>
+    </div>
+    <a class="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent bg-background text-sm font-medium transition-colors" href="{{ url_for('admin.inquiries') }}">
+        View inquiries <span aria-hidden="true">↗</span>
+    </a>
+</div>
+{% endblock %}

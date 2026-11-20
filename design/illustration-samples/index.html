@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illustration samples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Tokens from commit 4ff9a78: slate ground, emerald accent. */
+:root {
+  --bg: #f8fafc; --fg: #0f172a; --muted: #64748b; --line: #e2e8f0; --card: #ffffff;
+  --accent: #047857; --accent-soft: #a7f3d0; --accent-mid: #10b981; --accent-deep: #064e3b;
+  --ink: #0f172a; --slate-200: #e2e8f0; --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-700: #334155;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.sheet { max-width: 1280px; margin: 0 auto; padding: 56px 24px 96px; }
+.sheet > header { max-width: 46rem; margin-bottom: 56px; }
+.sheet > header h1 { font: 600 2.25rem/1.1 "Space Grotesk", sans-serif; letter-spacing: -0.02em; }
+.sheet > header p { margin-top: 12px; color: var(--muted); }
+.sample { padding: 40px 0 56px; border-top: 1px solid var(--line); }
+.sample__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; margin-bottom: 28px; }
+.sample__head h2 { font: 600 1.5rem/1.2 "Space Grotesk", sans-serif; letter-spacing: -0.01em; }
+.sample__head h2 span { color: var(--accent); }
+.sample__head button { font: 500 0.875rem Inter, sans-serif; padding: 8px 14px; border: 1px solid var(--fg); border-radius: 999px; background: transparent; color: var(--fg); cursor: pointer; transition: background .2s, color .2s; }
+.sample__head button:hover { background: var(--fg); color: var(--bg); }
+.sample__notes { display: grid; gap: 6px 32px; margin-top: 24px; color: var(--muted); font-size: 0.9375rem; max-width: 62rem; }
+.sample__notes strong { color: var(--fg); font-weight: 600; }
+@media (min-width: 900px) { .sample__notes { grid-template-columns: 1fr 1fr; } }
+
+/* The real hero, set as it is on the site. */
+.mock { display: grid; gap: 32px; align-items: center; padding: 40px; border: 1px solid var(--line); border-radius: 24px; background: var(--bg); overflow: hidden; }
+@media (min-width: 900px) { .mock { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+.mock__label { font: 500 0.6875rem/1 ui-monospace, Menlo, monospace; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
+.mock h3 { margin-top: 20px; font: 400 clamp(2.5rem, 4.6vw, 4.25rem)/1 "DM Serif Display", Georgia, serif; letter-spacing: -0.02em; }
+.mock h3 em { display: block; color: var(--accent); }
+.mock p { margin-top: 18px; max-width: 30rem; font-size: 1.0625rem; color: var(--muted); }
+.mock__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.mock__ctas span { padding: 12px 22px; border-radius: 999px; font-weight: 500; font-size: 0.9375rem; }
+.mock__ctas span:first-child { background: var(--accent); color: #fff; }
+.mock__ctas span:last-child { background: var(--fg); color: var(--bg); }
+.art { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* A — one continuous line */
+.line-art path, .line-art circle { fill: none; stroke: var(--ink); stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+.line-art .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--t, 0.9s) var(--ease) var(--d, 0s) forwards; }
+.line-art .thread { stroke: var(--accent); stroke-width: 2.5; --t: 3.2s; animation-timing-function: cubic-bezier(.45,0,.2,1); }
+.line-art .fill { stroke: none; fill: var(--accent); opacity: 0; animation: pop 0.6s var(--ease) var(--d, 0s) forwards; transform-box: fill-box; transform-origin: center bottom; }
+.line-art .fill--soft { fill: var(--accent-soft); }
+.line-art .runner { fill: var(--accent); stroke: none; offset-path: path("M0 300 H38 C44 300 46 292 50 292 H192 C196 292 198 300 204 300 H222 C230 300 232 306 240 306 H300 C306 306 310 300 316 300 C326 300 330 284 320 282 C310 280 310 300 328 300 H440 C446 300 448 306 456 306 H600 C606 306 608 300 614 300 H640"); offset-distance: 0%; animation: run 3.2s cubic-bezier(.45,0,.2,1) forwards; }
+.line-art .steam { animation: draw 0.9s var(--ease) var(--d) forwards, steam 2.8s ease-in-out calc(var(--d) + 1s) infinite; }
+.line-art .tyre { transform-box: fill-box; transform-origin: center; transition: transform 1.2s var(--ease); }
+.line-art:hover .tyre { transform: rotate(180deg); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop { from { opacity: 0; transform: scaleY(0.2); } to { opacity: 1; transform: none; } }
+@keyframes run { to { offset-distance: 100%; } }
+@keyframes steam { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(-5px); opacity: 0.45; } }
+
+/* B — workbench pieces (isometric, pointer depth) */
+.iso { --px: 0; --py: 0; }
+.iso .piece { transform: translate(calc(var(--px) * var(--depth, 0) * 1px), calc(var(--py) * var(--depth, 0) * 1px)); transition: transform 0.6s var(--ease); }
+.iso .drop { opacity: 0; animation: drop 0.9s cubic-bezier(.34, 1.56, .64, 1) var(--d, 0s) forwards; }
+.iso .screen-line { stroke: var(--accent-soft); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 0.7s var(--ease) var(--d) forwards; }
+.iso .blink { animation: blink 1.6s steps(2) 2.6s infinite; }
+@keyframes drop { from { opacity: 0; transform: translateY(-90px); } 30% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* C — cut paper */
+.paper .cut { opacity: 0; transform-box: fill-box; transform-origin: center; animation: settle 1s var(--ease) var(--d, 0s) forwards; filter: url(#paper-shadow); transition: translate .35s var(--ease), filter .35s var(--ease); }
+.paper .cut:hover { translate: 0 -4px; filter: url(#paper-shadow-lift); }
+@keyframes settle { from { opacity: 0; transform: translateY(-36px) rotate(var(--from, -10deg)) scale(1.04); } to { opacity: 1; transform: rotate(var(--rot, 0deg)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <h1>Three illustration directions</h1>
+    <p>Each one sits beside the real homepage opening, in the site's own fonts and colours. Press Replay to watch the motion again, and hover the drawings. Pick one and I'll build the full set across the site in that style.</p>
+  </header>
+
+  <!-- ===================== A ===================== -->
+  <section class="sample" data-sample>
+    <div class="sample__head"><h2>A. <span>One continuous line</span></h2><button type="button" data-replay>Replay</button></div>
+    <div class="mock">
+      <div>
+        <p class="mock__label">(Lay Shah · Independent web developer)</p>
+        <h3>A better website.<em>A simpler workday.</em></h3>
+        <p>I build websites that help customers choose your business, and custom tools that cut repetitive work.</p>
+        <div class="mock__ctas"><span>Tell me what you need</span><span>See what I've built</span></div>
+      </div>
+      <svg class="art line-art" viewBox="0 0 640 340" role="img" aria-label="A shopfront, a café cup, a tyre and a laptop, joined by one green line">
+        <!-- the thread: one line through every business -->
+        <path class="draw thread" pathLength="1" d="M0 300 H38 C44 300 46 292 50 292 H192 C196 292 198 300 204 300 H222 C230 300 232 306 240 306 H300 C306 306 310 300 316 300 C326 300 330 284 320 282 C310 280 310 300 328 300 H440 C446 300 448 306 456 306 H600 C606 306 608 300 614 300 H640"/>
+        <circle class="runner" r="5"/>
+        <!-- shopfront -->
+        <path class="fill" style="--d:.95s" d="M50 180 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 Z"/>
+        <path class="draw" pathLength="1" style="--d:.2s" d="M50 292 V180 H190 V292"/>
+        <path class="draw" pathLength="1" style="--d:.35s" d="M44 180 H196 V146 H44 Z"/>
+        <path class="draw" pathLength="1" style="--d:.5s;--t:.6s" d="M74 163 H166"/>
+        <path class="draw" pathLength="1" style="--d:.55s" d="M50 180 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0"/>
+        <path class="draw" pathLength="1" style="--d:.7s" d="M78 292 V228 H110 V292"/>
+        <path class="draw" pathLength="1" style="--d:.8s" d="M126 218 H178 V266 H126 Z M152 218 V266"/>
+        <!-- café cup -->
+        <path class="fill fill--soft" style="--d:1.5s" d="M240 256 H290 L287 272 H243 Z"/>
+        <path class="draw" pathLength="1" style="--d:1.05s" d="M236 238 H294 L286 286 Q265 294 244 286 Z"/>
+        <path class="draw" pathLength="1" style="--d:1.2s" d="M293 250 c18 0 18 28 -3 28"/>
+        <path class="draw steam" pathLength="1" style="--d:1.4s" d="M255 226 c-8 -10 8 -16 0 -26 c-6 -8 4 -12 0 -18"/>
+        <path class="draw steam" pathLength="1" style="--d:1.5s" d="M274 226 c-8 -10 8 -16 0 -26 c-6 -8 4 -12 0 -18"/>
+        <!-- tyre -->
+        <g class="tyre">
+          <path class="draw" pathLength="1" style="--d:1.75s" d="M330 250 a46 46 0 1 0 92 0 a46 46 0 1 0 -92 0"/>
+          <path class="draw" pathLength="1" style="--d:1.9s" d="M352 250 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"/>
+          <path class="draw" pathLength="1" style="--d:2s;--t:.5s" d="M376 204 v10 M376 286 v10 M330 250 h10 M412 250 h10 M343 217 l7 7 M402 276 l7 7 M409 217 l-7 7 M343 283 l7 -7"/>
+          <path class="fill" style="--d:2.2s" d="M368 250 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"/>
+        </g>
+        <!-- laptop with a wireframe on screen -->
+        <path class="draw" pathLength="1" style="--d:2.3s" d="M458 292 V190 H596 V292"/>
+        <path class="draw" pathLength="1" style="--d:2.45s" d="M444 292 H610 L600 300 H454 Z"/>
+        <path class="fill fill--soft" style="--d:3s" d="M472 236 H520 V274 H472 Z"/>
+        <path class="draw" pathLength="1" style="--d:2.6s;--t:.6s" d="M472 206 H534 M472 220 H566"/>
+        <path class="draw" pathLength="1" style="--d:2.75s;--t:.6s" d="M472 236 H520 V274 H472 Z"/>
+        <path class="draw" pathLength="1" style="--d:2.85s;--t:.6s" d="M536 236 H580 M536 249 H572 M536 262 H562"/>
+      </svg>
+    </div>
+    <div class="sample__notes">
+      <p><strong>The idea.</strong> One person, the whole build: a single green line runs through every kind of business you've built for. Ink line drawings, one weight, with green only where it matters.</p>
+      <p><strong>Across the site.</strong> The line continues down the page and draws each section's drawing as it arrives: a tyre for Capital Tyres, a fabric roll for Kamaldeep, a wireframe turning into a screen for the process.</p>
+    </div>
+  </section>
+
+  <!-- ===================== B ===================== -->
+  <section class="sample" data-sample>
+    <div class="sample__head"><h2>B. <span>Workbench pieces</span></h2><button type="button" data-replay>Replay</button></div>
+    <div class="mock">
+      <div>
+        <p class="mock__label">(Lay Shah · Independent web developer)</p>
+        <h3>A better website.<em>A simpler workday.</em></h3>
+        <p>I build websites that help customers choose your business, and custom tools that cut repetitive work.</p>
+        <div class="mock__ctas"><span>Tell me what you need</span><span>See what I've built</span></div>
+      </div>
+      <svg class="art iso" viewBox="0 0 640 400" role="img" aria-label="A small shop, a screen and a stack of tyres built on a workbench" data-iso></svg>
+    </div>
+    <div class="sample__notes">
+      <p><strong>The idea.</strong> The businesses you build for, as small flat objects on one workbench: a shop, its screen, its stock. Solid shapes in greens and slate, no outlines.</p>
+      <p><strong>Across the site.</strong> Pieces drop into place as a section arrives and shift with the pointer, giving depth. Each project gets its own small model, such as a tyre stack or a café counter.</p>
+    </div>
+  </section>
+
+  <!-- ===================== C ===================== -->
+  <section class="sample" data-sample>
+    <div class="sample__head"><h2>C. <span>Cut paper</span></h2><button type="button" data-replay>Replay</button></div>
+    <div class="mock">
+      <div>
+        <p class="mock__label">(Lay Shah · Independent web developer)</p>
+        <h3>A better website.<em>A simpler workday.</em></h3>
+        <p>I build websites that help customers choose your business, and custom tools that cut repetitive work.</p>
+        <div class="mock__ctas"><span>Tell me what you need</span><span>See what I've built</span></div>
+      </div>
+      <svg class="art paper" viewBox="0 0 640 400" role="img" aria-label="Paper cut-outs of a shop sign, a cup, a tyre, a fabric roll and a chart">
+        <defs>
+          <filter id="grain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise"/>
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0" result="dots"/>
+            <feComposite in="dots" in2="SourceGraphic" operator="in" result="tex"/>
+            <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
+          </filter>
+          <filter id="paper-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.16"/></filter>
+          <filter id="paper-shadow-lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.2"/></filter>
+        </defs>
+        <g filter="url(#grain)">
+          <!-- backing sheet -->
+          <path class="cut" style="--d:0s;--rot:-2deg;--from:-6deg" fill="#e2e8f0" d="M70 60 L590 48 L600 352 L58 360 Z"/>
+          <!-- shop sign -->
+          <g class="cut" style="--d:.25s;--rot:-4deg;--from:-14deg">
+            <path fill="#047857" d="M98 92 H300 L292 168 H106 Z"/>
+            <path fill="#ffffff" d="M126 118 H272 V128 H126 Z M126 140 H232 V148 H126 Z"/>
+          </g>
+          <!-- cup -->
+          <g class="cut" style="--d:.45s;--rot:5deg;--from:16deg">
+            <path fill="#ffffff" d="M338 120 H430 L418 222 Q384 236 350 222 Z"/>
+            <path fill="#10b981" d="M342 150 H426 L422 182 H346 Z"/>
+            <path fill="#ffffff" d="M428 140 c34 0 34 52 -6 52 l2 -14 c18 0 18 -24 0 -24 Z"/>
+          </g>
+          <!-- tyre -->
+          <g class="cut" style="--d:.65s;--rot:-6deg;--from:-20deg">
+            <path fill="#0f172a" fill-rule="evenodd" d="M470 210 a62 62 0 1 0 124 0 a62 62 0 1 0 -124 0 Z M500 210 a32 32 0 1 0 64 0 a32 32 0 1 0 -64 0 Z"/>
+            <path fill="#a7f3d0" d="M520 210 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 Z"/>
+          </g>
+          <!-- fabric roll -->
+          <g class="cut" style="--d:.85s;--rot:3deg;--from:12deg">
+            <path fill="#064e3b" d="M96 236 H286 a26 26 0 0 1 0 52 H96 Z"/>
+            <path fill="#a7f3d0" d="M96 236 a26 26 0 0 0 0 52 a26 26 0 0 0 0 -52 Z"/>
+            <path fill="#064e3b" d="M96 252 a10 10 0 0 0 0 20 a10 10 0 0 0 0 -20 Z"/>
+          </g>
+          <!-- chart -->
+          <g class="cut" style="--d:1.05s;--rot:-2deg;--from:-10deg">
+            <path fill="#ffffff" d="M322 262 H452 V332 H322 Z"/>
+            <path fill="#047857" d="M340 316 h16 v-22 h-16 Z M366 316 h16 v-34 h-16 Z M392 316 h16 v-28 h-16 Z M418 316 h16 v-44 h-16 Z"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="sample__notes">
+      <p><strong>The idea.</strong> Shapes cut from coloured paper and laid on the page: tactile and handmade, like a pitch board for a small business. Soft paper grain, slight tilts.</p>
+      <p><strong>Across the site.</strong> Pieces drop and settle into place as you arrive and lift when you point at them. Each section gets a small arrangement of the things that business deals in.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+/* B: build the workbench from isometric boxes. */
+(function () {
+  const svg = document.querySelector('[data-iso]');
+  const NS = 'http://www.w3.org/2000/svg';
+  const s = 22, ox = 300, oy = 120;
+  const p = (x, y, z) => [ox + (x - y) * 0.866 * s, oy + (x + y) * 0.5 * s - z * s];
+  const poly = (pts, fill) => { const e = document.createElementNS(NS, 'polygon'); e.setAttribute('points', pts.map(q => q.join(',')).join(' ')); e.setAttribute('fill', fill); return e; };
+  function box(g, x, y, z, w, d, h, [top, left, right]) {
+    g.append(
+      poly([p(x, y + d, z), p(x + w, y + d, z), p(x + w, y + d, z + h), p(x, y + d, z + h)], left),
+      poly([p(x + w, y, z), p(x + w, y + d, z), p(x + w, y + d, z + h), p(x + w, y, z + h)], right),
+      poly([p(x, y, z + h), p(x + w, y, z + h), p(x + w, y + d, z + h), p(x, y + d, z + h)], top));
+  }
+  function cylinder(g, cx, cy, z, r, h, [top, side]) {
+    const [bx, by] = p(cx, cy, z), [tx, ty] = p(cx, cy, z + h);
+    const rx = r * s * 1.22, ry = r * s * 0.7;
+    const body = document.createElementNS(NS, 'path');
+    body.setAttribute('d', `M${bx - rx} ${by} A${rx} ${ry} 0 0 0 ${bx + rx} ${by} V${ty} A${rx} ${ry} 0 0 1 ${bx - rx} ${ty} Z`);
+    body.setAttribute('fill', side);
+    const lid = document.createElementNS(NS, 'ellipse');
+    Object.entries({ cx: tx, cy: ty, rx, ry, fill: top }).forEach(([k, v]) => lid.setAttribute(k, v));
+    const hole = document.createElementNS(NS, 'ellipse');
+    Object.entries({ cx: tx, cy: ty, rx: rx * 0.45, ry: ry * 0.45, fill: '#334155' }).forEach(([k, v]) => hole.setAttribute(k, v));
+    g.append(body, lid, hole);
+  }
+  const group = (delay, depth) => { const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'piece'); g.style.setProperty('--depth', depth); const inner = document.createElementNS(NS, 'g'); inner.setAttribute('class', 'drop'); inner.style.setProperty('--d', delay + 's'); g.append(inner); svg.append(g); return inner; };
+  const slate = ['#f1f5f9', '#cbd5e1', '#94a3b8'], white = ['#ffffff', '#e2e8f0', '#cbd5e1'];
+  const green = ['#34d399', '#047857', '#065f46'], deep = ['#10b981', '#064e3b', '#022c22'], ink = ['#334155', '#0f172a', '#1e293b'];
+  box(group(0, 2), 0, 0, 0, 14, 10, 0.6, slate);                       // workbench
+  const shop = group(0.25, 6);
+  box(shop, 1, 1, 0.6, 5, 4, 4, white);                                 // shop walls
+  box(shop, 1, 1, 4.6, 5, 4, 0.5, deep);                                // roof
+  box(shop, 1, 5, 3.4, 5, 1, 0.35, green);                              // awning
+  box(shop, 2, 5, 0.6, 1.3, 0.05, 2.2, ink);                            // door
+  box(shop, 3.9, 5, 1.6, 1.7, 0.05, 1.3, ['#a7f3d0', '#a7f3d0', '#6ee7b7']); // window
+  const screen = group(0.6, 9);
+  box(screen, 8.6, 2.2, 0.6, 1, 1, 1.4, ink);                           // stand
+  box(screen, 7.2, 2.8, 2, 4, 0.3, 2.8, ink);                           // screen
+  const lines = [[7.6, 4.3, 'M'], [10.6, 4.3], [7.6, 3.7], [9.8, 3.7], [7.6, 3.1], [10.2, 3.1]];
+  [[7.6, 10.6, 4.3], [7.6, 9.8, 3.7], [7.6, 10.2, 3.1]].forEach(([a, b, z], i) => {
+    const l = document.createElementNS(NS, 'path'); const [x1, y1] = p(a, 3.1, z), [x2, y2] = p(b, 3.1, z);
+    l.setAttribute('d', `M${x1} ${y1} L${x2} ${y2}`); l.setAttribute('pathLength', 1); l.setAttribute('class', 'screen-line' + (i === 2 ? ' blink' : '')); l.style.setProperty('--d', (1.4 + i * 0.2) + 's'); screen.append(l);
+  });
+  const tyres = group(0.9, 12);
+  [0, 1, 2].forEach(i => cylinder(tyres, 11.6, 7.6, 0.6 + i * 0.9, 1.5, 0.85, ['#334155', '#0f172a']));
+  const crates = group(1.15, 14);
+  box(crates, 7, 7, 0.6, 2, 2, 1.6, green);
+  box(crates, 7.3, 7.3, 2.2, 1.4, 1.4, 1.1, ['#a7f3d0', '#34d399', '#10b981']);
+  // pointer depth
+  const mock = svg.closest('.mock');
+  mock.addEventListener('pointermove', e => { const r = svg.getBoundingClientRect(); svg.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3)); svg.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5).toFixed(3)); });
+  mock.addEventListener('pointerleave', () => { svg.style.setProperty('--px', 0); svg.style.setProperty('--py', 0); });
+})();
+
+/* Replay restarts every animation inside a sample. */
+document.querySelectorAll('[data-replay]').forEach(button => button.addEventListener('click', () => {
+  const art = button.closest('[data-sample]').querySelector('svg');
+  art.getAnimations({ subtree: true }).forEach(a => { a.cancel(); a.play(); });
+}));
+</script>
+</body>
+</html>

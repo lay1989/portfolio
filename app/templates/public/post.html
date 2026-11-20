@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import image, media_image, media_gallery, entry_next, site_cta with context %}
+{% from 'blocks/render.html' import render_blocks with context %}
+{% block content %}
+<main id="main-content" tabindex="-1" class="entry entry--post">
+    <div class="entry-shell">
+        {% include 'components/preview-notice.html' %}
+        {% include 'components/breadcrumbs.html' %}
+        <article class="public-article" data-reading-content>
+            {% set has_cover = ('cover_media' in data and data.cover_media and data.cover_media.get('asset_id')) or ('cover_media' not in data and data.get('cover')) %}
+            <header class="entry-header {{ 'entry-header--media' if has_cover else 'entry-header--reading' }}" data-enter>
+                <div class="entry-header__main">
+                    <span class="entry-header__glyph" data-draw aria-hidden="true">{% include 'drawings/notebook.svg' %}</span>
+                    <h1 class="site-heading type-title">{{ data.title }}</h1>
+                    <p class="entry-summary">{{ data.summary }}</p>
+                    <p class="entry-byline">By {{ branding.ownerName }}</p>
+                </div>
+                {% if has_cover %}
+                <div class="entry-poster">
+                    {% if 'cover_media' in data %}{{ media_image(data.cover_media, '', true, is_preview, show_caption=false) }}{% else %}{{ image(data.cover, data.title, 'public-cover', true) }}{% endif %}
+                </div>
+                {% endif %}
+            </header>
+
+            <dl class="entry-strip">
+                <div><dt>Topic</dt><dd>{{ data.category }}</dd></div>
+                <div><dt>Published</dt><dd><time datetime="{{ data.date }}">{{ data.date }}</time></dd></div>
+                {% if publication_modified %}<div><dt>Updated</dt><dd><time datetime="{{ publication_modified }}">{{ publication_modified[:10] }}</time></dd></div>{% endif %}
+                <div><dt>Reading time</dt><dd>{{ data.get('readMinutes', 5) }} min read</dd></div>
+            </dl>
+
+            <div class="entry-body entry-body--reading">
+                <aside class="entry-rail">
+                    <nav class="entry-outline" aria-label="In this article" data-entry-outline hidden></nav>
+                    <p class="entry-rail__note">Planning a build around this? <a class="line-link" href="{{ BASE_PATH }}index.html#contact">Ask me</a></p>
+                </aside>
+                <div class="public-story" data-entry-story>
+                    {% if 'blocks' in data %}
+                    {{ render_blocks(data.blocks, is_preview) }}
+                    {% else %}
+                    <div class="prose-reveal">{{ data.body|safe_content }}</div>
+                    {% endif %}
+                    {{ media_gallery(data.get('gallery_media', []), private=is_preview) }}
+                    {% if data.get('tags') %}
+                    <ul class="entry-tags ui-row ui-muted" aria-label="Article topics">{% for tag in data.tags %}<li class="tag">{{ tag }}</li>{% endfor %}</ul>
+                    {% endif %}
+                    <p class="entry-signoff">Written by {{ branding.ownerName }}, an independent developer building websites and tools for small businesses. <a class="line-link" href="{{ BASE_PATH }}index.html#contact">Discuss a brief</a> <a class="line-link" href="{{ BASE_PATH }}blog.html">More articles</a></p>
+                </div>
+            </div>
+        </article>
+
+        {{ entry_next(next_entry, 'Next article') }}
+
+        {{ site_cta('Put this to work on your site.', 'Planning a build or stuck on a decision like the one above? Send a few lines and I’ll help you work out the next step.') }}
+    </div>
+</main>
+{% endblock %}

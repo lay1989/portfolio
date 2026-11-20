@@ -1,0 +1,55 @@
+{
+  "installedOn": "2026-10-28",
+  "skills": [
+    {
+      "name": "design-principles",
+      "repository": "zstvns/design-skills",
+      "path": "skills/design-principles",
+      "commit": "8dab61b527bf5fb5dd8a0050a2111020e08df8ea",
+      "files": {
+        "SKILL.md": "85fde3778ff1d496f03ee4460e7443e19b13512e7fd0e339044566c95ec290bd"
+      },
+      "review": "Guidance read; script imports, file I/O and command entrypoints inspected. No bundled scripts executed for Stage 1. Browser render/screenshot helpers are not used; browser work uses CUA."
+    },
+    {
+      "name": "brand-strategy",
+      "repository": "zstvns/design-skills",
+      "path": "skills/brand-strategy",
+      "commit": "8dab61b527bf5fb5dd8a0050a2111020e08df8ea",
+      "files": {
+        "SKILL.md": "bb43ccb1181135dafe8e1ea2da78f3e8f144d0232254ad2e0f7403094166695d"
+      },
+      "review": "Guidance read; script imports, file I/O and command entrypoints inspected. No bundled scripts executed for Stage 1. Browser render/screenshot helpers are not used; browser work uses CUA."
+    },
+    {
+      "name": "creative-direction",
+      "repository": "zstvns/design-skills",
+      "path": "skills/creative-direction",
+      "commit": "8dab61b527bf5fb5dd8a0050a2111020e08df8ea",
+      "files": {
+        "SKILL.md": "1d45c5e0431d8160b3ac34d645de1e4573edda395e5e68156e1948bdb53bfcaa"
+      },
+      "review": "Guidance read; script imports, file I/O and command entrypoints inspected. No bundled scripts executed for Stage 1. Browser render/screenshot helpers are not used; browser work uses CUA."
+    },
+    {
+      "name": "logo-design",
+      "repository": "kaankiziltug/logo-design-skill",
+      "path": "skills/logo-design",
+      "commit": "734090317a2155c5bf1ae8bd4cc85c6848a0128f",
+      "files": {
+        "SKILL.md": "65ec4bd58732e8cc11e244724e8666de78764b973f6d3b03b233904639cf47c6",
+        "scripts/build_catalog.py": "cd7964f2e69410b468d2271e3cbda988e9dcb05be1cda2e1055ae4301ff75fd3",
+        "scripts/concept_sheet.py": "b7fe519c276f9f161fb1d8a96e5b320724c15309f7a446fd64722ab5cefeab3b",
+        "scripts/export_variants.py": "2c57ab378db8e4bc323b9627da6628c28a332d73b420632e07eecf7236719046",
+        "scripts/presentation_board.py": "f0939ed40ce800f85ef54c4934d5da78f01987e63a42650c482808cc35d5049c",
+        "scripts/preview_sheet.py": "ef1b6b8dac1d41c7db2b52a43b939ba73bc006a3c27a97845eb1db215e5bcd7b",
+        "scripts/render_png.py": "f6083837ff3edf4c6006ce119d379b3ac0fcd7cd6db07b99b613e0060bd43c21",
+        "scripts/search_library.py": "da5e0b0a87678c92d055ff98721df04d327ca8d24ee03a8efbf56fdaa87c66e1",
+        "scripts/svg_audit.py": "b002c9dd6a26f80a5dfd4a4b48ace172edc4b13229e09e7e17fa4a4d07c0bde0",
+        "scripts/svglib.py": "18cfab3bfde4a94a1bcae27a96bcc7b99fa1320e344ebf8a9cb914347247261c"
+      },
+      "review": "Guidance read; script imports, file I/O and command entrypoints inspected. No bundled scripts executed for Stage 1. Browser render/screenshot helpers are not used; browser work uses CUA."
+    }
+  ],
+  "stageTwoReview": "Logo skill references read; reviewed local search_library.py executed for category/subject comparison only. No skill browser/subprocess render helpers executed. Fonts and outline utility provenance are recorded in docs/logo-concepts.md and design/identity-type/sources.json."
+}

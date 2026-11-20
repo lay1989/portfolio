@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% block title %}Revision history{% endblock %}
+{% block content %}
+<a class="text-accent underline" href="{{ url_for('admin.edit_entry', entry_id=entry.id) }}">Back to editor</a>
+<div><p class="ui-muted mb-4">{{ entry.draft.title }}</p><h1 class="site-heading type-title">Revision history.</h1></div>
+<p class="ui-muted max-w-reading">Preview an earlier version, then restore it to your draft. Your current draft is kept in history. Restoring does not publish, change the page address, or move its position.</p>
+<div class="ui-stack">
+{% for revision in revisions.items %}
+<article class="ui-panel ui-row justify-between">
+    <div><h2 class="site-heading text-xl mb-2">{{ revision.payload.title }}</h2><p class="ui-muted text-sm">#{{ revision.id }} · {{ {'import':'Imported','create':'Created','draft':'Draft saved','publish':'Published','unpublish':'Unpublished','restore':'Restored to draft','checkpoint':'Draft before restore'}.get(revision.action, revision.action) }} · <time datetime="{{ revision.created_at.isoformat() }}Z">{{ revision.created_at.strftime('%d %b %Y, %H:%M') }} UTC</time></p></div>
+    <div class="ui-row"><a class="text-accent underline" href="{{ url_for('publishing.revision_preview', entry_id=entry.id, revision_id=revision.id) }}" target="_blank" rel="noopener">Preview revision #{{ revision.id }}</a><form method="post" action="{{ url_for('publishing.restore', entry_id=entry.id, revision_id=revision.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ entry.version }}"><button class="ui-button" data-variant="secondary" aria-label="Restore revision {{ revision.id }} to draft">Restore to draft</button></form></div>
+</article>
+{% else %}<p class="ui-muted">No saved revisions yet. Saving a draft creates the first one.</p>{% endfor %}
+</div>
+{% if revisions.pages > 1 %}<nav class="ui-row" aria-label="Revision pages">{% if revisions.has_prev %}<a class="underline" href="{{ url_for('publishing.history',entry_id=entry.id,page=revisions.prev_num) }}">Newer revisions</a>{% endif %}<span>Page {{ revisions.page }} of {{ revisions.pages }}</span>{% if revisions.has_next %}<a class="underline" href="{{ url_for('publishing.history',entry_id=entry.id,page=revisions.next_num) }}">Older revisions</a>{% endif %}</nav>{% endif %}
+{% endblock %}

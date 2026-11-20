@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Create owner account' if setup else 'Sign in' }}{% endblock %}
+{% block content %}
+<div class="max-w-lg mx-auto w-full ui-stack">
+    <a href="/" class="logo-link identity-signin">{% include "identity.html" %}</a>
+    <h1 class="site-heading type-title">{{ 'Your private workspace.' if setup else 'Welcome back.' }}</h1>
+    <p class="ui-muted">{{ 'Create your owner account to manage this website. This setup closes after the account is created.' if setup else 'Sign in to manage your projects, articles, and Tools.' }}</p>
+    {% if error is defined %}<p role="alert" class="ui-notice">{{ error }}</p>{% endif %}
+    <form method="post" class="ui-panel">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label class="ui-field">Username<input class="ui-input" name="username" autocomplete="username" required maxlength="120"></label>
+        <label class="ui-field">Password<input class="ui-input" name="password" type="password" autocomplete="{{ 'new-password' if setup else 'current-password' }}" required minlength="{{ 14 if setup else 1 }}" maxlength="256"{% if setup %} aria-describedby="password-hint"{% endif %}></label>
+        {% if setup %}<p id="password-hint" class="text-sm ui-muted mb-6">Use at least 14 characters. A password manager can create and remember it for you.</p>{% endif %}
+        <button class="ui-button" type="submit">{{ 'Create my account' if setup else 'Sign in' }}</button>
+    </form>
+</div>
+{% endblock %}

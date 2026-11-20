@@ -27,23 +27,22 @@
     {{STRUCTURED_DATA}}
 
     <!-- Favicon -->
+    <!-- IDENTITY_ICONS_START -->
     <link rel="icon" type="image/svg+xml" href="{{BASE_PATH}}public/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{BASE_PATH}}public/identity/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{BASE_PATH}}public/identity/apple-touch-icon.png">
+    <!-- IDENTITY_ICONS_END -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="{{FONT_STYLESHEET}}" rel="stylesheet">
 
     <!-- Pinned local icons avoid blocking third-party fallbacks. -->
     <script src="{{BASE_PATH}}public/js/lucide.min.js" defer></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{BASE_PATH}}tailwind.css">
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
@@ -54,68 +53,57 @@
       gtag('config', 'G-043HH9GSZB');
     </script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+<body class="bg-background text-foreground antialiased overflow-x-hidden">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+    <a href="#main-content" class="ui-skip-link sr-only focus:not-sr-only">Skip to content</a>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
+    <nav aria-label="Main navigation" id="navbar" class="site-nav" data-scrolled="false">
         {{NAV_CONTENT}}
     </nav>
 
     <noscript>
-        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm underline">
             <a href="{{BASE_PATH}}index.html">Home</a>
             <a href="{{BASE_PATH}}projects.html">Work</a>
             <a href="{{BASE_PATH}}blog.html">Blog</a>
+            <a href="{{BASE_PATH}}tools.html">Tools</a>
             <a href="{{BASE_PATH}}index.html#contact">Contact</a>
         </nav>
     </noscript>
 
     {{BODY_CONTENT}}
 
-        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
-        <div class="container mx-auto max-w-[1400px]">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
-                <!-- Left Column -->
-                <div class="md:col-span-12 lg:col-span-6">
-                    <a href="{{BASE_PATH}}index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-                        </svg>
-                        <span>LAY SHAH</span>
-                    </a>
-                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+    <footer class="site-footer">
+        <div class="site-footer__shell">
+            <div class="site-footer__top">
+                <div class="site-footer__intro">
+                    <a href="{{BASE_PATH}}index.html" class="logo-link identity-footer">{{IDENTITY}}</a>
+                    <p data-branding="footerDescription" class="site-footer__description">
                         Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
                     </p>
                 </div>
-                
-                <!-- Middle Column -->
-                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="{{BASE_PATH}}index.html" class="hover:text-accent transition-colors">Home</a></li>
-                        <li><a href="{{BASE_PATH}}projects.html" class="hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="{{BASE_PATH}}blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label" data-branding="exploreLabel">Explore</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="{{BASE_PATH}}index.html">Home</a></li>
+                        <li><a href="{{BASE_PATH}}projects.html">Work</a></li>
+                        <li><a href="{{BASE_PATH}}blog.html">Blog</a></li>
+                        <li><a href="{{BASE_PATH}}tools.html">Tools</a></li>
                     </ul>
                 </div>
-                
-                <!-- Right Column -->
-                <div class="md:col-span-6 lg:col-span-3">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="mailto:{{CONTACT_EMAIL}}" class="hover:text-accent transition-colors">{{CONTACT_EMAIL}}</a></li>
-                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label" data-branding="footerContactLabel">Contact</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
+                        <li data-branding="location">Ahmedabad, India</li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Bottom Section -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>&copy; 2026 Lay Shah. All rights reserved.</p>
-                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">&uarr;</span>
+            <div class="site-footer__base">
+                <p>&copy; 2026 <span data-branding="copyrightName">Lay Shah</span>. All rights reserved.</p>
+                <button id="back-to-top-btn" class="site-footer__top-link" aria-label="Back to top of page">
+                    <span data-branding="backToTop">Back to top</span> <span aria-hidden="true">&uarr;</span>
                 </button>
             </div>
         </div>
@@ -126,5 +114,3 @@
 
 </body>
 </html>
-
-

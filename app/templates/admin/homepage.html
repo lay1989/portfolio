@@ -1,0 +1,18 @@
+{% extends 'admin/base.html' %}
+{% block title %}Homepage selections{% endblock %}
+{% block content %}
+<a class="text-accent underline" href="/admin/">Back to website manager</a>
+<h1 class="site-heading type-title">Homepage selections</h1>
+<p class="ui-muted max-w-reading">Choose up to three projects, three articles, and three Tools for the homepage, in the order you want visitors to see them. Your full Projects, Blog, and Tools collections keep their own order.</p>
+<nav class="ui-row" aria-label="Homepage editing"><a class="ui-button" data-variant="secondary" href="{{ url_for('page_admin.edit',key='homepage') }}">Edit homepage content</a><a class="text-accent underline" href="{{ url_for('page_admin.edit',key='contact') }}">Shared contact details</a><a class="text-accent underline" href="{{ url_for('page_admin.edit',key='branding') }}">Branding and navigation</a></nav>
+<form method="post" class="ui-stack">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ settings.version }}"><input type="hidden" name="snapshot" value="{{ snapshot }}">
+    {% for kind,label in [('project','Projects'),('post','Articles'),('tool','Tools')] %}
+    <fieldset class="ui-panel ui-stack max-w-reading"><legend class="site-heading font-serif text-3xl">{{ label }}</legend>
+        {% for i in range(3) %}<label class="ui-field">Position {{ i+1 }}<select class="ui-input" name="{{ kind }}.{{ i }}"><option value="">Leave empty</option>{% for entry in entries if entry.kind == kind and (entry.published is not none or entry.featured_position is not none) %}<option value="{{ entry.id }}" {% if selected[kind][i] == entry.id %}selected{% endif %}>{{ entry.published.title if entry.published is not none else entry.draft.title ~ ' (unpublished; hidden)' }}</option>{% endfor %}</select></label>{% endfor %}
+    </fieldset>
+    {% endfor %}
+    <p class="ui-muted max-w-reading">Saving updates the public homepage immediately, using published content. Unpublishing hides an entry here; publishing it again brings it back unless you replace the selection. Choose “Leave empty” to remove a selection.</p>
+    <div class="ui-row"><button class="ui-button" type="submit">Update homepage selections</button><a class="text-accent underline" href="/" target="_blank" rel="noopener">View current homepage</a></div>
+</form>
+{% endblock %}

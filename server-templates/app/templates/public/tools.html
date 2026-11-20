@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import tool_row with context %}
+{% block content %}
+<main id="main-content" tabindex="-1" class="max-w-[1400px] mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20">
+    {% include 'components/page-preview-notice.html' %}
+    
+    <!-- Header Block -->
+    <header class="grid grid-cols-1 md:grid-cols-12 border-b border-foreground/10 pb-16">
+        <p class="md:col-span-2 font-mono text-muted-foreground uppercase tracking-widest text-sm mb-4 md:mb-0">Curated Software</p>
+        <div class="md:col-span-10">
+            <h1 class="font-serif text-5xl md:text-7xl font-medium text-foreground leading-tight">
+                Tools for practical problems.<br>
+                <span class="italic text-muted-foreground">Tested, evaluated, and cataloged.</span>
+            </h1>
+            <p class="mt-6 text-muted-foreground md:text-lg max-w-2xl leading-relaxed">
+                {{ collection_content.intro if collection_content and collection_content.intro else "A curated directory of open-source utilities, developer software, and business tools evaluated for real-world reliability, licensing, and simplicity." }}
+            </p>
+        </div>
+    </header>
+
+    <!-- Bento Grid of Tools -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tools-grid">
+        {% for entry in tools %}
+        {{ tool_row(entry) }}
+        {% else %}
+        <div class="col-span-full py-20 text-center">
+            <p class="font-serif text-2xl text-foreground mb-2">No tools published yet</p>
+            <p class="text-sm text-muted-foreground">New tools will appear here when published in the website manager.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% include 'components/pagination.html' %}
+</main>
+{% endblock %}

@@ -4,16 +4,21 @@
   "description": "Professional portfolio website for Lay Shah",
   "main": "script.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./style.css -o ./tailwind.css --minify",
-    "build:js": "esbuild script.js --bundle --outfile=bundle.js --format=iife --minify",
-    "build:html": "node scripts/build-assets.js && node scripts/build-html.js && node scripts/sitemap.js",
+    "build:css": "node scripts/build-css.js",
+    "build:js": "npm run build:design && esbuild script.js --bundle --outfile=bundle.js --format=iife --minify && esbuild src/admin-editor.js --bundle --outfile=public/js/admin-editor.js --format=iife --minify && esbuild src/workbench/index.js --bundle --outfile=public/js/publishing-workbench.js --format=iife --minify && esbuild src/admin-shell.js --bundle --outfile=public/js/admin-shell.js --format=iife --minify && esbuild src/admin-theme.js --bundle --outfile=public/js/admin-theme.js --format=iife --minify",
+    "build:html": "node scripts/build-assets.js && node scripts/build-workbench.mjs && node scripts/build-identity.js && node scripts/build-html.js && node scripts/sitemap.js && node scripts/build-flask-templates.js",
     "build": "npm run build:html && npm run build:css && npm run build:js && npm run check && node scripts/build-output.js",
     "check": "node scripts/check-site.js",
     "test": "node --test tests/*.test.js",
     "watch:css": "tailwindcss -i ./style.css -o ./tailwind.css --watch",
     "build:images": "node scripts/generate-responsive-images.js",
     "postinstall": "node scripts/copy-lucide.js",
-    "dev": "node scripts/dev.js"
+    "dev": "node scripts/dev-flask.js",
+    "build:design": "node scripts/design-system.js",
+    "dev:static": "node scripts/dev.js",
+    "test:python": ".venv/bin/python -m pytest tests/python",
+    "setup": "python3 scripts/setup-local.py",
+    "check:workbench": "node scripts/build-workbench.mjs --audit && node scripts/check-workbench-lines.js"
   },
   "keywords": [],
   "author": "Lay Shah",
@@ -27,10 +32,12 @@
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.13",
+    "ajv": "^8.20.0",
     "autoprefixer": "^10.4.19",
     "cheerio": "^1.2.0",
     "esbuild": "^0.28.1",
     "postcss": "^8.4.38",
+    "postcss-import": "^17.0.1",
     "sharp": "^0.35.5",
     "tailwindcss": "^3.4.4"
   }

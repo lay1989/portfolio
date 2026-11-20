@@ -1,0 +1,18 @@
+{% extends 'admin/base.html' %}
+{% block title %}Inquiries{% endblock %}
+{% block content %}
+<div class="admin-page-heading"><div><h1 class="site-heading type-title">Inquiries</h1><p class="ui-muted">Requests submitted through your website are saved here, newest first.</p></div></div>
+{% if email_enabled %}<p class="ui-muted text-sm">Email notifications are enabled. Queued messages wait for the next delivery run. Mail-server acceptance does not confirm inbox delivery.</p>{% endif %}
+<p class="ui-muted text-sm">{{ pagination.total }} saved {{ 'message' if pagination.total == 1 else 'messages' }}{% if pagination.total %} · Showing {{ pagination.first }}–{{ pagination.last }}{% endif %}</p>
+<div class="ui-stack admin-inquiries">
+{% for inquiry in pagination.items %}<article class="ui-panel ui-stack" data-inquiry="{{ inquiry.id }}">
+    <header class="ui-row justify-between"><div><h2 class="site-heading text-xl">{{ inquiry.name }}</h2><p class="ui-muted">{{ inquiry.email }}</p></div><time class="ui-muted text-sm" datetime="{{ inquiry.created_at.strftime('%Y-%m-%dT%H:%M:%SZ') }}">{{ inquiry.created_at.strftime('%d %b %Y at %H:%M UTC') }}</time></header>
+    <p class="whitespace-pre-wrap">{{ inquiry.message }}</p>
+    {% if email_enabled %}<p class="ui-muted text-sm">#{{ inquiry.id }} · {{ notification_labels.get(inquiry.notification_state, 'Email status unavailable') }}</p>
+    {% set delivery = deliveries.get(inquiry.id) %}
+    {% if delivery %}<p class="ui-muted text-sm">{{ delivery.attempts }} delivery {{ 'attempt' if delivery.attempts == 1 else 'attempts' }}{% if delivery.state == 'retry' %} · Next attempt after {{ delivery.next_attempt_at.strftime('%d %b %Y at %H:%M UTC') }}{% endif %}{% if delivery.error_code %} · {{ delivery_errors.get(delivery.error_code, 'The notification needs review.') }}{% endif %}</p>{% endif %}
+    {% endif %}
+</article>{% else %}<div class="ui-panel ui-stack"><h2 class="site-heading text-xl">No inquiries yet.</h2><p class="ui-muted">When someone sends your contact form, their message will appear here.</p></div>{% endfor %}
+</div>
+{% include 'components/pagination.html' %}
+{% endblock %}

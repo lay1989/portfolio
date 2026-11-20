@@ -1,73 +1,35 @@
-    <main class="bg-background">
-        <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20">
-            <!-- Header Block -->
-            <header class="grid grid-cols-1 md:grid-cols-12 border-b border-foreground/10 pb-16">
-                <p class="md:col-span-2 font-mono text-muted-foreground uppercase tracking-widest text-sm mb-4 md:mb-0">Field Notes</p>
-                <div class="md:col-span-10">
-                    <h1 class="font-serif text-5xl md:text-7xl font-medium text-foreground leading-tight">
-                        Writing about the craft.<br/>
-                        <span class="italic text-muted-foreground">And the business around it.</span>
-                    </h1>
-                    <p class="mt-6 text-muted-foreground md:text-lg max-w-2xl leading-relaxed">
-                        Practical notes on commissioning a website, choosing the right approach, and making the finished build easier to use and maintain.
-                    </p>
-                </div>
-            </header>
-
-            {{BLOG_FEATURED}}
-
-            <!-- Filter Bar -->
-            <div class="mt-24 flex flex-col md:flex-row md:items-center justify-between border-b border-foreground/10 pb-6 gap-6">
-                <div class="flex flex-wrap items-center gap-2" id="category-filters">
-                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground bg-foreground text-background transition-colors filter-btn active" data-filter="All" aria-pressed="true">All</button>
-                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Engineering" aria-pressed="false">Engineering</button>
-                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Design" aria-pressed="false">Design</button>
-                    <button class="rounded-full px-4 py-1.5 text-sm font-medium border border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground transition-colors filter-btn" data-filter="Field Notes" aria-pressed="false">Field Notes</button>
-                </div>
-                <div class="relative w-full md:w-72 shrink-0">
-                    <label class="sr-only" for="blog-search">Search posts</label>
-                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true"></i>
-                    <input type="search" id="blog-search" placeholder="Search posts…" aria-label="Search posts" class="w-full rounded-full border border-foreground/15 bg-background pl-9 pr-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all">
-                </div>
-            </div>
-
-            <!-- List -->
-            <div class="mt-4 divide-y divide-foreground/10" id="post-list">
-                {{BLOG_POST_ROWS}}
-
-                <!-- Empty state (hidden by default) -->
-                <div id="empty-state" class="hidden py-16 text-center text-muted-foreground">
-                    <p class="font-serif text-2xl mb-2 text-foreground">No posts found</p>
-                    <p>No posts match "<span id="empty-query" class="font-mono"></span>" in the selected category.</p>
-                </div>
-            </div>
-
-            <!-- Contact CTA -->
-            <div class="mt-32 mb-32">
-                <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
-                    
-                    <!-- Content (Left side) -->
-                    <div class="flex-grow max-w-2xl">
-                        <div class="flex items-center gap-2 mb-6">
-                            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                            <span class="text-accent text-xs font-mono uppercase tracking-widest">{{AVAILABILITY}}</span>
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Put the ideas to work.</h2>
-                        <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
-                    </div>
-
-                    <!-- Action Buttons (Right side) -->
-                    <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                        <a href="{{BASE_PATH}}index.html#contact" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                            Discuss your project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
-                        </a>
-                        <a href="{{BOOKING_URL}}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                            <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a {{CALL_MINUTES}}-min call
-                        </a>
-                        <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">{{REPLY_NOTE}}</span>
-                    </div>
-
-                </div>
-            </div>
+<main class="bg-background">
+    <header class="page-hero" data-enter>
+        <div class="page-hero__body">
+            <h1 class="site-heading">
+                Writing about the craft.<br>
+                <span>And the business around it.</span>
+            </h1>
+            <p>
+                Practical notes on commissioning a website, choosing the right approach, and making the finished build easier to use and maintain.
+            </p>
         </div>
-    </main>
+        <div class="page-hero__art" data-draw>{{DRAWING:notebook}}<span class="thread-start thread-start--art" data-thread-start></span></div>
+    </header>
+
+    <div class="page-shell">
+        <div class="journal-list" id="post-list">
+            {{BLOG_POST_ROWS}}
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <aside class="site-cta" aria-label="Start a project">
+            <div class="site-cta__art" data-draw>{{DRAWING:plane}}<span class="thread-end" data-thread-end></span></div>
+            <div class="site-cta__copy">
+                <h2 class="site-heading">Put the ideas to work.</h2>
+                <p>Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
+            </div>
+            <div class="site-cta__actions">
+                <a href="{{BASE_PATH}}index.html#contact" class="line-button line-button--light">Discuss your project</a>
+                <a href="{{BOOKING_URL}}" target="_blank" rel="noopener noreferrer" class="line-button line-button--ghost"><i data-lucide="calendar" class="w-icon-sm h-icon-sm" aria-hidden="true"></i> Book a {{CALL_MINUTES}}-min call</a>
+                <p class="site-cta__note">{{AVAILABILITY}} {{REPLY_NOTE}}</p>
+            </div>
+        </aside>
+    </div>
+</main>

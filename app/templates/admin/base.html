@@ -1,0 +1,62 @@
+{% from 'admin/navigation.html' import navigation as admin_navigation, sign_out as admin_sign_out %}
+{% set admin_current=namespace(key='overview') %}
+{% set admin_args=request.view_args or {} %}
+{% if entry is defined %}{% set admin_current.key=entry.kind %}
+{% elif managed_page is defined %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool'}.get(managed_page.key,managed_page.key) %}
+{% elif request.endpoint and request.endpoint.startswith('page_admin.') %}{% set admin_page_key=admin_args.get('key','') %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool'}.get(admin_page_key,admin_page_key) %}
+{% elif request.endpoint in ('admin.manage_collection','admin.new_entry') %}{% set admin_current.key=admin_args.get('kind','overview') %}
+{% elif request.endpoint == 'publishing.homepage' %}{% set admin_current.key='homepage' %}
+{% elif request.endpoint and request.endpoint.startswith('media.') %}{% set admin_current.key='images' %}
+{% elif request.endpoint == 'admin.inquiries' %}{% set admin_current.key='inquiries' %}
+{% elif request.endpoint == 'admin.design_reference' %}{% set admin_current.key='design' %}
+{% elif request.endpoint in ('admin.identity_review','admin.identity_asset') %}{% set admin_current.key='identity' %}
+{% elif request.endpoint == 'admin.publishing_workbench' %}{% set admin_current.key='prototype' %}{% endif %}
+<!doctype html>
+<html lang="en" data-admin-workspace><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>{% block title %}Website manager{% endblock %} | Lay Shah</title>
+{% include "components/site-icons.html" %}
+<script src="/public/js/admin-theme.js"></script>
+<link rel="stylesheet" href="{{ FONT_STYLESHEET }}"><link rel="stylesheet" href="/tailwind.css">
+{% block styles %}{% endblock %}
+<script src="/public/js/admin-shell.js" defer></script>
+</head>
+<body class="admin-workspace bg-background text-foreground"{% if current_user.is_authenticated %} data-owner-workspace{% endif %}>
+<a href="#main-content" class="ui-skip-link sr-only focus:not-sr-only">Skip to content</a>
+<div class="admin-frame">
+{% if current_user.is_authenticated %}
+<aside class="admin-sidebar" aria-label="Workspace sidebar">
+    <a href="{{ url_for('admin.dashboard') }}" class="admin-brand">{% include "identity.html" %}<span>Website manager</span></a>
+    {{ admin_navigation(admin_current.key) }}
+    {{ admin_sign_out() }}
+</aside>
+{% endif %}
+<div class="admin-stage">
+    <header class="admin-toolbar">
+        <div class="admin-toolbar__identity">
+            {% if current_user.is_authenticated %}<button type="button" class="admin-menu-button" data-admin-menu aria-controls="admin-drawer" aria-expanded="false" aria-haspopup="dialog" hidden>Menu</button>{% endif %}
+            <a href="{{ url_for('admin.dashboard') if current_user.is_authenticated else url_for('admin.sign_in') }}" class="admin-toolbar__name identity-compact">{% include "identity.html" %}<span class="ui-muted">/ Website</span></a>
+        </div>
+        <div class="admin-toolbar__actions">
+            <a href="/" target="_blank" rel="noopener" class="admin-view-site" aria-label="View website"><span class="admin-view-site__full">View website</span><span class="admin-view-site__short">Website</span> <span aria-hidden="true">↗</span></a>
+            <div class="admin-appearance"><label for="admin-appearance">Appearance</label><select id="admin-appearance" data-admin-theme disabled><option value="light">Light</option><option value="dark">Dark</option><option value="system" selected>System</option></select></div>
+        </div>
+    </header>
+    {% if current_user.is_authenticated %}
+    <details class="admin-mobile-fallback" data-admin-nav-fallback><summary>Workspace menu</summary><div>{{ admin_navigation(admin_current.key) }}{{ admin_sign_out() }}</div></details>
+    {% endif %}
+    <noscript><p class="admin-script-notice ui-muted">Appearance uses the default light theme without JavaScript.</p></noscript>
+    <main id="main-content" tabindex="-1" class="admin-main ui-stack">
+        {% for category,message in get_flashed_messages(with_categories=true) %}<p role="status" class="ui-notice">{{ message }}</p>{% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+</div>
+</div>
+{% if current_user.is_authenticated %}
+<dialog id="admin-drawer" class="admin-drawer" aria-labelledby="admin-drawer-title" data-admin-drawer>
+    <div class="admin-drawer__heading"><h2 id="admin-drawer-title" class="font-display font-medium">Website manager</h2><button type="button" data-admin-drawer-close autofocus>Close menu</button></div>
+    {{ admin_navigation(admin_current.key) }}{{ admin_sign_out() }}
+</dialog>
+{% endif %}
+{% block scripts %}{% endblock %}
+</body></html>

@@ -1,0 +1,3 @@
+-r requirements-ops.txt
+gunicorn==26.2.0
+packaging==26.3

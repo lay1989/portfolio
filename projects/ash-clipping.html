@@ -72,23 +72,22 @@
     </script>
 
     <!-- Favicon -->
+    <!-- IDENTITY_ICONS_START -->
     <link rel="icon" type="image/svg+xml" href="../public/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="../public/identity/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../public/identity/apple-touch-icon.png">
+    <!-- IDENTITY_ICONS_END -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..700&amp;family=Petrona:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
 
     <!-- Pinned local icons avoid blocking third-party fallbacks. -->
     <script src="../public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../tailwind.css">
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
-    <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
@@ -99,86 +98,69 @@
       gtag('config', 'G-043HH9GSZB');
     </script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+<body class="bg-background text-foreground antialiased overflow-x-hidden">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+    <a href="#main-content" class="ui-skip-link sr-only focus:not-sr-only">Skip to content</a>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-    <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-        </svg>
-        <span>LAY SHAH</span>
-    </a>
+    <nav aria-label="Main navigation" id="navbar" class="site-nav" data-scrolled="false">
+        <div class="site-nav__bar">
+    <a href="../index.html" class="logo-link identity-header"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="../public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="../public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="../public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="../public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
 
     <!-- Desktop Menu -->
-    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
-        <a href="../index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-        <a href="../index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-        <a href="../index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-        <a href="../projects.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-        <a href="../index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-        <a href="../blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-        
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__links nav-links-desktop">
+        <a href="../index.html#about" class="site-nav__link">About</a>
+        <a href="../index.html#services" class="site-nav__link">Services</a>
+        <a href="../index.html#principles" class="site-nav__link">Process</a>
+        <a href="../projects.html" class="site-nav__link">Work</a>
+        <a href="../index.html#reviews" class="site-nav__link">Reviews</a>
+        <a href="../blog.html" class="site-nav__link">Blog</a>
+        <a href="../tools.html" class="site-nav__link">Tools</a>
+
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
 
-        <a href="../index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
-            Let's Talk
+        <a href="../index.html#contact" class="line-button line-button--small site-nav__cta">
+            <span data-branding="contactLabel">Let's Talk</span>
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 lg:hidden">
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__compact">
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
-        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
-            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
-            </div>
+        <button id="mobile-menu-btn" class="site-nav__icon site-nav__menu-button" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="site-nav__menu-icon" aria-hidden="true"><span></span><span></span></span>
         </button>
     </div>
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
-    <a href="../index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-    <a href="../index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-    <a href="../index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-    <a href="../projects.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-    <a href="../index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-    <a href="../blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-    <a href="../index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+<div id="mobile-menu" class="site-menu">
+    <a href="../index.html#about" class="site-menu__link">About</a>
+    <a href="../index.html#services" class="site-menu__link">Services</a>
+    <a href="../index.html#principles" class="site-menu__link">Process</a>
+    <a href="../projects.html" class="site-menu__link">Work</a>
+    <a href="../index.html#reviews" class="site-menu__link">Reviews</a>
+    <a href="../blog.html" class="site-menu__link">Blog</a>
+    <a href="../tools.html" class="site-menu__link">Tools</a>
+    <a href="../index.html#contact" class="site-menu__link site-menu__contact"><span data-branding="mobileContactLabel">Contact</span></a>
 </div>
 
     </nav>
 
     <noscript>
-        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm underline">
             <a href="../index.html">Home</a>
             <a href="../projects.html">Work</a>
             <a href="../blog.html">Blog</a>
+            <a href="../tools.html">Tools</a>
             <a href="../index.html#contact">Contact</a>
         </nav>
     </noscript>
@@ -210,7 +192,7 @@
                 <span>Lead Full-Stack Architect &amp; Developer</span>
             </div>
             
-            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[0.95] tracking-tight md:text-8xl">
+            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[0.95] tracking-tight md:text-8xl site-heading type-title">
                 <span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">ASH</span></span><span class="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom reveal-word"><span class="inline-block word-in">Clipping</span></span>
             </h1>
             
@@ -279,17 +261,17 @@
                             
             <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
                 <div class="font-serif text-3xl font-medium tracking-tight text-foreground">100M+ Views</div>
-                <div class="mt-1 text-sm text-muted-foreground capitalize">Data  Processed</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">Data Processed</div>
             </div>
         
             <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
                 <div class="font-serif text-3xl font-medium tracking-tight text-foreground">$32k+</div>
-                <div class="mt-1 text-sm text-muted-foreground capitalize">Payouts  Secured</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">Payouts Secured</div>
             </div>
         
             <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
                 <div class="font-serif text-3xl font-medium tracking-tight text-foreground">10K+</div>
-                <div class="mt-1 text-sm text-muted-foreground capitalize">Active  Users</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">Active Users</div>
             </div>
         
                         </div>
@@ -307,41 +289,41 @@
 
                 <!-- Approach -->
                 <div class="mb-24">
-                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Approach</h2>
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8 site-heading">Approach</h2>
                     <ul class="space-y-0">
                         
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">01</div>
                 <div>
-                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Enterprise-Grade Backend Architecture</h3>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3 site-heading">Enterprise-Grade Backend Architecture</h3>
                     <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Engineered a resilient dual-pipeline system with FastAPI and PostgreSQL to ensure absolute data reliability during third-party API outages.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">02</div>
                 <div>
-                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Time-Series Data Ingestion</h3>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3 site-heading">Time-Series Data Ingestion</h3>
                     <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Implemented a scheduled Redis Queue background worker for daily roll-ups to update the master row, preserving server memory while maintaining absolute financial accuracy.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">03</div>
                 <div>
-                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Intelligent Campaign State Machines</h3>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3 site-heading">Intelligent Campaign State Machines</h3>
                     <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Designed a conditional campaign lifecycle loop with automated expiration cron jobs to allow administrators to verify content quality safely.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">04</div>
                 <div>
-                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Immutable Crypto Payout Vaults</h3>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3 site-heading">Immutable Crypto Payout Vaults</h3>
                     <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Integrated a strict crypto payment architecture using strict database ENUMs to permanently secure the historical financial ledger.</div>
                 </div>
             </li>
             <li class="grid grid-cols-[auto,1fr] gap-6 border-t border-border/50 pt-8 pb-8">
                 <div data-reveal="" class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">05</div>
                 <div>
-                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3">Pre-Database Security &amp; Validation</h3>
+                    <h3 data-reveal="" class="font-serif text-2xl md:text-3xl font-medium mb-3 site-heading">Pre-Database Security &amp; Validation</h3>
                     <div data-reveal="" class="text-muted-foreground md:text-lg leading-relaxed">Implemented token-bucket rate limiting and payload size validation within FastAPI middleware to protect Redis Queue workers from memory exhaustion.</div>
                 </div>
             </li>
@@ -350,62 +332,56 @@
 
                 <!-- Editorial Gallery -->
                 <div class="mb-24">
-                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8">Gallery</h2>
+                    <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-8 site-heading">Gallery</h2>
                     <div class="space-y-12">
                         
                 <figure class="mb-16 md:max-w-[85%]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping - hero.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 1">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%20-%20hero-small.webp 600w, ../public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 768px) 90vw, 85vw">
         <img src="../public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping Interface 1" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 01</figcaption>
                 </figure>
                 <figure class="mb-16 md:ml-auto md:max-w-[85%]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping 2.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 2">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%202-small.webp 600w, ../public/images/ASH%20clipping%202.webp 1350w" sizes="(max-width: 768px) 90vw, 85vw">
         <img src="../public/images/ASH%20clipping%202.webp" width="1350" height="768" alt="ASH Clipping Interface 2" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 02</figcaption>
                 </figure>
                 <figure class="mb-16 md:max-w-[85%]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping 3.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 3">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%203-small.webp 600w, ../public/images/ASH%20clipping%203.webp 1350w" sizes="(max-width: 768px) 90vw, 85vw">
         <img src="../public/images/ASH%20clipping%203.webp" width="1350" height="768" alt="ASH Clipping Interface 3" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 03</figcaption>
                 </figure>
                 <figure class="mb-16 -mx-6 md:-mx-10 w-[calc(100%+3rem)] md:w-[calc(100%+5rem)]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping 4.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 4">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%204-small.webp 600w, ../public/images/ASH%20clipping%204.webp 1350w" sizes="100vw">
         <img src="../public/images/ASH%20clipping%204.webp" width="1350" height="768" alt="ASH Clipping Interface 4" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 04</figcaption>
                 </figure>
                 <figure class="mb-16 md:max-w-[85%]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping 5.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 5">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%205-small.webp 600w, ../public/images/ASH%20clipping%205.webp 1351w" sizes="(max-width: 768px) 90vw, 85vw">
         <img src="../public/images/ASH%20clipping%205.webp" width="1351" height="768" alt="ASH Clipping Interface 5" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 05</figcaption>
                 </figure>
                 <figure class="mb-16 md:ml-auto md:max-w-[85%]">
-                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
+                    <div class="rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]" data-zoom-src="../public/images/ASH clipping 6.webp" role="button" tabindex="0" aria-label="View enlarged screenshot 6">
                         <picture class="block w-full">
         <source type="image/webp" srcset="../public/images/ASH%20clipping%206-small.webp 600w, ../public/images/ASH%20clipping%206.webp 1351w" sizes="(max-width: 768px) 90vw, 85vw">
         <img src="../public/images/ASH%20clipping%206.webp" width="1351" height="768" alt="ASH Clipping Interface 6" class="w-full h-auto object-cover" decoding="async" loading="lazy">
     </picture>
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 06</figcaption>
                 </figure>
                     </div>
                 </div>
@@ -429,7 +405,7 @@
         
             <div class="mb-32 grid md:grid-cols-12 gap-8 md:gap-10">
                 <div class="md:col-span-4">
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Project Decisions</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4 site-heading">Project Decisions</h2>
                     <p class="text-muted-foreground">Trade-offs, challenges, and insights from the development process.</p>
                 </div>
                 <div class="md:col-span-7 md:col-start-6">
@@ -456,24 +432,24 @@
         <!-- Outcomes Recap -->
         <div class="mb-32">
             <div class="flex justify-between items-end border-b border-border pb-4 mb-12">
-                <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent">Outcomes Recap</h2>
+                <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-accent site-heading">Outcomes Recap</h2>
                 <span class="text-sm text-muted-foreground">After launch</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
             <div>
                 <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">100M+ Views</div>
-                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Data  Processed</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Data Processed</div>
             </div>
         
             <div>
                 <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">$32k+</div>
-                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Payouts  Secured</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Payouts Secured</div>
             </div>
         
             <div>
                 <div data-counter="" class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">10K+</div>
-                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Active  Users</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">Active Users</div>
             </div>
         
             </div>
@@ -489,7 +465,7 @@
                         <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
                         <span class="text-accent text-xs font-mono uppercase tracking-widest">Let's talk about your next project</span>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4">Let's build the next one together.</h2>
+                    <h2 class="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground mb-4 site-heading">Let's build the next one together.</h2>
                     <p class="text-muted-foreground text-base md:text-lg leading-relaxed">Have a similar problem to solve? Send a short brief with your goals and target launch date. I’ll help you work out the next step.</p>
                 </div>
 
@@ -523,7 +499,7 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
                     <p class="uppercase tracking-widest font-mono text-xs text-accent">Next Project</p>
                 </div>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight">Intent Studio</h2>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl font-medium mb-3 text-foreground tracking-tight site-heading">Intent Studio</h2>
                 <p class="text-lg md:text-xl text-muted-foreground line-clamp-2 leading-relaxed">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
             </div>
             
@@ -537,48 +513,40 @@
 </main>
 <script src="../public/js/case-study.js" defer=""></script>
 
-        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
-        <div class="container mx-auto max-w-[1400px]">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
-                <!-- Left Column -->
-                <div class="md:col-span-12 lg:col-span-6">
-                    <a href="../index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                        </svg>
-                        <span>LAY SHAH</span>
-                    </a>
-                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+    <footer class="site-footer">
+        <div class="site-footer__shell">
+            <div class="site-footer__top">
+                <div class="site-footer__intro">
+                    <a href="../index.html" class="logo-link identity-footer"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="../public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="../public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="../public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="../public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
+                    <p data-branding="footerDescription" class="site-footer__description">
                         Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
                     </p>
                 </div>
-                
-                <!-- Middle Column -->
-                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="../index.html" class="hover:text-accent transition-colors">Home</a></li>
-                        <li><a href="../projects.html" class="hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="../blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="exploreLabel">Explore</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../projects.html">Work</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../tools.html">Tools</a></li>
                     </ul>
                 </div>
-                
-                <!-- Right Column -->
-                <div class="md:col-span-6 lg:col-span-3">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
-                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="footerContactLabel">Contact</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="mailto:layshah1989@gmail.com">layshah1989@gmail.com</a></li>
+                        <li data-branding="location">Ahmedabad, India</li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Bottom Section -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>© 2026 Lay Shah. All rights reserved.</p>
-                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
+            <div class="site-footer__base">
+                <p>© 2026 <span data-branding="copyrightName">Lay Shah</span>. All rights reserved.</p>
+                <button id="back-to-top-btn" class="site-footer__top-link" aria-label="Back to top of page">
+                    <span data-branding="backToTop">Back to top</span> <span aria-hidden="true">↑</span>
                 </button>
             </div>
         </div>
@@ -602,8 +570,6 @@ function copyProjectLink() {
 }
 </script>
     <script src="../bundle.js" defer=""></script>
-
-
 
 
 

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import image, media_image, media_gallery, entry_cover, entry_next, site_cta with context %}
+{% from 'blocks/render.html' import render_blocks with context %}
+{% block content %}
+{% set links=data|tool_links %}
+<main id="main-content" tabindex="-1" class="entry entry--tool">
+    <div class="entry-shell">
+        {% include 'components/preview-notice.html' %}
+        {% include 'components/breadcrumbs.html' %}
+
+        <header class="entry-header entry-header--media" data-enter>
+            <div class="entry-header__main">
+                <span class="entry-header__glyph" data-draw aria-hidden="true">{% include 'drawings/toolbox.svg' %}</span>
+                <h1 class="site-heading type-title">{{ data.title }}</h1>
+                <p class="entry-summary ui-muted">{{ data.summary }}</p>
+                {% if links.launch_url or links.github_url or links.docs_url %}
+                <div class="entry-actions">
+                    {% if links.launch_url %}<a href="{{ links.launch_url }}" class="ui-button line-button" target="_blank" rel="noopener noreferrer">Open tool</a>{% endif %}
+                    {% if links.github_url %}<a href="{{ links.github_url }}" class="line-button line-button--ghost" target="_blank" rel="noopener noreferrer"><i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i> Repository</a>{% endif %}
+                    {% if links.docs_url %}<a href="{{ links.docs_url }}" class="line-button line-button--ghost" target="_blank" rel="noopener noreferrer"><i data-lucide="book-open" class="w-4 h-4" aria-hidden="true"></i> Documentation</a>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% if data.get('cover_media') and data.cover_media.get('asset_id') %}
+            <div class="entry-poster">{{ media_image(data.cover_media, '', true, is_preview, show_caption=false) }}</div>
+            {% elif 'cover_media' not in data and data.get('cover') and image_info(data.cover) %}
+            <div class="entry-poster">{{ image(data.cover, data.title, '', true) }}</div>
+            {% endif %}
+        </header>
+
+        <dl class="entry-strip">
+            <div><dt>Category</dt><dd>{{ data.category }}</dd></div>
+            {% if data.get('license') %}<div><dt>License</dt><dd>{{ data.license }}</dd></div>{% endif %}
+            {% if data.get('pricing') %}<div><dt>Pricing</dt><dd>{{ data.pricing }}</dd></div>{% endif %}
+            <div><dt>Evaluated by</dt><dd>{{ branding.ownerName }}</dd></div>
+        </dl>
+
+        <div class="entry-body">
+            <aside class="entry-rail">
+                <nav class="entry-outline" aria-label="On this page" data-entry-outline hidden></nav>
+                <p class="entry-rail__note">Each tool here is assessed on setup effort, how actively it is maintained, and whether it stays useful. Need help setting this one up? <a class="line-link" href="{{ BASE_PATH }}index.html#contact">Ask me</a></p>
+            </aside>
+            <div class="public-story" data-entry-story>
+                {% if data.get('blocks') %}
+                {{ render_blocks(data.blocks, is_preview) }}
+                {% else %}
+                {# Imported Tools keep their original written sections. #}
+                {% for key, label in [('overview','What it is'), ('whereItFits','Where it fits'), ('selfHostedVsCloud','Self-hosted or cloud'), ('whatToCheck','What to check first')] %}
+                {% if data.get(key) %}
+                <section>
+                    <h2 class="site-heading">{{ label }}</h2>
+                    <div>{{ data[key] }}</div>
+                </section>
+                {% endif %}
+                {% endfor %}
+                {% if data.get('quickStart') %}
+                <section>
+                    <h2 class="site-heading">Quick start</h2>
+                    <pre class="entry-code"><code>{{ data.quickStart }}</code></pre>
+                </section>
+                {% endif %}
+                {% if data.get('pros') or data.get('cons') %}
+                <section>
+                    <h2 class="site-heading">Strengths and limits</h2>
+                    <div class="entry-verdict">
+                        {% if data.get('pros') %}<div><h3 class="site-heading">Works well</h3><ul class="entry-list">{% for item in data.pros %}<li>{{ item }}</li>{% endfor %}</ul></div>{% endif %}
+                        {% if data.get('cons') %}<div><h3 class="site-heading">Know before you start</h3><ul class="entry-list entry-list--plain">{% for item in data.cons %}<li>{{ item }}</li>{% endfor %}</ul></div>{% endif %}
+                    </div>
+                </section>
+                {% endif %}
+                {% endif %}
+                {{ media_gallery(data.get('gallery_media', []), private=is_preview) }}
+                <p class="entry-signoff"><a class="line-link" href="/tools.html">All tools</a></p>
+            </div>
+        </div>
+
+        {{ entry_next(next_entry, 'Next tool') }}
+
+        {{ site_cta('Need this set up, or something built around it?', 'I help small teams choose, host and connect tools like this one. Send a few lines about what you’re trying to do.') }}
+    </div>
+</main>
+{% endblock %}

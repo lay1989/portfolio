@@ -1,0 +1,40 @@
+/* The isolated prototype uses the portfolio's shared design values. */
+.publishing-workbench { min-width:0;background:var(--background);color:var(--foreground); }
+.workbench-layout { display:grid;gap:var(--layout-gutter);align-items:start; }
+.workbench-layout > * { min-width:0; }
+.workbench-figure { margin:0;border:var(--layout-rule) solid var(--border);background:var(--card);border-radius:var(--type-body-size);overflow:hidden; }
+.workbench-frame { padding:var(--type-body-size) var(--layout-gutter);font-family:var(--font-mono);font-size:var(--type-body-size);color:var(--muted-foreground); }
+.workbench-frame:first-child { border-bottom:var(--layout-rule) solid var(--border); }
+.workbench-frame:last-child { border-top:var(--layout-rule) solid var(--border); }
+.workbench-frame output { color:var(--foreground);font-family:var(--font-sans); }
+.workbench-machine { display:block;width:100%;height:auto;overflow:visible; }
+.workbench-machine path,.workbench-machine circle { vector-effect:non-scaling-stroke; }
+.workbench-machine .iso-halo { fill:var(--machine-shadow);stroke:none;filter:blur(var(--type-body-size));opacity:var(--figure-shadow-opacity); }
+.workbench-machine .iso-fill { fill:var(--machine-paper);stroke:none; }
+.workbench-machine .iso-top { fill:var(--machine-top);stroke:none; }
+.workbench-machine .iso-shade { stroke:none; }
+.workbench-machine .iso-shade[data-shade="0"] { fill:var(--machine-shade-0); }
+.workbench-machine .iso-shade[data-shade="1"] { fill:var(--machine-shade-1); }
+.workbench-machine .iso-shade[data-shade="2"] { fill:var(--machine-shade-2); }
+.workbench-machine .iso-shade[data-shade="3"] { fill:var(--machine-shade-3); }
+.workbench-machine .iso-line { fill:none;stroke:var(--machine-line);stroke-width:var(--figure-stroke);stroke-linejoin:round;stroke-linecap:round; }
+.workbench-machine .iso-line[data-tone="hi"] { stroke:var(--foreground); }
+.workbench-machine .iso-line[data-tone="faint"] { stroke:var(--machine-faint); }
+.workbench-machine .iso-line[data-tone="lit"],.workbench-machine [data-lit] > .iso-edge { stroke:var(--accent); }
+.workbench-machine .iso-dots circle { fill:var(--muted-foreground);stroke:none; }
+.workbench-machine .iso-face-text { font-family:var(--font-mono);fill:var(--muted-foreground); }
+.workbench-machine [data-inspection-window] .iso-top { fill:var(--secondary); }
+.publishing-workbench[data-preview="current"] [data-inspection-window] .iso-top { fill:var(--accent); }
+.publishing-workbench[data-preview="stale"] [data-inspection-window] .iso-top { fill:var(--muted); }
+.publishing-workbench[data-layout="text-first"] [data-paper-image] { visibility:hidden; }
+.workbench-public { border-inline-start:var(--layout-rule) solid var(--accent);padding-inline-start:var(--layout-gutter); }
+.workbench-public > .ui-row { margin-block-end:var(--type-body-size); }
+.workbench-example { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--type-body-size);min-height:var(--layout-examplePage);overflow-wrap:anywhere;align-items:center; }
+.workbench-example > * { min-width:0; }
+.workbench-example[data-layout="text-first"] { grid-template-columns:minmax(0,1fr); }
+.workbench-example[data-layout="text-first"] .workbench-image { display:none; }
+.workbench-image { min-height:var(--layout-examplePage);background:var(--secondary);border:var(--layout-rule) solid var(--border);border-radius:var(--type-body-size);display:grid;place-items:center; }
+.workbench-image span { width:50%;aspect-ratio:var(--media-ratio-portrait);border:var(--layout-rule) solid var(--muted-foreground);border-radius:var(--type-body-size); }
+.workbench-preview { border-block:var(--layout-rule) solid var(--border);padding-block:var(--layout-gutter);min-height:var(--layout-examplePage); }
+.workbench-controls { padding-block:var(--type-body-size); }
+@media (min-width:768px) { .workbench-layout { grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--layout-gutter); } }

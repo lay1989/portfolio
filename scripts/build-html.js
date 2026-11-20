@@ -42,10 +42,14 @@ function copyProjectLink() {
 // ──────────────────────────────────────────
 // Load all source files
 // ──────────────────────────────────────────
-const baseTemplate = fs.readFileSync(path.join(root, 'templates', 'base.html'), 'utf-8');
+const withIdentity = require('./identity-component');
+const { drawing, withDrawings } = require('./drawings');
+const projectGlyphs = require('../app/templates/drawings/projects.json');
+const glyphFor = slug => drawing(projectGlyphs[slug] || 'generic');
+const baseTemplate = withIdentity(fs.readFileSync(path.join(root, 'templates', 'base.html'), 'utf-8'));
 const caseStudyTemplate = fs.readFileSync(path.join(root, 'templates', 'project-case-study.html'), 'utf-8');
-const headerHtml = fs.readFileSync(path.join(root, 'components', 'header.html'), 'utf-8');
-const footerHtml = fs.readFileSync(path.join(root, 'components', 'footer.html'), 'utf-8');
+const headerHtml = withIdentity(fs.readFileSync(path.join(root, 'components', 'header.html'), 'utf-8'));
+const footerHtml = withIdentity(fs.readFileSync(path.join(root, 'components', 'footer.html'), 'utf-8'));
 const pagesJson = JSON.parse(fs.readFileSync(path.join(root, 'pages.json'), 'utf-8'));
 const projectsData = JSON.parse(fs.readFileSync(path.join(root, 'data', 'projects.json'), 'utf-8'));
 const postsData = fs.existsSync(path.join(root, 'data', 'posts.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'data', 'posts.json'), 'utf-8')) : { posts: [] };
@@ -127,8 +131,7 @@ function renderResponsivePicture(imgPath, alt, className, sizes, eager, pageBase
     if (small) candidates.push(`${encodeURI(base + '-small.webp')} ${small.width}w`);
     if (webp && (!small || webp.width !== small.width)) candidates.push(`${encodeURI(base + '.webp')} ${webp.width}w`);
     const pictureClass = ['block', className.includes('h-full') && 'h-full', className.includes('w-full') && 'w-full'].filter(Boolean).join(' ');
-    return `<picture class="${pictureClass}">
-        ${candidates.length ? `<source type="image/webp" srcset="${candidates.join(', ')}" sizes="${sizes || '(max-width: 768px) 90vw, 896px'}">` : ''}
+    return `<picture class="${pictureClass}">${candidates.length ? `\n        <source type="image/webp" srcset="${candidates.join(', ')}" sizes="${sizes || '(max-width: 768px) 90vw, 896px'}">` : ''}
         <img src="${encodeURI(resolvedPath)}" width="${full.width}" height="${full.height}" alt="${escHtml(alt)}" class="${className || 'w-full h-auto object-cover'}" decoding="async"${eager ? '' : ' loading="lazy"'}>
     </picture>`;
 }
@@ -168,6 +171,8 @@ function renderCaseStudy(project, basePath) {
     html = html.replace(/\{\{PROJECT_OVERVIEW_DROP_CAP\}\}/g, `<p class="drop-cap">${escHtml(overview)}</p>`);
 
     // Tech Chips
+    const cleanUrl = (project.liveUrl && project.liveUrl !== '#') ? project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : `${project.slug}.internal`;
+    html = html.replace(/\{\{PROJECT_CLEAN_URL\}\}/g, cleanUrl);
     const techArr = project.tools ? project.tools.split(',').map(t => t.trim()) : [];
     const chipsHtml = techArr.map(t => `<span class="rounded-full border border-border px-2.5 py-0.5 text-xs">${escHtml(t)}</span>`).join('');
     html = html.replace(/\{\{PROJECT_TECH_CHIPS\}\}/g, chipsHtml);
@@ -195,14 +200,14 @@ function renderCaseStudy(project, basePath) {
         metricsRail = entries.map(([key, value]) => `
             <div class="border-t border-border/50 pt-4 first:border-t-0 first:pt-0">
                 <div class="font-serif text-3xl font-medium tracking-tight text-foreground">${escHtml(String(value))}</div>
-                <div class="mt-1 text-sm text-muted-foreground capitalize">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                <div class="mt-1 text-sm text-muted-foreground capitalize">${key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim()}</div>
             </div>
         `).join('');
 
         metricsRecap = entries.map(([key, value]) => `
             <div>
                 <div data-counter class="font-serif text-4xl md:text-6xl font-bold text-foreground mb-2 stat-val">${escHtml(String(value))}</div>
-                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                <div class="text-sm md:text-base text-muted-foreground capitalize stat-label">${key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim()}</div>
             </div>
         `).join('');
     }
@@ -243,7 +248,7 @@ function renderCaseStudy(project, basePath) {
                 const isWide = (idx % 3 === 0 && idx !== 0); // make every 3rd wide
                 const isLeft = (idx % 2 === 0);
                 
-                let containerClasses = 'rounded-2xl overflow-hidden bg-card border border-border shadow-lg';
+                let containerClasses = 'rounded-2xl overflow-hidden bg-card border border-border shadow-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]';
                 let figureClasses = 'mb-16';
                 let sizes = '(max-width: 768px) 90vw, 85vw';
 
@@ -256,12 +261,12 @@ function renderCaseStudy(project, basePath) {
                     figureClasses += ' md:ml-auto md:max-w-[85%]';
                 }
 
+                const zoomSrc = `${basePath}${img.replace(/^\.\//, '')}`;
                 return `
                 <figure class="${figureClasses}">
-                    <div class="${containerClasses}">
+                    <div class="${containerClasses}" data-zoom-src="${zoomSrc}" role="button" tabindex="0" aria-label="View enlarged screenshot ${idx + 1}">
                         ${renderResponsivePicture(img, `${project.title} Interface ${idx + 1}`, 'w-full h-auto object-cover', sizes, false, basePath)}
                     </div>
-                    <figcaption class="mt-3 uppercase tracking-wider font-bold text-xs text-muted-foreground">Interface Detail 0${idx+1}</figcaption>
                 </figure>`;
             }).join('');
             html = html.replace('{{PROJECT_GALLERY_SECTION}}', galleryHtml);
@@ -365,134 +370,101 @@ function renderCaseStudy(project, basePath) {
 // Helper: render projects listing page content
 // ──────────────────────────────────────────
 function renderProjectsListing() {
-    const sorted = [...projects];
-    const basePath = './';
-
-    // 2. Build Work Stack (Mobile)
-    let stackItems = sorted.map((p, i) => `
-        <li>
-            <a href="${basePath}projects/${p.slug}.html" class="block group" aria-label="Open case study: ${escHtml(p.title)}">
-                <div class="relative aspect-square rounded-[2rem] overflow-hidden bg-card mb-6">
-                    <div class="absolute top-4 left-4 z-10 font-mono text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium tracking-widest">${String(i + 1).padStart(2, '0')} / ${String(sorted.length).padStart(2, '0')}</div>
-                    ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out', '(max-width: 768px) 90vw, 45vw', i < 2, basePath)}
-                    <div class="absolute bottom-4 right-4 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest">${p.year} · ${escHtml(p.clientType)}</span>
-                    <span class="w-1 h-1 rounded-full bg-border"></span>
-                    <span class="font-mono text-xs text-muted-foreground tracking-widest uppercase">${escHtml(p.role)}</span>
-                </div>
-                
-                <h2 class="font-serif font-medium text-4xl tracking-tight text-foreground mb-4">${escHtml(p.title)}</h2>
-                
-                <p class="font-sans text-muted-foreground leading-relaxed mb-6 line-clamp-2">${escHtml(p.shortDesc)}</p>
-                
-                <div class="flex flex-wrap gap-2">
-                    ${Object.values(p.technologies || {}).flat().slice(0, 3).map(t => `<span class="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">${escHtml(t)}</span>`).join('')}
-                </div>
-            </a>
-        </li>
-    `).join('');
-
-    const workStackHtml = `
-    <div class="mt-20 max-w-[1400px] px-6 md:px-10 mx-auto">
-        <ul class="grid md:grid-cols-2 gap-x-12 gap-y-20">
-            ${stackItems}
-        </ul>
-    </div>
-    `;
-
-    return { workStackHtml };
+    const slides = projects.map((p, index) => `<article class="work-slide" data-work-slide data-title="${escHtml(p.title)}">
+        <a class="work-slide__image" href="./projects/${p.slug}.html" tabindex="-1" aria-hidden="true">
+            <div class="collection-image work-slide__visual">
+                ${renderResponsivePicture(p.heroImg, p.title, 'w-full h-auto', '(max-width: 768px) 100vw, 56vw', index === 0, './')}
+                <span class="work-slide__number font-mono text-xs" aria-hidden="true">${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span>
+            </div>
+        </a>
+        <div class="work-slide__copy">
+            <div data-draw>
+                <span class="work-slide__glyph" aria-hidden="true">${glyphFor(p.slug)}</span>
+                <p class="meta mb-4"><span>${escHtml(String(p.year))}</span>${p.clientType ? `<span>${escHtml(p.clientType)}</span>` : ''}</p>
+                <h2 class="site-heading type-workTitle mb-4"><a href="./projects/${p.slug}.html">${escHtml(p.title)}</a></h2>
+                <p class="text-muted-foreground leading-relaxed">${escHtml(p.shortDesc)}</p>
+            </div>
+            <div class="work-slide__details">
+                <dl class="work-slide__facts">
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</dt><dd>${escHtml(p.role)}</dd></div>
+                    <div><dt class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Timeline</dt><dd>${escHtml(p.timeline)}</dd></div>
+                </dl>
+                <a href="./projects/${p.slug}.html" class="line-button work-slide__cta" aria-label="Read the ${escHtml(p.title)} case study">Read the case study</a>
+            </div>
+        </div>
+    </article>`).join('');
+    return { workStackHtml: `<section class="work-reel" id="work" data-work-reel aria-label="Project case studies"><div class="work-reel__viewport"><div class="work-reel__track" data-work-track>${slides}</div>
+        <div class="work-reel__bar" data-work-bar hidden>
+            <span class="font-mono text-sm" data-work-count>01 / ${String(projects.length).padStart(2, '0')}</span>
+            <span class="work-reel__progress" aria-hidden="true"><span data-work-progress></span></span>
+            <span class="work-reel__hint text-sm ui-muted">Scroll to explore</span>
+            <button class="work-reel__button" data-work-prev aria-label="Previous project">←</button>
+            <button class="work-reel__button" data-work-next aria-label="Next project">→</button>
+            <a class="content-link" href="#after-work">Skip reel</a>
+        </div></div></section><div id="after-work" tabindex="-1"></div>` };
 }
 
 // ──────────────────────────────────────────
 // Helper: render projects on the homepage
 // ──────────────────────────────────────────
 function renderHomepageProjects() {
-    // Use the exact order provided by projects.json and only take the first 3
-    const sorted = [...projects].slice(0, 3);
-
-    return sorted.map((p, index) => {
-        const isEven = index % 2 === 0;
-        const imgOrder = isEven ? 'order-2 @2xl:order-1' : 'order-2 @2xl:order-2';
-        const textOrder = isEven ? 'order-1 @2xl:order-2' : 'order-1 @2xl:order-1';
-        
-        const picture = renderResponsivePicture(
-            p.heroImg,
-            `${p.title} - ${p.category}`,
-            'w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out',
-            '(max-width: 768px) 90vw, 45vw',
-            false, // project images are below the homepage hero
-            './'
-        );
-
-        return `
-                    <!-- Project ${index + 1} -->
-                    <div class="project-item group block @container" data-project="${p.id}">
-                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
-                            <div class="${imgOrder}">
-                                <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    ${picture}
-                                </div>
-                            </div>
-                            <div class="${textOrder}">
-                                <span class="text-accent text-sm font-medium mb-4 block">${escHtml(p.category)} - ${escHtml(p.year)}</span>
-                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">${escHtml(p.title)}</h3>
-                                <p class="text-muted-foreground text-lg mb-6 leading-relaxed">${escHtml(p.shortDesc)}</p>
-                                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">What shipped · ${escHtml(p.timeline)}</p>
-                                <ul class="mb-8 space-y-2 text-sm text-foreground">${p.keyFeatures.slice(0, 3).map(feature => `<li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>${escHtml(feature)}</li>`).join('')}</ul>
-                                <a href="projects/${p.slug}.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>`;
+    return projects.slice(0, 3).map((p, index) => {
+        const url = `./projects/${p.slug}.html`;
+        const picture = renderResponsivePicture(p.heroImg, p.title, 'w-full h-auto', index === 0 ? '(max-width: 899px) 100vw, 58vw' : '(max-width: 899px) 100vw, 50vw', false, './');
+        const facts = [
+            p.role ? `<div><dt>My role</dt><dd>${escHtml(p.role)}</dd></div>` : '',
+            p.timeline ? `<div><dt>Timeline</dt><dd>${escHtml(p.timeline)}</dd></div>` : ''
+        ].join('');
+        return `<article class="work-card${index === 0 ? ' work-card--lead' : ''}" data-project="${escHtml(String(p.id))}"${index === 0 ? ` data-featured-project="${escHtml(String(p.id))}"` : ''} data-draw>
+            ${picture ? `<a class="home-work-image" href="${url}" aria-label="View ${escHtml(p.title)} case study">${picture}</a>` : ''}
+            <div class="work-card__copy">
+                <span class="work-card__glyph" aria-hidden="true">${glyphFor(p.slug)}</span>
+                <p class="meta work-card__meta"><span>${escHtml(p.category)}</span>${p.year ? `<span>${escHtml(String(p.year))}</span>` : ''}</p>
+                <h3 class="work-card__title"><a href="${url}">${escHtml(p.title)}</a></h3>
+                <p class="work-card__summary">${escHtml(p.shortDesc)}</p>
+                ${facts ? `<dl class="work-card__facts">${facts}</dl>` : ''}
+                <a class="line-link" href="${url}" aria-label="Read the ${escHtml(p.title)} case study">Read the case study</a>
+            </div>
+        </article>`;
     }).join('\n');
 }
 
 /** Render the index from the same post records as article pages. */
 function renderBlogIndex(content) {
-    const featured = posts.find(post => post.slug === 'blog-responsive-design') || posts[0];
-    const formatDate = date => new Date(date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-    const featuredHtml = `<a href="./${featured.slug}.html" class="mt-16 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center group" data-featured="true">
-        <div class="lg:col-span-7 overflow-hidden rounded-2xl bg-card aspect-video border border-foreground/10"><img src="./${featured.cover}" alt="Illustration for ${escHtml(featured.title)}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
-        <div class="lg:col-span-5"><p class="font-mono text-xs uppercase tracking-widest text-accent mb-5">Featured · ${formatDate(featured.date)}</p><h2 class="font-serif text-4xl lg:text-5xl leading-tight mb-6">${escHtml(featured.title)}</h2><p class="text-lg text-muted-foreground leading-relaxed mb-6">${escHtml(featured.dek)}</p><span class="font-medium text-accent">Read the article ↗</span></div>
-    </a>`;
-    const rows = [...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post, index) => `<a href="./${post.slug}.html" class="group block py-10 post-row" data-category="${escHtml(post.category)}">
-        <div class="grid md:grid-cols-12 gap-6 items-start">
-            <span aria-hidden="true" class="hidden md:block md:col-span-1 font-mono text-xs text-muted-foreground">${String(index + 1).padStart(2, '0')}</span>
-            <div class="md:col-span-8"><p class="font-mono text-xs uppercase tracking-widest text-accent mb-4">${escHtml(post.category)}</p><h3 class="font-serif text-3xl md:text-4xl text-foreground group-hover:text-accent post-title">${escHtml(post.title)}</h3><p class="mt-4 text-muted-foreground leading-relaxed post-dek">${escHtml(post.dek)}</p></div>
-            <div class="md:col-span-3 md:text-right text-sm text-muted-foreground"><time datetime="${post.date}">${formatDate(post.date)}</time><span class="block mt-2">${post.readMinutes || 5} min read</span></div>
+    const rows = posts.map((post, index) => {
+        const dateObj = new Date(post.date + 'T00:00:00');
+        const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const readTime = post.readMinutes ? ` <span aria-hidden="true">·</span> <span>${post.readMinutes} min read</span>` : '';
+        return `<article class="journal-entry${index === 0 ? ' journal-entry--lead' : ''}">
+        <a href="./${post.slug}.html" class="collection-image journal-entry__image" tabindex="-1" aria-hidden="true">${renderResponsivePicture(post.cover, post.title, 'w-full h-auto', '(max-width: 768px) 100vw, 50vw', index === 0, './')}</a>
+        <div class="journal-entry__copy"><p class="font-mono text-xs uppercase tracking-widest text-accent mb-4">${escHtml(post.category)} <span aria-hidden="true">·</span> <time datetime="${post.date}">${formattedDate}</time>${readTime}</p>
+            <h2 class="site-heading ${index === 0 ? 'type-workTitle' : 'type-articleHeading'} mb-4"><a href="./${post.slug}.html">${escHtml(post.title)}</a></h2>
+            <p class="text-muted-foreground leading-relaxed mb-6">${escHtml(post.dek)}</p>
+            <a href="./${post.slug}.html" class="content-link" aria-label="Read article: ${escHtml(post.title)}">Read the article</a>
         </div>
-    </a>`).join('');
-    return content.replace('{{BLOG_FEATURED}}', () => featuredHtml).replace('{{BLOG_POST_ROWS}}', () => rows);
+    </article>`;
+    }).join('');
+    return content.replace('{{BLOG_POST_ROWS}}', () => rows).replace('{{BLOG_FEATURED}}', '');
 }
 
 // ──────────────────────────────────────────
 // Helper: render blog posts on the homepage
 // ──────────────────────────────────────────
 function renderHomepagePosts(basePath = './') {
-    // Take the 3 most recent posts
+    // Static defaults use recent records; Flask uses the owner's featured order.
     const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
-
-    return sorted.map((p, index) => {
-        const dateObj = new Date(p.date);
-        const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        
-        return `
-                    <!-- Post ${index + 1} -->
-                    <a href="${basePath}${p.slug}.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                        <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">${escHtml(p.category)}</span>
-                        <h3 class="font-serif text-2xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">${escHtml(p.title)}</h3>
-                        <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-6">${escHtml(p.dek)}</p>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-muted-foreground font-mono">${formattedDate}</span>
-                            <span class="inline-flex items-center gap-1.5 text-accent font-medium">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </a>`;
+    return sorted.map((post, index) => {
+        const url = `${basePath}${post.slug}.html`;
+        const picture = renderResponsivePicture(post.cover, post.title, 'w-full h-auto', '(max-width: 767px) 100vw, 50vw', false, basePath);
+        return `<article class="home-writing-entry${index === 0 ? ' home-writing-entry--lead' : ''}" data-post="${escHtml(post.slug)}">
+            ${picture ? `<a class="home-writing-image" href="${url}" aria-label="Read ${escHtml(post.title)}">${picture}</a>` : ''}
+            <div class="home-writing-copy">
+                <p class="meta home-writing-meta"><span>${escHtml(post.category)}</span>${post.date ? `<time datetime="${escHtml(post.date)}">${escHtml(post.date)}</time>` : ''}</p>
+                <h3><a href="${url}">${escHtml(post.title)}</a></h3>
+                <p class="home-writing-summary">${escHtml(post.dek)}</p>
+                <a class="home-writing-read site-link" href="${url}" aria-label="Read ${escHtml(post.title)}">Read article</a>
+            </div>
+        </article>`;
     }).join('\n');
 }
 
@@ -529,22 +501,22 @@ function renderBlogPost(post, basePath) {
 
     // Header
     const headerHtml = `
-        <div class="max-w-[680px] mx-auto text-center pt-40 md:pt-56 pb-14 px-6">
+        <div class="max-w-[680px] mx-auto text-center public-page-start pb-14 px-6">
             <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest flex justify-center">
                 <ol class="flex items-center gap-2">
                     <li><a href="${basePath}index.html" class="hover:text-accent transition-colors">Home</a></li>
-                    <li><span class="text-border">/</span></li>
+                    <li><span class="text-border" aria-hidden="true">/</span></li>
                     <li><a href="${basePath}blog.html" class="hover:text-accent transition-colors">Blog</a></li>
-                    <li><span class="text-border">/</span></li>
+                    <li><span class="text-border" aria-hidden="true">/</span></li>
                     <li class="text-foreground" aria-current="page">${escHtml(post.title)}</li>
                 </ol>
             </nav>
             
             <div class="mt-10 flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-muted-foreground tracking-wide uppercase">
                 <span class="border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5">${escHtml(post.category)}</span>
-                <span class="text-foreground/30">&middot;</span>
+                <span class="text-foreground/30" aria-hidden="true">&middot;</span>
                 <span>${formattedDate}</span>
-                <span class="text-foreground/30">&middot;</span>
+                <span class="text-foreground/30" aria-hidden="true">&middot;</span>
                 <span>${post.readMinutes || 5} min read</span>
             </div>
             
@@ -568,7 +540,7 @@ function renderBlogPost(post, basePath) {
         coverHtml = `
             <div class="max-w-[1100px] mx-auto px-6 mb-16">
                 <div class="rounded-2xl bg-card overflow-hidden border border-border shadow-lg">
-                    <img src="${basePath}${post.cover}" alt="Cover image for ${escHtml(post.title)}" loading="eager" class="w-full h-auto object-cover aspect-video md:aspect-[21/9]">
+                    ${renderResponsivePicture(post.cover, post.title, 'w-full h-auto object-cover aspect-video md:aspect-[21/9]', '(max-width: 1100px) 100vw, 1100px', true, basePath)}
                 </div>
             </div>
         `;
@@ -576,7 +548,7 @@ function renderBlogPost(post, basePath) {
 
     // Body
     const bodyHtml = `
-        <div class="max-w-[680px] mx-auto px-6 prose-reveal">
+        <div class="max-w-[680px] mx-auto px-6 prose-reveal public-story">
             ${post.body}
         </div>
     `;
@@ -603,7 +575,7 @@ function renderBlogPost(post, basePath) {
                     </div>
                 </div>
                 <div class="flex-shrink-0">
-                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors font-medium text-sm gap-1.5 bg-background">Work with me <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -612,7 +584,7 @@ function renderBlogPost(post, basePath) {
     // Contact CTA
     const contactCtaHtml = `
         <div class="max-w-[1100px] mx-auto mt-24 mb-16 px-6">
-            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-card/60 backdrop-blur-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
                 
                 <!-- Content (Left side) -->
                 <div class="flex-grow max-w-2xl">
@@ -626,11 +598,11 @@ function renderBlogPost(post, basePath) {
 
                 <!-- Action Buttons (Right side) -->
                 <div class="flex flex-col items-stretch lg:items-end gap-3 w-full lg:w-auto flex-shrink-0">
-                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:scale-[1.02] transition-all font-medium text-base shadow-lg shadow-accent/15">
-                        Start a project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
+                    <a href="mailto:{{CONTACT_EMAIL}}" class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-accent text-accent-foreground rounded-full hover:-translate-y-0.5 active:translate-y-0 transition-transform font-medium text-base shadow-lg shadow-accent/15">
+                        Start a project <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]" aria-hidden="true"></i>
                     </a>
                     <a href="{{BOOKING_URL}}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-background text-foreground border border-border rounded-full hover:border-foreground hover:bg-muted/30 transition-all font-medium text-base">
-                        <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a {{CALL_MINUTES}}-min call
+                        <i data-lucide="calendar" class="w-[18px] h-[18px]" aria-hidden="true"></i> Book a {{CALL_MINUTES}}-min call
                     </a>
                     <span class="text-xs text-muted-foreground text-center lg:text-right mt-1 block">{{REPLY_NOTE}}</span>
                 </div>
@@ -647,15 +619,15 @@ function renderBlogPost(post, basePath) {
             <div class="max-w-[1200px] mx-auto px-6 pt-16 pb-24 md:pb-40">
                 <div class="flex items-center justify-between border-b border-foreground/10 pb-4 mb-10">
                     <span class="text-accent font-medium">Keep reading</span>
-                    <a href="${basePath}blog.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">All posts <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    <a href="${basePath}blog.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">All posts <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     ${relatedPosts.map(rp => `
-                        <a href="${basePath}${rp.slug}.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
+                        <a href="${basePath}${rp.slug}.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-0.5 active:translate-y-0">
                             <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">${escHtml(rp.category)}</span>
                             <h3 class="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">${escHtml(rp.title)}</h3>
                             <p class="text-muted-foreground line-clamp-2 leading-relaxed mb-8">${escHtml(rp.dek)}</p>
-                            <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                            <span class="inline-flex items-center gap-1.5 text-accent font-medium text-sm">Read <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
                         </a>
                     `).join('')}
                 </div>
@@ -663,10 +635,7 @@ function renderBlogPost(post, basePath) {
         `;
     }
 
-    // Reading Progress & Scripts
-    const pageScripts = '<div id="reading-progress" aria-hidden="true" class="fixed top-0 left-0 h-[3px] bg-accent z-[60]" style="width:0%"></div>';
-
-    return pageScripts + headerHtml + coverHtml + bodyHtml + endRuleHtml + authorCardHtml + contactCtaHtml + keepReadingHtml;
+    return '<article data-reading-content>' + headerHtml + coverHtml + bodyHtml + '</article>' + endRuleHtml + authorCardHtml + contactCtaHtml + keepReadingHtml;
 }
 
 // ──────────────────────────────────────────
@@ -674,6 +643,7 @@ function renderBlogPost(post, basePath) {
 // ──────────────────────────────────────────
 function buildPage(outputFile, pageConfig, bodyContent) {
     const basePath = getBasePath(outputFile);
+    bodyContent = withDrawings(bodyContent);
 
     let html = baseTemplate;
 
@@ -706,6 +676,7 @@ function buildPage(outputFile, pageConfig, bodyContent) {
 
     const values = {
         BASE_PATH: basePath,
+        FONT_STYLESHEET: require("../design/system.json").details.fontStylesheet,
         CONTACT_EMAIL: site.email,
         BOOKING_URL: site.bookingUrl,
         CALL_MINUTES: String(site.callMinutes),
@@ -715,8 +686,13 @@ function buildPage(outputFile, pageConfig, bodyContent) {
     };
     html = html.replace(/\{\{([A-Z_]+)\}\}/g, (token, key) => values[key] === undefined ? token : escHtml(values[key]));
     const $ = cheerio.load(html);
+    $('h1,h2,h3,h4,h5,h6').addClass('site-heading');
+    $('h1').not('.type-hero,[data-work-heading]').addClass('type-title');
     $('main').attr('id', 'main-content').attr('tabindex', '-1');
-    if (['404.html', '503.html'].includes(outputFile)) $('meta[name="robots"]').attr('content', 'noindex, follow');
+    if (['404.html', '503.html'].includes(outputFile)) {
+        $('meta[name="robots"]').attr('content', 'noindex, follow');
+        $('link[rel="canonical"]').remove();
+    }
     $('img').each((_, img) => {
         const src = $(img).attr('src');
         if (!src || /^(https?:|data:)/.test(src)) return;

@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<a href="/admin/" class="text-accent">Back to website manager</a>
+<div class="editor-intro"><h1 class="site-heading type-title">{{ 'A new project.' if kind == 'project' else 'A new article.' }}</h1><p class="ui-muted">Start with the essentials. Your draft stays private until you publish it.</p></div>
+<form method="post" class="ui-panel ui-stack max-w-reading" data-new-entry>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label class="ui-field">Title<input class="ui-input" name="title" value="{{ values.title }}" maxlength="180" required autofocus data-new-title></label>
+    <label class="ui-field">URL name<input class="ui-input" name="slug" value="{{ values.slug }}" maxlength="100" pattern="[a-z0-9]+(-[a-z0-9]+)*" required data-new-slug aria-describedby="slug-help"></label>
+    <p class="ui-muted text-sm" id="slug-help">{{ '/projects/' if kind == 'project' else '/blog-' }}<span data-slug-preview>{{ values.slug or 'your-title' }}</span>.html<br>Lowercase letters, numbers, and hyphens. You can change this later while preserving old links.</p>
+    <label class="ui-field">Summary<textarea class="ui-input" name="summary" rows="4" maxlength="1000">{{ values.summary }}</textarea></label>
+    <label class="ui-field">Category<input class="ui-input" name="category" value="{{ values.category }}" maxlength="100"></label>
+    <button class="ui-button" type="submit">Create private draft</button>
+</form>
+{% endblock %}
+{% block scripts %}<script src="/public/js/admin-editor.js" defer></script>{% endblock %}

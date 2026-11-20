@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import tool_row, site_cta with context %}
+{% block content %}
+<main class="bg-background" id="main-content" tabindex="-1">
+    {% include 'components/page-preview-notice.html' %}
+    <header class="page-hero" data-enter>
+        <div class="page-hero__body">
+            <h1 class="site-heading type-title mb-8">Tools</h1>
+            <p>{{ collection_content.intro }}</p>
+        </div>
+        <div class="page-hero__art" data-draw>{% include 'drawings/toolbox.svg' %}</div>
+    </header>
+    <div class="page-shell pb-8">
+
+        <!-- Category & Keyword Filtering -->
+        <div class="mt-12 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6" data-tool-controls>
+            <div class="flex flex-wrap items-center gap-2" data-tool-pill-bar>
+                <button type="button" class="tool-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors border border-foreground bg-foreground text-background" data-filter="all">All Tools ({{ tools|length }})</button>
+                {% for cat in categories %}
+                <button type="button" class="tool-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors border border-border bg-card text-muted-foreground hover:text-foreground hover:border-foreground/30" data-filter="{{ cat }}">{{ cat }}</button>
+                {% endfor %}
+            </div>
+            <div class="relative w-full md:w-72">
+                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none text-xs">/</span>
+                <input type="text" id="tool-search-input" placeholder="Quick filter tools..." class="w-full pl-8 pr-4 py-2 rounded-full border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-all" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- 3-Column Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
+            {% for entry in tools %}
+            {{ tool_row(entry) }}
+            {% else %}
+            <p class="ui-muted py-12 col-span-full">New tools will appear here when they are published.</p>
+            {% endfor %}
+        </div>
+
+        {% include 'components/pagination.html' %}
+
+    </div>
+    <div class="page-shell">{{ site_cta('Need a pipeline or internal tool?', 'I evaluate, build and deploy automation tools for teams and businesses. Send a short brief or book an introductory call.') }}</div>
+</main>
+
+<script>
+(function() {
+    var buttons = document.querySelectorAll('.tool-filter-btn');
+    var input = document.getElementById('tool-search-input');
+    var items = document.querySelectorAll('.tool-entry');
+    var currentCategory = 'all';
+    var searchKeyword = '';
+
+    function filterTools() {
+        items.forEach(function(item) {
+            var cat = item.getAttribute('data-category') || '';
+            var title = (item.querySelector('h2, h3') ? item.querySelector('h2, h3').textContent : '').toLowerCase();
+            var summary = (item.querySelector('.ui-muted') ? item.querySelector('.ui-muted').textContent : '').toLowerCase();
+            
+            var matchesCategory = currentCategory === 'all' || cat === currentCategory;
+            var matchesSearch = !searchKeyword || title.indexOf(searchKeyword) !== -1 || summary.indexOf(searchKeyword) !== -1 || cat.toLowerCase().indexOf(searchKeyword) !== -1;
+            
+            if (matchesCategory && matchesSearch) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            buttons.forEach(function(b) {
+                b.classList.remove('border-foreground', 'bg-foreground', 'text-background');
+                b.classList.add('border-border', 'bg-card', 'text-muted-foreground');
+            });
+            btn.classList.add('border-foreground', 'bg-foreground', 'text-background');
+            btn.classList.remove('border-border', 'bg-card', 'text-muted-foreground');
+            currentCategory = btn.getAttribute('data-filter');
+            filterTools();
+        });
+    });
+
+    if (input) {
+        input.addEventListener('input', function(e) {
+            searchKeyword = e.target.value.trim().toLowerCase();
+            filterTools();
+        });
+    }
+})();
+</script>
+{% endblock %}

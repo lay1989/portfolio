@@ -48,23 +48,22 @@
     </script>
 
     <!-- Favicon -->
+    <!-- IDENTITY_ICONS_START -->
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="./public/identity/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/identity/apple-touch-icon.png">
+    <!-- IDENTITY_ICONS_END -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..700&amp;family=Petrona:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
 
     <!-- Pinned local icons avoid blocking third-party fallbacks. -->
     <script src="./public/js/lucide.min.js" defer=""></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./tailwind.css">
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
-    <!-- Lenis smooth scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer=""></script>
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-043HH9GSZB"></script>
     <script>
@@ -75,798 +74,449 @@
       gtag('config', 'G-043HH9GSZB');
     </script>
 </head>
-<body class="bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden">
+<body class="bg-background text-foreground antialiased overflow-x-hidden">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3">Skip to content</a>
+    <a href="#main-content" class="ui-skip-link sr-only focus:not-sr-only">Skip to content</a>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent backdrop-blur-none border-b border-transparent data-[scrolled=true]:py-4 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:backdrop-blur-sm data-[scrolled=true]:border-border" data-scrolled="false">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-    <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link group">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-        </svg>
-        <span>LAY SHAH</span>
-    </a>
+    <nav aria-label="Main navigation" id="navbar" class="site-nav" data-scrolled="false">
+        <div class="site-nav__bar">
+    <a href="./index.html" class="logo-link identity-header"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="./public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="./public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
 
     <!-- Desktop Menu -->
-    <div class="hidden lg:flex items-center gap-5 xl:gap-8 nav-links-desktop">
-        <a href="./index.html#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-        <a href="./index.html#services" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-        <a href="./index.html#principles" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-        <a href="./projects.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-        <a href="./index.html#reviews" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-        <a href="./blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-        
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__links nav-links-desktop">
+        <a href="./index.html#about" class="site-nav__link">About</a>
+        <a href="./index.html#services" class="site-nav__link">Services</a>
+        <a href="./index.html#principles" class="site-nav__link">Process</a>
+        <a href="./projects.html" class="site-nav__link">Work</a>
+        <a href="./index.html#reviews" class="site-nav__link">Reviews</a>
+        <a href="./blog.html" class="site-nav__link">Blog</a>
+        <a href="./tools.html" class="site-nav__link">Tools</a>
+
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
 
-        <a href="./index.html#contact" class="px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-out-expo">
-            Let's Talk
+        <a href="./index.html#contact" class="line-button line-button--small site-nav__cta">
+            <span data-branding="contactLabel">Let's Talk</span>
         </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <div class="flex items-center gap-4 lg:hidden">
-        <button class="theme-toggle-btn p-2 rounded-full hover:bg-secondary transition-all duration-300 ease-out-expo hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group" aria-label="Toggle Dark Mode" aria-pressed="false">
-            <div class="relative w-5 h-5 overflow-hidden">
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-100 dark:opacity-0 translate-y-0 dark:translate-y-[30px] dark:rotate-90">
-                    <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
-                </div>
-                <div class="absolute top-0 left-0 transition-all duration-500 ease-out-expo opacity-0 dark:opacity-100 -translate-y-[30px] dark:translate-y-0 -rotate-90 dark:rotate-0">
-                    <i data-lucide="sun" class="w-5 h-5 text-foreground"></i>
-                </div>
-            </div>
+    <div class="site-nav__compact">
+        <button class="theme-toggle-btn site-nav__icon" aria-label="Toggle Dark Mode" aria-pressed="false">
+            <span class="theme-icons" aria-hidden="true"><i data-lucide="moon"></i><i data-lucide="sun"></i></span>
         </button>
-        <button id="mobile-menu-btn" class="group text-foreground p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
-            <div class="w-6 h-6 relative flex flex-col justify-around z-[60] cursor-pointer">
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:translate-y-[8px] group-[.active]:rotate-45"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:opacity-0 group-[.active]:-translate-x-[10px]"></span>
-                <span class="w-full h-[2px] bg-foreground origin-center transition-all duration-300 ease-out-expo group-[.active]:-translate-y-[8px] group-[.active]:-rotate-45"></span>
-            </div>
+        <button id="mobile-menu-btn" class="site-nav__icon site-nav__menu-button" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="site-nav__menu-icon" aria-hidden="true"><span></span><span></span></span>
         </button>
     </div>
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="absolute top-full left-0 w-full bg-background border-b border-border p-6 flex-col gap-4 shadow-lg flex lg:hidden opacity-0 pointer-events-none invisible -translate-y-4 transition-all duration-300 ease-out-expo [&amp;.open]:opacity-100 [&amp;.open]:translate-y-0 [&amp;.open]:pointer-events-auto [&amp;.open]:visible">
-    <a href="./index.html#about" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">About</a>
-    <a href="./index.html#services" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Services</a>
-    <a href="./index.html#principles" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Process</a>
-    <a href="./projects.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Work</a>
-    <a href="./index.html#reviews" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Reviews</a>
-    <a href="./blog.html" class="text-lg font-medium text-muted-foreground hover:text-primary transition-all duration-300 ease-out-expo">Blog</a>
-    <a href="./index.html#contact" class="text-lg font-medium text-primary transition-all duration-300 ease-out-expo">Contact</a>
+<div id="mobile-menu" class="site-menu">
+    <a href="./index.html#about" class="site-menu__link">About</a>
+    <a href="./index.html#services" class="site-menu__link">Services</a>
+    <a href="./index.html#principles" class="site-menu__link">Process</a>
+    <a href="./projects.html" class="site-menu__link">Work</a>
+    <a href="./index.html#reviews" class="site-menu__link">Reviews</a>
+    <a href="./blog.html" class="site-menu__link">Blog</a>
+    <a href="./tools.html" class="site-menu__link">Tools</a>
+    <a href="./index.html#contact" class="site-menu__link site-menu__contact"><span data-branding="mobileContactLabel">Contact</span></a>
 </div>
 
     </nav>
 
     <noscript>
-        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm">
+        <nav aria-label="Page links" class="pt-24 px-6 flex flex-wrap gap-6 text-sm underline">
             <a href="./index.html">Home</a>
             <a href="./projects.html">Work</a>
             <a href="./blog.html">Blog</a>
+            <a href="./tools.html">Tools</a>
             <a href="./index.html#contact">Contact</a>
         </nav>
     </noscript>
 
-    <main id="main-content" tabindex="-1">
-        <!-- ======================================== -->
-        <!-- HERO SECTION                             -->
-        <!-- ======================================== -->
-        <section id="hero" class="relative min-h-[85vh] flex flex-col justify-center overflow-hidden pt-24 pb-16 md:pb-24">
-            <div class="container mx-auto px-6 z-10 relative">
-                <div class="max-w-6xl mx-auto">
-                    
-                    <div class="flex flex-col items-start text-left">
-                        <!-- Label -->
-                        <span class="hero-label text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-[0.2em] mb-8 block">
-                            (LAY SHAH · INDEPENDENT WEB DEVELOPER)
-                        </span>
+    <main class="home" data-thread-page="" data-thread-mode="sections" id="main-content" tabindex="-1">
+        <!-- One line runs from the opening drawing to the contact form; see src/line.js. -->
+        <svg class="thread" aria-hidden="true" focusable="false"><path class="thread__path"></path><circle class="thread__pen" r="5"></circle></svg>
 
-                        <!-- Headline -->
-                        <h1 class="hero-headline font-serif font-normal leading-[1.0] tracking-tight text-foreground mb-6 text-balance" style="font-size: clamp(3.25rem, 8.5vw, 7rem);">
-                            A better website.<br>
-                            <span class="italic text-accent">A simpler workday.</span>
-                        </h1>
-
-                        <!-- Sub-headline -->
-                        <p class="hero-sub text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-                            I build websites that help customers choose your business, and custom tools that cut repetitive work. You work directly with me, from the first sketch to launch.
-                        </p>
-
-                        <!-- CTAs -->
-                        <div class="hero-ctas flex flex-wrap items-center gap-4 md:gap-6">
-                            <a href="#contact" class="group flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-hover-lift hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-                                Tell me what you need
-                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
-                            </a>
-                            <a href="#work" class="group flex items-center gap-3 px-8 py-4 border border-foreground bg-foreground text-background rounded-full font-medium hover:bg-transparent hover:text-foreground transition-all duration-300 shadow-hover-lift hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground">
-                                See what I’ve built
-                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <p class="mt-7 text-sm text-muted-foreground leading-relaxed">Based in Ahmedabad, India. Working with founders, local businesses, and small teams.</p>
+        <!-- Opening -->
+        <section id="hero" class="home-hero" data-enter="" data-lane="right">
+            <div class="home-shell home-hero__grid">
+                <div class="home-hero__copy">
+                    <h1 class="hero-headline home-hero__title site-heading type-title">Less busywork.<br><span>More of your actual business.</span></h1>
+                    <p class="hero-sub">Websites that bring in customers, plus the apps, dashboards and AI automations that handle the repetitive parts. Designed and built by one developer.</p>
+                    <div class="hero-ctas">
+                        <a href="#contact" class="line-button">Tell me what you need</a>
+                        <a href="./projects.html" class="hero-secondary line-link">See what I’ve built</a>
                     </div>
+                    <p class="hero-note">Based in Ahmedabad, India. Working with founders, local businesses, and small teams.</p>
+                </div>
+                <div class="home-hero__art" data-draw="">
+                    <svg class="drawing drawing--street drawing--scene" viewBox="0 0 640 340" aria-hidden="true" focusable="false"><path class="lnA" pathLength="1" style="--i:1" d="M0 300 H38 C44 300 46 292 50 292 H192 C196 292 198 300 204 300 H222 C230 300 232 306 240 306 H300 C306 306 310 300 316 300 C326 300 330 284 320 282 C310 280 310 300 328 300 H440 C446 300 448 306 456 306 H600 C606 306 608 300 614 300 H640"></path><g class="street-item" data-label="Shops and studios"><text class="street-label" x="120" y="128" text-anchor="middle">Shops and studios</text><rect class="hit" x="40" y="140" width="162" height="162"></rect><path class="fl" style="--i:2" d="M50 180 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 Z"></path><path class="ln" pathLength="1" style="--i:3" d="M50 292 V180 H190 V292"></path><path class="ln" pathLength="1" style="--i:4" d="M44 180 H196 V146 H44 Z"></path><path class="ln" pathLength="1" style="--i:5" d="M74 163 H166"></path><path class="ln" pathLength="1" style="--i:6" d="M50 180 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0 q10 22 20 0"></path><path class="ln" pathLength="1" style="--i:7" d="M78 292 V228 H110 V292"></path><path class="ln" pathLength="1" style="--i:8" d="M126 218 H178 V266 H126 Z M152 218 V266"></path></g><g class="street-item street-item--cup" data-label="Cafés"><text class="street-label" x="265" y="168" text-anchor="middle">Cafés</text><rect class="hit" x="222" y="182" width="96" height="122"></rect><path class="fl" style="--i:9" d="M240 256 H290 L287 272 H243 Z"></path><path class="ln" pathLength="1" style="--i:10" d="M236 238 H294 L286 286 Q265 294 244 286 Z"></path><path class="ln" pathLength="1" style="--i:11" d="M293 250 c18 0 18 28 -3 28"></path><path class="lnA" pathLength="1" style="--i:12" d="M255 226 c-8 -10 8 -16 0 -26 c-6 -8 4 -12 0 -18"></path><path class="lnA" pathLength="1" style="--i:13" d="M274 226 c-8 -10 8 -16 0 -26 c-6 -8 4 -12 0 -18"></path></g><g class="street-item street-item--tyre" data-label="Tyre retreading"><text class="street-label" x="376" y="190" text-anchor="middle">Tyre retreading</text><rect class="hit" x="326" y="198" width="102" height="106"></rect><path class="ln" pathLength="1" style="--i:14" d="M330 250 a46 46 0 1 0 92 0 a46 46 0 1 0 -92 0"></path><path class="ln" pathLength="1" style="--i:15" d="M352 250 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"></path><path class="ln" pathLength="1" style="--i:16" d="M416.0 250.0 L422.0 250.0 M410.6 270.0 L415.8 273.0 M396.0 284.6 L399.0 289.8 M376.0 290.0 L376.0 296.0 M356.0 284.6 L353.0 289.8 M341.4 270.0 L336.2 273.0 M336.0 250.0 L330.0 250.0 M341.4 230.0 L336.2 227.0 M356.0 215.4 L353.0 210.2 M376.0 210.0 L376.0 204.0 M396.0 215.4 L399.0 210.2 M410.6 230.0 L415.8 227.0"></path><path class="flA" style="--i:17" d="M368 250 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0"></path></g><g class="street-item" data-label="Web platforms"><text class="street-label" x="527" y="170" text-anchor="middle">Web platforms</text><rect class="hit" x="440" y="184" width="176" height="122"></rect><path class="ln" pathLength="1" style="--i:18" d="M458 292 V190 H596 V292"></path><path class="ln" pathLength="1" style="--i:19" d="M444 292 H610 L600 300 H454 Z"></path><path class="fl" style="--i:20" d="M472 236 H520 V274 H472 Z"></path><path class="ln" pathLength="1" style="--i:21" d="M472 206 H534 M472 220 H566"></path><path class="ln" pathLength="1" style="--i:22" d="M472 236 H520 V274 H472 Z"></path><path class="ln" pathLength="1" style="--i:23" d="M536 236 H580 M536 249 H572 M536 262 H562"></path></g></svg>
+                    <span class="thread-start" data-thread-start=""></span>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- MARQUEE TICKER STRIP                     -->
-        <!-- ======================================== -->
-        <div class="overflow-hidden py-6 bg-secondary/30" aria-hidden="true">
-            <div class="marquee-track flex items-center">
-                <!-- First copy -->
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Fast by default</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">No page builders</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">SEO-ready from day one</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Mobile-first</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Clean code, handed over</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Full-stack, one person</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <!-- Second copy (seamless loop) -->
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Fast by default</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">No page builders</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">SEO-ready from day one</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Mobile-first</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Clean code, handed over</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
-                <span class="text-xl md:text-2xl font-mono text-muted-foreground whitespace-nowrap px-8 md:px-12 uppercase tracking-widest">Full-stack, one person</span>
-                <span class="text-accent text-xl md:text-2xl leading-none">•</span>
+        <!-- About -->
+        <section id="about" class="home-about" data-lane="right">
+            <div class="home-shell home-about__grid">
+                <div>
+                    <h2 id="home-about-heading" class="home-heading site-heading" data-reading-statement="">One person.<br>The whole build.<br><span>Accountable to you.</span></h2>
+                    <div class="home-about__copy">
+                        <p>I’m Lay, a freelance developer who handles design, frontend, and backend. The person you talk to is the person making the decisions and writing the code.</p>
+                        <p>My work ranges from a tyre-retreading website to a fabric catalog system and a creator campaign platform. Each one starts with the same question.</p>
+                    </div>
+                    <figure class="home-about__question">
+                        <figcaption class="home-approach-question-label">The question I start with</figcaption>
+                        <blockquote>What should this make easier for your customers or your team?</blockquote>
+                    </figure>
+                </div>
+                <div class="home-about__art" data-draw=""><svg class="drawing drawing--desk drawing--scene" viewBox="0 0 480 320" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M392 146 L360 236 H448 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M24 236 H456"></path><path class="ln" pathLength="1" style="--i:2" d="M56 236 V306 M424 236 V306 M56 270 H424"></path><path class="ln" pathLength="1" style="--i:3" d="M182 236 L172 146 H306 L316 236"></path><path class="fl" style="--i:4" d="M190 160 H290 V196 H192 Z"></path><path class="ln" pathLength="1" style="--i:5" d="M196 170 H246 M196 182 H272 M196 210 H236 M252 210 H292"></path><path class="ln" pathLength="1" style="--i:6" d="M160 236 H336"></path><path class="ln" pathLength="1" style="--i:7" d="M86 202 H122 L118 236 H90 Z"></path><path class="ln" pathLength="1" style="--i:8" d="M122 210 c12 0 12 18 -2 18"></path><path class="lnA" pathLength="1" style="--i:9" d="M98 194 c-5 -6 5 -10 0 -16 M110 194 c-5 -6 5 -10 0 -16"></path><path class="ln" pathLength="1" style="--i:10" d="M392 236 H428 M410 236 L384 168 L414 128"></path><path class="ln" pathLength="1" style="--i:11" d="M402 118 L436 134 L416 154 Z"></path><path class="ln" pathLength="1" style="--i:12" d="M338 230 L344 212 L384 216 L380 234 Z"></path><path class="lnA" pathLength="1" style="--i:13" d="M350 226 L372 204"></path></svg></div>
             </div>
-        </div>
+        </section>
 
-        <!-- ======================================== -->
-        <!-- ABOUT SECTION                            -->
-        <!-- ======================================== -->
-        <section id="about" class="py-24 md:py-36 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <div class="grid md:grid-cols-12 gap-12 md:gap-20 items-start">
-                    <div class="md:col-span-7 lg:col-span-8">
-                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 block">(ABOUT)</span>
-                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight text-foreground text-balance reveal">
-                            One person.<br>
-                            The whole build.<br>
-                            <span class="text-accent italic font-serif font-normal">Accountable to you.</span>
-                        </h2>
-                    </div>
-                    <div class="md:col-span-5 lg:col-span-4 space-y-8 pt-0 md:pt-[64px]">
-                        <p class="text-lg text-muted-foreground leading-relaxed reveal max-w-[52ch]">
-                            I’m Lay, a freelance developer who handles design, frontend, and backend. The person you talk to is the person making the decisions and writing the code.
-                        </p>
-                        <p class="text-lg text-muted-foreground leading-relaxed reveal delay-100 max-w-[52ch]">
-                            My work ranges from a tyre-retreading website to a fabric catalog system and a creator campaign platform. Each starts with the same question: what should this make easier for your customers or your team?
-                        </p>
-                    </div>
+        <!-- Services -->
+        <section id="services" class="home-services" aria-labelledby="home-services-heading" data-lane="left">
+            <div class="home-shell">
+                <header class="home-section-head">
+                    <h2 id="home-services-heading" class="home-heading site-heading">Six services.<br><span>One developer.</span></h2>
+                    <p class="home-services-intro home-section-intro">A good fit if you need a clearer business website, a custom web product, or a tool that replaces a manual workflow. We agree the scope and timeline before the build starts.</p>
+                </header>
+                <ol id="services-list" class="home-services-list" role="list">
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-website" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 14 H56 V50 H8 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M8 22 H56"></path><path class="ln" pathLength="1" style="--i:2" d="M12 18 h0.5 M17 18 h0.5 M22 18 h0.5"></path><path class="ln" pathLength="1" style="--i:3" d="M15 30 H40 M15 37 H32"></path><path class="flA" style="--i:4" d="M15 42 H28 V46 H15 Z"></path><path class="lnA" pathLength="1" style="--i:5" d="M42 34 L51 43 L46.5 44 L49 49.5 L46.5 50.5 L44 45 L41 47.5 Z"></path></svg></span>
+                        <h3 class="home-service-title site-heading">Websites &amp; Landing Pages</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">Clear service pages, mobile layouts, and a direct path to an inquiry. Built around the questions your customers need answered.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>HTML/CSS</li><li>Tailwind</li><li>GSAP</li></ul>
+                        </div>
+                    </li>
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-app" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 12 H56 V52 H8 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M20 12 V52"></path><path class="ln" pathLength="1" style="--i:2" d="M12 20 H16 M12 26 H16 M12 32 H16"></path><path class="fl" style="--i:3" d="M26 18 H38 V28 H26 Z"></path><path class="ln" pathLength="1" style="--i:4" d="M26 18 H38 V28 H26 Z M42 18 H52 V28 H42 Z"></path><path class="lnA" pathLength="1" style="--i:5" d="M26 46 L32 38 L38 42 L44 34 L52 40"></path></svg></span>
+                        <h3 class="home-service-title site-heading">Web Applications</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">React on the front, Python on the back. Dashboards, portals, and tools your team will actually open every morning.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>React</li><li>Next.js</li><li>Python</li><li>PostgreSQL</li></ul>
+                        </div>
+                    </li>
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-store" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M14 22 H50 L47 55 H17 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M24 22 V18 a8 8 0 0 1 16 0 V22"></path><path class="fl" style="--i:2" d="M36 32 H46 L50 37 L46 42 H36 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M36 32 H46 L50 37 L46 42 H36 Z"></path><path class="ln" pathLength="1" style="--i:4" d="M40 37 h0.5"></path></svg></span>
+                        <h3 class="home-service-title site-heading">E-Commerce</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">Shopify custom themes or headless builds. Focused on getting people to checkout, not just looking good.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>Shopify</li><li>Liquid</li><li>Headless</li></ul>
+                        </div>
+                    </li>
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-cms" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M12 8 H38 L48 18 V56 H12 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M38 8 V18 H48"></path><path class="ln" pathLength="1" style="--i:2" d="M18 26 H38 M18 33 H42 M18 40 H30"></path><path class="fl" style="--i:3" d="M34 48 L50 32 L54 36 L38 52 Z"></path><path class="lnA" pathLength="1" style="--i:4" d="M34 48 L50 32 L54 36 L38 52 L32 54 Z M47 35 L51 39"></path></svg></span>
+                        <h3 class="home-service-title site-heading">Custom CMS &amp; Admin Tools</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">Internal tools your team can use without calling me every time. Catalog systems, role-based access, the lot.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>Flask</li><li>SQLAlchemy</li><li>REST</li></ul>
+                        </div>
+                    </li>
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-chart" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M10 8 V54 H58"></path><path class="fl" style="--i:1" d="M16 44 H22 V54 H16 Z M28 38 H34 V54 H28 Z M40 42 H46 V54 H40 Z M52 30 H56 V54 H52 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M16 44 H22 V54 M28 38 H34 V54 M40 42 H46 V54"></path><path class="lnA" pathLength="1" style="--i:3" d="M14 34 L26 24 L38 28 L54 12"></path><path class="lnA" pathLength="1" style="--i:4" d="M48 12 H54 V18"></path></svg></span>
+                        <h3 class="home-service-title site-heading">Dashboards &amp; Data Viz</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">Interactive charts, real-time feeds, live trading analytics. Monitors that make sense at a glance.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>D3.js</li><li>Chart.js</li><li>WebSocket</li></ul>
+                        </div>
+                    </li>
+                    <li class="home-service-row" data-draw="">
+                        <span class="home-service-glyph" aria-hidden="true"><svg class="drawing drawing--glyph-automation" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M14 24 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0"></path><path class="ln" pathLength="1" style="--i:1" d="M34.0 24.0 L38.0 24.0 M31.1 31.1 L33.9 33.9 M24.0 34.0 L24.0 38.0 M16.9 31.1 L14.1 33.9 M14.0 24.0 L10.0 24.0 M16.9 16.9 L14.1 14.1 M24.0 14.0 L24.0 10.0 M31.1 16.9 L33.9 14.1"></path><path class="flA" style="--i:2" d="M20.5 24 a3.5 3.5 0 1 0 7.0 0 a3.5 3.5 0 1 0 -7.0 0"></path><path class="ln" pathLength="1" style="--i:3" d="M37 42 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0"></path><path class="ln" pathLength="1" style="--i:4" d="M50.1 45.4 L52.8 46.8 M44.2 49.0 L44.2 52.0 M38.0 45.6 L35.5 47.2 M37.9 38.6 L35.2 37.2 M43.8 35.0 L43.8 32.0 M50.0 38.4 L52.5 36.8"></path><path class="lnA" pathLength="1" style="--i:5" d="M10 44 C10 56 26 60 34 54 M30 51 L34 54 L30 58"></path><path class="lnA" pathLength="1" style="--i:6" d="M54 20 C54 10 42 6 36 10 M40 13 L36 10 L40 6"></path></svg></span>
+                        <h3 class="home-service-title site-heading">Automation &amp; Bots</h3>
+                        <div class="home-service-copy">
+                            <p class="home-service-description">Trading bots, scrapers, workflow automation. If it's repetitive, it can probably be automated away.</p>
+                            <ul class="home-service-tags" aria-label="Technologies"><li>Python</li><li>Binance API</li><li>Telegram</li></ul>
+                        </div>
+                    </li>
+                </ol>
+                <div class="home-services-footer">
+                    <p class="home-services-note">Not sure which one you need? Tell me what needs to change and we’ll work out where to start.</p>
+                    <a href="#contact" class="home-services-cta line-button line-button--ghost">Discuss your project</a>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SERVICES SECTION                         -->
-        <!-- ======================================== -->
-        <section id="services" class="py-24 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <!-- Top Section -->
-                <div class="grid md:grid-cols-12 gap-8 items-start mb-16 md:mb-24">
-                    <div class="md:col-span-7 lg:col-span-8">
-                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(WHAT I BUILD)</span>
-                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
-                            Six services. <span class="text-accent italic font-serif font-normal">One developer.</span>
-                        </h2>
-                    </div>
-                    <div class="md:col-span-5 lg:col-span-4 pt-0 md:pt-[48px]">
-                        <p class="text-lg text-muted-foreground leading-relaxed text-balance reveal">
-                            A good fit if you need a clearer business website, a custom web product, or a tool that replaces a manual workflow. We agree the scope and timeline before the build starts.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Services List -->
-                <div class="border-b border-border mb-20" id="services-list">
-                    <!-- Row 1 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            01
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            Websites &amp; Landing Pages
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                Clear service pages, mobile layouts, and a direct path to an inquiry. Built around the questions your customers need answered.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">HTML/CSS</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">TAILWIND</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">GSAP</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 2 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            02
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            Web Applications
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                React on the front, Python on the back. Dashboards, portals, and tools your team will actually open every morning.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">REACT</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">NEXT.JS</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">PYTHON</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">POSTGRESQL</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 3 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            03
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            E-Commerce
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                Shopify custom themes or headless builds. Focused on getting people to checkout, not just looking good.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">SHOPIFY</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">LIQUID</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">HEADLESS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 4 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            04
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            Custom CMS &amp; Admin Tools
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                Internal tools your team can use without calling me every time. Catalog systems, role-based access, the lot.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">FLASK</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">SQLALCHEMY</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">REST</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 5 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            05
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            Dashboards &amp; Data Viz
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                Interactive charts, real-time feeds, live trading analytics. Monitors that make sense at a glance.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">D3.JS</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">CHART.JS</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">WEBSOCKET</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 6 -->
-                    <div class="service-row border-t border-border py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group transition-colors duration-300 px-4 -mx-4 rounded-3xl">
-                        <div class="service-number md:col-span-1 text-[10px] tracking-[0.2em] font-mono text-muted-foreground pt-2 md:pt-3 transition-all duration-500 group-hover:translate-x-2">
-                            06
-                        </div>
-                        <div class="service-title md:col-span-5 text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-foreground transition-all duration-500 group-hover:translate-x-2">
-                            Automation &amp; Bots
-                        </div>
-                        <div class="md:col-span-6 space-y-4">
-                            <p class="text-lg text-muted-foreground leading-relaxed">
-                                Trading bots, scrapers, workflow automation. If it's repetitive, it can probably be automated away.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">PYTHON</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">BINANCE API</span>
-                                <span class="px-3 py-1.5 text-[10px] font-mono border border-border rounded-full uppercase tracking-widest text-muted-foreground bg-transparent">TELEGRAM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
+        <!-- Process: a real sequence, so it is numbered. -->
+        <section id="principles" class="home-process" aria-labelledby="home-process-heading" data-lane="left">
+            <div class="home-shell">
+                <header class="home-section-head">
+                    <h2 id="home-process-heading" class="home-heading site-heading">Know what happens.<br><span>At every step.</span></h2>
+                    <p class="home-process-intro home-section-intro">We agree the scope before the build starts. You review a working site along the way, then get the code, the access and a walkthrough at handover.</p>
+                </header>
+                <ol id="process-container" class="home-process-steps" role="list">
+                    <li class="home-process-step" data-draw="">
+                        <span class="home-process-glyph" aria-hidden="true"><svg class="drawing drawing--step-talk" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 10 H38 a4 4 0 0 1 4 4 V28 a4 4 0 0 1 -4 4 H20 L12 39 V32 H12 a4 4 0 0 1 -4 -4 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M14 18 H34 M14 24 H28"></path><path class="fl" style="--i:2" d="M26 30 H52 a4 4 0 0 1 4 4 V46 a4 4 0 0 1 -4 4 H50 V56 L42 50 H30 a4 4 0 0 1 -4 -4 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M26 30 H52 a4 4 0 0 1 4 4 V46 a4 4 0 0 1 -4 4 H50 V56 L42 50 H30 a4 4 0 0 1 -4 -4 Z"></path><path class="lnA" pathLength="1" style="--i:4" d="M33 40 h0.5 M41 40 h0.5 M49 40 h0.5"></path></svg></span>
+                        <span class="home-process-number" aria-hidden="true">01</span>
+                        <h3 class="home-process-title site-heading">Talk</h3>
+                        <p class="home-process-description">Send a short brief or book a 30-minute call. We talk about your audience, the problem, and what a useful result looks like.</p>
+                    </li>
+                    <li class="home-process-step" data-draw="">
+                        <span class="home-process-glyph" aria-hidden="true"><svg class="drawing drawing--step-plan" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M10 8 H54 V56 H10 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M16 15 H48"></path><path class="fl" style="--i:2" d="M16 22 H33 V38 H16 Z"></path><path class="ln" pathLength="1" style="--i:3" d="M16 22 H33 V38 H16 Z M16 22 L33 38 M33 22 L16 38"></path><path class="ln" pathLength="1" style="--i:4" d="M38 24 H48 M38 30 H46 M38 36 H44"></path><path class="lnA" pathLength="1" style="--i:5" d="M16 46 H48 M20 43 V49 M28 44 V48 M36 43 V49 M44 44 V48"></path></svg></span>
+                        <span class="home-process-number" aria-hidden="true">02</span>
+                        <h3 class="home-process-title site-heading">Direction</h3>
+                        <p class="home-process-description">You get a proposed scope, timeline, and design direction. We agree what’s included before development begins.</p>
+                    </li>
+                    <li class="home-process-step" data-draw="">
+                        <span class="home-process-glyph" aria-hidden="true"><svg class="drawing drawing--step-build" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 12 H56 V44 H8 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M32 44 V52 M22 52 H42"></path><path class="lnA" pathLength="1" style="--i:2" d="M25 21 L18 28 L25 35"></path><path class="lnA" pathLength="1" style="--i:3" d="M39 21 L46 28 L39 35"></path><path class="ln" pathLength="1" style="--i:4" d="M35 18 L29 38"></path></svg></span>
+                        <span class="home-process-number" aria-hidden="true">03</span>
+                        <h3 class="home-process-title site-heading">Build properly</h3>
+                        <p class="home-process-description">Review the working site as it takes shape. I check mobile layouts, loading speed, and the paths people use to contact you or get work done.</p>
+                    </li>
+                    <li class="home-process-step" data-draw="">
+                        <span class="home-process-glyph" aria-hidden="true"><svg class="drawing drawing--step-launch" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M9 42 a11 11 0 1 0 22 0 a11 11 0 1 0 -22 0"></path><path class="fl" style="--i:1" d="M15.5 42 a4.5 4.5 0 1 0 9.0 0 a4.5 4.5 0 1 0 -9.0 0"></path><path class="ln" pathLength="1" style="--i:2" d="M15.5 42 a4.5 4.5 0 1 0 9.0 0 a4.5 4.5 0 1 0 -9.0 0"></path><path class="lnA" pathLength="1" style="--i:3" d="M28 34 L54 8"></path><path class="lnA" pathLength="1" style="--i:4" d="M46 16 L51 21 M50 12 L55 17"></path></svg></span>
+                        <span class="home-process-number" aria-hidden="true">04</span>
+                        <h3 class="home-process-title site-heading">Stay after launch</h3>
+                        <p class="home-process-description">I walk you through the finished build, hand over the code and access, and agree what support you need after launch.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- HOW I WORK SECTION                       -->
-        <!-- ======================================== -->
-        <section id="principles" class="pt-20 pb-20 md:pt-24 md:pb-24 px-6 bg-secondary/30 rounded-[3rem] my-12 md:my-16">
-            <div class="container mx-auto max-w-6xl">
-                <!-- Top Section -->
-                <div class="mb-16 md:mb-24">
-                    <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(PROCESS)</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance">
-                        Know what happens.<br><span class="text-accent italic font-serif font-normal">At every step.</span>
-                    </h2>
-                </div>
-
-                <!-- Process Grid Bento Container -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="process-container">
-                    <!-- Column 1: Talk -->
-                    <div class="process-col p-10 border border-border bg-card rounded-3xl md:col-span-1 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="space-y-6">
-                            <span class="text-sm font-mono text-accent block">01</span>
-                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Talk</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Send a short brief or book a 30-minute call. We talk about your audience, the problem, and what a useful result looks like.
-                            </p>
-                        </div>
+        <!-- Selected work, in the order chosen in the website manager. -->
+        <section id="work" class="home-work" aria-labelledby="home-work-heading" data-lane="right">
+            <div class="home-shell">
+                <header class="home-section-head">
+                    <h2 id="home-work-heading" class="home-heading site-heading">Different businesses.<br><span>Practical builds.</span></h2>
+                    <div class="home-section-intro">
+                        <p class="home-work-intro">The business, my role, and the decisions behind each build.</p>
+                        <a href="./projects.html" class="home-work-all line-link">All projects</a>
                     </div>
-
-                    <!-- Column 2: Direction -->
-                    <div class="process-col p-10 border border-border bg-secondary/20 rounded-3xl md:col-span-2 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="space-y-6">
-                            <span class="text-sm font-mono text-accent block">02</span>
-                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Direction</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                You get a proposed scope, timeline, and design direction. We agree what’s included before development begins.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Column 3: Build properly -->
-                    <div class="process-col p-10 border border-border bg-card rounded-3xl md:col-span-2 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="space-y-6">
-                            <span class="text-sm font-mono text-accent block">03</span>
-                            <h3 class="text-2xl font-display font-bold text-foreground process-title">Build properly</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Review the working site as it takes shape. I check mobile layouts, loading speed, and the paths people use to contact you or get work done.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Column 4: Stay after launch -->
-                    <div class="process-col p-10 bg-accent text-accent-foreground rounded-3xl md:col-span-1 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <div class="space-y-6">
-                            <span class="text-sm font-mono opacity-80 block">04</span>
-                            <h3 class="text-2xl font-display font-bold process-title">Stay after launch</h3>
-                            <p class="opacity-90 leading-relaxed">
-                                I walk you through the finished build, hand over the code and access, and agree what support you need after launch.
-                            </p>
-                        </div>
-                    </div>
+                </header>
+                <div id="projects-container" class="home-work-list">
+                    <article class="work-card work-card--lead" data-project="10" data-featured-project="10" data-draw="">
+            <a class="home-work-image" href="./projects/ash-clipping.html" aria-label="View ASH Clipping case study"><picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/ASH%20clipping%20-%20hero-small.webp 600w, ./public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 899px) 100vw, 58vw">
+        <img src="./public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="work-card__copy">
+                <span class="work-card__glyph" aria-hidden="true"><svg class="drawing drawing--play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M20 6 H44 a3 3 0 0 1 3 3 V55 a3 3 0 0 1 -3 3 H20 a3 3 0 0 1 -3 -3 V9 a3 3 0 0 1 3 -3 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M28 12 H36"></path><path class="flA" style="--i:2" d="M27 24 L41 32 L27 40 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M8 24 a4 4 0 0 0 0 16 M56 24 a4 4 0 0 1 0 16"></path></svg></span>
+                <p class="meta work-card__meta"><span>Full Stack Web Application</span><span>2026</span></p>
+                <h3 class="work-card__title site-heading"><a href="./projects/ash-clipping.html">ASH Clipping</a></h3>
+                <p class="work-card__summary">A campaign platform for brands and creators, bringing content review, social view tracking, and creator payout records into one place.</p>
+                <dl class="work-card__facts"><div><dt>My role</dt><dd>Lead Full-Stack Architect &amp; Developer</dd></div><div><dt>Timeline</dt><dd>15 Weeks</dd></div></dl>
+                <a class="line-link" href="./projects/ash-clipping.html" aria-label="Read the ASH Clipping case study">Read the case study</a>
+            </div>
+        </article>
+<article class="work-card" data-project="9" data-draw="">
+            <a class="home-work-image" href="./projects/intent-studio.html" aria-label="View Intent Studio case study"><picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Intent-studio%20-%20hero-small.webp 600w, ./public/images/Intent-studio%20-%20hero.webp 1366w" sizes="(max-width: 899px) 100vw, 50vw">
+        <img src="./public/images/Intent-studio%20-%20hero.webp" width="1366" height="768" alt="Intent Studio" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="work-card__copy">
+                <span class="work-card__glyph" aria-hidden="true"><svg class="drawing drawing--hanger" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M32 20 V16 a5 5 0 1 1 5 -5"></path><path class="ln" pathLength="1" style="--i:1" d="M32 20 L6 40 H58 Z"></path><path class="fl" style="--i:2" d="M14 40 H50 L48 58 H16 Z"></path><path class="lnA" pathLength="1" style="--i:3" d="M14 40 H50 L48 58 H16 Z"></path></svg></span>
+                <p class="meta work-card__meta"><span>Retail Design Studio</span><span>2026</span></p>
+                <h3 class="work-card__title site-heading"><a href="./projects/intent-studio.html">Intent Studio</a></h3>
+                <p class="work-card__summary">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
+                <dl class="work-card__facts"><div><dt>My role</dt><dd>Lead Designer &amp; Frontend Developer</dd></div><div><dt>Timeline</dt><dd>4 Weeks</dd></div></dl>
+                <a class="line-link" href="./projects/intent-studio.html" aria-label="Read the Intent Studio case study">Read the case study</a>
+            </div>
+        </article>
+<article class="work-card" data-project="8" data-draw="">
+            <a class="home-work-image" href="./projects/capital-tyres.html" aria-label="View Capital Tyres case study"><picture class="block w-full">
+        <source type="image/webp" srcset="./public/images/Capital%20Tyres%20-%20hero-small.webp 600w, ./public/images/Capital%20Tyres%20-%20hero.webp 1348w" sizes="(max-width: 899px) 100vw, 50vw">
+        <img src="./public/images/Capital%20Tyres%20-%20hero.webp" width="1348" height="766" alt="Capital Tyres" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="work-card__copy">
+                <span class="work-card__glyph" aria-hidden="true"><svg class="drawing drawing--tyre" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" style="--i:0" d="M8 32 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"></path><path class="ln" pathLength="1" style="--i:1" d="M20 32 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0"></path><path class="ln" pathLength="1" style="--i:2" d="M51.0 32.0 L56.0 32.0 M48.5 41.5 L52.8 44.0 M41.5 48.5 L44.0 52.8 M32.0 51.0 L32.0 56.0 M22.5 48.5 L20.0 52.8 M15.5 41.5 L11.2 44.0 M13.0 32.0 L8.0 32.0 M15.5 22.5 L11.2 20.0 M22.5 15.5 L20.0 11.2 M32.0 13.0 L32.0 8.0 M41.5 15.5 L44.0 11.2 M48.5 22.5 L52.8 20.0"></path><path class="flA" style="--i:3" d="M28 32 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0"></path></svg></span>
+                <p class="meta work-card__meta"><span>Local Business Web Design</span><span>2026</span></p>
+                <h3 class="work-card__title site-heading"><a href="./projects/capital-tyres.html">Capital Tyres</a></h3>
+                <p class="work-card__summary">A five-page website for a Pune tyre-retreading business, explaining the services and helping fleet owners take the next step.</p>
+                <dl class="work-card__facts"><div><dt>My role</dt><dd>Lead Designer &amp; Developer</dd></div><div><dt>Timeline</dt><dd>10 Days</dd></div></dl>
+                <a class="line-link" href="./projects/capital-tyres.html" aria-label="Read the Capital Tyres case study">Read the case study</a>
+            </div>
+        </article>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SELECTED WORK SECTION                    -->
-        <!-- ======================================== -->
-        <section id="work" class="py-24 md:py-32 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <div class="grid md:grid-cols-12 gap-8 items-start md:items-end mb-16 md:mb-24">
-                    <div class="md:col-span-8">
-                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(SELECTED WORK)</span>
-                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
-                            Different businesses.<br><span class="italic font-serif font-normal text-accent">Practical builds.</span>
-                        </h2>
-                    </div>
-                    <div class="md:col-span-4 flex md:justify-end items-end">
-                        <a href="projects.html" class="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 reveal">
-                            All projects
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+        <!-- Client feedback, complete and attributed. -->
+        <section id="reviews" class="home-reviews" aria-labelledby="home-feedback-heading" data-lane="left">
+            <div class="home-shell">
+                <header class="home-section-head">
+                    <h2 id="home-feedback-heading" class="home-heading site-heading">From people I've<br><span>actually worked with.</span></h2>
+                    <p class="home-feedback-intro home-section-intro">Their words on the work, and on building it together.</p>
+                </header>
+                <ul id="reviews-thread" class="home-reviews-list" role="list">
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"Professional, fast, and <em>incredibly talented</em>. Lay transformed our online presence completely, and the new headless architecture has already <em>increased our conversion rate significantly</em>."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Vipul Shah</span><span class="home-feedback-role">Owner, Kamaldeep Enterprise</span></figcaption>
+                        </figure>
+                    </li>
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"We needed something that looked credible to international clients. Within two weeks of going live, we started getting inquiries from Dubai and Singapore. Our old site hadn't done that in three years."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Fred Stack</span><span class="home-feedback-role">Director, SwiftBuild Infratech</span></figcaption>
+                        </figure>
+                    </li>
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"We needed a site that instantly communicated trust to our global B2B partners. Lay stripped away the clutter and built a lightning-fast landing page. The difference in how international clients perceive us now is night and day."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Parth Patel</span><span class="home-feedback-role">CEO, Ghermar &amp; Sons</span></figcaption>
+                        </figure>
+                    </li>
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"Lay built a high-performance website that perfectly positions our commercial tyre retreading business. The site looks incredibly premium, and it immediately started driving qualified leads from major fleet operators across Pune."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Vinish</span><span class="home-feedback-role">Owner, Capital Tyres</span></figcaption>
+                        </figure>
+                    </li>
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"Lay transformed our vision into a sleek, high-converting platform that loads instantly and clearly communicates our edge in the creator economy. Inquiries and campaign activations increased rapidly after launch."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Shubh</span><span class="home-feedback-role">CEO, ASH Clipping</span></figcaption>
+                        </figure>
+                    </li>
+                    <li class="home-feedback-item">
+                        <figure class="home-feedback-quote">
+                            <blockquote><p>"We needed a digital experience that matched our premium retail design philosophy. Lay delivered a responsive, tactile website that strengthens our brand and captures the exact feeling we want our clients to have."</p></blockquote>
+                            <figcaption><span class="home-feedback-name">Sarah Jenkins</span><span class="home-feedback-role">Brand Strategist, Intent Studio</span></figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-                <div id="projects-container" class="space-y-20 md:space-y-32">
-                    
-                    <!-- Project 1 -->
-                    <div class="project-item group block @container" data-project="10">
-                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
-                            <div class="order-2 @2xl:order-1">
-                                <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <picture class="block w-full">
-        <source type="image/webp" srcset="./public/images/ASH%20clipping%20-%20hero-small.webp 600w, ./public/images/ASH%20clipping%20-%20hero.webp 1352w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/ASH%20clipping%20-%20hero.webp" width="1352" height="768" alt="ASH Clipping - Full Stack Web Application" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                                </div>
-                            </div>
-                            <div class="order-1 @2xl:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Full Stack Web Application - 2026</span>
-                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">ASH Clipping</h3>
-                                <p class="text-muted-foreground text-lg mb-6 leading-relaxed">A campaign platform for brands and creators, bringing content review, social view tracking, and creator payout records into one place.</p>
-                                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">What shipped · 15 Weeks</p>
-                                <ul class="mb-8 space-y-2 text-sm text-foreground"><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Real-time social media data ingestion</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Time-series financial ledger</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Automated campaign review states</li></ul>
-                                <a href="projects/ash-clipping.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
+        <!-- Writing -->
+        <section id="latest-posts" class="home-writing" aria-labelledby="home-writing-heading" data-lane="right">
+            <div class="home-shell">
+                <header class="home-section-head">
+                    <h2 id="home-writing-heading" class="home-heading site-heading">Field notes<br><span>from the work.</span></h2>
+                    <div class="home-section-intro">
+                        <p class="home-writing-intro">Practical articles on planning, building and looking after a website.</p>
+                        <a href="./blog.html" class="home-writing-all line-link">All articles</a>
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-item group block @container" data-project="9">
-                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
-                            <div class="order-2 @2xl:order-2">
-                                <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <picture class="block w-full">
-        <source type="image/webp" srcset="./public/images/Intent-studio%20-%20hero-small.webp 600w, ./public/images/Intent-studio%20-%20hero.webp 1366w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Intent-studio%20-%20hero.webp" width="1366" height="768" alt="Intent Studio - Retail Design Studio" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                                </div>
-                            </div>
-                            <div class="order-1 @2xl:order-1">
-                                <span class="text-accent text-sm font-medium mb-4 block">Retail Design Studio - 2026</span>
-                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Intent Studio</h3>
-                                <p class="text-muted-foreground text-lg mb-6 leading-relaxed">A website for a retail design studio, built to let prospective clients explore the work and understand the studio’s approach.</p>
-                                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">What shipped · 4 Weeks</p>
-                                <ul class="mb-8 space-y-2 text-sm text-foreground"><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Experiential, motion-rich interface</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>GSAP-powered fluid transitions</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Type-safe React architecture</li></ul>
-                                <a href="projects/intent-studio.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-item group block @container" data-project="8">
-                        <div class="grid @2xl:grid-cols-2 gap-8 @2xl:gap-16 items-center">
-                            <div class="order-2 @2xl:order-1">
-                                <div class="overflow-hidden rounded-lg border border-border shadow-lg hover-lift">
-                                    <picture class="block w-full">
-        <source type="image/webp" srcset="./public/images/Capital%20Tyres%20-%20hero-small.webp 600w, ./public/images/Capital%20Tyres%20-%20hero.webp 1348w" sizes="(max-width: 768px) 90vw, 45vw">
-        <img src="./public/images/Capital%20Tyres%20-%20hero.webp" width="1348" height="766" alt="Capital Tyres - Local Business Web Design" class="w-full aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async" loading="lazy">
-    </picture>
-                                </div>
-                            </div>
-                            <div class="order-1 @2xl:order-2">
-                                <span class="text-accent text-sm font-medium mb-4 block">Local Business Web Design - 2026</span>
-                                <h3 class="text-3xl @2xl:text-4xl font-display font-bold mb-6 group-hover:text-foreground/80 transition-colors text-balance">Capital Tyres</h3>
-                                <p class="text-muted-foreground text-lg mb-6 leading-relaxed">A five-page website for a Pune tyre-retreading business, explaining the services and helping fleet owners take the next step.</p>
-                                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">What shipped · 10 Days</p>
-                                <ul class="mb-8 space-y-2 text-sm text-foreground"><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Mobile-first responsive architecture</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Prominent real client testimonials</li><li class="flex gap-2"><span class="text-accent" aria-hidden="true">↗</span>Clear hot vs. cold retreading breakdowns</li></ul>
-                                <a href="projects/capital-tyres.html" class="flex items-center gap-2 text-foreground font-medium border-b border-border pb-1 group-hover:border-accent group-hover:text-accent transition-all inline-block">
-                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- View All Projects Button -->
-                <div class="mt-16 flex justify-center">
-                    <a href="projects.html" class="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300">
-                        View All Projects
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-                    </a>
+                </header>
+                <div class="home-writing-list" id="homepage-blog-posts">
+                    <article class="home-writing-entry home-writing-entry--lead" data-post="blog-javascript-frameworks">
+            <a class="home-writing-image" href="./blog-javascript-frameworks.html" aria-label="Read Choosing a framework for your web application"><picture class="block w-full">
+        <source type="image/webp" srcset="./assets/blog/cover-frameworks-small.webp 600w, ./assets/blog/cover-frameworks.webp 1024w" sizes="(max-width: 767px) 100vw, 50vw">
+        <img src="./assets/blog/cover-frameworks.png" width="1024" height="1024" alt="Choosing a framework for your web application" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="home-writing-copy">
+                <p class="meta home-writing-meta"><span>Engineering</span><time datetime="2026-02-07">2026-02-07</time></p>
+                <h3 class="site-heading"><a href="./blog-javascript-frameworks.html">Choosing a framework for your web application</a></h3>
+                <p class="home-writing-summary">A practical look at the trade-offs behind a technology choice, from the product’s needs to the team that will maintain it.</p>
+                <a class="home-writing-read site-link" href="./blog-javascript-frameworks.html" aria-label="Read Choosing a framework for your web application">Read article</a>
+            </div>
+        </article>
+<article class="home-writing-entry" data-post="blog-performance-optimization">
+            <a class="home-writing-image" href="./blog-performance-optimization.html" aria-label="Read A practical guide to faster websites"><picture class="block w-full">
+        <source type="image/webp" srcset="./assets/blog/cover-performance-small.webp 600w, ./assets/blog/cover-performance.webp 1024w" sizes="(max-width: 767px) 100vw, 50vw">
+        <img src="./assets/blog/cover-performance.png" width="1024" height="1024" alt="A practical guide to faster websites" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="home-writing-copy">
+                <p class="meta home-writing-meta"><span>Engineering</span><time datetime="2026-02-07">2026-02-07</time></p>
+                <h3 class="site-heading"><a href="./blog-performance-optimization.html">A practical guide to faster websites</a></h3>
+                <p class="home-writing-summary">How to find loading bottlenecks, reduce image and script weight, and check whether the changes improve the experience.</p>
+                <a class="home-writing-read site-link" href="./blog-performance-optimization.html" aria-label="Read A practical guide to faster websites">Read article</a>
+            </div>
+        </article>
+<article class="home-writing-entry" data-post="blog-responsive-design">
+            <a class="home-writing-image" href="./blog-responsive-design.html" aria-label="Read Designing a website that works on smaller screens"><picture class="block w-full">
+        <source type="image/webp" srcset="./assets/blog/cover-responsive-small.webp 600w, ./assets/blog/cover-responsive.webp 1024w" sizes="(max-width: 767px) 100vw, 50vw">
+        <img src="./assets/blog/cover-responsive.png" width="1024" height="1024" alt="Designing a website that works on smaller screens" class="w-full h-auto" decoding="async" loading="lazy">
+    </picture></a>
+            <div class="home-writing-copy">
+                <p class="meta home-writing-meta"><span>Design</span><time datetime="2026-02-07">2026-02-07</time></p>
+                <h3 class="site-heading"><a href="./blog-responsive-design.html">Designing a website that works on smaller screens</a></h3>
+                <p class="home-writing-summary">Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.</p>
+                <a class="home-writing-read site-link" href="./blog-responsive-design.html" aria-label="Read Designing a website that works on smaller screens">Read article</a>
+            </div>
+        </article>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- REVIEWS SECTION                          -->
-        <!-- ======================================== -->
-        <section id="reviews" class="py-24 md:py-32 px-6">
-            <div class="container mx-auto max-w-6xl">
-
-                <!-- Section Header -->
-                <div class="mb-20 md:mb-28">
-                    <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 block">(REVIEWS)</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
-                        From people I've <span class="italic font-serif font-normal text-accent">actually worked with.</span>
-                    </h2>
+        <!-- Contact: the line ends here, in a paper plane. -->
+        <section id="contact" class="home-contact" aria-labelledby="home-contact-heading" data-lane="left">
+            <div class="home-shell home-contact__grid">
+                <div class="home-contact__copy">
+                    <div class="home-contact__art" data-draw=""><svg class="drawing drawing--plane drawing--scene" viewBox="0 0 240 160" aria-hidden="true" focusable="false"><path class="fl" style="--i:0" d="M110 100 L220 20 L130 112 Z"></path><path class="ln" pathLength="1" style="--i:1" d="M20 80 L220 20 L150 140 L110 100 Z"></path><path class="ln" pathLength="1" style="--i:2" d="M220 20 L110 100 L104 130 L130 112"></path><path class="lnA" pathLength="1" style="--i:3" d="M8 150 C40 150 60 128 92 120"></path></svg><span class="thread-end" data-thread-end=""></span></div>
+                    <h2 id="home-contact-heading" class="home-heading site-heading">Let's build<br><span>something good.</span></h2>
+                    <p class="home-contact-intro">Tell me what your business does, what needs to improve, and when you’d like to launch. I’ll reply with questions and a useful next step.</p>
+                    <ul class="home-contact-details" role="list">
+                        <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:layshah1989@gmail.com">layshah1989@gmail.com</a></li>
+                        <li><i data-lucide="map-pin" aria-hidden="true"></i><span class="home-contact-location">Ahmedabad, India</span></li>
+                    </ul>
+                    <div class="home-contact-call">
+                        <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="line-button line-button--ghost"><i data-lucide="calendar" aria-hidden="true"></i> Book a 30-min call</a>
+                        <p>A 30-minute conversation about fit, scope, and next steps.</p>
+                    </div>
                 </div>
 
-                <!-- Conversation Stack -->
-                <div class="max-w-4xl mx-auto space-y-8 md:space-y-12" id="reviews-thread">
-
-                    <!-- Review 1 — LEFT (Vipul Shah) -->
-                    <div class="flex flex-col review-bubble-left">
-                        <div class="flex items-end gap-4">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">VS</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-card border border-border rounded-3xl rounded-bl-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "Professional, fast, and <em class="not-italic font-serif text-accent">incredibly talented</em>. Lay transformed our online presence completely, and the new headless architecture has already <em class="not-italic font-serif text-accent">increased our conversion rate significantly</em>."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pl-14 mt-2">
-                            <span class="font-bold text-sm font-display text-foreground">Vipul Shah</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Owner, Kamaldeep Enterprise</span>
-                        </div>
+                <form id="contact-form" name="contact" class="home-contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <div class="home-contact-field">
+                        <label for="contact-name">What's your name?</label>
+                        <input id="contact-name" autocomplete="name" maxlength="120" type="text" name="name" required="" placeholder="Jane Smith">
                     </div>
-
-                    <!-- Review 2 — RIGHT (Fred Stack) -->
-                    <div class="flex flex-col review-bubble-right">
-                        <div class="flex items-end gap-4 flex-row-reverse">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">FS</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-accent/10 border border-accent/20 rounded-3xl rounded-br-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "We needed something that looked credible to international clients. <em class="not-italic font-serif text-accent">Within two weeks of going live</em>, we started getting inquiries from Dubai and Singapore. Our old site hadn't done that <em class="not-italic font-serif text-accent">in three years</em>."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pr-2 md:pr-14 mt-2 text-right">
-                            <span class="font-bold text-sm font-display text-foreground">Fred Stack</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Director, SwiftBuild Infratech</span>
-                        </div>
+                    <input type="hidden" name="form-name" value="contact">
+                    <!-- Honeypot (spam prevention) -->
+                    <p style="display: none;">
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                    </p>
+                    <div class="home-contact-field">
+                        <label for="contact-email">What's your email?</label>
+                        <input id="contact-email" autocomplete="email" maxlength="254" type="email" name="email" required="" placeholder="jane@example.com">
                     </div>
-
-                    <!-- Review 3 — LEFT (Parth Patel) -->
-                    <div class="flex flex-col review-bubble-left">
-                        <div class="flex items-end gap-4">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">PP</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-card border border-border rounded-3xl rounded-bl-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "We needed a site that <em class="not-italic font-serif text-accent">instantly communicated trust</em> to our global B2B partners. Lay stripped away the clutter and built a lightning-fast landing page. The difference in how international clients perceive us now is <em class="not-italic font-serif text-accent">night and day</em>."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pl-14 mt-2">
-                            <span class="font-bold text-sm font-display text-foreground">Parth Patel</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">CEO, Ghermar &amp; Sons</span>
-                        </div>
+                    <div class="home-contact-field">
+                        <label for="contact-message">What would you like to build or improve?</label>
+                        <textarea id="contact-message" aria-describedby="contact-hint" maxlength="5000" name="message" rows="4" required="" placeholder="What you need, your target launch date, and a budget range if you have one."></textarea>
                     </div>
-
-                    <!-- Review 4 — RIGHT (Vinish) -->
-                    <div class="flex flex-col review-bubble-right">
-                        <div class="flex items-end gap-4 flex-row-reverse">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">V</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-accent/10 border border-accent/20 rounded-3xl rounded-br-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "Lay built a <em class="not-italic font-serif text-accent">high-performance website</em> that perfectly positions our commercial tyre retreading business. The site looks incredibly premium, and it immediately started <em class="not-italic font-serif text-accent">driving qualified leads</em> from major fleet operators across Pune."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pr-2 md:pr-14 mt-2 text-right">
-                            <span class="font-bold text-sm font-display text-foreground">Vinish</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Owner, Capital Tyres</span>
-                        </div>
-                    </div>
-
-                    <!-- Review 5 — LEFT (ASH Clipping) -->
-                    <div class="flex flex-col review-bubble-left">
-                        <div class="flex items-end gap-4">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">AC</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-card border border-border rounded-3xl rounded-bl-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "Lay transformed our vision into a sleek, high-converting platform that loads instantly and clearly communicates our edge in the creator economy. <em class="not-italic font-serif text-accent">Inquiries and campaign activations increased rapidly after launch.</em>"
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pl-14 mt-2">
-                            <span class="font-bold text-sm font-display text-foreground">Shubh</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">CEO, ASH Clipping</span>
-                        </div>
-                    </div>
-
-                    <!-- Review 6 — RIGHT (Intent Studio) -->
-                    <div class="flex flex-col review-bubble-right">
-                        <div class="flex items-end gap-4 flex-row-reverse">
-                            <div class="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-serif italic text-sm shrink-0 mb-1">IS</div>
-                            <div class="max-w-[85%] md:max-w-[75%] bg-accent/10 border border-accent/20 rounded-3xl rounded-br-md px-7 py-6">
-                                <p class="text-lg md:text-xl leading-relaxed text-foreground">
-                                    "We needed a digital experience that matched our premium retail design philosophy. Lay delivered a <em class="not-italic font-serif text-accent">motion-rich, flawless website</em> that immediately elevates our brand and captures the exact feeling we want our clients to have."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="pr-2 md:pr-14 mt-2 text-right">
-                            <span class="font-bold text-sm font-display text-foreground">Sarah Jenkins</span>
-                            <span class="text-xs text-muted-foreground font-mono uppercase tracking-wider ml-2">Brand Strategist, Intent Studio</span>
-                        </div>
-                    </div>
-
-                </div>
+                    <button type="submit" id="submit-btn" class="line-button line-button--light line-button--wide">Send project details</button>
+                    <p id="contact-hint" class="home-contact-hint">Usually reply within one business day. Your details are used to respond to your inquiry.</p>
+                    <div id="contact-status" role="status" aria-live="polite" aria-atomic="true" hidden="" class="home-contact-status"></div>
+                    <p class="home-contact-hint">Prefer email? <a href="mailto:layshah1989@gmail.com">layshah1989@gmail.com</a></p>
+                </form>
             </div>
         </section>
-
-
-        <!-- ======================================== -->
-        <!-- LATEST POSTS SECTION                     -->
-        <!-- ======================================== -->
-        <section id="latest-posts" class="py-24 md:py-32 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <div class="grid md:grid-cols-12 gap-8 items-start md:items-end mb-16 md:mb-24">
-                    <div class="md:col-span-8">
-                        <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6 block">(LATEST POSTS)</span>
-                        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground text-balance reveal">
-                            Field <span class="italic font-serif font-normal text-accent">Notes.</span>
-                        </h2>
-                    </div>
-                    <div class="md:col-span-4 flex md:justify-end items-end">
-                        <a href="blog.html" class="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 reveal">
-                            All posts
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="homepage-blog-posts">
-                    
-                    <!-- Post 1 -->
-                    <a href="./blog-javascript-frameworks.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                        <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Engineering</span>
-                        <h3 class="font-serif text-2xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">Choosing a framework for your web application</h3>
-                        <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-6">A practical look at the trade-offs behind a technology choice, from the product’s needs to the team that will maintain it.</p>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-muted-foreground font-mono">Feb 7, 2026</span>
-                            <span class="inline-flex items-center gap-1.5 text-accent font-medium">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </a>
-
-                    <!-- Post 2 -->
-                    <a href="./blog-performance-optimization.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                        <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Engineering</span>
-                        <h3 class="font-serif text-2xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">A practical guide to faster websites</h3>
-                        <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-6">How to find loading bottlenecks, reduce image and script weight, and check whether the changes improve the experience.</p>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-muted-foreground font-mono">Feb 7, 2026</span>
-                            <span class="inline-flex items-center gap-1.5 text-accent font-medium">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </a>
-
-                    <!-- Post 3 -->
-                    <a href="./blog-responsive-design.html" class="group block p-8 rounded-2xl border border-border bg-card transition-all hover:border-accent hover:bg-card/80 hover:-translate-y-1">
-                        <span class="inline-block border border-accent/30 bg-accent/10 text-accent rounded-full px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide mb-6">Design</span>
-                        <h3 class="font-serif text-2xl font-medium text-foreground leading-tight mb-4 group-hover:text-accent transition-colors">Designing a website that works on smaller screens</h3>
-                        <p class="text-muted-foreground line-clamp-3 leading-relaxed mb-6">Responsive layouts, readable content, and touch-friendly interactions that make a website easier to use on a phone.</p>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-muted-foreground font-mono">Feb 7, 2026</span>
-                            <span class="inline-flex items-center gap-1.5 text-accent font-medium">Read <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======================================== -->
-        <!-- CONTACT SECTION                          -->
-        <!-- ======================================== -->
-        <section id="contact" class="py-24 md:py-32 px-6 bg-foreground text-background rounded-t-[3rem]">
-            <div class="container mx-auto max-w-6xl pt-10 reveal">
-                <div class="grid md:grid-cols-2 gap-16 md:gap-24">
-                    <div>
-                        <span class="text-xs font-mono uppercase tracking-widest opacity-40 mb-8 block">(GET IN TOUCH)</span>
-                        <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-balance leading-tight">
-                            Let's build<br>
-                            <span class="italic font-serif font-normal opacity-50">something good.</span>
-                        </h2>
-                        <p class="text-lg opacity-60 mb-12 leading-relaxed">
-                            Tell me what your business does, what needs to improve, and when you’d like to launch. I’ll reply with questions and a useful next step.
-                        </p>
-
-                        <div class="space-y-6 mb-12">
-                            <div class="flex items-center gap-4 opacity-70">
-                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i>
-                                </div>
-                                <a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a>
-                            </div>
-                            <div class="flex items-center gap-4 opacity-70">
-                                <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="map-pin" class="w-5 h-5" aria-hidden="true"></i>
-                                </div>
-                                <span>Ahmedabad, India</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-8 border-t border-background/20 mt-8 mr-12">
-                            <a href="https://calendly.com/layshah1989/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background text-foreground rounded-full hover:bg-accent hover:text-accent-foreground hover:border-transparent transition-all font-medium text-base">
-                                <i data-lucide="calendar" class="w-[18px] h-[18px]"></i> Book a 30-min call
-                            </a>
-                            <p class="text-sm opacity-50 mt-4 italic">A 30-minute conversation about fit, scope, and next steps.</p>
-                        </div>
-
-                    </div>
-
-                    <form id="contact-form" name="contact" class="space-y-8 mt-8" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <div class="space-y-2">
-                            <label for="contact-name" class="text-sm font-medium uppercase tracking-wide opacity-80">What's your name?</label>
-                            <input id="contact-name" autocomplete="name" maxlength="120" type="text" name="name" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20" placeholder="Jane Smith">
-                        </div>
-                        <input type="hidden" name="form-name" value="contact">
-                        <!-- Honeypot (spam prevention) -->
-                        <p style="display: none;">
-                            <label>Don't fill this out: <input name="bot-field"></label>
-                        </p>
-                        <div class="space-y-2">
-                            <label for="contact-email" class="text-sm font-medium uppercase tracking-wide opacity-80">What's your email?</label>
-                            <input id="contact-email" autocomplete="email" maxlength="254" type="email" name="email" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20" placeholder="jane@example.com">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="contact-message" class="text-sm font-medium uppercase tracking-wide opacity-80">What would you like to build or improve?</label>
-                            <textarea id="contact-message" aria-describedby="contact-hint" maxlength="5000" name="message" rows="4" required="" class="w-full bg-transparent border-b border-background/20 py-4 text-xl outline-none focus-visible:border-accent transition-colors placeholder:text-background/20 resize-none" placeholder="What you need, your target launch date, and a budget range if you have one."></textarea>
-                        </div>
-                        <button type="submit" id="submit-btn" class="w-full py-5 bg-background text-foreground text-lg font-medium rounded-full hover:bg-accent hover:text-accent-foreground transition-colors duration-300">
-                            Send project details
-                        </button>
-                        <p id="contact-hint" class="text-sm opacity-70">Usually reply within one business day. Your details are used to respond to your inquiry.</p>
-                        <div id="contact-status" role="status" aria-live="polite" aria-atomic="true" hidden="" class="text-sm font-medium rounded-lg border border-background/30 p-4 mt-4"></div>
-                        <p class="text-sm opacity-80">Prefer email? <a href="mailto:layshah1989@gmail.com" class="underline underline-offset-4 hover:text-accent">layshah1989@gmail.com</a></p>
-                    </form>
-                </div>
-            </div>
-        </section>
-
     </main>
 
 
-        <footer class="bg-background text-foreground pt-16 pb-8 px-6 border-t border-border">
-        <div class="container mx-auto max-w-[1400px]">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 mb-16">
-                <!-- Left Column -->
-                <div class="md:col-span-12 lg:col-span-6">
-                    <a href="./index.html" class="flex items-center gap-1 md:gap-1.5 text-2xl md:text-3xl font-display font-bold tracking-tighter hover:text-accent transition-all duration-300 ease-out-expo logo-link mb-4 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-8 h-8 md:w-10 md:h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                            <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                            <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></path>
-                        </svg>
-                        <span>LAY SHAH</span>
-                    </a>
-                    <p class="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
+    <footer class="site-footer">
+        <div class="site-footer__shell">
+            <div class="site-footer__top">
+                <div class="site-footer__intro">
+                    <a href="./index.html" class="logo-link identity-footer"><span class="site-identity" data-site-identity="">
+    <span class="site-identity__full" aria-hidden="true"><img class="site-identity__light" src="./public/identity/horizontal-evergreen.svg" width="720" height="396" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/horizontal-white.svg" width="720" height="396" alt="" decoding="async"></span>
+    <span class="site-identity__compact" aria-hidden="true"><img class="site-identity__light" src="./public/identity/symbol-evergreen.svg" width="256" height="256" alt="" decoding="async"><img class="site-identity__dark" src="./public/identity/symbol-white.svg" width="256" height="256" alt="" decoding="async"></span>
+    <span class="sr-only" data-branding="displayName">LAY SHAH</span>
+</span></a>
+                    <p data-branding="footerDescription" class="site-footer__description">
                         Freelance full-stack developer. Fast, considered websites and web apps for founders and small teams.
                     </p>
                 </div>
-                
-                <!-- Middle Column -->
-                <div class="md:col-span-6 lg:col-span-3 lg:pl-12">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Explore</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="./index.html" class="hover:text-accent transition-colors">Home</a></li>
-                        <li><a href="./projects.html" class="hover:text-accent transition-colors">Work</a></li>
-                        <li><a href="./blog.html" class="hover:text-accent transition-colors">Blog</a></li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="exploreLabel">Explore</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./projects.html">Work</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./tools.html">Tools</a></li>
                     </ul>
                 </div>
-                
-                <!-- Right Column -->
-                <div class="md:col-span-6 lg:col-span-3">
-                    <h4 class="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Contact</h4>
-                    <ul class="flex flex-col gap-4 text-sm text-foreground">
-                        <li><a href="mailto:layshah1989@gmail.com" class="hover:text-accent transition-colors">layshah1989@gmail.com</a></li>
-                        <li class="text-muted-foreground">Ahmedabad, India</li>
+                <div class="site-footer__column">
+                    <h3 class="site-footer__label site-heading" data-branding="footerContactLabel">Contact</h3>
+                    <ul class="site-footer__list">
+                        <li><a href="mailto:layshah1989@gmail.com">layshah1989@gmail.com</a></li>
+                        <li data-branding="location">Ahmedabad, India</li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Bottom Section -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border/50 text-xs text-muted-foreground">
-                <p>© 2026 Lay Shah. All rights reserved.</p>
-                <button id="back-to-top-btn" class="hover:text-accent transition-colors uppercase tracking-widest font-mono flex items-center gap-1 group">
-                    Back to top <span class="group-hover:-translate-y-1 transition-transform inline-block text-lg leading-none">↑</span>
+            <div class="site-footer__base">
+                <p>© 2026 <span data-branding="copyrightName">Lay Shah</span>. All rights reserved.</p>
+                <button id="back-to-top-btn" class="site-footer__top-link" aria-label="Back to top of page">
+                    <span data-branding="backToTop">Back to top</span> <span aria-hidden="true">↑</span>
                 </button>
             </div>
         </div>
@@ -874,8 +524,6 @@
 
     
     <script src="./bundle.js" defer=""></script>
-
-
 
 
 

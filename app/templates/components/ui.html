@@ -1,0 +1,175 @@
+{% macro image(source, alt, classes='w-full h-auto', eager=false, card=false) -%}
+{% set info = image_info(source) %}
+{% if info %}<picture class="block">
+{% if info.variants %}<source type="image/webp" srcset="{% for variant in info.variants %}{{ variant.url }} {{ variant.width }}w{{ ', ' if not loop.last else '' }}{% endfor %}" sizes="(max-width: {{ info.breakpoint }}) {{ '90vw' if card else '100vw' }}, {{ '56vw' if card else '960px' }}">{% endif %}
+<img src="{{ info.url }}" alt="{{ alt }}" width="{{ info.width }}" height="{{ info.height }}" class="{{ classes }}" decoding="async"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %}></picture>{% endif %}
+{%- endmacro %}
+
+{% macro project_card(entry, compact=false) -%}
+{% set data = entry.published %}
+<article class="ui-stack project-item" data-project="{{ entry.id }}">
+    {% set thumbnail=data.get('thumbnail_media') or data.get('cover_media') %}
+    {% if not thumbnail or not thumbnail.get('asset_id') %}{% set thumbnail=data.get('cover_media') %}{% endif %}
+    {% if thumbnail and thumbnail.get('asset_id') %}<a href="{{ entry.path }}" class="block group">{{ media_image(thumbnail,show_caption=false,card=true) }}</a>{% elif 'cover_media' not in data and image_info(data.heroImg) %}<a href="{{ entry.path }}" class="block group">{{ image(data.heroImg,data.title,'w-full aspect-video object-cover rounded-lg border border-border') }}</a>{% endif %}
+    <div><p class="text-sm text-accent mb-3">{{ data.category }} · {{ data.get('year','') }}</p>
+    <h2 class="site-heading font-serif text-3xl mb-4"><a href="{{ entry.path }}">{{ data.title }}</a></h2>
+    <p class="text-muted-foreground leading-relaxed mb-4">{{ data.summary }}</p>
+    {% if compact %}<p class="text-sm ui-muted mb-4">{{ data.get('timeline','') }}</p>{% endif %}
+    <a href="{{ entry.path }}" class="text-accent underline underline-offset-4">View case study</a></div>
+</article>
+{%- endmacro %}
+
+{% macro post_row(entry) -%}
+{% set data=entry.published %}
+<article class="post-row py-10 border-b border-border" data-category="{{ data.category }}">
+    <p class="text-sm text-accent mb-3">{{ data.category }} · <time datetime="{{ data.date }}">{{ data.date }}</time></p>
+    <h2 class="site-heading font-serif text-3xl mb-4 post-title"><a href="{{ entry.path }}">{{ data.title }}</a></h2>
+    <p class="text-muted-foreground leading-relaxed post-dek mb-4">{{ data.summary }}</p>
+    <a href="{{ entry.path }}" class="text-accent underline underline-offset-4">Read the article</a>
+</article>
+{%- endmacro %}
+
+{# Collection images share the media library's thumbnail → cover precedence.
+   An explicitly cleared cover must not resurrect a legacy imported image. #}
+{% macro collection_image(data, kind, eager=false) -%}
+{% set thumbnail=data.get('thumbnail_media') %}
+{% if not thumbnail or not thumbnail.get('asset_id') %}{% set thumbnail=data.get('cover_media') %}{% endif %}
+{% if thumbnail and thumbnail.get('asset_id') %}
+{{ media_image(thumbnail,eager=eager,show_caption=false,card=true) }}
+{% elif 'cover_media' not in data %}
+{% set source=data.get('heroImg' if kind == 'project' else 'cover') %}
+{% if source and image_info(source) %}{{ image(source,data.title,eager=eager,card=kind == 'project') }}{% endif %}
+{% endif %}
+{%- endmacro %}
+
+{% macro journal_article(entry, lead=false) -%}
+{% set data=entry.published %}
+<article class="journal-entry{{ ' journal-entry--lead' if lead else '' }}" data-entry="{{ entry.id }}">
+    {% set picture=collection_image(data,'post',eager=lead) %}
+    {% if picture|trim %}<a href="{{ entry.path }}" class="collection-image journal-entry__image" aria-label="Read {{ data.title }}">{{ picture }}</a>{% endif %}
+    <div class="journal-entry__copy">
+        <p class="meta mb-4"><span>{{ data.category }}</span><time datetime="{{ data.date }}">{{ data.date }}</time></p>
+        <h2 class="site-heading {{ 'type-workTitle' if lead else 'type-articleHeading' }} mb-4"><a href="{{ entry.path }}">{{ data.title }}</a></h2>
+        <p class="text-muted-foreground leading-relaxed mb-6">{{ data.summary }}</p>
+        <a href="{{ entry.path }}" class="line-link">Read the article</a>
+    </div>
+</article>
+{%- endmacro %}
+
+{% macro work_slide(entry, number, total, eager=false) -%}
+{% set data=entry.published %}
+<article class="work-slide" data-work-slide data-title="{{ data.title }}">
+    <a class="work-slide__image" href="{{ entry.path }}" aria-label="Open case study: {{ data.title }}">
+        <div class="collection-image work-slide__visual">
+            {{ collection_image(data,'project',eager=eager) }}
+            <span class="work-slide__number text-xs" aria-hidden="true">{{ '%02d'|format(number) }} / {{ '%02d'|format(total) }}</span>
+        </div>
+    </a>
+    <div class="work-slide__copy">
+        <div data-draw>
+            <span class="work-slide__glyph" aria-hidden="true">{% include 'drawings/' ~ project_glyph(entry.slug) ~ '.svg' %}</span>
+            <p class="meta mb-4">{% if data.get('year') %}<span>{{ data.year }}</span>{% endif %}{% if data.get('clientType') %}<span>{{ data.clientType }}</span>{% endif %}</p>
+            <h2 class="site-heading type-workTitle mb-4"><a href="{{ entry.path }}">{{ data.title }}</a></h2>
+            <p class="text-muted-foreground leading-relaxed">{{ data.summary }}</p>
+        </div>
+        <div class="work-slide__details">
+            {% if data.get('role') or data.get('timeline') %}<dl class="work-slide__facts">
+                {% if data.get('role') %}<div><dt class="meta mb-2">My role</dt><dd>{{ data.role }}</dd></div>{% endif %}
+                {% if data.get('timeline') %}<div><dt class="meta mb-2">Timeline</dt><dd>{{ data.timeline }}</dd></div>{% endif %}
+            </dl>{% endif %}
+            <a href="{{ entry.path }}" class="ui-button line-button work-slide__cta">Read the case study</a>
+        </div>
+    </div>
+</article>
+{%- endmacro %}
+
+{% macro field(name, label, value='', multiline=false, required=false) -%}
+{% set value = '' if value is none else value %}
+<label class="ui-field"><span>{{ label }}</span>
+{% if multiline %}<textarea class="ui-input" name="{{ name }}" rows="5"{% if required %} required{% endif %}>{{ value }}</textarea>
+{% else %}<input class="ui-input" name="{{ name }}" value="{{ value }}"{% if required %} required{% endif %}>{% endif %}
+</label>
+{%- endmacro %}
+
+{% macro tool_row(entry, homepage=false) -%}
+{% set data=entry.published %}{% set links=data|tool_links %}
+<article class="bento-card flex flex-col justify-between group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-hover-lift hover:border-accent/40 tool-entry" data-tool="{{ entry.id }}" data-category="{{ data.get('category', '') }}">
+    <div>
+        {% set picture=collection_image(data,'tool') %}
+        {% if picture|trim %}
+        <div class="browser-mockup mb-5 overflow-hidden rounded-xl border border-border/80 bg-slate-900/5 dark:bg-slate-900/40">
+            <div class="browser-mockup-header flex items-center justify-between px-3 py-2 bg-muted/40 border-b border-border/50">
+                <div class="browser-mockup-dots flex items-center gap-1.5">
+                    <span class="browser-mockup-dot red"></span>
+                    <span class="browser-mockup-dot yellow"></span>
+                    <span class="browser-mockup-dot green"></span>
+                </div>
+                <span class="text-[11px] text-muted-foreground truncate max-w-[140px]">{{ links.launch_url.replace('https://', '').replace('http://', '').split('/')[0] or data.title|lower }}</span>
+            </div>
+            <a class="collection-image block aspect-video overflow-hidden group-hover:scale-[1.02] transition-transform duration-300" href="{{ entry.path }}" aria-label="About {{ data.title }}">{{ picture }}</a>
+        </div>
+        {% endif %}
+        <div class="flex flex-wrap items-center gap-2 mb-3">
+            {% if data.get('category') %}<span class="tag">{{ data.category }}</span>{% endif %}
+            {% if data.get('license') %}<span class="tag">{{ data.license }}</span>{% endif %}
+            {% if data.get('pricing') %}<span class="tag">{{ data.pricing }}</span>{% endif %}
+        </div>
+        <{{ 'h3' if homepage else 'h2' }} class="site-heading font-serif text-2xl font-medium mb-3 text-foreground group-hover:text-accent transition-colors"><a class="underline underline-offset-4 decoration-border group-hover:decoration-accent transition-colors" href="{{ entry.path }}">{{ data.title }}</a></{{ 'h3' if homepage else 'h2' }}>
+        <p class="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-6 ui-muted">{{ data.summary }}</p>
+    </div>
+    <div class="pt-4 border-t border-border/60 flex items-center justify-between gap-3 mt-auto ui-row">
+        <a class="text-xs font-medium text-foreground hover:text-accent inline-flex items-center gap-1 transition-colors text-accent underline underline-offset-4" href="{{ entry.path }}">About this tool <span aria-hidden="true">→</span></a>
+        {% if links.launch_url %}
+        <a class="ui-button line-button line-button--ghost line-button--small" data-variant="secondary" href="{{ links.launch_url }}" target="_blank" rel="noopener noreferrer">Open tool</a>
+        {% endif %}
+    </div>
+</article>
+{%- endmacro %}
+
+{% macro media_image(p, classes='', eager=false, private=false, show_caption=true, card=false) -%}
+{% set info = placement_info(p,private) %}
+{% if info %}<figure class="media-figure media-width-{{ info.width }} media-align-{{ info.align }} {{ classes }}"><picture class="block">
+    <source media="(max-width: {{ info.breakpoint }})" type="image/webp" srcset="{% for variant in info.mobile.variants %}{{ variant.url }} {{ variant.width }}w{{ ', ' if not loop.last else '' }}{% endfor %}" sizes="100vw" width="{{ info.mobile.width }}" height="{{ info.mobile.height }}">
+    <source type="image/webp" srcset="{% for variant in info.desktop.variants %}{{ variant.url }} {{ variant.width }}w{{ ', ' if not loop.last else '' }}{% endfor %}" sizes="(max-width: {{ info.breakpoint }}) 100vw, {{ '50vw' if card else MEDIA_LAYOUT_READING if info.width == 'reading' else MEDIA_LAYOUT_PAGE }}" width="{{ info.desktop.width }}" height="{{ info.desktop.height }}">
+    <img src="{{ info.desktop.url }}" alt="{{ info.alt }}" width="{{ info.desktop.width }}" height="{{ info.desktop.height }}" class="w-full h-auto rounded-lg" decoding="async"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
+</picture>{% if show_caption and info.caption %}<figcaption class="ui-muted text-sm mt-4 whitespace-pre-wrap">{{ info.caption }}</figcaption>{% endif %}</figure>{% endif %}
+{%- endmacro %}
+
+{% macro media_gallery(images, layout='stack', private=false) -%}
+{% if images %}<div class="media-gallery media-gallery-{{ layout }}" aria-label="Image gallery">{% for p in images %}{{ media_image(p,private=private,card=layout == 'grid') }}{% endfor %}</div>{% endif %}
+{%- endmacro %}
+
+
+{# The cover of a project or tool sits in the same frame as the homepage's selected build:
+   drawn as a sketch on arrival, then switchable by the reader. #}
+{% macro entry_cover(address) -%}
+<div class="browser-frame entry-cover">
+    <div class="browser-frame__bar"><span class="browser-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{{ address.replace('https://','').replace('http://','').rstrip('/') }}</span></div>
+    <div class="browser-frame__screen">{{ caller() }}</div>
+</div>
+{%- endmacro %}
+
+{% macro entry_next(next_entry, label) -%}
+{% if next_entry %}
+<a class="entry-next" href="{{ next_entry.path }}" data-draw>
+    <span class="entry-next__label">{{ label }}</span>
+    <span class="entry-next__title">{{ next_entry.published.title }}</span>
+    <span class="entry-next__glyph" aria-hidden="true">{% include 'drawings/' ~ (project_glyph(next_entry.slug) if next_entry.kind == 'project' else 'notebook' if next_entry.kind == 'post' else 'toolbox') ~ '.svg' %}</span>
+</a>
+{% endif %}
+{%- endmacro %}
+
+{% macro site_cta(heading, body) -%}
+<aside class="site-cta" aria-label="Start a project">
+    <div class="site-cta__art" data-draw>{% include 'drawings/plane.svg' %}<span class="thread-end" data-thread-end></span></div>
+    <div class="site-cta__copy">
+        <h2 class="site-heading">{{ heading }}</h2>
+        <p>{{ body }}</p>
+    </div>
+    <div class="site-cta__actions">
+        <a href="{{ BASE_PATH }}index.html#contact" class="line-button line-button--light">Discuss your project</a>
+        <a href="{{ BOOKING_URL }}" target="_blank" rel="noopener noreferrer" class="line-button line-button--ghost"><i data-lucide="calendar" class="w-icon-sm h-icon-sm" aria-hidden="true"></i> Book a {{ CALL_MINUTES }}-min call</a>
+        <p class="site-cta__note">{{ REPLY_NOTE }}</p>
+    </div>
+</aside>
+{%- endmacro %}

@@ -44,7 +44,7 @@
         "Immutable crypto payout tracking",
         "Dual-scraper fallback pipeline"
       ],
-      "results": "The robust architecture successfully powers a platform that has delivered over 100 million organic views across multiple brand campaigns. By treating the campaign logic as a rigorous state machine and the data ingestion as a time-series log, Ash Clipping now operates a scalable financial ledger that has seamlessly processed over $32,000 in creator payouts.",
+      "results": "The robust architecture successfully powers a platform that has delivered over 100 million organic views across multiple brand campaigns. By treating the campaign logic as a rigorous state machine and the data ingestion as a time-series log, Ash Clipping now operates a scalable financial ledger that has reliably processed over $32,000 in creator payouts.",
       "metrics": {
         "Data Processed": "100M+ Views",
         "Payouts Secured": "$32k+",
@@ -81,11 +81,11 @@
       "githubUrl": null,
       "overview": "Intent Studio is a premier retail design studio that crafts intuitive brand experiences. They approached me with a clear vision: their website shouldn't just explain what they do. It needed to create an immediate, unforgettable impression. I engineered a digital presence that perfectly mirrors their retail philosophy, prioritizing interactive design over dense blocks of text.",
       "challenge": "The primary challenge was positioning rather than explanation. I needed to communicate the studio's exceptional design mindset from the very first interaction, guiding visitors naturally through carefully considered layouts without requiring them to 'learn' how to navigate the site.",
-      "solution": "Delivered a modern, immersive web application built on React and powered by GSAP for fluid, subtle motion. Every interaction, transition, and visual cue was meticulously developed to reinforce the quality and creativity of Intent Studio's work, allowing the brand experience to speak for itself.",
+      "solution": "Delivered a modern, immersive web application built on React and powered by GSAP for fluid, subtle motion. Every interaction, transition, and visual cue was developed to reinforce the quality and creativity of Intent Studio's work, allowing the brand experience to speak for itself.",
       "process": [
         "Experiential UX Strategy: Architected intuitive navigation flows that eliminated cognitive load, letting the visual design take center stage.",
         "Motion Design Integration: Used GSAP to implement subtle, high-performance animations that guide user attention and improve brand identity and trust.",
-        "Frontend Engineering: Developed a secure, type-safe code structure using React and TypeScript, ensuring flawless performance across all devices.",
+        "Frontend Engineering: Developed a secure, type-safe code structure using React and TypeScript, ensuring fast, reliable performance across all devices.",
         "Visual Hierarchy Optimization: Crafted distinct, typography-driven layouts using Tailwind CSS to replace traditional text-heavy explanations.",
         "Performance Tuning: Optimized assets and component rendering to maintain fast page load times despite the media-rich experience."
       ],
@@ -109,7 +109,7 @@
         "Typography-driven layout system",
         "Optimized media delivery"
       ],
-      "results": "The final product is a stunning digital experience that fundamentally elevates Intent Studio's market positioning. By placing the user experience first, the site creates a memorable first impression that effortlessly communicates the studio's core value proposition to prospective high-tier clients.",
+      "results": "The final product is a digital experience that strengthens Intent Studio's market positioning. By placing user experience first, the site creates a clear first impression that communicates the studio's value to prospective commercial clients.",
       "metrics": {
         "User Engagement": "Increased",
         "Brand Experience": "Premium",
@@ -122,7 +122,7 @@
         "./public/images/Intent-studio 3.webp"
       ],
       "testimonial": {
-        "quote": "We needed a digital experience that matched our premium retail design philosophy. Lay delivered a motion-rich, flawless website that immediately elevates our brand and captures the exact feeling we want our clients to have.",
+        "quote": "We needed a digital experience that matched our premium retail design philosophy. Lay delivered a responsive, tactile website that strengthens our brand and captures the exact feeling we want our clients to have.",
         "author": "Sarah Jenkins",
         "position": "Brand Strategist, Intent Studio"
       }
@@ -259,7 +259,7 @@
       },
       "screenshots": [
         "./public/images/Ghermar & Sons.webp",
-        "./public/images/Ghermar & Sons 2.png",
+        "./public/images/Ghermar & Sons 2.webp",
         "./public/images/Ghermar & Sons - services.webp"
       ],
       "testimonial": {
@@ -269,7 +269,7 @@
         "avatar": null
       },
       "lessonsLearned": "This project reinforced the importance of minimalism in B2B websites. Sometimes, less really is more. The focus on performance and mobile experience paid off significantly in user engagement metrics.",
-      "contentImg": "./public/images/Ghermar & Sons 2.png",
+      "contentImg": "./public/images/Ghermar & Sons 2.webp",
       "websiteUrl": "https://www.ghermar.com/"
     },
     {
@@ -363,7 +363,7 @@
       "category": "Content Management System",
       "year": "2025",
       "shortDesc": "A custom catalog system for a fabric wholesaler, with bulk product uploads, image processing, and PDF catalog management.",
-      "heroImg": "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png",
+      "heroImg": "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp",
       "role": "Full Stack Developer",
       "timeline": "10 Weeks",
       "tools": "Python, Flask, PostgreSQL, Tailwind CSS, JavaScript",
@@ -426,15 +426,15 @@
         "Responsive admin dashboard",
         "Role-based access control"
       ],
-      "results": "Enabled real-time catalog management, reducing update times by 80%. Client reported improved client satisfaction and increased sales through better organization. The system now handles 500+ products with seamless performance.",
+      "results": "Enabled real-time catalog management, reducing update times by 80%. Client reported improved client satisfaction and increased sales through better organization. The system now handles 500+ products with fast, stable performance.",
       "metrics": {
         "SKUs migrated": "500+",
         "Update time": "-80%",
         "User satisfaction": "+65%"
       },
       "screenshots": [
-        "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.png",
-        "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png"
+        "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler.webp",
+        "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.webp"
       ],
       "testimonial": {
         "quote": "The CMS has revolutionized how we manage our fabric catalog. What used to take hours now takes minutes. Our clients love the organized presentation and easy access to our products.",
@@ -443,7 +443,7 @@
         "avatar": null
       },
       "lessonsLearned": "Building for non-technical users requires extreme attention to UX. The bulk upload feature and automated thumbnail generation were game-changers. Investing time in user training and documentation was crucial for adoption.",
-      "contentImg": "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.png",
+      "contentImg": "./public/images/KAMALDEEP ENTERPRISE - Premium Fabric Wholesaler Dashboard.webp",
       "websiteUrl": "https://kamaldeep-enterprise.onrender.com/"
     },
     {
@@ -453,7 +453,7 @@
       "category": "Personal Trading Bot & Data Visualization",
       "year": "2024",
       "shortDesc": "A personal engineering project exploring automated trading workflows, market-data feeds, and an interactive analytics dashboard.",
-      "heroImg": "./public/images/saas_dashboard_minimal_interface.png",
+      "heroImg": "./public/images/saas_dashboard_minimal_interface.webp",
       "role": "Full Stack Developer",
       "timeline": "Ongoing",
       "tools": "Python, Flask, PostgreSQL, Telegram Bot, Binance API, D3.js",
@@ -521,11 +521,11 @@
         "Data points": "10K+ daily"
       },
       "screenshots": [
-        "./public/images/saas_dashboard_minimal_interface.png"
+        "./public/images/saas_dashboard_minimal_interface.webp"
       ],
       "testimonial": null,
       "lessonsLearned": "Building a trading system taught me the importance of risk management and the challenges of algorithmic trading. Real-time data processing, API reliability, and market volatility are critical considerations. The project significantly improved my understanding of financial markets and quantitative analysis.",
-      "contentImg": "./public/images/saas_dashboard_minimal_interface.png",
+      "contentImg": "./public/images/saas_dashboard_minimal_interface.webp",
       "websiteUrl": "#"
     },
     {
@@ -543,7 +543,7 @@
       "clientType": "Personal Portfolio Concept",
       "liveUrl": "https://aroma-cafe-coffee.netlify.app/",
       "githubUrl": null,
-      "overview": "Aroma Cafe is a conceptual web application engineered to demonstrate high-level technical proficiency in the hospitality sector. By integrating mock reservation APIs and dynamic location services, this showcase proves how a meticulously designed frontend can seamlessly harmonize with complex backend services to create a premium, smooth user experience.",
+      "overview": "Aroma Cafe is a conceptual web application engineered to demonstrate high-level technical proficiency in the hospitality sector. By integrating mock reservation APIs and dynamic location services, this showcase proves how a responsive frontend connects cleanly with backend services to create a reliable ordering experience.",
       "challenge": "Restaurant websites frequently struggle to balance aesthetic branding with practical functionality. The objective of this showcase was to architect an interactive, API-driven booking flow that maintains a warm, artisanal visual identity without causing user confusion during the reservation process.",
       "solution": "Engineered an optimized frontend design utilizing custom design tokens for a consistent thematic experience. Integrated location mapping and developed a fluid, interactive menu filtering system. The resulting concept serves as a technical blueprint for high-performing hospitality web platforms.",
       "process": [
@@ -596,11 +596,11 @@
       },
       "screenshots": [
         "./public/images/Aroma Cafe.webp",
-        "./public/images/Aroma Cafe 2.png"
+        "./public/images/Aroma Cafe 2.webp"
       ],
       "testimonial": null,
       "lessonsLearned": "Restaurant websites need to focus heavily on visual appeal and ease of use. The reservation system integration was more complex than anticipated, but the results justified the investment. Mobile optimization was crucial for this audience.",
-      "contentImg": "./public/images/Aroma Cafe 2.png",
+      "contentImg": "./public/images/Aroma Cafe 2.webp",
       "websiteUrl": "https://aroma-cafe-coffee.netlify.app/"
     },
     {
@@ -672,11 +672,11 @@
       },
       "screenshots": [
         "./public/images/Stark EV.webp",
-        "./public/images/Stark EV 2.png"
+        "./public/images/Stark EV 2.webp"
       ],
       "testimonial": null,
       "lessonsLearned": "This personal project significantly improved my understanding of advanced UI/UX principles and modern web technologies. Working with complex animations and interactions taught me the importance of performance optimization and user experience design. The project reinforced the value of building personal projects for skill development.",
-      "contentImg": "./public/images/Stark EV 2.png",
+      "contentImg": "./public/images/Stark EV 2.webp",
       "websiteUrl": "https://lay1989.github.io/StarkEV/"
     },
     {
@@ -686,7 +686,7 @@
       "category": "Project Management Tool",
       "year": "2023",
       "shortDesc": "A project-management platform bringing workflow automation, collaboration tools, and custom dashboards into one workspace.",
-      "heroImg": "./public/images/modern_e-commerce_interface_mockup.png",
+      "heroImg": "./public/images/modern_e-commerce_interface_mockup.webp",
       "role": "Product Manager & Developer",
       "timeline": "16 Weeks",
       "tools": "Vue.js, Python, PostgreSQL, Kubernetes",
@@ -696,13 +696,13 @@
       "githubUrl": null,
       "overview": "TaskFlow Pro addresses the challenges of modern enterprise collaboration. This comprehensive SaaS platform combines an intuitive Vue.js frontend with a powerful Python automation engine. Designed for scale, it eliminates manual workflow delays, enabling large organizations to reclaim thousands of hours and dramatically increase their operational ROI.",
       "challenge": "Enterprise teams were losing countless hours to manual task management and fragmented toolchains. The mission was to architect a centralized, highly scalable platform that could automate complex workflows without overwhelming the end-user with a steep learning curve.",
-      "solution": "Created an intuitive interface for project and task management with drag-and-drop functionality. Built a comprehensive workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added seamless integrations with popular tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.",
+      "solution": "Created an interface for project and task management with drag-and-drop functionality. Built a workflow automation engine with custom triggers and actions. Implemented advanced filtering, search, and reporting capabilities. Added direct integrations with tools like Slack, GitHub, and Jira. Deployed on Kubernetes for scalability.",
       "process": [
         "Enterprise Needs Analysis: Mapped complex organizational workflows to design an intuitive, scalable product architecture.",
         "Microservices Engineering: Architected a reliable Python and FastAPI backend deployed on Kubernetes to guarantee enterprise-level scalability.",
         "Automation Development: Engineered a custom rules-engine capable of executing thousands of workflow automations simultaneously.",
         "Interface Optimization: Built a responsive, drag-and-drop Vue.js dashboard focused entirely on reducing time-to-action.",
-        "Ecosystem Integration: Integrated crucial third-party APIs (Slack, GitHub, Jira) to create a seamless, unified command center."
+        "Ecosystem Integration: Integrated third-party APIs (Slack, GitHub, Jira) to create a unified command center."
       ],
       "technologies": {
         "frontend": [
@@ -750,7 +750,7 @@
         "Mobile-responsive design",
         "API for custom integrations"
       ],
-      "results": "Improved team productivity by 35% through automation. Successfully handled projects with up to 500 users with seamless performance. Client reported significant ROI within the first quarter of deployment.",
+      "results": "Improved team productivity by 35% through automation. Successfully handled projects with up to 500 users with fast, stable performance. Client reported significant ROI within the first quarter of deployment.",
       "metrics": {
         "productivityIncrease": "+35%",
         "userCapacity": "500+ users",
@@ -760,8 +760,8 @@
         "clientSatisfaction": "95%"
       },
       "screenshots": [
-        "./public/images/modern_e-commerce_interface_mockup.png",
-        "./public/images/minimalist_dark_mode_website_mockup.png"
+        "./public/images/modern_e-commerce_interface_mockup.webp",
+        "./public/images/minimalist_dark_mode_website_mockup.webp"
       ],
       "testimonial": {
         "quote": "TaskFlow Pro transformed how our team manages projects. The automation features alone saved us countless hours, and the intuitive interface made adoption effortless.",
@@ -770,7 +770,7 @@
         "avatar": null
       },
       "lessonsLearned": "Building enterprise software requires careful consideration of scalability and user adoption. The automation engine was the most complex component, but it delivered the highest value. Investing in comprehensive testing and documentation was crucial for enterprise deployment.",
-      "contentImg": "./public/images/minimalist_dark_mode_website_mockup.png",
+      "contentImg": "./public/images/minimalist_dark_mode_website_mockup.webp",
       "websiteUrl": "#"
     }
   ]

@@ -29,8 +29,13 @@ export function initContactForm() {
         status.dataset.state = 'sending';
         try {
             const response = await submitContactForm(new FormData(form));
+            if (response.status === 429) {
+                status.textContent = 'Please wait before sending another message. Your details are still here. You can also use the email link below.';
+                status.dataset.state = 'error';
+                return;
+            }
             if (!response.ok) throw new Error('Submission failed');
-            status.textContent = "Thanks. Your message has been sent. I'll reply by email.";
+            status.textContent = "Thanks. Your message has been received.";
             status.dataset.state = 'success';
             form.reset();
             trackContactAction('generate_lead');
@@ -105,72 +110,80 @@ export function initLoadMoreProjects() {
 }
 
 /**
- * Initializes the blog category filter and search functionality.
+ * Initializes category filtering and live text search for tools.html.
+ * @returns {void}
  */
-export function initBlogFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('blog-search');
-    const postRows = document.querySelectorAll('.post-row');
-    const emptyState = document.getElementById('empty-state');
-    const emptyQuery = document.getElementById('empty-query');
+export function initToolsFilter() {
+    const filterContainer = document.getElementById('tool-category-filters');
+    const searchInput = document.getElementById('tool-search');
+    const toolsGrid = document.getElementById('tools-grid');
 
-    if (!filterBtns.length || !searchInput || !postRows.length) return;
+    if (!toolsGrid) return;
 
-    let currentCategory = 'All';
-    let currentSearch = '';
+    const cards = Array.from(toolsGrid.querySelectorAll('.tool-card'));
+    if (!cards.length) return;
 
-    const filterPosts = () => {
+    let activeCategory = 'All';
+    let searchQuery = '';
+
+    const filterButtons = filterContainer ? Array.from(filterContainer.querySelectorAll('.tool-filter-btn')) : [];
+
+    const applyFilter = () => {
+        const query = searchQuery.trim().toLowerCase();
         let visibleCount = 0;
-        const searchLower = currentSearch.toLowerCase();
 
-        postRows.forEach(row => {
-            const category = row.getAttribute('data-category') || '';
-            const title = (row.querySelector('.post-title')?.textContent || '').toLowerCase();
-            const dek = (row.querySelector('.post-dek')?.textContent || '').toLowerCase();
-            
-            const matchesCategory = currentCategory === 'All' || category === currentCategory;
-            const matchesSearch = !searchLower || title.includes(searchLower) || dek.includes(searchLower) || category.toLowerCase().includes(searchLower);
+        cards.forEach((card) => {
+            const category = card.dataset.category || '';
+            const tags = card.dataset.tags || '';
+            const title = card.querySelector('.tool-title')?.textContent || '';
+            const summary = card.querySelector('.tool-summary')?.textContent || '';
+            const searchableText = `${title} ${summary} ${category} ${tags}`.toLowerCase();
 
-            if (matchesCategory && matchesSearch) {
-                row.classList.remove('hidden');
-                visibleCount++;
-            } else {
-                row.classList.add('hidden');
-            }
+            const matchesCategory = activeCategory === 'All' || category.toLowerCase() === activeCategory.toLowerCase();
+            const matchesSearch = !query || searchableText.includes(query);
+
+            const isVisible = matchesCategory && matchesSearch;
+            card.classList.toggle('hidden', !isVisible);
+            if (isVisible) visibleCount++;
         });
 
+        let emptyState = document.getElementById('tools-empty-state');
         if (visibleCount === 0) {
-            emptyState.classList.remove('hidden');
-            if (currentSearch) {
-                emptyQuery.textContent = currentSearch;
-            } else {
-                emptyQuery.textContent = currentCategory !== 'All' ? currentCategory : 'any criteria';
+            if (!emptyState) {
+                emptyState = document.createElement('div');
+                emptyState.id = 'tools-empty-state';
+                emptyState.className = 'col-span-full py-16 text-center text-muted-foreground';
+                emptyState.innerHTML = '<p class="text-lg font-serif">No tools match your criteria.</p><p class="text-sm mt-2">Try searching for a different keyword or category.</p>';
+                toolsGrid.appendChild(emptyState);
             }
-        } else {
-            emptyState.classList.add('hidden');
+            emptyState.hidden = false;
+        } else if (emptyState) {
+            emptyState.hidden = true;
         }
     };
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // Update active state
-            filterBtns.forEach(b => {
-                b.setAttribute('aria-pressed', 'false');
-                b.classList.remove('bg-foreground', 'text-background', 'border-foreground');
-                b.classList.add('border-foreground/15', 'text-muted-foreground');
+    if (filterButtons.length) {
+        filterButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach((b) => {
+                    b.classList.remove('bg-foreground', 'text-background');
+                    b.classList.add('border-foreground/20', 'text-muted-foreground');
+                    b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('bg-foreground', 'text-background');
+                btn.classList.remove('border-foreground/20', 'text-muted-foreground');
+                btn.setAttribute('aria-pressed', 'true');
+
+                activeCategory = btn.dataset.filter || 'All';
+                applyFilter();
             });
-            const target = e.currentTarget;
-            target.setAttribute('aria-pressed', 'true');
-            target.classList.add('bg-foreground', 'text-background', 'border-foreground');
-            target.classList.remove('border-foreground/15', 'text-muted-foreground');
-
-            currentCategory = target.getAttribute('data-filter');
-            filterPosts();
         });
-    });
+    }
 
-    searchInput.addEventListener('input', (e) => {
-        currentSearch = e.target.value.trim();
-        filterPosts();
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            applyFilter();
+        });
+    }
 }

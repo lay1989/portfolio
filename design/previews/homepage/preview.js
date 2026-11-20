@@ -1,0 +1,5 @@
+const theme=document.querySelector('select');theme.addEventListener('change',()=>{document.documentElement.dataset.theme=theme.value;document.querySelector('.brand img').src=theme.value==='light'?'symbol-green.svg':'symbol-white.svg'});
+const menu=document.querySelector('.menu'),panel=document.querySelector('.mobile-panel'),close=panel.querySelector('button');
+function dismiss(){panel.hidden=true;panel.classList.remove('open');document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.focus()}
+menu.addEventListener('click',()=>{panel.hidden=false;panel.classList.add('open');document.body.classList.add('menu-open');menu.setAttribute('aria-expanded','true');close.focus()});close.addEventListener('click',dismiss);
+panel.addEventListener('keydown',e=>{if(e.key==='Escape')dismiss();if(e.key==='Tab'){const nodes=[...panel.querySelectorAll('a,button')],first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});

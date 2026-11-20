@@ -1,3 +1,4 @@
+import { motionAllowed } from './motion/index.js';
 /**
  * Throttles a function to execute at most once every limit milliseconds,
  * ensuring both the initial call and the final call are handled.
@@ -42,5 +43,5 @@ export function debounce(func, delay) {
 
 /** Whether the visitor has requested less animation. */
 export function prefersReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return !motionAllowed();
 }

@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <!-- Background circle for favicon visibility on dark/light tabs -->
-  <circle cx="50" cy="50" r="50" fill="#0f172a" />
-  
-  <path d="M 32 30 L 32 70 L 48 70" fill="none" stroke="#f8fafc" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-  <path d="M 68 30 L 52 30 L 52 50 L 68 50 L 68 70 L 52 70" fill="none" stroke="#059669" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="identity-title"><title id="identity-title">Lay Shah ribbon y</title><rect width="256" height="256" fill="#F6F3E9"/><g fill="#075E53"><path d="M28 44 H62 C85 44 95 65 104 82 L141 145 C126 151 108 146 98 131 L54 69 C44 54 35 48 28 44 Z"/><path d="M205 104 C186 134 174 161 155 190 C132 222 95 232 47 216 L47 209 C86 220 116 195 139 164 C160 134 182 112 205 104 Z"/><path d="M218 63 A30 30 0 1 1 158 63 A30 30 0 1 1 218 63 Z"/></g></svg>

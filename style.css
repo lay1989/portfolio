@@ -1,101 +1,11 @@
+@import "./styles/design.generated.css";
+@import "./styles/components.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    /* CSS Variables for Theming */
-    :root {
-        /* Base Palette Tokens */
-        --color-white: #ffffff;
-        --color-slate-50: #f8fafc;
-        --color-slate-100: #f1f5f9;
-        --color-slate-200: #e2e8f0;
-        --color-slate-400: #94a3b8;
-        --color-slate-500: #64748b;
-        --color-slate-700: #334155;
-        --color-slate-800: #1e293b;
-        --color-slate-900: #0f172a;
-        --color-slate-950: #020617;
-        
-        --color-trust-green: #047857; /* Emerald 600 - Deep, stable green */
-        --color-trust-green-light: #34d399; /* Emerald 500 */
-
-        /* Component-specific & Effect Tokens */
-        --navbar-bg: rgba(248, 250, 252, 0.88);
-        --shadow-hover: rgba(15, 23, 42, 0.08);
-
-        /* Semantic Variables Mapping (Light Mode) */
-        --background: var(--color-slate-50);
-        --foreground: var(--color-slate-900);
-        --card: var(--color-white);
-        --card-foreground: var(--color-slate-900);
-        --primary: var(--color-slate-900);
-        --primary-foreground: var(--color-white);
-        --secondary: var(--color-slate-100);
-        --secondary-foreground: var(--color-slate-900);
-        --muted: var(--color-slate-100);
-        --muted-foreground: var(--color-slate-500);
-        --accent: var(--color-trust-green);
-        --accent-foreground: var(--color-white);
-        --border: var(--color-slate-200);
-
-        /* Animation Offsets & Magic Number Abstractions */
-        --reveal-offset: 30px;
-        --theme-toggle-offset: 30px;
-        --hover-lift-offset: -5px;
-        --hamburger-translate: 8px;
-
-        /* RGB channels let Tailwind opacity modifiers work in both themes. */
-        --background-rgb: 248 250 252;
-        --foreground-rgb: 15 23 42;
-        --card-rgb: 255 255 255;
-        --card-foreground-rgb: 15 23 42;
-        --primary-rgb: 15 23 42;
-        --primary-foreground-rgb: 255 255 255;
-        --secondary-rgb: 241 245 249;
-        --secondary-foreground-rgb: 15 23 42;
-        --muted-rgb: 241 245 249;
-        --muted-foreground-rgb: 100 116 139;
-        --accent-rgb: 4 120 87;
-        --accent-foreground-rgb: 255 255 255;
-        --border-rgb: 226 232 240;
-    }
-
-    .dark {
-        /* Component-specific & Effect Tokens (Dark Mode overrides) */
-        --navbar-bg: rgba(2, 6, 23, 0.88);
-        --shadow-hover: rgba(0, 0, 0, 0.5);
-
-        /* Semantic Variables Mapping (Dark Mode) */
-        --background: var(--color-slate-950);
-        --foreground: var(--color-slate-50);
-        --card: var(--color-slate-900);
-        --card-foreground: var(--color-slate-50);
-        --primary: var(--color-white);
-        --primary-foreground: var(--color-slate-900);
-        --secondary: var(--color-slate-800);
-        --secondary-foreground: var(--color-white);
-        --muted: var(--color-slate-800);
-        --muted-foreground: var(--color-slate-400);
-        --accent: var(--color-trust-green-light);
-        --accent-foreground: var(--color-slate-950);
-        --border: var(--color-slate-800);
-
-        /* RGB channels let Tailwind opacity modifiers work in both themes. */
-        --background-rgb: 2 6 23;
-        --foreground-rgb: 248 250 252;
-        --card-rgb: 15 23 42;
-        --card-foreground-rgb: 248 250 252;
-        --primary-rgb: 255 255 255;
-        --primary-foreground-rgb: 15 23 42;
-        --secondary-rgb: 30 41 59;
-        --secondary-foreground-rgb: 255 255 255;
-        --muted-rgb: 30 41 59;
-        --muted-foreground-rgb: 148 163 184;
-        --accent-rgb: 52 211 153;
-        --accent-foreground-rgb: 2 6 23;
-        --border-rgb: 30 41 59;
-    }
+    /* Theme roles and RGB channels are generated from design/system.json. */
 
     /* Smooth Scrolling (Lenis overrides this when active) */
     html {

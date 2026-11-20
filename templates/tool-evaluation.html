@@ -1,0 +1,239 @@
+<!-- Tool Evaluation Template -->
+<!-- This template is used by build-html.js to generate individual tool evaluation pages -->
+
+<main class="relative bg-background text-foreground pb-0" id="main-content" tabindex="-1">
+
+    <!-- Tool Hero -->
+    <section id="hero" class="relative">
+        <div class="mx-auto max-w-[1400px] px-6 pt-40 md:px-10 md:pt-56">
+            <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted-foreground font-mono uppercase tracking-widest">
+                <ol class="flex items-center gap-2">
+                    <li><a href="{{BASE_PATH}}index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li><a href="{{BASE_PATH}}tools.html" class="hover:text-accent transition-colors">Tools</a></li>
+                    <li><span class="text-border">/</span></li>
+                    <li class="text-foreground" aria-current="page">{{TOOL_TITLE}}</li>
+                </ol>
+            </nav>
+            
+            <div class="mt-8 flex flex-wrap items-center gap-2.5 font-mono text-xs tracking-wider">
+                <span class="px-3 py-1 rounded-full bg-accent/10 text-accent font-medium uppercase">{{TOOL_CATEGORY}}</span>
+                <span class="px-3 py-1 rounded-full border border-border text-muted-foreground">{{TOOL_LICENSE}}</span>
+                <span class="px-3 py-1 rounded-full border border-border text-muted-foreground">{{TOOL_PRICING}}</span>
+                {{TOOL_HOSTING_BADGE}}
+            </div>
+            
+            <h1 class="mt-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-tight md:text-7xl">
+                {{TOOL_TITLE}}
+            </h1>
+            
+            <div class="mt-4 h-[3px] w-24 bg-accent md:w-36"></div>
+            
+            <p class="mt-6 max-w-3xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
+                {{TOOL_SUMMARY}}
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="{{TOOL_LAUNCH_URL}}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground text-sm font-medium hover:scale-[1.02] shadow-sm shadow-accent/20 transition-all">
+                    <span>Open tool</span>
+                    <i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+                {{TOOL_GITHUB_BUTTON}}
+                {{TOOL_DOCS_BUTTON}}
+            </div>
+        </div>
+        
+        <!-- Tool Hero Browser Mockup -->
+        <div class="mt-16 overflow-hidden">
+            <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+                <div class="browser-mockup">
+                    <div class="browser-mockup-header">
+                        <div class="browser-mockup-dots">
+                            <span class="browser-mockup-dot red"></span>
+                            <span class="browser-mockup-dot yellow"></span>
+                            <span class="browser-mockup-dot green"></span>
+                        </div>
+                        <div class="browser-mockup-url">https://{{TOOL_CLEAN_URL}}</div>
+                    </div>
+                    <div class="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-card">
+                        <img src="{{BASE_PATH}}{{TOOL_COVER}}" alt="Screenshot and interface preview of {{TOOL_TITLE}}" class="w-full h-full object-cover" loading="eager">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Body -->
+    <section class="mx-auto mt-20 max-w-[1400px] px-6 md:mt-32 md:px-10">
+        <div class="grid gap-12 md:grid-cols-12 md:gap-16 mb-28">
+            
+            <!-- Sticky Meta Rail -->
+            <aside class="md:col-span-4 relative">
+                <div class="md:sticky md:top-32 space-y-6">
+                    <!-- Quick Specs Card -->
+                    <div class="rounded-2xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 p-6 transition-all hover:border-accent/20">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-5">Tool Specifications</div>
+                        <dl class="space-y-4 text-sm">
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Category</dt>
+                                <dd class="text-right text-foreground font-medium">{{TOOL_CATEGORY}}</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">License</dt>
+                                <dd class="text-right text-foreground font-mono text-xs">{{TOOL_LICENSE}}</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Pricing</dt>
+                                <dd class="text-right text-foreground">{{TOOL_PRICING}}</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Deployment</dt>
+                                <dd class="text-right text-foreground">{{TOOL_DEPLOYMENT}}</dd>
+                            </div>
+                            <div class="flex items-baseline justify-between gap-4 border-b border-border/50 pb-3">
+                                <dt class="text-muted-foreground">Reviewed</dt>
+                                <dd class="text-right text-foreground font-mono text-xs">{{TOOL_REVIEW_DATE}}</dd>
+                            </div>
+                        </dl>
+                        
+                        <div class="mt-6">
+                            <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Tags</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                {{TOOL_TAG_CHIPS}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Outline -->
+                    <div class="hidden lg:block rounded-2xl border border-border/80 bg-card/60 backdrop-blur-md p-5">
+                        <div class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+                            <i data-lucide="compass" class="w-3.5 h-3.5 text-accent"></i> On This Page
+                        </div>
+                        <nav class="space-y-1 text-sm font-medium">
+                            <a href="#overview" class="toc-link">Overview & Architecture</a>
+                            <a href="#where-it-fits" class="toc-link">Where It Fits & Use Cases</a>
+                            <a href="#deployment" class="toc-link">Hosting & Deployment</a>
+                            <a href="#quick-start" class="toc-link">Quick Integration</a>
+                            <a href="#evaluation" class="toc-link">Pros & Limitations</a>
+                            <a href="#checklist" class="toc-link">Checklist Before Choosing</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Review Column -->
+            <div class="md:col-span-8">
+                <!-- Overview -->
+                <div id="overview" class="scroll-mt-36 mb-16">
+                    <div class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4">Overview & Architecture</div>
+                    <p class="drop-cap text-xl leading-relaxed text-foreground md:text-2xl mb-6 font-serif">
+                        {{TOOL_OVERVIEW}}
+                    </p>
+                    <p class="text-xs font-mono text-muted-foreground">
+                        {{TOOL_REVIEW_META}}
+                    </p>
+                </div>
+
+                <!-- Where it fits -->
+                <div id="where-it-fits" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">Where It Fits</h2>
+                    <p class="text-muted-foreground text-lg leading-relaxed mb-6">
+                        {{TOOL_WHERE_IT_FITS}}
+                    </p>
+                </div>
+
+                <!-- Hosting & Deployment -->
+                <div id="deployment" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">Hosting & Deployment</h2>
+                    <div class="callout-box mb-6">
+                        <p class="text-foreground/90 text-base leading-relaxed">
+                            {{TOOL_SELF_HOSTED_VS_CLOUD}}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Developer Quick Start -->
+                <div id="quick-start" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="font-serif text-3xl font-medium text-foreground">Quick Start & Integration</h2>
+                        <span class="font-mono text-xs uppercase px-2 py-0.5 rounded bg-muted text-muted-foreground">{{TOOL_QUICK_START_LANG}}</span>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <button class="copy-code-btn" type="button" aria-label="Copy code snippet">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 mr-1" aria-hidden="true"></i>
+                            <span>Copy</span>
+                        </button>
+                        <pre class="bg-card text-foreground font-mono text-sm p-5 rounded-xl border border-border overflow-x-auto"><code>{{TOOL_QUICK_START_CODE}}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Pros & Limitations (Bento) -->
+                <div id="evaluation" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-6">Evaluation Verdict</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Pros Card -->
+                        <div class="bento-card p-6 border-l-4 !border-l-accent">
+                            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-accent mb-4 flex items-center gap-1.5">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i> Strengths
+                            </h3>
+                            <ul class="space-y-3 text-sm text-foreground/90">
+                                {{TOOL_PROS_LIST}}
+                            </ul>
+                        </div>
+                        <!-- Cons Card -->
+                        <div class="bento-card p-6 border-l-4 !border-l-amber-500/70">
+                            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-amber-500 mb-4 flex items-center gap-1.5">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i> Considerations
+                            </h3>
+                            <ul class="space-y-3 text-sm text-foreground/90">
+                                {{TOOL_CONS_LIST}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist Before Choosing -->
+                <div id="checklist" class="scroll-mt-36 mb-16 border-t border-border/50 pt-10">
+                    <h2 class="font-serif text-3xl font-medium text-foreground mb-4">What To Check Before Choosing</h2>
+                    <p class="text-muted-foreground text-base md:text-lg leading-relaxed">
+                        {{TOOL_WHAT_TO_CHECK}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Integration Consultation CTA -->
+        <div class="mb-24">
+            <div class="p-8 md:p-12 rounded-3xl border border-border bg-gradient-to-br from-slate-100/50 to-slate-200/30 dark:from-slate-900/50 dark:to-slate-950/50 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden transition-all hover:border-accent/20">
+                <div class="flex-grow max-w-2xl">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span class="text-accent text-xs font-mono uppercase tracking-widest">{{AVAILABILITY}}</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-medium leading-tight text-foreground mb-3">Need {{TOOL_TITLE}} configured for your product?</h2>
+                    <p class="text-muted-foreground text-sm md:text-base leading-relaxed">I evaluate, self-host, and integrate developer tools and APIs into production codebases for founders and small engineering teams.</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="{{BASE_PATH}}index.html#contact" class="site-button">
+                        Discuss integration
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="w-full mt-16 mb-32 border-t border-border/50 pt-12">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="font-serif text-2xl font-medium text-foreground">Explore Other Curated Tools</h3>
+                <a href="{{BASE_PATH}}tools.html" class="text-sm font-medium text-accent hover:underline flex items-center gap-1">
+                    All tools <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {{TOOL_RELATED_CARDS}}
+            </div>
+        </div>
+
+    </section>
+</main>

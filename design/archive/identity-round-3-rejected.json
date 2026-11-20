@@ -1,0 +1,696 @@
+{
+  "round": 3,
+  "stage": "sketches",
+  "reviewedOn": "2026-10-28",
+  "title": "Curiosity comes first.",
+  "summary": "A personal identity for Lay Shah: inventive and discerning, with one unexpected detail that makes a clear impression.",
+  "brief": {
+    "name": "Lay Shah",
+    "foundation": "Curiosity → understanding → clear communication.",
+    "audience": "Founders, businesses, and small teams choosing a developer for websites, applications, and practical tools.",
+    "feeling": "Understood and confident.",
+    "personality": "Inventive and discerning.",
+    "direction": "Restraint with an unexpected, memorable character.",
+    "latitude": "Fresh lettering, symbols, and colors are open for exploration. Website typography, colors, and layout are reviewed separately.",
+    "ownerWords": "At the top, I think it should be curiosity, without which nothing is possible.",
+    "interpretation": "Explore deeply enough to understand the real need, then explain the choices and value clearly. This is a working creative brief, not a new public tagline."
+  },
+  "muse": {
+    "id": "mubi",
+    "name": "MUBI",
+    "url": "https://mubi.com/en/in",
+    "width": 120,
+    "height": 50,
+    "alt": "Source capture of MUBI’s white wordmark and seven-dot arrangement from its own homepage.",
+    "cue": "Plain, compact lettering sits beside a small, uneven arrangement of equal-sized dots. The unusual silhouette adds a moment of discovery while the name stays easy to read.",
+    "carry": "A clear name, an economical shape vocabulary, and one deliberate surprise.",
+    "boundary": "The dot arrangement, letter shapes, and cinema identity belong to MUBI. Lay’s sketches will explore original forms and ideas.",
+    "confirmed": "Selected by you: “I would love to go with option C, unexpected character.”"
+  },
+  "references": [
+    {
+      "id": "josh-comeau",
+      "name": "Josh W. Comeau",
+      "kind": "Modified name treatment",
+      "url": "https://www.joshwcomeau.com/",
+      "width": 210,
+      "height": 90,
+      "alt": "Source capture of Josh W. Comeau’s colored name, with a tilted W and small caret between the words.",
+      "observation": "A tilted W and a small caret interrupt an otherwise readable name. The surrounding website adds a much more playful illustrated world.",
+      "lesson": "A small, specific change can give lettering a recognizable voice.",
+      "caution": "The whimsical treatment suits his teaching personality. Lay’s clients still need a composed, confident first impression."
+    },
+    {
+      "id": "rauno-freiberg",
+      "name": "Rauno Freiberg",
+      "kind": "Name-led identity",
+      "url": "https://rauno.me/",
+      "width": 490,
+      "height": 95,
+      "alt": "Source capture of Rauno Freiberg’s large black name beside the edge of a yellow circle.",
+      "observation": "The name leads in large, plain lettering. A yellow circle and unusual page composition carry the visual character.",
+      "lesson": "Personality can come from one deliberate interruption around clear typography.",
+      "caution": "This is a name treatment in a larger composition, rather than a standalone graphic symbol. Lay’s finished mark must also hold its own outside the website."
+    },
+    {
+      "id": "paco-coursey",
+      "name": "Paco Coursey",
+      "kind": "Name-led identity",
+      "url": "https://paco.me/",
+      "width": 260,
+      "height": 75,
+      "alt": "Source capture of Paco Coursey’s small, unadorned name on a dark background.",
+      "observation": "A small, unadorned name introduces a restrained, writing-led page. There is no separate graphic logo in this captured heading.",
+      "lesson": "Restraint gives the work and language room to establish credibility.",
+      "caution": "Plain name typography alone offers little visual recognition when removed from its page. Lay needs a more memorable identifying feature."
+    },
+    {
+      "id": "brittany-chiang",
+      "name": "Brittany Chiang",
+      "kind": "Name-led identity",
+      "url": "https://brittanychiang.com/",
+      "width": 405,
+      "height": 115,
+      "alt": "Source capture of Brittany Chiang’s large pale name and Frontend Engineer label on navy.",
+      "observation": "A large, bold name and a clear role establish an immediate hierarchy against a navy background.",
+      "lesson": "The person’s name can be the clearest anchor in a professional portfolio.",
+      "caution": "Dark backgrounds and neutral sans-serif names recur in this comparison set. Repeating that combination alone would give Lay little distinction."
+    },
+    {
+      "id": "tobias-van-schneider",
+      "name": "Tobias van Schneider / HOVS",
+      "kind": "Product-builder studio wordmark",
+      "url": "https://vanschneider.com/",
+      "width": 265,
+      "height": 110,
+      "alt": "Source capture of the HOVS serif wordmark in a red tab at the top of Tobias van Schneider’s site.",
+      "observation": "The HOVS wordmark pairs high-contrast serif lettering with an assertive red tab. Tobias’s own products and studio work share the surrounding identity.",
+      "lesson": "A consistent point of view can connect a personal practice and several products.",
+      "caution": "HOVS is a studio identity. Lay Shah remains the primary name here; a new studio name or elaborate badge is outside the brief."
+    },
+    {
+      "id": "bruno-simon",
+      "name": "Bruno Simon",
+      "kind": "Published browser symbol",
+      "url": "https://bruno-simon.com/",
+      "assetUrl": "https://bruno-simon.com/favicons/favicon-96x96.png",
+      "width": 96,
+      "height": 96,
+      "alt": "Source capture of Bruno Simon’s published square browser icon with a dark diamond and white center.",
+      "observation": "The published browser icon is a simple diamond. The portfolio itself builds recognition through a distinctive interactive driving world.",
+      "lesson": "A logo is one part of a personal identity; demonstrated craft can carry much of its character.",
+      "caution": "An isolated geometric diamond would not give Lay the same distinctive experience. The new mark needs an identifying feature of its own."
+    }
+  ],
+  "findings": [
+    "Names do much of the identifying work in this set. Josh modifies his lettering; Rauno, Paco, and Brittany largely use their names as typography within a broader composition.",
+    "Dark backgrounds and neutral sans-serif lettering recur. They can be well executed, but using them alone would give Lay little visual distinction.",
+    "The memorable differences come from particular choices: Josh’s displaced letter, Rauno’s spatial interruption, HOVS’s typographic contrast, and Bruno’s authored experience.",
+    "The opportunity for Lay is a composed identity with an identifying detail that survives outside a website. The client should be able to notice that detail before reading its explanation."
+  ],
+  "criteria": [
+    {
+      "title": "Personal relevance",
+      "description": "Trace the idea to Lay’s curiosity, understanding, or communication. It should feel plausible for this person and this audience."
+    },
+    {
+      "title": "Recognizable character",
+      "description": "Point to one feature that can be remembered after a brief glance. Keep the name clear and the surprise intentional."
+    },
+    {
+      "title": "Legibility",
+      "description": "Read the name at header size and inspect the compact symbol at actual 16, 24, and 32 pixels. Test pure black and white before color."
+    },
+    {
+      "title": "Distinction",
+      "description": "Compare the visible work against these six identities, MUBI, and the rejected rounds. Record similarities and weaknesses without awarding intent as evidence."
+    }
+  ],
+  "rejected": [
+    "Join",
+    "Span",
+    "Relay",
+    "Signature",
+    "Whole",
+    "Clear"
+  ],
+  "avoid": [
+    "Reworking the existing LS mark or any of the six rejected concepts.",
+    "Copying MUBI’s dots or substituting a familiar tech symbol for a personal idea.",
+    "Default curiosity icons such as a magnifying glass, question mark, or eye without a specific original idea.",
+    "Using a fashionable font, color effect, or animation as the only source of distinction."
+  ],
+  "nextStage": "Choose two sketch numbers to develop. The next stage refines their lettering and symbols, then compares color and practical applications. No pair has been selected.",
+  "glyphs": {},
+  "concepts": [
+    {
+      "number": 1,
+      "id": "open-letter",
+      "name": "Open letter",
+      "kind": "lettering",
+      "idea": "The first a opens outward; a quiet detail in a direct, readable name.",
+      "risk": "The aperture needs testing at small sizes; the remaining lettering is close to a standard sans.",
+      "construction": "Outlined bold humanist lowercase with one opened bowl and tightened optical spacing.",
+      "alt": "Lowercase lay shah in bold black lettering, with a small opening cut into the first a.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M70.78 151V69.64H87.73V151Z"
+        },
+        {
+          "d": "M134.56 151Q133.88 148.51 133.6 145.69Q133.32 142.86 133.32 139.13H132.87V111.9Q132.87 108.4 130.55 106.42Q128.24 104.44 123.72 104.44Q119.42 104.44 116.88 105.91Q114.34 107.38 113.55 110.21H97.39Q98.52 102.41 105.41 97.32Q112.3 92.24 124.28 92.24Q136.71 92.24 143.26 97.78Q149.82 103.31 149.82 113.71V139.13Q149.82 141.96 150.21 144.84Q150.61 147.72 151.51 151ZM114.45 152.13Q105.86 152.13 100.78 147.78Q95.69 143.43 95.69 136.2Q95.69 128.17 101.74 123.26Q107.78 118.34 118.63 116.87L135.47 114.5V124.33L121.46 126.48Q116.94 127.16 114.79 128.97Q112.64 130.77 112.64 133.94Q112.64 136.76 114.68 138.23Q116.71 139.7 120.1 139.7Q125.41 139.7 129.14 136.82Q132.87 133.94 132.87 130.09L134.45 139.13Q131.96 145.58 126.88 148.85Q121.79 152.13 114.45 152.13Z"
+        },
+        {
+          "d": "M162.75 174.16 178.68 138.91 181.62 134.05 196.54 93.37H214.62L179.7 174.16ZM174.96 149.87 152.81 93.37H171.11L189.31 144.9Z"
+        },
+        {
+          "d": "M259.92 152.13Q247.26 152.13 239.81 147.05Q232.35 141.96 231.67 133.03H246.81Q247.38 136.88 250.71 138.85Q254.04 140.83 259.92 140.83Q265.23 140.83 267.66 139.3Q270.09 137.78 270.09 134.95Q270.09 132.81 268.68 131.62Q267.27 130.43 263.54 129.64L254.27 127.72Q243.99 125.58 239.13 121.22Q234.27 116.87 234.27 109.98Q234.27 101.62 240.71 96.93Q247.15 92.24 258.68 92.24Q270.09 92.24 276.87 96.82Q283.65 101.39 284.33 109.53H269.19Q268.73 106.59 266.02 105.07Q263.31 103.54 258.34 103.54Q253.82 103.54 251.61 104.84Q249.41 106.14 249.41 108.51Q249.41 110.55 251.22 111.73Q253.03 112.92 257.21 113.82L267.6 115.97Q276.31 117.78 280.77 122.69Q285.23 127.61 285.23 134.28Q285.23 142.75 278.62 147.44Q272.01 152.13 259.92 152.13Z"
+        },
+        {
+          "d": "M290.59 151V69.64H307.54V151ZM330.71 151V115.29Q330.71 110.55 328.28 108.17Q325.85 105.8 321.22 105.8Q317.26 105.8 314.15 107.61Q311.05 109.42 309.3 112.58Q307.54 115.74 307.54 120.04L306.08 106.14Q308.9 99.81 314.38 96.03Q319.86 92.24 327.88 92.24Q337.49 92.24 342.57 97.61Q347.66 102.97 347.66 112.02V151Z"
+        },
+        {
+          "d": "M393.81 151Q393.14 148.51 392.85 145.69Q392.57 142.86 392.57 139.13H392.12V111.9Q392.12 108.4 389.8 106.42Q387.49 104.44 382.97 104.44Q378.67 104.44 376.13 105.91Q373.59 107.38 372.8 110.21H356.64Q357.77 102.41 364.66 97.32Q371.55 92.24 383.53 92.24Q395.96 92.24 402.51 97.78Q409.07 103.31 409.07 113.71V139.13Q409.07 141.96 409.46 144.84Q409.86 147.72 410.76 151ZM373.7 152.13Q365.11 152.13 360.03 147.78Q354.94 143.43 354.94 136.2Q354.94 128.17 360.99 123.26Q367.03 118.34 377.88 116.87L394.72 114.5V124.33L380.71 126.48Q376.19 127.16 374.04 128.97Q371.89 130.77 371.89 133.94Q371.89 136.76 373.93 138.23Q375.96 139.7 379.35 139.7Q384.66 139.7 388.39 136.82Q392.12 133.94 392.12 130.09L393.7 139.13Q391.22 145.58 386.13 148.85Q381.05 152.13 373.7 152.13Z"
+        },
+        {
+          "d": "M419.06 151V69.64H436.01V151ZM459.18 151V115.29Q459.18 110.55 456.75 108.17Q454.32 105.8 449.69 105.8Q445.73 105.8 442.62 107.61Q439.52 109.42 437.77 112.58Q436.01 115.74 436.01 120.04L434.55 106.14Q437.37 99.81 442.85 96.03Q448.33 92.24 456.35 92.24Q465.96 92.24 471.04 97.61Q476.13 102.97 476.13 112.02V151Z"
+        },
+        {
+          "d": "M127 131 L147 114 L153 122 L134 141 Z",
+          "fill": "paper"
+        }
+      ],
+      "caption": "An opening in the first a."
+    },
+    {
+      "number": 2,
+      "id": "two-voices",
+      "name": "Two voices",
+      "kind": "lettering",
+      "idea": "A composed first name meets a more conversational, slanted surname.",
+      "risk": "Roman-and-italic pairing alone is easy to reproduce; selected lettering would need more authorship.",
+      "construction": "Equal-size Newsreader roman and italic outline studies with a custom inter-word interval.",
+      "alt": "Lay in upright serif lettering followed by Shah in flowing italic serif, both on one baseline.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M117.55 156.69H116.33L108.79 153H73.04V148.06H115.09L107.29 149.93L121.11 128.82L123.3 129.37ZM81.93 79.88V153H57.83V150.99L66.82 148.25V79.88L57.83 77.18V75.16H90.93V77.18Z"
+        },
+        {
+          "d": "M158.65 119.04 159.07 122.44Q152.98 124.19 149.18 125.89Q145.37 127.58 143.33 129.35Q141.28 131.12 140.51 133.12Q139.74 135.12 139.74 137.54Q139.74 141.78 141.89 143.84Q144.03 145.9 147.26 145.9Q149.69 145.9 151.57 144.82Q153.44 143.73 154.53 141.73Q155.62 139.73 155.62 137.01V113.3Q155.62 108.81 153.29 106.31Q150.97 103.81 146.04 103.81Q143.85 103.81 141.61 104.19Q139.37 104.56 137.75 105.28L140.3 102.34Q140.02 105.01 139.64 107.12Q139.26 109.24 138.77 110.7Q138.28 112.17 137.61 112.98Q136.76 114 135.19 114.6Q133.62 115.2 131.88 115.2Q129.6 115.2 128.36 114.32Q127.13 113.44 127.13 111.85Q127.13 109.59 129.31 107.27Q131.49 104.94 135.08 102.99Q138.67 101.03 143.03 99.84Q147.4 98.64 151.77 98.64Q158.11 98.64 161.89 100.52Q165.67 102.39 167.34 105.82Q169.01 109.25 169.01 113.95V142.63Q169.01 144.24 169.5 145.27Q169.99 146.3 170.91 146.79Q171.84 147.28 173.12 147.28Q174.57 147.28 176.09 146.8Q177.61 146.33 179.18 145.36V147.89Q175.68 151.51 172.44 152.88Q169.2 154.26 165.81 154.26Q162.27 154.26 160.08 152.81Q157.88 151.36 156.86 148.57Q155.84 145.78 155.72 141.79L156.17 141.77Q155.2 145.68 153.09 148.48Q150.98 151.27 148.03 152.77Q145.09 154.27 141.55 154.27Q134.81 154.27 130.66 150.72Q126.51 147.18 126.51 140.58Q126.51 137.21 127.75 134.52Q129 131.82 132.4 129.4Q135.79 126.98 142.14 124.49Q148.49 121.99 158.65 119.04Z"
+        },
+        {
+          "d": "M215.18 141.44 208.42 156.9 182.51 104.32 175.84 101.87V99.78H204.47V101.91L197.33 103.97ZM190.75 180.56Q187.18 180.56 184.85 178.65Q182.52 176.74 182.52 173.26Q182.52 171.55 183.15 170.34Q183.78 169.13 184.76 168.47Q185.74 167.81 186.66 167.81Q187.49 167.81 188.6 168.38Q189.7 168.94 191.24 169.52Q192.78 170.09 194.79 170.09Q197.03 170.09 198.73 169.47Q200.43 168.85 201.85 167.19Q203.27 165.52 204.65 162.42L209.63 150.79L213.07 142.39L226.58 103.68L219.43 101.91V99.78H237.98V101.91L231.78 103.71L209.23 161.77Q206.38 169.07 203.6 173.15Q200.82 177.24 197.72 178.9Q194.62 180.56 190.75 180.56Z"
+        },
+        {
+          "d": "M322.21 84.69Q319.22 81.42 315.38 79.64Q311.54 77.87 306.34 77.87Q301.34 77.87 297.79 79.44Q294.25 81.02 292.39 84.02Q290.52 87.02 290.52 91.31Q290.52 95.4 292.54 98.06Q294.57 100.72 297.93 102.71Q301.29 104.7 305.28 106.86Q309.27 108.98 312.67 111.66Q316.07 114.34 318.15 118.27Q320.22 122.2 320.22 128.17Q320.22 135.85 316.17 141.76Q312.12 147.67 304.69 150.98Q297.26 154.29 287.09 154.29Q281.27 154.29 276.56 153.42Q271.85 152.54 267.63 150.73L267.5 129.66H269.64L278.44 151.08L273.3 146.47Q276.68 148.32 279.89 149.27Q283.1 150.22 287.13 150.22Q293.98 150.22 298.78 148.27Q303.58 146.31 306.1 142.56Q308.62 138.82 308.62 133.5Q308.62 129.58 307.19 126.9Q305.75 124.22 303.36 122.32Q300.98 120.43 298.1 118.94Q295.21 117.45 292.36 115.89Q288.56 113.79 285.72 111.36Q282.89 108.92 281.34 105.54Q279.79 102.16 279.79 97.3Q279.79 90.33 283.27 85.05Q286.75 79.78 293.12 76.82Q299.49 73.87 308.11 73.87Q313.05 73.87 317.28 74.94Q321.5 76 326.01 78.37L320.67 77.33L328.5 71.62H329.64L326.48 98.41H324.43L319.15 79.29Z"
+        },
+        {
+          "d": "M342.77 131.36 335.66 153H323.55L345.89 82.69Q344.89 81.77 343.69 80.8Q342.48 79.83 341.1 78.8Q339.72 77.77 338.1 76.76L338.47 75.44L360.5 71.34H361.47L344.41 123.99L343.7 123.73Q347.63 116.62 351.09 111.77Q354.56 106.93 357.75 104.03Q360.94 101.12 364.06 99.83Q367.18 98.54 370.37 98.54Q375.78 98.54 378.05 100.95Q380.31 103.35 380.31 106.93Q380.31 108.89 379.71 111.35Q379.12 113.8 377.41 118.04L365.3 148.47L363.26 145.87Q365.37 146.04 367.99 145.26Q370.61 144.47 373.9 142.28Q377.19 140.1 381.19 136.12L382.36 137.23Q377.76 143.41 373.61 147.16Q369.46 150.92 365.79 152.61Q362.12 154.29 358.84 154.29Q354.59 154.29 353.23 152.69Q351.87 151.08 353.3 147.55L365.12 118.16Q366.38 115.08 366.86 113.6Q367.35 112.11 367.35 111.16Q367.35 109.63 366.36 108.79Q365.38 107.95 363.2 107.95Q360.52 107.95 357.54 109.96Q354.56 111.96 351.7 115.35Q348.84 118.74 346.51 122.9Q344.18 127.06 342.77 131.36Z"
+        },
+        {
+          "d": "M412.96 149 419.44 129.16 420.51 129.23Q415.71 136.78 411.89 141.66Q408.08 146.53 404.93 149.29Q401.77 152.04 399.05 153.14Q396.33 154.24 393.69 154.24Q390.46 154.24 387.99 152.97Q385.51 151.69 384.12 149.19Q382.74 146.69 382.74 143.03Q382.74 137.66 384.66 131.62Q386.58 125.57 389.95 119.79Q393.31 114 397.69 109.27Q402.07 104.54 407.04 101.72Q412 98.89 417.09 98.89Q420.59 98.89 423.43 100.62Q426.26 102.35 428.5 106.04L427.06 108.48Q426.08 106.32 424.4 105.22Q422.73 104.12 420.36 104.12Q416.95 104.12 413.49 106.63Q410.03 109.14 406.88 113.24Q403.73 117.33 401.27 122.19Q398.82 127.05 397.39 131.8Q395.95 136.54 395.95 140.29Q395.95 143.1 397.13 144.28Q398.3 145.45 400.42 145.45Q402 145.45 404.14 144.38Q406.29 143.3 408.8 141.06Q411.3 138.82 413.97 135.3Q416.64 131.78 419.24 126.93L427.21 104.07L431.25 99.78H440.64L424.62 148.22L423.18 145.79Q425.14 145.89 427.6 144.92Q430.07 143.96 433 141.72Q435.93 139.49 439.22 135.85L440.38 136.96Q433.87 146.43 428.27 150.36Q422.68 154.29 417.95 154.29Q414.75 154.29 413.44 152.89Q412.13 151.49 412.96 149Z"
+        },
+        {
+          "d": "M458.56 131.36 451.45 153H439.34L461.68 82.69Q460.68 81.77 459.47 80.8Q458.27 79.83 456.89 78.8Q455.5 77.77 453.89 76.76L454.26 75.44L476.28 71.34H477.26L460.19 123.99L459.48 123.73Q463.41 116.62 466.88 111.77Q470.34 106.93 473.54 104.03Q476.73 101.12 479.84 99.83Q482.96 98.54 486.15 98.54Q491.57 98.54 493.83 100.95Q496.09 103.35 496.09 106.93Q496.09 108.89 495.5 111.35Q494.9 113.8 493.19 118.04L481.09 148.47L479.05 145.87Q481.15 146.04 483.77 145.26Q486.39 144.47 489.68 142.28Q492.98 140.1 496.98 136.12L498.14 137.23Q493.54 143.41 489.39 147.16Q485.25 150.92 481.58 152.61Q477.91 154.29 474.62 154.29Q470.37 154.29 469.02 152.69Q467.66 151.08 469.08 147.55L480.9 118.16Q482.16 115.08 482.65 113.6Q483.13 112.11 483.13 111.16Q483.13 109.63 482.15 108.79Q481.17 107.95 478.99 107.95Q476.31 107.95 473.32 109.96Q470.34 111.96 467.48 115.35Q464.62 118.74 462.29 122.9Q459.96 127.06 458.56 131.36Z"
+        }
+      ],
+      "caption": "Two registers, one name."
+    },
+    {
+      "number": 3,
+      "id": "unrehearsed",
+      "name": "Unrehearsed",
+      "kind": "lettering",
+      "idea": "An upright, slightly irregular hand gives the name a candid, approachable voice.",
+      "risk": "Its informal tone may undersell complex work; the a/y junctions still need refining.",
+      "construction": "Original seven-letter pen construction, open terminals, consistent rounded stroke, no signing flourish.",
+      "alt": "Original upright handwritten Lay Shah with irregular rounded letters and a compact y descender.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M58 64 C52 91 46 123 48 148 C54 158 78 157 94 147",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M143 112 C132 101 109 110 106 132 C103 150 117 160 129 146 L143 112 L137 151",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M169 110 C158 133 161 146 174 146 C185 146 194 126 199 109 M197 112 L184 163 C179 180 167 187 155 180",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M303 79 C292 58 259 61 249 80 C237 103 263 109 281 115 C307 124 298 153 278 157 C262 161 247 155 239 146",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M327 67 L315 152 M322 125 C343 101 364 105 359 128 L354 151",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M408 112 C394 101 372 110 369 133 C368 152 380 157 392 145 L408 112 L402 151",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        },
+        {
+          "d": "M442 68 L431 152 M438 125 C458 101 481 106 475 128 L470 151 C476 155 484 153 491 146",
+          "fill": "none",
+          "stroke": "ink",
+          "strokeWidth": 10,
+          "linecap": "round",
+          "linejoin": "round"
+        }
+      ],
+      "caption": "Original upright pen lettering."
+    },
+    {
+      "number": 4,
+      "id": "margin-note",
+      "name": "Margin note",
+      "kind": "lettering",
+      "idea": "Lay sits in the quiet space above Shah, like a personal note beside a larger thought.",
+      "risk": "The surname dominates and the reading order is unconventional; a header version would need testing.",
+      "construction": "Nested two-line serif name, small italic first name in the space above the lower-case surname letters.",
+      "alt": "A large serif Shah with a smaller italic Lay nested over the hah, making a compact two-line name.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M185.89 79.69 175.14 77.56 184.34 70.29H185.99L191.26 105.65L188.32 106.26L173.25 81.65L178.11 87.54Q173.29 83.33 168.08 81.27Q162.87 79.2 157.23 79.2Q147.7 79.2 143.17 83.47Q138.64 87.73 138.64 94.69Q138.64 99.49 140.83 102.75Q143.03 106.01 146.82 108.27Q150.61 110.53 155.44 112.28Q160.26 114.02 165.53 115.85Q170.79 117.68 176 120.03Q181.22 122.38 185.52 125.92Q189.82 129.46 192.42 134.8Q195.02 140.14 195.02 147.96Q195.02 158.51 189.59 166.08Q184.17 173.65 174.96 177.71Q165.76 181.77 154.3 181.77Q146.48 181.77 140.23 180.76Q133.99 179.74 127.23 177.13L120.83 148.24H124.17L144.39 177.84L130.67 168.94Q136.98 172.42 142.04 174.18Q147.09 175.93 152.73 175.93Q161.45 175.93 167.3 173.56Q173.16 171.19 176.13 166.71Q179.1 162.23 179.1 155.87Q179.1 149.96 176.42 146.09Q173.75 142.21 169.35 139.66Q164.95 137.1 159.71 135.23Q154.47 133.36 149.31 131.44Q144.15 129.51 139.54 127.22Q134.94 124.92 131.39 121.72Q127.83 118.51 125.8 113.93Q123.76 109.34 123.76 102.88Q123.76 93.8 128.23 87.17Q132.69 80.55 140.89 76.91Q149.08 73.28 160.18 73.28Q167.41 73.28 173.47 74.81Q179.53 76.33 185.89 79.69Z"
+        },
+        {
+          "d": "M246.07 177.5 255.63 174.63V132.45Q255.63 128.23 254.13 125.42Q252.63 122.62 249.62 121.23Q246.6 119.83 241.96 119.83Q236.91 119.83 232.4 121.37Q227.9 122.9 224.95 125.03L223.23 122.98Q228.44 117.91 232.46 114.69Q236.49 111.48 239.89 109.73Q243.28 107.98 246.59 107.31Q249.89 106.64 253.67 106.64Q263.9 106.64 268.8 112.55Q273.69 118.46 273.69 130.77V174.49L283.61 177.5V180H246.07ZM236.65 180H198.93V177.5L208.8 174.49V87.18Q207.77 86.2 206.1 84.99Q204.43 83.78 202.11 82.34Q199.79 80.9 196.85 79.23V77.22L225.98 69.9H227.32L226.85 97V174.53L236.65 177.5Z"
+        },
+        {
+          "d": "M328.97 134.21 329.54 138.8Q321.33 141.16 316.2 143.44Q311.07 145.73 308.31 148.12Q305.55 150.5 304.51 153.2Q303.48 155.89 303.48 159.15Q303.48 164.88 306.37 167.66Q309.26 170.43 313.61 170.43Q316.89 170.43 319.42 168.97Q321.95 167.5 323.41 164.81Q324.88 162.11 324.88 158.44V126.47Q324.88 120.42 321.75 117.05Q318.62 113.69 311.97 113.69Q309.01 113.69 305.99 114.19Q302.98 114.69 300.79 115.66L304.23 111.69Q303.85 115.3 303.33 118.15Q302.82 121 302.17 122.98Q301.51 124.96 300.6 126.04Q299.45 127.42 297.34 128.23Q295.23 129.04 292.87 129.04Q289.8 129.04 288.13 127.86Q286.47 126.67 286.47 124.52Q286.47 121.47 289.41 118.34Q292.35 115.21 297.19 112.57Q302.03 109.93 307.91 108.32Q313.79 106.71 319.69 106.71Q328.24 106.71 333.34 109.24Q338.44 111.77 340.69 116.39Q342.93 121.02 342.93 127.35V166.02Q342.93 168.19 343.59 169.58Q344.25 170.96 345.5 171.62Q346.75 172.28 348.48 172.28Q350.43 172.28 352.48 171.65Q354.53 171.01 356.65 169.7V173.11Q351.92 177.99 347.56 179.84Q343.2 181.7 338.62 181.7Q333.85 181.7 330.89 179.75Q327.93 177.8 326.56 174.03Q325.18 170.27 325.02 164.89L325.62 164.86Q324.31 170.13 321.47 173.9Q318.63 177.67 314.66 179.69Q310.68 181.71 305.91 181.71Q296.82 181.71 291.23 176.93Q285.64 172.16 285.64 163.26Q285.64 158.71 287.31 155.08Q288.99 151.45 293.57 148.19Q298.15 144.92 306.71 141.56Q315.27 138.2 328.97 134.21Z"
+        },
+        {
+          "d": "M400.13 177.5 409.69 174.63V132.45Q409.69 128.23 408.19 125.42Q406.7 122.62 403.68 121.23Q400.66 119.83 396.03 119.83Q390.97 119.83 386.46 121.37Q381.96 122.9 379.01 125.03L377.29 122.98Q382.5 117.91 386.53 114.69Q390.55 111.48 393.95 109.73Q397.35 107.98 400.65 107.31Q403.95 106.64 407.73 106.64Q417.97 106.64 422.86 112.55Q427.75 118.46 427.75 130.77V174.49L437.67 177.5V180H400.13ZM390.71 180H352.99V177.5L362.86 174.49V87.18Q361.84 86.2 360.16 84.99Q358.49 83.78 356.17 82.34Q353.85 80.9 350.91 79.23V77.22L380.04 69.9H381.38L380.92 97V174.53L390.71 177.5Z"
+        },
+        {
+          "d": "M266.7 23.09 252.72 69H238.57L238.89 67.94L244.71 66.26L257.9 23.03L252.86 21.41L253.18 20.35H272.84L272.52 21.41ZM267.96 67.03 280.7 54.28 281.85 54.99 273.42 71.29H272.78L268.72 69H247.3L248.27 66.21H271.28Z"
+        },
+        {
+          "d": "M301.38 66.5 305.43 54.1 306.09 54.14Q303.09 58.86 300.71 61.91Q298.32 64.96 296.35 66.68Q294.38 68.4 292.68 69.09Q290.98 69.78 289.33 69.78Q287.32 69.78 285.77 68.98Q284.22 68.18 283.35 66.62Q282.48 65.06 282.48 62.77Q282.48 59.41 283.69 55.64Q284.89 51.86 286.99 48.24Q289.1 44.62 291.83 41.67Q294.57 38.71 297.67 36.95Q300.78 35.18 303.96 35.18Q306.14 35.18 307.92 36.26Q309.69 37.34 311.09 39.65L310.19 41.17Q309.57 39.82 308.53 39.14Q307.48 38.45 306 38.45Q303.87 38.45 301.71 40.02Q299.54 41.59 297.57 44.15Q295.6 46.71 294.07 49.75Q292.54 52.78 291.64 55.75Q290.75 58.71 290.75 61.06Q290.75 62.81 291.48 63.55Q292.22 64.28 293.53 64.28Q294.52 64.28 295.86 63.61Q297.21 62.94 298.77 61.54Q300.34 60.13 302.01 57.94Q303.67 55.74 305.3 52.7L310.28 38.42L312.81 35.74H318.68L308.66 66.01L307.76 64.49Q308.99 64.56 310.53 63.95Q312.07 63.35 313.9 61.95Q315.73 60.55 317.79 58.28L318.51 58.97Q314.44 64.9 310.94 67.35Q307.45 69.81 304.49 69.81Q302.49 69.81 301.67 68.93Q300.85 68.05 301.38 66.5Z"
+        },
+        {
+          "d": "M321.36 49.77H320.25Q321.11 45.57 322.17 42.72Q323.23 39.86 324.52 38.15Q325.81 36.44 327.36 35.69Q328.9 34.93 330.69 34.93Q331.81 34.93 332.66 35.41Q333.52 35.9 334.23 37.06Q334.94 38.23 335.58 40.29Q336.23 42.34 336.91 46.33Q337.59 50.33 338.26 56.29Q338.94 62.26 339.51 70.27L333 77.2Q332.43 70.59 331.89 65.53Q331.36 60.48 330.88 56.76Q330.41 53.05 329.97 50.44Q329.54 47.83 329.14 46.1Q328.64 43.92 328.24 42.83Q327.84 41.73 327.48 41.38Q327.12 41.02 326.68 41.02Q325.89 41.02 325.08 41.73Q324.26 42.45 323.36 44.33Q322.45 46.22 321.36 49.77ZM335.99 71.86 337.03 71.23Q339.75 67.44 341.74 63.43Q343.73 59.42 345.05 55.08Q346.36 50.74 347 45.93Q347.63 41.13 347.61 35.71Q348.67 35.41 349.76 35.29Q350.85 35.17 351.87 35.17Q353 35.17 353.52 35.56Q354.04 35.96 354.04 36.78Q354.04 38.62 353.42 41.38Q352.8 44.15 351.63 47.56Q350.46 50.97 348.79 54.73Q347.12 58.5 345.03 62.34Q342.94 66.19 340.46 69.8Q336.34 75.82 332.67 79.45Q329 83.08 325.6 84.68Q322.2 86.29 318.87 86.29Q315.8 86.29 314.41 84.88Q313.02 83.48 313.02 81.27Q313.02 79.33 314.19 78.01Q315.36 76.69 317.22 76.69Q318.45 76.69 318.94 77.42Q319.44 78.15 319.58 79.88Q319.74 81.6 320.36 82.22Q320.98 82.84 322.02 82.84Q323.82 82.84 326.16 81.57Q328.5 80.3 331.05 77.84Q333.6 75.38 335.99 71.86Z"
+        }
+      ],
+      "caption": "A first name in the margin."
+    },
+    {
+      "number": 5,
+      "id": "turned-page",
+      "name": "Turned page",
+      "kind": "symbol",
+      "idea": "One surface turns outwards: exploring something, then making it available to someone else.",
+      "risk": "It can read as publishing or education before independent development.",
+      "construction": "Asymmetric curved page beside a narrow outward-folded plane; one broad internal crease.",
+      "alt": "Two solid black folded-page planes, one curved and one turned outward, with a white crease.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M233 49 C270 43 306 57 322 79 L322 182 C296 159 267 153 233 159 Z"
+        },
+        {
+          "d": "M333 80 L387 54 L387 157 L333 184 Z"
+        },
+        {
+          "d": "M246 61 C271 60 292 68 309 81 L309 91 C289 77 268 72 246 73 Z",
+          "fill": "paper"
+        }
+      ],
+      "caption": "A page turned towards someone."
+    },
+    {
+      "number": 6,
+      "id": "follow-up",
+      "name": "Follow-up",
+      "kind": "symbol",
+      "idea": "Two deliberately long quotation forms give conversation a strong, compact rhythm.",
+      "risk": "Quotation marks are common; this risks looking like a testimonial or messaging product.",
+      "construction": "Two solid bowed quotation forms with pointed return tails, offset from a typical quote glyph.",
+      "alt": "Two tall custom quotation forms with bowed upper strokes and angular lower tails.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M257 54 C225 54 216 76 216 101 C216 126 226 142 246 151 L246 184 L272 166 L272 143 C246 135 240 122 240 103 C240 84 246 77 257 77 Z"
+        },
+        {
+          "d": "M329 54 C297 54 288 76 288 101 C288 126 298 142 318 151 L318 184 L344 166 L344 143 C318 135 312 122 312 103 C312 84 318 77 329 77 Z"
+        }
+      ],
+      "caption": "A conversation, given a shape."
+    },
+    {
+      "number": 7,
+      "id": "listening-form",
+      "name": "Listening form",
+      "kind": "symbol",
+      "idea": "An ear-like silhouette makes attentive listening the identifying gesture.",
+      "risk": "It can also read as a lightbulb, or suggest audiology; the association needs your reaction.",
+      "construction": "Organic solid outline around one wide carved channel, with an asymmetrical lower lobe.",
+      "alt": "A sculpted black ear-like silhouette with one white curved channel and an asymmetric lower lobe.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M321 183 C315 203 286 208 269 191 C258 181 258 168 254 157 C249 144 233 135 232 108 C229 70 255 43 289 43 C331 42 357 75 348 113 C343 135 326 143 318 157 C313 166 316 174 321 183 Z"
+        },
+        {
+          "d": "M287 67 C260 67 250 93 258 112 C262 122 270 127 277 136 L281 148 C284 155 294 151 291 144 C287 129 276 123 274 110 C272 100 278 88 289 89 C301 89 306 102 299 111 C295 116 296 126 305 129 C321 117 328 100 321 86 C314 72 302 66 287 67 Z",
+          "fill": "paper"
+        }
+      ],
+      "caption": "Listening, made tangible."
+    },
+    {
+      "number": 8,
+      "id": "attentive-hare",
+      "name": "Attentive hare",
+      "kind": "symbol",
+      "idea": "A small character with one listening ear introduces warmth and an inquisitive posture.",
+      "risk": "Animal identities need repetition to become personal; this may feel too playful for your audience.",
+      "construction": "Compact original side-profile hare with one upright ear, one bent ear and two small facial cuts.",
+      "alt": "A compact black hare silhouette with one tall ear, one bent ear and a small white eye.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M247 111 C242 82 242 41 255 32 C269 27 278 57 279 97 L291 96 C303 76 321 58 339 63 C353 69 340 85 316 110 C335 128 343 153 330 175 C312 205 264 208 242 183 C224 162 229 130 247 111 Z"
+        },
+        {
+          "d": "M261 111 C250 91 252 58 256 53 C263 63 266 87 266 106 Z",
+          "fill": "paper"
+        },
+        {
+          "d": "M306 136 C305 132 310 129 313 132 C318 138 311 143 307 139 Z",
+          "fill": "paper"
+        },
+        {
+          "d": "M302 171 C312 165 325 163 334 164 L336 173 C325 173 316 177 309 182 Z",
+          "fill": "paper"
+        }
+      ],
+      "caption": "One ear turns to listen."
+    },
+    {
+      "number": 9,
+      "id": "the-aside",
+      "name": "The aside",
+      "kind": "combined",
+      "idea": "A folded comma holds a pause beside the name: room to listen before responding.",
+      "risk": "Punctuation can feel like an editorial studio; the fold is the detail to make recognizable.",
+      "construction": "Broad comma with an angled internal fold, paired with optically spaced upright serif lettering.",
+      "alt": "A large black comma with a small triangular white fold, followed by Lay Shah in serif lettering.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M80 73 C99 70 113 82 113 99 C113 119 98 140 75 149 L75 130 C87 124 93 116 95 108 C78 115 62 105 63 92 C63 83 70 76 80 73 Z"
+        },
+        {
+          "d": "M81 83 L102 96 L81 96 Z",
+          "fill": "paper"
+        },
+        {
+          "d": "M188.8 145.83H187.86L182.07 143H154.62V139.21H186.91L180.92 140.64L191.53 124.43L193.21 124.85ZM161.45 86.85V143H142.94V141.45L149.85 139.35V86.85L142.94 84.78V83.23H168.35V84.78Z"
+        },
+        {
+          "d": "M220.39 116.92 220.72 119.53Q216.04 120.88 213.12 122.18Q210.2 123.48 208.63 124.84Q207.05 126.2 206.46 127.73Q205.87 129.27 205.87 131.13Q205.87 134.39 207.52 135.97Q209.17 137.55 211.65 137.55Q213.51 137.55 214.95 136.72Q216.39 135.88 217.23 134.35Q218.06 132.81 218.06 130.72V112.51Q218.06 109.07 216.28 107.15Q214.5 105.23 210.71 105.23Q209.03 105.23 207.31 105.52Q205.59 105.81 204.34 106.36L206.3 104.1Q206.09 106.15 205.79 107.77Q205.5 109.4 205.13 110.52Q204.75 111.65 204.24 112.27Q203.58 113.06 202.38 113.52Q201.17 113.98 199.84 113.98Q198.08 113.98 197.13 113.3Q196.19 112.63 196.19 111.4Q196.19 109.67 197.86 107.88Q199.53 106.1 202.29 104.6Q205.05 103.09 208.4 102.18Q211.75 101.26 215.11 101.26Q219.98 101.26 222.88 102.7Q225.79 104.14 227.07 106.77Q228.35 109.41 228.35 113.01V135.04Q228.35 136.27 228.72 137.06Q229.1 137.85 229.81 138.23Q230.52 138.6 231.5 138.6Q232.62 138.6 233.78 138.24Q234.95 137.88 236.16 137.13V139.08Q233.47 141.85 230.98 142.91Q228.5 143.97 225.89 143.97Q223.17 143.97 221.49 142.86Q219.8 141.74 219.02 139.6Q218.24 137.46 218.15 134.4L218.49 134.38Q217.74 137.38 216.12 139.53Q214.5 141.68 212.24 142.82Q209.98 143.97 207.26 143.97Q202.08 143.97 198.9 141.25Q195.71 138.53 195.71 133.47Q195.71 130.88 196.67 128.81Q197.62 126.74 200.23 124.88Q202.84 123.02 207.71 121.11Q212.59 119.19 220.39 116.92Z"
+        },
+        {
+          "d": "M263.84 134.12 258.64 145.99 238.75 105.62 233.63 103.74V102.14H255.61V103.77L250.13 105.35ZM245.08 164.16Q242.34 164.16 240.54 162.7Q238.75 161.23 238.75 158.56Q238.75 157.24 239.24 156.31Q239.73 155.38 240.48 154.88Q241.23 154.37 241.93 154.37Q242.57 154.37 243.42 154.81Q244.27 155.24 245.45 155.68Q246.63 156.12 248.17 156.12Q249.9 156.12 251.21 155.65Q252.51 155.17 253.6 153.89Q254.69 152.61 255.75 150.23L259.57 141.31L262.21 134.86L272.59 105.13L267.1 103.77V102.14H281.34V103.77L276.58 105.15L259.27 149.73Q257.08 155.34 254.94 158.47Q252.81 161.61 250.43 162.89Q248.05 164.16 245.08 164.16Z"
+        },
+        {
+          "d": "M337.73 85.87 331.61 84.66 336.85 80.52H337.79L340.79 100.66L339.12 101L330.53 86.99L333.3 90.34Q330.56 87.94 327.59 86.77Q324.62 85.59 321.41 85.59Q315.98 85.59 313.4 88.02Q310.82 90.45 310.82 94.41Q310.82 97.15 312.07 99Q313.32 100.86 315.48 102.15Q317.64 103.44 320.39 104.43Q323.13 105.42 326.13 106.47Q329.13 107.51 332.1 108.85Q335.07 110.18 337.52 112.2Q339.97 114.22 341.45 117.26Q342.93 120.3 342.93 124.75Q342.93 130.76 339.84 135.07Q336.75 139.38 331.51 141.7Q326.27 144.01 319.74 144.01Q315.28 144.01 311.73 143.43Q308.17 142.85 304.32 141.36L300.68 124.91H302.58L314.1 141.77L306.28 136.7Q309.88 138.68 312.76 139.68Q315.64 140.68 318.85 140.68Q323.81 140.68 327.14 139.33Q330.48 137.98 332.17 135.43Q333.86 132.88 333.86 129.26Q333.86 125.89 332.34 123.69Q330.82 121.48 328.31 120.02Q325.81 118.57 322.82 117.5Q319.83 116.44 316.9 115.34Q313.96 114.25 311.34 112.94Q308.71 111.63 306.69 109.81Q304.67 107.98 303.51 105.37Q302.35 102.76 302.35 99.08Q302.35 93.9 304.89 90.13Q307.43 86.36 312.1 84.29Q316.77 82.22 323.09 82.22Q327.21 82.22 330.66 83.09Q334.11 83.96 337.73 85.87Z"
+        },
+        {
+          "d": "M373.35 141.57 378.8 139.94V115.92Q378.8 113.51 377.95 111.92Q377.09 110.32 375.37 109.53Q373.65 108.73 371.02 108.73Q368.13 108.73 365.57 109.61Q363 110.48 361.32 111.7L360.35 110.52Q363.31 107.64 365.6 105.81Q367.9 103.98 369.83 102.98Q371.77 101.98 373.65 101.6Q375.53 101.22 377.68 101.22Q383.51 101.22 386.3 104.58Q389.08 107.95 389.08 114.96V139.86L394.73 141.57V143H373.35ZM367.99 143H346.5V141.57L352.13 139.86V90.13Q351.54 89.58 350.59 88.89Q349.64 88.2 348.32 87.38Q347 86.56 345.32 85.61V84.46L361.91 80.3H362.67L362.41 95.73V139.88L367.99 141.57Z"
+        },
+        {
+          "d": "M421.92 116.92 422.24 119.53Q417.56 120.88 414.64 122.18Q411.72 123.48 410.15 124.84Q408.58 126.2 407.99 127.73Q407.4 129.27 407.4 131.13Q407.4 134.39 409.04 135.97Q410.69 137.55 413.17 137.55Q415.03 137.55 416.48 136.72Q417.92 135.88 418.75 134.35Q419.59 132.81 419.59 130.72V112.51Q419.59 109.07 417.8 107.15Q416.02 105.23 412.24 105.23Q410.55 105.23 408.83 105.52Q407.11 105.81 405.87 106.36L407.83 104.1Q407.61 106.15 407.32 107.77Q407.02 109.4 406.65 110.52Q406.28 111.65 405.76 112.27Q405.1 113.06 403.9 113.52Q402.7 113.98 401.36 113.98Q399.61 113.98 398.66 113.3Q397.71 112.63 397.71 111.4Q397.71 109.67 399.38 107.88Q401.06 106.1 403.81 104.6Q406.57 103.09 409.92 102.18Q413.27 101.26 416.63 101.26Q421.5 101.26 424.4 102.7Q427.31 104.14 428.59 106.77Q429.87 109.41 429.87 113.01V135.04Q429.87 136.27 430.24 137.06Q430.62 137.85 431.33 138.23Q432.04 138.6 433.03 138.6Q434.14 138.6 435.31 138.24Q436.47 137.88 437.68 137.13V139.08Q434.99 141.85 432.5 142.91Q430.02 143.97 427.41 143.97Q424.69 143.97 423.01 142.86Q421.33 141.74 420.54 139.6Q419.76 137.46 419.67 134.4L420.01 134.38Q419.26 137.38 417.65 139.53Q416.03 141.68 413.76 142.82Q411.5 143.97 408.79 143.97Q403.61 143.97 400.42 141.25Q397.24 138.53 397.24 133.47Q397.24 130.88 398.19 128.81Q399.15 126.74 401.76 124.88Q404.36 123.02 409.24 121.11Q414.11 119.19 421.92 116.92Z"
+        },
+        {
+          "d": "M463.79 141.57 469.24 139.94V115.92Q469.24 113.51 468.38 111.92Q467.53 110.32 465.81 109.53Q464.09 108.73 461.45 108.73Q458.57 108.73 456.01 109.61Q453.44 110.48 451.76 111.7L450.79 110.52Q453.75 107.64 456.04 105.81Q458.34 103.98 460.27 102.98Q462.21 101.98 464.09 101.6Q465.97 101.22 468.12 101.22Q473.95 101.22 476.74 104.58Q479.52 107.95 479.52 114.96V139.86L485.17 141.57V143H463.79ZM458.43 143H436.94V141.57L442.57 139.86V90.13Q441.98 89.58 441.03 88.89Q440.08 88.2 438.76 87.38Q437.44 86.56 435.76 85.61V84.46L452.35 80.3H453.11L452.85 95.73V139.88L458.43 141.57Z"
+        }
+      ],
+      "caption": "A pause before the response."
+    },
+    {
+      "number": 10,
+      "id": "unfold",
+      "name": "Unfold",
+      "kind": "combined",
+      "idea": "Three uneven planes open outwards, suggesting a thought being examined from more than one side.",
+      "risk": "Folded forms are common in software identities; this needs a less familiar silhouette if selected.",
+      "construction": "Three separate broad planes, one curved edge and unequal fold angles, beside a plain uppercase name.",
+      "alt": "Three uneven black folded planes beside uppercase LAY SHAH.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M51 76 L82 63 L108 161 L77 174 Z"
+        },
+        {
+          "d": "M91 61 L126 76 L143 149 L112 163 Z"
+        },
+        {
+          "d": "M138 74 C160 74 174 81 183 95 L154 161 L147 127 Z"
+        },
+        {
+          "d": "M212.03 136V89.2H220.48V136H212.03ZM216.06 136V129.33H243.49V136H216.06Z"
+        },
+        {
+          "d": "M247.1 136 264.31 89.2H271.59L255.45 136H247.1ZM282.38 136 266.28 89.2H273.93L291.13 136H282.38ZM255.99 117.61H281.64V124.37H255.99V117.61Z"
+        },
+        {
+          "d": "M310.45 136V116.33L292.93 89.2H303.11L317.43 113.21H312.84L327.12 89.2H336.43L318.91 116.33V136H310.45Z"
+        },
+        {
+          "d": "M370.12 136.59Q361.32 136.59 356.07 132.53Q350.81 128.48 349.92 121.05H358.07Q358.61 125.36 361.86 127.72Q365.11 130.08 370.4 130.08Q374.78 130.08 377.08 128.49Q379.39 126.9 379.39 124.06Q379.39 121.48 377.94 119.92Q376.49 118.36 373.13 117.39L364.7 114.88Q358.24 112.93 355.23 109.75Q352.22 106.58 352.22 101.77Q352.22 97.69 354.3 94.71Q356.38 91.74 360.17 90.11Q363.97 88.48 369.04 88.48Q376.84 88.48 381.49 92.29Q386.15 96.09 386.8 102.59H378.65Q377.94 98.67 375.39 96.83Q372.85 94.99 368.6 94.99Q364.79 94.99 362.58 96.48Q360.37 97.98 360.37 100.6Q360.37 102.7 361.71 104.21Q363.06 105.73 366.67 106.81L375.28 109.39Q381.69 111.28 384.61 114.54Q387.54 117.8 387.54 122.78Q387.54 129.41 382.96 133Q378.37 136.59 370.12 136.59Z"
+        },
+        {
+          "d": "M392.41 136V89.2H400.86V136H392.41ZM423.05 136V89.2H431.5V136H423.05ZM396.44 108.29H426.86V114.96H396.44V108.29Z"
+        },
+        {
+          "d": "M436.32 136 453.53 89.2H460.81L444.67 136H436.32ZM471.6 136 455.5 89.2H463.15L480.35 136H471.6ZM445.21 117.61H470.86V124.37H445.21V117.61Z"
+        },
+        {
+          "d": "M485.18 136V89.2H493.63V136H485.18ZM515.82 136V89.2H524.27V136H515.82ZM489.21 108.29H519.63V114.96H489.21V108.29Z"
+        }
+      ],
+      "caption": "One thought, opened out."
+    },
+    {
+      "number": 11,
+      "id": "inside-out",
+      "name": "Inside out",
+      "kind": "combined",
+      "idea": "A broad carved spiral invites a second look at what is happening inside a simple form.",
+      "risk": "The spiral can read as a G or a 6 and suggest wellness or audio; it needs a more recognizable silhouette.",
+      "construction": "Asymmetric shell-like solid ribbon, one inward turn and an open upper shoulder; restrained lowercase name.",
+      "alt": "An irregular black spiral with an open shoulder, paired with lowercase lay shah in sans-serif lettering.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M145 74 C115 41 66 53 56 92 C45 137 78 175 120 173 C147 172 166 148 162 124 C158 99 135 84 114 92 C92 100 87 130 104 143 C115 152 132 148 139 136 C117 144 104 128 112 116 C122 99 148 116 143 136 C138 157 110 163 88 148 C61 130 68 89 94 81 C112 74 126 82 137 93 Z"
+        },
+        {
+          "d": "M198.47 141V81.96H208.85V141Z"
+        },
+        {
+          "d": "M243.89 141Q243.45 139.33 243.27 137.36Q243.1 135.4 243.1 132.66H242.74V112.82Q242.74 109.54 240.9 107.83Q239.05 106.12 235.25 106.12Q231.59 106.12 229.42 107.48Q227.24 108.83 226.75 111.37H216.83Q217.51 105.58 222.41 101.97Q227.3 98.36 235.61 98.36Q244.22 98.36 248.65 102.27Q253.07 106.18 253.07 113.67V132.66Q253.07 134.63 253.35 136.67Q253.62 138.7 254.19 141ZM229.38 141.82Q223.06 141.82 219.33 138.66Q215.6 135.51 215.6 130.18Q215.6 124.46 219.78 121.07Q223.96 117.68 231.62 116.56L244.63 114.6V121.16L233.31 122.91Q229.59 123.48 227.76 124.93Q225.93 126.38 225.93 129Q225.93 131.43 227.64 132.69Q229.35 133.95 232.41 133.95Q236.81 133.95 239.78 131.72Q242.74 129.49 242.74 126.29L243.86 132.61Q242.22 137.12 238.49 139.47Q234.76 141.82 229.38 141.82Z"
+        },
+        {
+          "d": "M264.17 157.81 274.99 133.51 276.9 130.39 288.68 99.18H299.67L274.69 157.81ZM273.43 140.59 256.46 99.18H267.72L281.91 136.71Z"
+        },
+        {
+          "d": "M333.31 141.82Q324.62 141.82 319.48 138.17Q314.34 134.52 313.79 128.02H323.22Q323.69 131.21 326.29 132.88Q328.88 134.55 333.37 134.55Q337.38 134.55 339.38 133.26Q341.37 131.98 341.37 129.6Q341.37 127.85 340.23 126.75Q339.08 125.64 335.88 124.9L329.16 123.4Q322.27 121.87 318.96 118.74Q315.65 115.61 315.65 110.85Q315.65 105 320.11 101.68Q324.56 98.36 332.44 98.36Q340.23 98.36 344.93 101.67Q349.63 104.97 350.15 110.85H340.72Q340.31 108.31 338.15 106.97Q335.99 105.63 332.19 105.63Q328.66 105.63 326.86 106.77Q325.06 107.9 325.06 109.98Q325.06 111.67 326.46 112.76Q327.87 113.86 331.15 114.65L338.37 116.29Q344.52 117.68 347.66 121.13Q350.8 124.57 350.8 129.3Q350.8 135.23 346.21 138.53Q341.62 141.82 333.31 141.82Z"
+        },
+        {
+          "d": "M355.83 141V81.96H366.22V141ZM385.21 141V114.6Q385.21 110.71 383.24 108.77Q381.28 106.83 377.48 106.83Q374.2 106.83 371.64 108.31Q369.09 109.79 367.65 112.38Q366.22 114.98 366.22 118.48L365.15 108.45Q367.23 103.83 371.34 101.09Q375.45 98.36 381.19 98.36Q388.03 98.36 391.81 102.2Q395.6 106.04 395.6 112.44V141Z"
+        },
+        {
+          "d": "M430.12 141Q429.68 139.33 429.5 137.36Q429.32 135.4 429.32 132.66H428.97V112.82Q428.97 109.54 427.12 107.83Q425.28 106.12 421.48 106.12Q417.82 106.12 415.64 107.48Q413.47 108.83 412.98 111.37H403.06Q403.74 105.58 408.63 101.97Q413.52 98.36 421.83 98.36Q430.44 98.36 434.87 102.27Q439.3 106.18 439.3 113.67V132.66Q439.3 134.63 439.57 136.67Q439.85 138.7 440.42 141ZM415.6 141.82Q409.29 141.82 405.56 138.66Q401.83 135.51 401.83 130.18Q401.83 124.46 406.01 121.07Q410.19 117.68 417.84 116.56L430.85 114.6V121.16L419.54 122.91Q415.82 123.48 413.99 124.93Q412.16 126.38 412.16 129Q412.16 131.43 413.87 132.69Q415.57 133.95 418.64 133.95Q423.04 133.95 426 131.72Q428.97 129.49 428.97 126.29L430.09 132.61Q428.45 137.12 424.72 139.47Q420.99 141.82 415.6 141.82Z"
+        },
+        {
+          "d": "M447.77 141V81.96H458.16V141ZM477.15 141V114.6Q477.15 110.71 475.18 108.77Q473.22 106.83 469.42 106.83Q466.14 106.83 463.58 108.31Q461.03 109.79 459.59 112.38Q458.16 114.98 458.16 118.48L457.09 108.45Q459.17 103.83 463.28 101.09Q467.39 98.36 473.13 98.36Q479.97 98.36 483.75 102.2Q487.54 106.04 487.54 112.44V141Z"
+        }
+      ],
+      "caption": "A second look inside."
+    },
+    {
+      "number": 12,
+      "id": "working-note",
+      "name": "Working note",
+      "kind": "combined",
+      "idea": "The name lives on a folded note: a small object associated with thinking things through.",
+      "risk": "A document outline is familiar; the asymmetrical fold and lettering would need more refinement.",
+      "construction": "Compact folded-note enclosure with a generous square fold and left-aligned two-line name.",
+      "alt": "A thin black folded-note outline enclosing Lay above Shah in bold sans-serif lettering.",
+      "viewBox": [
+        0,
+        0,
+        600,
+        240
+      ],
+      "layers": [
+        {
+          "d": "M143 29 L406 29 L452 73 L452 211 L143 211 Z M156 42 L156 198 L439 198 L439 80 L397 80 L397 42 Z",
+          "fillRule": "evenodd"
+        },
+        {
+          "d": "M184.22 105V56.04H193.06V105ZM188.43 105V98.02H217.13V105Z"
+        },
+        {
+          "d": "M244.73 105Q244.37 103.62 244.22 101.99Q244.07 100.35 244.07 98.09H243.78V81.63Q243.78 78.91 242.25 77.49Q240.72 76.08 237.57 76.08Q234.53 76.08 232.73 77.2Q230.93 78.32 230.52 80.43H222.29Q222.86 75.62 226.92 72.63Q230.97 69.64 237.86 69.64Q245 69.64 248.68 72.88Q252.35 76.12 252.35 82.33V98.09Q252.35 99.72 252.57 101.41Q252.8 103.1 253.28 105ZM232.7 105.68Q227.46 105.68 224.37 103.06Q221.27 100.44 221.27 96.02Q221.27 91.29 224.74 88.48Q228.21 85.67 234.55 84.74L245.34 83.1V88.54L235.96 89.99Q232.88 90.47 231.36 91.67Q229.84 92.87 229.84 95.05Q229.84 97.07 231.26 98.11Q232.67 99.15 235.21 99.15Q238.86 99.15 241.32 97.3Q243.78 95.46 243.78 92.81L244.71 98.04Q243.35 101.78 240.26 103.73Q237.16 105.68 232.7 105.68Z"
+        },
+        {
+          "d": "M261.71 118.94 270.68 98.79 272.27 96.21 282.04 70.32H291.15L270.43 118.94ZM269.39 104.66 255.31 70.32H264.65L276.42 101.44Z"
+        },
+        {
+          "d": "M203.17 175.61Q193.96 175.61 188.47 171.37Q182.97 167.13 182.04 159.36H190.56Q191.13 163.87 194.53 166.34Q197.93 168.81 203.46 168.81Q208.04 168.81 210.45 167.15Q212.87 165.48 212.87 162.51Q212.87 159.81 211.35 158.18Q209.83 156.55 206.32 155.53L197.5 152.9Q190.74 150.86 187.59 147.54Q184.44 144.22 184.44 139.19Q184.44 134.93 186.62 131.81Q188.79 128.69 192.76 126.99Q196.73 125.29 202.03 125.29Q210.19 125.29 215.07 129.27Q219.94 133.25 220.62 140.05H212.1Q211.35 135.95 208.68 134.02Q206.02 132.09 201.58 132.09Q197.59 132.09 195.28 133.66Q192.97 135.22 192.97 137.96Q192.97 140.16 194.37 141.75Q195.78 143.33 199.56 144.47L208.56 147.17Q215.27 149.14 218.33 152.55Q221.39 155.96 221.39 161.17Q221.39 168.11 216.6 171.86Q211.8 175.61 203.17 175.61Z"
+        },
+        {
+          "d": "M226.35 175V126.04H234.96V175ZM250.72 175V153.1Q250.72 149.89 249.08 148.28Q247.45 146.67 244.3 146.67Q241.58 146.67 239.46 147.89Q237.34 149.11 236.15 151.27Q234.96 153.42 234.96 156.32L234.08 148Q235.8 144.17 239.21 141.91Q242.62 139.64 247.38 139.64Q253.05 139.64 256.19 142.82Q259.33 146.01 259.33 151.31V175Z"
+        },
+        {
+          "d": "M288.11 175Q287.75 173.62 287.6 171.99Q287.45 170.35 287.45 168.09H287.16V151.63Q287.16 148.91 285.63 147.49Q284.1 146.08 280.95 146.08Q277.91 146.08 276.11 147.2Q274.31 148.32 273.9 150.43H265.67Q266.24 145.62 270.3 142.63Q274.35 139.64 281.24 139.64Q288.38 139.64 292.06 142.88Q295.73 146.12 295.73 152.33V168.09Q295.73 169.72 295.95 171.41Q296.18 173.1 296.66 175ZM276.08 175.68Q270.84 175.68 267.75 173.06Q264.65 170.44 264.65 166.02Q264.65 161.29 268.12 158.48Q271.59 155.67 277.93 154.74L288.72 153.1V158.54L279.34 159.99Q276.26 160.47 274.74 161.67Q273.22 162.87 273.22 165.05Q273.22 167.07 274.64 168.11Q276.05 169.15 278.59 169.15Q282.24 169.15 284.7 167.3Q287.16 165.46 287.16 162.81L288.09 168.04Q286.73 171.78 283.64 173.73Q280.54 175.68 276.08 175.68Z"
+        },
+        {
+          "d": "M302.91 175V126.04H311.52V175ZM327.28 175V153.1Q327.28 149.89 325.64 148.28Q324.01 146.67 320.86 146.67Q318.14 146.67 316.02 147.89Q313.9 149.11 312.71 151.27Q311.52 153.42 311.52 156.32L310.64 148Q312.36 144.17 315.77 141.91Q319.18 139.64 323.94 139.64Q329.61 139.64 332.75 142.82Q335.89 146.01 335.89 151.31V175Z"
+        }
+      ],
+      "caption": "A personal working note."
+    }
+  ],
+  "stageOneApproval": "2026-10-28: Yes—start the 12 black-and-white sketches",
+  "sketchGroups": [
+    {
+      "id": "lettering",
+      "title": "Lettering-led",
+      "description": "The name carries the identifying detail."
+    },
+    {
+      "id": "symbol",
+      "title": "Symbol-led",
+      "description": "A standalone form, before choosing its lettering."
+    },
+    {
+      "id": "combined",
+      "title": "Name + symbol",
+      "description": "The relationship between the two carries the idea."
+    }
+  ],
+  "wordMap": [
+    {
+      "root": "Curiosity",
+      "associations": [
+        "openings",
+        "a second look",
+        "turning a page",
+        "examining an inside"
+      ]
+    },
+    {
+      "root": "Understanding",
+      "associations": [
+        "listening",
+        "making a note",
+        "considering another angle"
+      ]
+    },
+    {
+      "root": "Communication",
+      "associations": [
+        "different voices",
+        "a pause",
+        "taking turns",
+        "sharing a finding"
+      ]
+    }
+  ],
+  "recommendation": {
+    "numbers": [
+      4,
+      9
+    ],
+    "reason": "04 gives the full name an unusual, compact arrangement. 09 adds a small characterful device beside a readable name. Developing these would test lettering-led and combined approaches. Neither is selected."
+  }
+}

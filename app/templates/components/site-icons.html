@@ -1,0 +1,7 @@
+{% if brand_images.icon %}
+{% set icon=brand_images.icon %}{% set favicon=icon.variants[0] %}
+<link rel="icon" type="image/png" sizes="{{ favicon.width }}x{{ favicon.height }}" href="{{ favicon.url }}">
+{% for variant in icon.variants if variant.width == 180 %}<link rel="apple-touch-icon" sizes="180x180" href="{{ variant.url }}">{% endfor %}
+{% else %}<link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/public/identity/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/public/identity/apple-touch-icon.png">{% endif %}

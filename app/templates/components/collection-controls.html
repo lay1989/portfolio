@@ -1,0 +1,8 @@
+<form class="ui-panel ui-stack" method="get" action="{{ collection_url }}" role="search" aria-label="Search this collection">
+<div class="grid md:grid-cols-3 gap-6">
+<label class="ui-field">Search<input class="ui-input" type="search" name="q" value="{{ query }}" maxlength="160" placeholder="Title, summary, or category"></label>
+<label class="ui-field">Category<select class="ui-input" name="category"><option value="">All categories</option>{% if category and category not in categories %}<option selected>{{ category }}</option>{% endif %}{% for item in categories %}<option {% if category == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></label>
+<label class="ui-field">Sort by<select class="ui-input" name="sort">{% for value,label in sorts.items() %}<option value="{{ value }}" {% if sort == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+{% if owner_collection %}<label class="ui-field">Publication<select class="ui-input" name="status">{% for value,label in [('all','All entries'),('draft','Unpublished'),('published','Published')] %}<option value="{{ value }}" {% if state == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>{% endif %}
+</div><div class="ui-row"><button class="ui-button">Apply filters</button>{% if filtered %}<a class="text-accent underline" href="{{ collection_url }}">Clear filters</a>{% endif %}<p class="ui-muted" role="status">{{ pagination.total }} {{ 'result' if pagination.total == 1 else 'results' }}{% if pagination.total %} · Showing {{ pagination.first }}–{{ pagination.last }}{% endif %}</p></div>
+</form>

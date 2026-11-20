@@ -8,3 +8,12 @@ coverage/
 artifacts/
 .cache/
 *.log
+
+# Local data and tooling
+instance/
+__pycache__/
+*.pyc
+.venv/
+.agents/
+.taste-skill/
+.impeccable/hook.cache.json

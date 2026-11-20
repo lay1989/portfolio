@@ -1,0 +1,14 @@
+{% from 'components/ui.html' import collection_image with context %}
+{% for entry in posts %}
+{% set data=entry.published %}
+<article class="home-writing-entry{{ ' home-writing-entry--lead' if loop.first else '' }}" data-post="{{ entry.id }}">
+    {% set picture=collection_image(data,'post') %}
+    {% if picture|trim %}<a class="home-writing-image" href="{{ entry.path }}" aria-label="Read {{ data.title }}">{{ picture }}</a>{% endif %}
+    <div class="home-writing-copy">
+        <p class="meta home-writing-meta"><span>{{ data.category }}</span>{% if data.get('date') %}<time datetime="{{ data.date }}">{{ data.date }}</time>{% endif %}</p>
+        <h3><a href="{{ entry.path }}">{{ data.title }}</a></h3>
+        <p class="home-writing-summary">{{ data.summary }}</p>
+        <a class="home-writing-read line-link" href="{{ entry.path }}" aria-label="Read {{ data.title }}">Read article</a>
+    </div>
+</article>
+{% endfor %}

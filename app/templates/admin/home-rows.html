@@ -1,0 +1,23 @@
+{% from 'admin/page-fields.html' import page_field %}
+{% macro home_row(kind,row,index) -%}
+{% set spec=section_types[kind] %}{% set prefix='item.' ~ kind ~ '.' ~ row.id ~ '.' %}
+<fieldset class="ui-panel ui-stack" data-repeat-row data-row-id="{{ row.id }}"><legend class="site-heading text-xl" data-repeat-row-label>{{ spec.singular }} {{ index }}</legend>
+<input type="hidden" name="{{ kind }}.id" value="{{ row.id }}">
+{% if kind == 'reviews' %}{{ page_field(prefix ~ 'quote','Quotation',row.quote,'inline',2400,true) }}{{ page_field(prefix ~ 'name','Reviewer name',row.name,limit=180) }}{{ page_field(prefix ~ 'role','Role or company',row.role) }}
+{% else %}{{ page_field(prefix ~ 'title','Title',row.title,limit=180) }}{{ page_field(prefix ~ 'description','Description',row.description,limit=1600,multiline=true,hint='{callMinutes} inserts your shared call length.' if kind == 'process' else '') }}{% if kind == 'services' %}{{ page_field(prefix ~ 'tags','Technology tags',row.tags|join(', '),limit=500,hint='Separate tags with commas. Up to 12 tags, 40 characters each.') }}{% endif %}{% endif %}
+<div class="ui-row editor-section-actions"><button type="submit" name="row_action" value="up:{{ kind }}:{{ row.id }}" data-repeat-action="up" aria-label="Move {{ spec.singular|lower }} {{ index }} up" formnovalidate>↑</button><button type="submit" name="row_action" value="down:{{ kind }}:{{ row.id }}" data-repeat-action="down" aria-label="Move {{ spec.singular|lower }} {{ index }} down" formnovalidate>↓</button><button type="submit" name="row_action" value="remove:{{ kind }}:{{ row.id }}" data-repeat-action="remove" aria-label="Remove {{ spec.singular|lower }} {{ index }}" formnovalidate>Remove</button></div>
+</fieldset>
+{%- endmacro %}
+
+{% macro home_rows_editor(kind,rows) -%}
+{% set spec=section_types[kind] %}
+<section class="ui-stack" data-repeat-group="{{ kind }}" data-singular="{{ spec.singular }}" data-max="{{ max_home_items }}">
+<input type="hidden" name="{{ kind }}.present" value="1">
+<p class="ui-muted">Add, move, or remove items, then save a draft. An empty list hides this section after publishing. Up to {{ max_home_items }} items.</p>
+{% if kind == 'services' %}<p class="ui-muted text-sm">Use {serviceCount} in the section heading to display the current number of services.</p>{% endif %}
+<div class="ui-stack" data-repeat-rows>{% for row in rows %}{{ home_row(kind,row,loop.index) }}{% endfor %}</div>
+<p class="ui-muted" data-repeat-empty{% if rows %} hidden{% endif %}>No items. This section will be hidden when you publish.</p>
+<button type="submit" class="ui-button" data-variant="secondary" name="row_action" value="add:{{ kind }}" data-repeat-add formnovalidate>Add {{ spec.singular|lower }}</button>
+<template data-repeat-template>{{ home_row(kind,blank_home_row(kind),'__index__') }}</template>
+</section>
+{%- endmacro %}

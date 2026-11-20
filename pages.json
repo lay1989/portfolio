@@ -36,6 +36,18 @@
     "ogTitle": "Web Development & Design Blog | Lay Shah",
     "ogDescription": "Read articles on web development, frontend engineering, web design, and SEO best practices by Lay Shah.",
     "ogUrl": "https://layshahdev.com/blog.html",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Web Development & Design Blog | Lay Shah",
+      "description": "Read articles on web development, frontend engineering, web design, and SEO best practices by Lay Shah.",
+      "url": "https://layshahdev.com/blog.html",
+      "author": {
+        "@type": "Person",
+        "name": "Lay Shah",
+        "url": "https://layshahdev.com"
+      }
+    },
     "content": "content/blog.html"
   },
   "blog-custom-websites.html": {
@@ -257,6 +269,16 @@
     "ogDescription": "Explore my web development portfolio featuring high-performance custom websites, web applications, and technical SEO case studies.",
     "ogUrl": "https://layshahdev.com/projects.html",
     "content": "content/projects.html"
+  },
+  "tools.html": {
+    "title": "Curated Developer & Business Tools | Lay Shah",
+    "description": "A curated directory of open-source utilities, developer software, and practical business tools evaluated for licensing, self-hosting, and reliability.",
+    "canonical": "https://layshahdev.com/tools.html",
+    "ogType": "website",
+    "ogTitle": "Curated Developer & Business Tools | Lay Shah",
+    "ogDescription": "A curated directory of open-source utilities, developer software, and practical business tools evaluated for licensing, self-hosting, and reliability.",
+    "ogUrl": "https://layshahdev.com/tools.html",
+    "content": "content/tools.html"
   },
   "projects/ash-clipping.html": {
     "type": "project",
@@ -541,7 +563,6 @@
   "404.html": {
     "title": "Page Not Found | Lay Shah",
     "description": "The page you are looking for does not exist.",
-    "canonical": "https://layshahdev.com/404.html",
     "ogType": "website",
     "ogTitle": "Page Not Found",
     "ogDescription": "The page you are looking for does not exist.",
@@ -550,7 +571,6 @@
   "503.html": {
     "title": "Service Unavailable | Lay Shah",
     "description": "The site is currently undergoing maintenance. Please check back soon.",
-    "canonical": "https://layshahdev.com/503.html",
     "ogType": "website",
     "ogTitle": "Service Unavailable",
     "ogDescription": "The site is currently undergoing maintenance. Please check back soon.",

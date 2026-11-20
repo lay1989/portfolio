@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import image, media_image, media_gallery, entry_cover, entry_next, site_cta with context %}
+{% from 'blocks/render.html' import render_blocks with context %}
+{% block content %}
+<main id="main-content" tabindex="-1" class="entry entry--project" data-thread-page data-thread-stops="[data-entry-story] h2, .entry-figures > h2, .entry-quote, .entry-gallery > h2, .entry-next">
+    <div class="entry-shell">
+        {% include 'components/preview-notice.html' %}
+        {% include 'components/breadcrumbs.html' %}
+
+        <header class="entry-header" data-enter>
+            <div class="entry-header__main">
+                <span class="entry-header__glyph" data-draw aria-hidden="true">{% include 'drawings/' ~ project_glyph(entry.slug) ~ '.svg' %}</span>
+                <p class="entry-meta meta"><span class="tag">{{ data.category }}</span>{% if data.get('year') %}<span>{{ data.year }}</span>{% endif %}</p>
+                <h1 class="site-heading type-title">{{ data.title }}</h1>
+                <p class="entry-summary ui-muted max-w-reading">{{ data.summary }}</p>
+                {% if (data.get('liveUrl') and data.liveUrl != '#') or data.get('githubUrl') %}
+                <div class="entry-actions">
+                    {% if data.get('liveUrl') and data.liveUrl != '#' %}<a href="{{ data.liveUrl }}" target="_blank" rel="noopener noreferrer" class="ui-button line-button">View live website</a>{% endif %}
+                    {% if data.get('githubUrl') %}<a href="{{ data.githubUrl }}" target="_blank" rel="noopener noreferrer" class="line-button line-button--ghost"><i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i> View repository</a>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            <dl class="entry-facts">
+                {% for key, label in [('role','My role'), ('timeline','Timeline'), ('clientType','Client'), ('tools','Technology')] %}
+                {% if data.get(key) %}<div><dt>{{ label }}</dt><dd class="ui-muted">{{ data.get(key, '') }}</dd></div>{% endif %}
+                {% endfor %}
+            </dl>
+        </header>
+
+        {% call entry_cover(data.get('liveUrl', '') if data.get('liveUrl') and data.liveUrl != '#' else ('layshahdev.com' ~ entry.path)) %}
+        {% if 'cover_media' in data %}{{ media_image(data.cover_media, 'w-full h-auto', true, is_preview) }}{% else %}{{ image(data.heroImg, data.title, 'w-full h-auto public-cover', true) }}{% endif %}
+        {% endcall %}
+
+        <div class="entry-body">
+            <aside class="entry-rail">
+                <nav class="entry-outline" aria-label="On this page" data-entry-outline hidden></nav>
+                <p class="entry-rail__note">Planning something similar? <a class="line-link" href="{{ BASE_PATH }}index.html#contact">Tell me about it</a></p>
+            </aside>
+
+            <div class="public-story {{ 'content-blocks' if 'blocks' in data else '' }}" data-entry-story><span class="thread-start thread-start--story" data-thread-start></span>
+                {% if 'blocks' in data %}
+                {{ render_blocks(data.blocks, is_preview) }}
+                {% else %}
+                {% for key, label in [('overview','Overview'), ('challenge','The challenge'), ('solution','What I built'), ('results','Results'), ('lessonsLearned','What I learned')] %}
+                {% if data.get(key) %}
+                <section>
+                    <h2 class="site-heading">{{ label }}</h2>
+                    <div>{{ data[key] }}</div>
+                </section>
+                {% endif %}
+                {% endfor %}
+                {% if data.get('process') %}
+                <section>
+                    <h2 class="site-heading">The process</h2>
+                    <ol class="entry-list entry-list--steps">{% for step in data.process %}<li>{{ step }}</li>{% endfor %}</ol>
+                </section>
+                {% endif %}
+                {% if data.get('keyFeatures') %}
+                <section>
+                    <h2 class="site-heading">What shipped</h2>
+                    <ul class="entry-list">{% for feature in data.keyFeatures %}<li>{{ feature }}</li>{% endfor %}</ul>
+                </section>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        {% if project_figures %}
+        <section class="entry-figures" aria-labelledby="entry-figures-title">
+            <h2 class="site-heading" id="entry-figures-title">Project figures</h2>
+            <dl>
+                {% for figure in project_figures %}
+                <div>
+                    <dt class="ui-muted">{{ figure.label }}</dt>
+                    <dd class="entry-figures__value" data-count-up>{{ figure.value }}</dd>
+                    {% if figure.note %}<dd class="entry-figures__note ui-muted">{{ figure.note }}</dd>{% endif %}
+                </div>
+                {% endfor %}
+            </dl>
+        </section>
+        {% endif %}
+
+        {% if project_feedback.quote %}
+        <figure class="entry-quote">
+            <blockquote><p>{{ project_feedback.quote }}</p></blockquote>
+            <figcaption><span class="entry-quote__name">{{ project_feedback.author }}</span>{% if project_feedback.role %}<span class="ui-muted">{{ project_feedback.role }}</span>{% endif %}</figcaption>
+        </figure>
+        {% endif %}
+
+        {% if ('gallery_media' in data and data.gallery_media) or ('gallery_media' not in data and data.get('screenshots')) %}
+        <section class="entry-gallery" aria-label="Project gallery">
+            <h2 class="site-heading">Screens from the build</h2>
+            {% if 'gallery_media' in data %}
+            {{ media_gallery(data.gallery_media, private=is_preview) }}
+            {% else %}
+            <div class="entry-gallery__grid">
+                {% for screenshot in data.get('screenshots', []) %}
+                <div class="entry-gallery__item" data-zoom-src="{{ screenshot | replace('./', '/') }}" role="button" tabindex="0" aria-label="View enlarged screenshot {{ loop.index }}">
+                    {{ image(screenshot, data.title ~ ' — screenshot ' ~ loop.index, 'w-full h-auto') }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        {{ entry_next(next_entry, 'Next project') }}
+
+        {{ site_cta('Have a build like this in mind?', 'Send a few lines on what you need and when you’d like to launch. I’ll reply with questions and a sensible next step.') }}
+    </div>
+    <div id="lightbox-modal" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close image preview">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1600" height="900" class="lightbox-img">
+    </div>
+</main>
+{% endblock %}
