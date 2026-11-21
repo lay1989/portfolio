@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import image, media_image, media_gallery, entry_next, site_cta with context %}
+{% from 'blocks/render.html' import render_blocks with context %}
+{% block content %}
+{% set file=data.get('file') %}
+<main id="main-content" tabindex="-1" class="entry entry--tool entry--guide">
+    <div class="entry-shell">
+        {% include 'components/preview-notice.html' %}
+        {% include 'components/breadcrumbs.html' %}
+
+        <header class="entry-header entry-header--media" data-enter>
+            <div class="entry-header__main">
+                <span class="entry-header__glyph" data-draw aria-hidden="true">{% include 'drawings/checklist.svg' %}</span>
+                <h1 class="site-heading type-title">{{ data.title }}</h1>
+                <p class="entry-summary ui-muted">{{ data.summary }}</p>
+                <div class="entry-actions">
+                    {% if file %}<a href="{{ guide_file_url(file) }}" class="ui-button line-button" download><i data-lucide="download" class="w-4 h-4" aria-hidden="true"></i> Download the PDF</a>{% endif %}
+                    <a href="{{ BOOKING_URL }}" class="line-button line-button--ghost" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar" class="w-4 h-4" aria-hidden="true"></i> Book a {{ CALL_MINUTES }}-min call</a>
+                </div>
+            </div>
+            {% if data.get('cover_media') and data.cover_media.get('asset_id') %}
+            <div class="entry-poster entry-poster--document">{{ media_image(data.cover_media, '', true, is_preview, show_caption=false) }}</div>
+            {% endif %}
+        </header>
+
+        <dl class="entry-strip">
+            <div><dt>Format</dt><dd>{{ data.get('format') or 'PDF' }}{% if file %} · {{ guide_file_size(file) }}{% endif %}</dd></div>
+            <div><dt>Price</dt><dd>Free, no sign-up</dd></div>
+            {% if data.get('audience') %}<div><dt>For</dt><dd>{{ data.audience }}</dd></div>{% endif %}
+            {% if data.get('checked') %}<div><dt>Last checked</dt><dd>{{ data.checked }}</dd></div>{% elif data.get('category') %}<div><dt>Topic</dt><dd>{{ data.category }}</dd></div>{% endif %}
+        </dl>
+
+        <div class="entry-body">
+            <aside class="entry-rail">
+                <nav class="entry-outline" aria-label="On this page" data-entry-outline hidden></nav>
+                <p class="entry-rail__note">{% if data.get('source_note') %}{{ data.source_note }}{% else %}A free guide from {{ branding.ownerName }}.{% endif %} Want it set up for you? <a class="line-link" href="{{ BASE_PATH }}index.html#contact">Ask me</a></p>
+            </aside>
+            <div class="public-story" data-entry-story>
+                {{ render_blocks(data.get('blocks', []), is_preview) }}
+                {{ media_gallery(data.get('gallery_media', []), private=is_preview) }}
+                <p class="entry-signoff ui-row guide-entry__actions">{% if file %}<a class="line-link" href="{{ guide_file_url(file) }}" download>Download the PDF</a>{% endif %}<a class="line-link" href="/guides.html">All guides</a></p>
+            </div>
+        </div>
+
+        {{ entry_next(next_entry, 'Next guide') }}
+
+        {{ site_cta('Want this set up for your business?', 'I build websites and small tools that take repetitive work off small businesses. The person you talk to writes the code.') }}
+    </div>
+</main>
+{% endblock %}

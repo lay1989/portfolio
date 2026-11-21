@@ -126,6 +126,20 @@
 </article>
 {%- endmacro %}
 
+{% macro guide_card(entry) -%}
+{% set data=entry.published %}
+<article class="journal-entry guide-entry" data-entry="{{ entry.id }}" data-category="{{ data.get('category', '') }}">
+    {% set picture=collection_image(data,'guide') %}
+    {% if picture|trim %}<a href="{{ entry.path }}" class="collection-image journal-entry__image guide-entry__image" aria-label="Read {{ data.title }}">{{ picture }}</a>{% endif %}
+    <div class="journal-entry__copy">
+        <p class="meta mb-4">{% if data.get('category') %}<span>{{ data.category }}</span>{% endif %}{% if data.get('format') %}<span>{{ data.format }}</span>{% endif %}</p>
+        <h2 class="site-heading type-articleHeading mb-4"><a href="{{ entry.path }}">{{ data.title }}</a></h2>
+        <p class="text-muted-foreground leading-relaxed mb-6">{{ data.summary }}</p>
+        <p class="ui-row guide-entry__actions"><a href="{{ entry.path }}" class="line-link">Read the guide</a>{% if data.get('file') %}<a href="{{ guide_file_url(data.file) }}" class="line-link" download>Download PDF</a>{% endif %}</p>
+    </div>
+</article>
+{%- endmacro %}
+
 {% macro media_image(p, classes='', eager=false, private=false, show_caption=true, card=false) -%}
 {% set info = placement_info(p,private) %}
 {% if info %}<figure class="media-figure media-width-{{ info.width }} media-align-{{ info.align }} {{ classes }}"><picture class="block">
@@ -154,7 +168,7 @@
 <a class="entry-next" href="{{ next_entry.path }}" data-draw>
     <span class="entry-next__label">{{ label }}</span>
     <span class="entry-next__title">{{ next_entry.published.title }}</span>
-    <span class="entry-next__glyph" aria-hidden="true">{% include 'drawings/' ~ (project_glyph(next_entry.slug) if next_entry.kind == 'project' else 'notebook' if next_entry.kind == 'post' else 'toolbox') ~ '.svg' %}</span>
+    <span class="entry-next__glyph" aria-hidden="true">{% include 'drawings/' ~ (project_glyph(next_entry.slug) if next_entry.kind == 'project' else 'notebook' if next_entry.kind == 'post' else 'checklist' if next_entry.kind == 'guide' else 'toolbox') ~ '.svg' %}</span>
 </a>
 {% endif %}
 {%- endmacro %}

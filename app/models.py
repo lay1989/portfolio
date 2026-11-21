@@ -41,7 +41,9 @@ class Entry(db.Model):
     __mapper_args__: ClassVar[dict] = {"version_id_col": version}
     __table_args__ = (
         db.UniqueConstraint("kind", "slug", name="unique_collection_slug"),
-        db.CheckConstraint("kind IN ('project', 'post', 'tool')", name="entry_kind"),
+        db.CheckConstraint(
+            "kind IN ('project', 'post', 'tool', 'guide')", name="entry_kind"
+        ),
         db.CheckConstraint("position >= 0", name="nonnegative_position"),
         db.Index("entry_collection_order", "kind", "position", "id"),
     )

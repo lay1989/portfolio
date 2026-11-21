@@ -13,7 +13,12 @@ def content_address(kind, name):
             "Use up to 100 lowercase letters, numbers, and single hyphens."
         )
     slug = ("blog-" if kind == "post" else "") + name
-    prefix = {"project": "/projects/", "post": "/", "tool": "/tools/"}[kind]
+    prefix = {
+        "project": "/projects/",
+        "post": "/",
+        "tool": "/tools/",
+        "guide": "/guides/",
+    }[kind]
     return slug, f"{prefix}{slug}.html"
 
 

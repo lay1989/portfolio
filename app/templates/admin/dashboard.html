@@ -14,6 +14,7 @@
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <button class="ui-button" data-variant="secondary">Add a Tool</button>
         </form>
+        <a class="ui-button" data-variant="secondary" href="{{ url_for('admin.new_entry',kind='guide') }}">Add a guide</a>
     </div>
 </header>
 
@@ -42,7 +43,7 @@
         <li data-recent-entry="{{ entry.id }}">
             <article class="admin-recent-entry">
                 <h3><a class="admin-entry-link" href="{{ url_for('admin.edit_entry',entry_id=entry.id) }}">{{ entry.draft.title }}</a></h3>
-                <span class="site-tag">{{ {'project':'Project','post':'Article','tool':'Tool'}[entry.kind] }}</span>
+                <span class="site-tag">{{ {'project':'Project','post':'Article','tool':'Tool','guide':'Guide'}[entry.kind] }}</span>
                 {{ publication_status(entry) }}
                 <time class="ui-muted" datetime="{{ entry.updated_at.strftime('%Y-%m-%dT%H:%M:%SZ') }}">{{ entry.updated_at.strftime('%d %b %Y') }}</time>
             </article>

@@ -86,6 +86,14 @@ def create_app(test_config=None):
         # Runs before CSRF parses multipart form data. Ordinary content stays at 2 MB.
         if request.endpoint == "media.upload":
             request.max_content_length = app.config["MEDIA_MAX_BYTES"] + 256 * 1024
+        elif request.endpoint in (
+            "admin.edit_entry",
+            "admin.preview_changes",
+        ) and request.mimetype == "multipart/form-data":
+            # The guide editor posts its PDF with the rest of the form.
+            request.max_content_length = (
+                app.config["GUIDE_FILE_MAX_BYTES"] + app.config["MAX_CONTENT_LENGTH"]
+            )
 
     csrf.init_app(app)
     login.init_app(app)

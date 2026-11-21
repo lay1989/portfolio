@@ -564,3 +564,7 @@ html[data-theme-wipe]::view-transition-new(root) { animation: theme-wipe 0.7s va
     .home-contact__art.is-sent .drawing { animation: none; }
     ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* Guides: covers are usually a document's first page, so show its top. */
+.entry-poster--document img, .guide-entry__image img { object-position: top; }
+.guide-entry__actions { gap: 1.5rem; }

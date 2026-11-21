@@ -25,6 +25,8 @@ from .services.branding import navigation_for
 from .services.branding_media import brand_image_info
 from .services.collections import collection
 from .services.content import clean_rich_text
+from .services.guide_files import file_url as guide_file_url
+from .services.guide_files import size_label as guide_file_size
 from .services.home_sections import sections_for
 from .services.inquiries import contact_limit, queue_notification
 from .services.media import placement_info
@@ -101,7 +103,9 @@ def shared_context():
         ),
         "navigation": navigation,
         "footer_navigation": [
-            link for link in navigation if link["id"] in ("projects", "blog", "tools")
+            link
+            for link in navigation
+            if link["id"] in ("projects", "blog", "tools", "guides")
         ],
         "site": site,
         "BASE_PATH": "/",
@@ -116,6 +120,8 @@ def shared_context():
             .where(Entry.kind == "project", Entry.published.is_not(None))
         ),
         "image_info": image_info,
+        "guide_file_url": guide_file_url,
+        "guide_file_size": guide_file_size,
         "production": current_app.config["ENVIRONMENT"] == "production",
         "is_preview": False,
         "home_section_visible": home_section_visible,
@@ -272,13 +278,23 @@ def tools():
     return render_collection("tool", "public/tools.html")
 
 
+@public.get("/guides.html")
+def guides():
+    return render_collection("guide", "public/guides.html")
+
+
 def render_collection(kind, template, *, payload=None, notice=None):
     g.private_brand_images = notice is not None
     key, _, _ = COLLECTION_PAGES[kind]
     data = {**defaults(key), **(published_page(key) if payload is None else payload)}
     context = collection(kind, endpoint="public." + key)
     page = page_config(
-        {"project": "projects.html", "post": "blog.html", "tool": "tools.html"}[kind]
+        {
+            "project": "projects.html",
+            "post": "blog.html",
+            "tool": "tools.html",
+            "guide": "guides.html",
+        }[kind]
     )
     page.update(
         title=data["seo_title"],
@@ -300,7 +316,12 @@ def render_collection(kind, template, *, payload=None, notice=None):
         page_preview_notice=notice,
         **context,
         **{
-            {"project": "projects", "post": "posts", "tool": "tools"}[kind]: context[
+            {
+                "project": "projects",
+                "post": "posts",
+                "tool": "tools",
+                "guide": "guides",
+            }[kind]: context[
                 "pagination"
             ].items
         },
@@ -449,6 +470,38 @@ def article(slug):
 @public.get("/tools/<slug>.html")
 def tool(slug):
     return render_address()
+
+
+@public.get("/guides/<slug>.html")
+def guide(slug):
+    return render_address()
+
+
+@public.get("/guides/files/<digest>.pdf")
+def guide_file(digest):
+    """A guide's PDF: public while a published guide uses it; the owner can preview drafts."""
+    from flask_login import current_user
+
+    from .services.guide_files import draft_record, file_path, published_record
+
+    record = published_record(digest)
+    private_preview = False
+    if record is None and current_user.is_authenticated:
+        record = draft_record(digest)
+        private_preview = record is not None
+    if record is None or not file_path(digest).is_file():
+        abort(404)
+    response = send_from_directory(
+        file_path(digest).parent,
+        file_path(digest).name,
+        mimetype="application/pdf",
+        download_name=record.get("download_name") or "guide.pdf",
+        max_age=0 if private_preview else 3600,
+    )
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    if private_preview:
+        response.headers["Cache-Control"] = "private, no-store"
+    return response
 
 
 @public.post("/contact")

@@ -58,6 +58,10 @@ ENTRY_FIELDS = {
     "liveUrl": ("Live website", 2048),
     "githubUrl": ("Source repository", 2048),
     "date": ("Article date", 10),
+    "format": ("Format", 60),
+    "audience": ("Who it's for", 120),
+    "checked": ("Last checked", 60),
+    "source_note": ("Where it comes from", 300),
 }
 
 
@@ -306,6 +310,10 @@ def validate_content(data, kind, publishing=False):
         from .project_details import validate_details
 
         validate_details(data, publishing)
+    if kind == "guide":
+        from .guide_files import validate_file
+
+        validate_file(data.get("file"), publishing)
     blocks = initial_blocks(data, kind)
     for block in blocks:
         block_type = block["type"]
@@ -334,7 +342,7 @@ def validate_content(data, kind, publishing=False):
                 raise ContentError("Add a destination for every link section.")
     if (
         publishing
-        and kind in ("project", "post")
+        and kind in ("project", "post", "guide")
         and not any(b["type"] != "divider" for b in blocks)
     ):
         raise ContentError("Add at least one content section before publishing.")
@@ -363,6 +371,8 @@ def create_payload(kind, title, summary, category):
     }
     if kind == "post":
         data.update(date=date.today().isoformat(), cover="", readMinutes=1, dek=summary)
+    elif kind == "guide":
+        data.update(format="PDF", audience="", checked="", source_note="", file=None)
     elif kind == "project":
         data.update(
             year=str(date.today().year),

@@ -19,7 +19,40 @@ def clean_inline(value):
     )
 
 
+GUIDES_PAGE_FIELDS = [
+    {
+        "key": "intro",
+        "label": "Introduction",
+        "group": "Introduction",
+        "type": "text",
+        "limit": 1000,
+        "multiline": True,
+        "default": "Free, practical guides for small businesses: short checklists and walkthroughs you can use today, in plain words.",
+    },
+    {
+        "key": "seo_title",
+        "label": "Search title",
+        "group": "Search appearance",
+        "type": "text",
+        "limit": 200,
+        "default": "Free Guides for Small Businesses | Lay Shah",
+    },
+    {
+        "key": "seo_description",
+        "label": "Search description",
+        "group": "Search appearance",
+        "type": "text",
+        "limit": 500,
+        "multiline": True,
+        "default": "Free one-page checklists and practical guides for small businesses: websites, AI and the everyday tools that take work off your team.",
+    },
+]
+
+
 def fields_for(key):
+    if key == "guides":
+        # Guides have no static source page to read defaults from.
+        return [*GUIDES_PAGE_FIELDS, VISIBILITY_FIELD]
     if key == "homepage":
         return [*current_app.config["HOMEPAGE_FIELDS"], VISIBILITY_FIELD]
     if key in current_app.config["COLLECTION_FIELDS"]:
@@ -61,7 +94,15 @@ def defaults(key):
 
 
 def seed_pages():
-    for key in ("homepage", "contact", "branding", "projects", "blog", "tools"):
+    for key in (
+        "homepage",
+        "contact",
+        "branding",
+        "projects",
+        "blog",
+        "tools",
+        "guides",
+    ):
         if db.session.get(ManagedPage, key) is None:
             payload = defaults(key)
             db.session.add(

@@ -43,6 +43,7 @@ LABELS = {
     "projects": "Projects page",
     "blog": "Blog page",
     "tools": "Tools page",
+    "guides": "Guides page",
 }
 
 
@@ -57,11 +58,13 @@ def conflict():
 
 
 def preview(key, payload, notice):
-    if key in ("projects", "blog", "tools"):
-        kind = {"projects": "project", "blog": "post", "tools": "tool"}[key]
+    if key in ("projects", "blog", "tools", "guides"):
+        kind = {"projects": "project", "blog": "post", "tools": "tool", "guides": "guide"}[
+            key
+        ]
         return render_collection(
             kind,
-            "public/tools.html" if key == "tools" else key + ".html",
+            f"public/{key}.html" if key in ("tools", "guides") else key + ".html",
             payload=payload,
             notice=notice,
         )

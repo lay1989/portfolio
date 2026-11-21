@@ -183,7 +183,12 @@ def dashboard():
         )
     }
     totals = []
-    for kind, label in (("project", "Projects"), ("post", "Blog"), ("tool", "Tools")):
+    for kind, label in (
+        ("project", "Projects"),
+        ("post", "Blog"),
+        ("tool", "Tools"),
+        ("guide", "Guides"),
+    ):
         total, published = counts.get(kind, (0, 0))
         totals.append(
             {
@@ -244,7 +249,7 @@ def inquiries():
 @admin.get("/collection/<kind>")
 @login_required
 def manage_collection(kind):
-    if kind not in ("project", "post", "tool"):
+    if kind not in ("project", "post", "tool", "guide"):
         abort(404)
     return render_template(
         "admin/collection.html",
@@ -339,7 +344,7 @@ def editor_response(entry, data, status=200, unsaved=False):
 @admin.route("/new/<kind>", methods=["GET", "POST"])
 @login_required
 def new_entry(kind):
-    if kind not in ("project", "post"):
+    if kind not in ("project", "post", "guide"):
         abort(404)
     values = {
         key: request.form.get(key, "").strip()
@@ -413,6 +418,12 @@ def edit_entry(entry_id):
             return render_template("admin/conflict.html"), 409
         try:
             read_form(data, entry.kind, request.form)
+            upload = request.files.get("guide_file")
+            if entry.kind == "guide" and upload and upload.filename:
+                from .services.guide_files import store_pdf
+
+                data["file"] = store_pdf(upload)
+                flash("PDF uploaded. It stays private until this guide is published.")
             if entry.kind == "project" and request.form.get("figure_action"):
                 change_figure(data, request.form["figure_action"])
                 flash("Project figures updated. Save your draft to keep these changes.")

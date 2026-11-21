@@ -105,6 +105,9 @@ const navigation=header('.nav-links-desktop > a').slice(0,-1).map((i,el)=>{
     const id=href.includes('#')?href.split('#')[1]:href.split('/').pop().replace('.html','');
     return {id,href,label:header(el).text().trim(),section:{services:'services',principles:'process',reviews:'reviews'}[id]||null};
 }).get();
+// Guides exist only in the Flask site (no static page), so the link is added here
+// rather than in components/header.html, which also builds the static output.
+navigation.push({id:'guides',href:'/guides.html',label:'Guides',section:null});
 const identityDefault=withIdentity('{{IDENTITY}}').replaceAll('{{BASE_PATH}}','/').replace('>LAY SHAH</span>','>{{ branding.displayName }}</span>');
 const identityComponent='{% if brand_images.logo %}<span class="site-identity site-identity--uploaded"><img class="site-identity__upload" src="{{ brand_images.logo.url }}" alt="" width="{{ brand_images.logo.width }}" height="{{ brand_images.logo.height }}"><span data-branding="displayName">{{ branding.displayName }}</span></span>{% else %}'+identityDefault+'{% endif %}';
 fs.writeFileSync(path.join(folder,'identity.html'),identityComponent);

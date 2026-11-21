@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% from 'components/ui.html' import guide_card, site_cta with context %}
+{% block content %}
+<main class="bg-background" id="main-content" tabindex="-1">
+    {% include 'components/page-preview-notice.html' %}
+    <header class="page-hero" data-enter>
+        <div class="page-hero__body">
+            <h1 class="site-heading type-title mb-8">Guides</h1>
+            <p>{{ collection_content.intro }}</p>
+        </div>
+        <div class="page-hero__art" data-draw>{% include 'drawings/checklist.svg' %}</div>
+    </header>
+    <div class="page-shell">
+        {% if categories|length > 1 %}
+        <nav class="ui-row mb-8" aria-label="Guide topics">
+            <a class="line-link" href="{{ collection_url }}"{% if not category %} aria-current="page"{% endif %}>All guides</a>
+            {% for cat in categories %}<a class="line-link" href="{{ collection_url }}?category={{ cat|urlencode }}"{% if category == cat %} aria-current="page"{% endif %}>{{ cat }}</a>{% endfor %}
+        </nav>
+        {% endif %}
+        <div class="journal-list" id="guide-list">
+            {% for entry in guides %}{{ guide_card(entry) }}{% else %}<p class="ui-muted py-12">New guides will appear here when they are published.</p>{% endfor %}
+        </div>
+        {% include 'components/pagination.html' %}
+    </div>
+    <div class="page-shell">{{ site_cta('Want this set up for your business?', 'Each guide is something I build for small businesses. Send a few lines about your shop and what takes up your week.') }}</div>
+</main>
+{% endblock %}

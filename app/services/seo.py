@@ -39,6 +39,7 @@ COLLECTION_PAGES = {
     "project": ("projects", "Work", "/projects.html"),
     "post": ("blog", "Blog", "/blog.html"),
     "tool": ("tools", "Tools", "/tools.html"),
+    "guide": ("guides", "Guides", "/guides.html"),
 }
 VISIBILITY_FIELD = {
     "key": "search_visibility",
@@ -186,6 +187,7 @@ def entry_schema(page, entry, data, branding, cover=None, preview=False):
             "post": "BlogPosting",
             "project": "Article",
             "tool": "SoftwareApplication",
+            "guide": "DigitalDocument",
         }[entry.kind],
         "@id": canonical + "#content",
         "name": data["title"],
@@ -203,6 +205,10 @@ def entry_schema(page, entry, data, branding, cover=None, preview=False):
         )
     if entry.kind == "post":
         work["datePublished"] = data["date"]
+    if entry.kind == "guide":
+        work["isAccessibleForFree"] = True
+        if data.get("file"):
+            work["encodingFormat"] = "application/pdf"
     if entry.kind == "tool":
         work["applicationCategory"] = data.get("category", "")
         if data.get("launch_url"):

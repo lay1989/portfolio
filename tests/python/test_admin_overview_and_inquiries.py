@@ -64,15 +64,17 @@ def test_empty_overview_has_zero_totals_and_useful_creation_links(owner, app):
         db.session.execute(db.delete(Entry))
         db.session.commit()
     text = owner.get("/admin/").get_data(as_text=True)
-    assert text.count("<strong>0</strong>") == 3
+    assert text.count("<strong>0</strong>") == 4  # projects, blog, tools, guides
     assert "Create your first project" in text
     assert "/admin/new/project" in text and "/admin/new/post" in text
     assert 'action="/admin/tools/new"' in text
+    assert "/admin/new/guide" in text
     assert "data-recent-entry=" not in text
 
 
 @pytest.mark.parametrize(
-    "kind,key", [("project", "projects"), ("post", "blog"), ("tool", "tools")]
+    "kind,key",
+    [("project", "projects"), ("post", "blog"), ("tool", "tools"), ("guide", "guides")],
 )
 def test_collection_and_page_settings_have_reciprocal_active_navigation(
     owner, kind, key

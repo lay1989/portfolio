@@ -1,5 +1,5 @@
 {% macro collection_tabs(kind, current) -%}
-{% set page_key={'project':'projects','post':'blog','tool':'tools'}[kind] %}
+{% set page_key={'project':'projects','post':'blog','tool':'tools','guide':'guides'}[kind] %}
 <nav class="admin-subnav" aria-label="Collection management">
     <a href="{{ url_for('admin.manage_collection',kind=kind) }}"{% if current == 'entries' %} aria-current="page"{% endif %}>Entries</a>
     <a href="{{ url_for('page_admin.edit',key=page_key) }}"{% if current == 'page' %} aria-current="page"{% endif %}>Page introduction &amp; SEO</a>

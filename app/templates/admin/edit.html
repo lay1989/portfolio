@@ -6,9 +6,9 @@
 {% from 'admin/media-placement.html' import placement, gallery with context %}
 {% from 'admin/workspace-ui.html' import save_controls, publication_status %}
 {% block content %}
-<a href="{{ url_for('admin.manage_collection',kind=entry.kind) }}" class="text-accent">Back to {{ {'project':'Projects','post':'Blog','tool':'Tools'}[entry.kind] }}</a>
-<div class="editor-intro"><p class="ui-muted">{{ 'Project' if entry.kind == 'project' else 'Article' if entry.kind == 'post' else 'Tool' }} · {{ publication_status(entry) }}</p><h1 class="site-heading type-title">{{ data.title }}</h1><p class="ui-muted editor-path">{{ entry.path }}</p></div>
-<form method="post" class="ui-stack" data-content-editor data-unsaved="{{ 'true' if unsaved else 'false' }}">
+<a href="{{ url_for('admin.manage_collection',kind=entry.kind) }}" class="text-accent">Back to {{ {'project':'Projects','post':'Blog','tool':'Tools','guide':'Guides'}[entry.kind] }}</a>
+<div class="editor-intro"><p class="ui-muted">{{ 'Project' if entry.kind == 'project' else 'Article' if entry.kind == 'post' else 'Guide' if entry.kind == 'guide' else 'Tool' }} · {{ publication_status(entry) }}</p><h1 class="site-heading type-title">{{ data.title }}</h1><p class="ui-muted editor-path">{{ entry.path }}</p></div>
+<form method="post" class="ui-stack" data-content-editor{% if entry.kind == 'guide' %} enctype="multipart/form-data"{% endif %} data-unsaved="{{ 'true' if unsaved else 'false' }}">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="version" value="{{ entry.version }}">
     {{ save_controls(unsaved,entry) }}
     <nav class="admin-editor-outline" aria-label="Editor sections">
@@ -34,7 +34,7 @@
             <section class="ui-panel ui-stack" id="editor-images" tabindex="-1" aria-labelledby="images-title"><h2 class="site-heading text-2xl" id="images-title">Images</h2><input type="hidden" name="media_present" value="1"><details><summary>Cover image</summary><div class="mt-6">{{ placement(media_values.cover,'cover') }}</div></details><details><summary>Listing thumbnail</summary><p class="ui-muted text-sm my-6">Optional. Uses the cover when no thumbnail is selected.</p>{{ placement(media_values.thumbnail,'thumbnail') }}</details><details><summary>Social sharing image</summary><p class="ui-muted text-sm my-6">Optional. Uses the cover, then the site preview image when empty.</p>{{ placement(media_values.social,'social') }}</details><div class="ui-stack"><h3 class="site-heading text-2xl">{{ 'Project gallery' if entry.kind == 'project' else 'Image gallery' }}</h3><p class="ui-muted text-sm">Shown after the story. Add an image or gallery section to place images within the story instead.</p>{{ gallery(media_values.gallery,'gallery') }}</div></section>
         </div>
         <aside class="ui-stack editor-sidebar" aria-label="Details and search settings">
-            <section class="ui-panel" id="editor-details" tabindex="-1"><h2 class="site-heading text-xl mb-6">{{ 'Project details' if entry.kind == 'project' else 'Article details' if entry.kind == 'post' else 'Tool details' }}</h2>
+            <section class="ui-panel" id="editor-details" tabindex="-1"><h2 class="site-heading text-xl mb-6">{{ 'Project details' if entry.kind == 'project' else 'Article details' if entry.kind == 'post' else 'Guide details' if entry.kind == 'guide' else 'Tool details' }}</h2>
                 {% if entry.kind == 'project' %}
                 {% for name,label,hint in [('year','Year','Four digits, for example 2026.'),('role','Your role','Shown on the homepage and Work page.'),('timeline','Timeline','For example “4 weeks”.'),('clientType','Client or project type',''),('tools','Technologies','Separate with commas.'),('liveUrl','Live website','Complete address, starting with https://.'),('githubUrl','Source repository','Optional.')] %}{{ page_field(name,entry_fields[name][0],data.get(name) or '',limit=entry_fields[name][1],hint=hint) }}{% endfor %}
                 {% elif entry.kind == 'tool' %}
@@ -43,6 +43,17 @@
                 {{ page_field('docs_url',entry_fields.docs_url[0],data.get('docs_url') or '',limit=entry_fields.docs_url[1],hint='Optional.') }}
                 {{ page_field('license',entry_fields.license[0],data.get('license') or '',limit=entry_fields.license[1],hint='For example MIT or AGPL-3.0.') }}
                 {{ page_field('pricing',entry_fields.pricing[0],data.get('pricing') or '',limit=entry_fields.pricing[1],hint='For example “Free and open source” or “Free tier, paid plans”.') }}
+                {% elif entry.kind == 'guide' %}
+                <div class="ui-field guide-file-field">
+                    <span>Guide PDF</span>
+                    {% if data.get('file') %}<p class="text-sm"><a class="underline" href="{{ guide_file_url(data.file) }}" target="_blank" rel="noopener">{{ data.file.download_name }}</a> · {{ guide_file_size(data.file) }}</p>{% else %}<p class="text-sm ui-muted">No PDF yet. Needed to publish.</p>{% endif %}
+                    <input class="ui-input" type="file" name="guide_file" accept="application/pdf,.pdf" aria-describedby="guide-file-help">
+                    <p class="ui-muted text-sm" id="guide-file-help">{{ 'Choose a new PDF to replace it, then save.' if data.get('file') else 'Choose the PDF, then save the draft.' }} Up to 15 MB. It stays private until the guide is published.</p>
+                </div>
+                {{ page_field('format',entry_fields.format[0],data.get('format') or '',limit=entry_fields.format[1],hint='Shown on the page, for example “One-page PDF” or “6-page PDF”.') }}
+                {{ page_field('audience',entry_fields.audience[0],data.get('audience') or '',limit=entry_fields.audience[1],hint='For example “Shops, cafés, local services”.') }}
+                {{ page_field('checked',entry_fields.checked[0],data.get('checked') or '',limit=entry_fields.checked[1],hint='When you last checked any settings or facts in it, for example “22 Nov 2026”. Optional.') }}
+                {{ page_field('source_note',entry_fields.source_note[0],data.get('source_note') or '',limit=entry_fields.source_note[1],multiline=true,hint='Optional. Shown beside the guide, for example the reel series it comes from.') }}
                 {% elif entry.kind == 'post' %}<label class="ui-field">Article date<input class="ui-input" type="date" name="date" value="{{ data.date }}" required></label><p class="ui-muted text-sm mb-6">Displayed publication date. This does not schedule publication. Reading time is estimated from the saved content.</p>{% endif %}
                 {{ page_field('tags','Tags',data.get('tags',[])|join(', '),limit=1000,hint='Separate with commas.') }}
             </section>

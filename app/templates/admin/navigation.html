@@ -2,7 +2,7 @@
 <nav class="admin-nav" aria-label="Website manager">
     <a href="{{ url_for('admin.dashboard') }}" data-admin-section="overview"{% if active == 'overview' %} aria-current="page"{% endif %}>Overview</a>
     <div class="admin-nav__group"><h2>Content</h2>
-        {% for kind,label in [('project','Projects'),('post','Blog'),('tool','Tools')] %}<a href="{{ url_for('admin.manage_collection',kind=kind) }}" data-admin-section="{{ kind }}"{% if active == kind %} aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}
+        {% for kind,label in [('project','Projects'),('post','Blog'),('tool','Tools'),('guide','Guides')] %}<a href="{{ url_for('admin.manage_collection',kind=kind) }}" data-admin-section="{{ kind }}"{% if active == kind %} aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}
         <a href="{{ url_for('media.library') }}"{% if active == 'images' %} aria-current="page"{% endif %}>Images</a>
     </div>
     <div class="admin-nav__group"><h2>Website</h2>

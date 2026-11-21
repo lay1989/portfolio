@@ -2,8 +2,8 @@
 {% set admin_current=namespace(key='overview') %}
 {% set admin_args=request.view_args or {} %}
 {% if entry is defined %}{% set admin_current.key=entry.kind %}
-{% elif managed_page is defined %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool'}.get(managed_page.key,managed_page.key) %}
-{% elif request.endpoint and request.endpoint.startswith('page_admin.') %}{% set admin_page_key=admin_args.get('key','') %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool'}.get(admin_page_key,admin_page_key) %}
+{% elif managed_page is defined %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool','guides':'guide'}.get(managed_page.key,managed_page.key) %}
+{% elif request.endpoint and request.endpoint.startswith('page_admin.') %}{% set admin_page_key=admin_args.get('key','') %}{% set admin_current.key={'projects':'project','blog':'post','tools':'tool','guides':'guide'}.get(admin_page_key,admin_page_key) %}
 {% elif request.endpoint in ('admin.manage_collection','admin.new_entry') %}{% set admin_current.key=admin_args.get('kind','overview') %}
 {% elif request.endpoint == 'publishing.homepage' %}{% set admin_current.key='homepage' %}
 {% elif request.endpoint and request.endpoint.startswith('media.') %}{% set admin_current.key='images' %}
